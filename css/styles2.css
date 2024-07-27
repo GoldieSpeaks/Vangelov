@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #818181;
+    line-height: 22px;
+    -webkit-font-smoothing: antialiased;
+    background-color: #000;
+}
+
+
+.navi{
+   display: flex;
+   flex-flow: row;
+   align-items: center;
+   gap: 25px;
+   padding-left: 25px;
+   padding-top: 25px;
+   padding-right: 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.main-container {
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.title-section {
+   text-align: center;
+}
+
+.title{ 
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+
+.subtext-section{ 
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 150px;
+    padding-bottom: ;
+    padding-top: 50px;
+}
+
+.sub-title{ 
+    font-size: 28px;
+}
+
+.deliverables-section {
+    display: flex;
+    flex-flow: row;
+    gap: 400px;
+}
+
+.container-1 {
+    display: flex;
+    flex-flow: row;
+}
+
+.container-2 {
+    
+}
+
+.blocks {
+    display: flex;
+    flex-flow: row;
+    gap: 30px;
+}
+.hero {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-right{ 
+    max-width: 60%;
+}
+
+.hero {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

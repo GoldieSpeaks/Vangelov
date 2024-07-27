@@ -1,906 +1,665 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<title>Zlatomir Vangelov - Responsive Resume / Personal Portfolio Template</title>
+<link rel="shortcut icon" href="favicon.ico">
 
-    <!-- Metas -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="HTML5 Template Geekfolio Multi-Purpose themeforest">
-    <meta name="description" content="Geekfolio - Multi-Purpose HTML5 Template">
-    <meta name="author" content="">
-
-    <!-- Title  -->
-    <title>Geekfolio</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/imgs/favicon.ico">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-
-    <!-- Plugins -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
-
-    <!-- Core Style Css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
+<!-- Google Font-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+<!-- Design Style -->
+<link rel="stylesheet" type="text/css" href="css/scroll.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!-- Icon -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<!-- Portfolio Thumbnail / Slider -->
+<link rel="stylesheet" type="text/css" href="css/portfolio.css" />
+<link rel="stylesheet" type="text/css" href="css/carousel.css">
+<!-- Responsive -->
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+<!-- Pie Chart / Skills -->
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<!-- Send Email -->
+<script type="text/javascript" src="js/sendemail.js"></script>
+<!-- Progressbar / Skills-->
+<script type="text/javascript" src="js/progressbar.js"></script>
+<!-- Portfolio-->
+<script src="js/modernizr.custom.js"></script>
 </head>
-
-<body class="home-freelancer main-bg">
-
-
-
-    <!-- ==================== Start Loading ==================== -->
-
-    <div class="loader-wrap">
-        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
-            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
-        </svg>
-
-        <div class="loader-wrap-heading">
-            <div class="load-text">
-                <span>L</span>
-                <span>o</span>
-                <span>a</span>
-                <span>d</span>
-                <span>i</span>
-                <span>n</span>
-                <span>g</span>
-            </div>
+<body>
+<div id="container" class="container"> 
+  <!-- Left Menu / Logo-->
+  <aside class="menu" id="menu">
+    <div class="logo"> 
+      <!-- Logo image--> 
+      <img src="images/logo.png" width="140" height="140" alt=""/> 
+      <!-- Logo name--> 
+      <span>Zlatomir Vangelov</span></div>
+    <!-- Mobile Navigation--> 
+    <a href="#menu1" class="menu-link"></a> 
+    <!-- Left Navigation-->
+    <nav id="menu1" role="navigation"> <a href="#chapterintroduction"><span id="link_introduction" class="active">Home</span></a> <a href="#chapterabout"><span id="link_about">About</span></a> <a href="#chapterskills"><span id="link_skills">Skills</span></a> <a href="#chapterexperience"><span id="link_experience">Experience</span></a> <a href="#chaptereducation"><span id="link_education">Education</span></a> <a href="#chapterportfolio"><span id="link_portfolio">Portfolio</span></a><a href="#chaptercontact"><span id="link_contact">Contact</span></a><a href="blog.html"><span id="link_blog">Blog</span></a></nav>
+    <div class="social"> <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a> </div>
+    <div class="copyright"> © Zlatomir Vangelov.<br>
+      All Rights Reserved. </div>
+  </aside>
+  <!-- Go to top link for mobile device --> 
+  <a href="#menu" class="totop-link">Go to the top</a>
+  <div class="content-scroller">
+    <div class="content-wrapper"> 
+      
+      <!-- Introduction -->
+      <article style="background-color: #1A1A1A;" class="content introduction noscroll" id="chapterintroduction">
+        <div class="inner">
+          <div class="image-holder">
+            <img src="/Vangelov/images/profile.png" alt="">
+          </div>
+          <h2 style="color: white;"><span>HEllo, I'm</span><br>
+            Zlatomir Vangelov</h2>
+          <span class="title">Product Owner, Entrepreneur & UI/UX Designer</span> </div>
+        <div id="owl-demo" class="owl-carousel">
+           <div class="item"><img src="" alt="" /></div>
         </div>
-    </div>
-
-    <!-- ==================== End Loading ==================== -->
-
-
-    <div class="cursor"></div>
-
-
-    <!-- ==================== Start progress-scroll-button ==================== -->
-
-    <div class="progress-wrap cursor-pointer">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-
-    <!-- ==================== End progress-scroll-button ==================== -->
-
-
-    <div id="smooth-wrapper">
-
-
-        <!-- ==================== Start Navbar ==================== -->
-
-        <nav class="navbar navbar-expand-lg bord main-bg">
-            <div class="container">
-
-                <!-- Logo -->
-                <a class="logo icon-img-100" href="#">
-                    <img src="assets/imgs/GrindStone.png" alt="logo">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"><i class="fas fa-bars"></i></span>
-                </button>
-
-                <!-- navbar links -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="/index.html" role="button"
-                                aria-haspopup="false" aria-expanded="false"><span class="rolling-text">Home</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false"><span class="rolling-text">Information</span></a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="page-about.html">About</a>
-                                <a class="dropdown-item" href="page-services.html">Services</a>
-                                <a class="dropdown-item" href="page-team.html">Our Team</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false"><span class="rolling-text">Portfolio</span></a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="portfolio-modern.html">Development</a>
-                                <a class="dropdown-item" href="showcase-carousel.html">Branding</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="/blog-classic.html" role="button"
-                                aria-haspopup="true" aria-expanded="false"><span class="rolling-text">Blogs</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="page-contact.html"><span class="rolling-text">Contact</span></a>
-                        </li>
+      </article>
+      
+      <!-- About -->
+      <article class="content about white-bg" id="chapterabout">
+        <div class="inner">
+          <h2 style="color: white;">About</h2>
+          <div class="title-divider"></div>
+          <div class="about-con">
+            <ul>
+              <li>Name: Zlatomir Valentinov Vangelov</li>
+              <li>Email: <a href="work.vangelov@gmail.com">work.vangelov@gmail.com</a></li>
+              <li>Phone: (359) - 892 900 829</li>
+              <li>Date of birth: 14 February 1994</li>
+              <li>Location: Bulgaria</li>
+              <li>Nationality: Bulgarian</li>
+            </ul>
+            <h3 style="color: white;">Professional Profile</h3>
+            <p>
+              "Dedicated and results-driven professional with a strategic mindset, I bring valuable experience as an Entrepreneur and specialist in mobile, web, and SaaS development. In my current role as a Product Owner at TransferMate, a leading finance company, I've demonstrated a proven ability to drive product strategies, lead cross-functional teams, and ensure successful project delivery. Though my journey includes a background in UI/UX design, where I seamlessly blend technical expertise with a keen focus on user experience, my commitment to driving innovation has consistently contributed to the success of dynamic organizations.            </p>
+              <p>I thrive in navigating the evolving landscape of technology and finance, showcasing adaptability and a continuous pursuit of excellence. My experience reflects not only professional versatility but also resilience and a proactive approach to challenges."</p>
+            <div class="spacer">
+              <p></p>
+            </div>
+            <a style="color: white;" href="#" class="button">Download resume as PDF format</a> <img src="/images/Signature.png" class="signature" alt="" /> </div>
+        </div>
+      </article>
+      
+      <!-- Skills -->
+      <article class="content skills gray-bg" id="chapterskills">
+        <div class="inner">
+          <h2 style="color: white;">Skills</h2>
+          <div class="title-divider"></div>
+          <h3 style="color: white;">Here are My Awesome Skills</h3>
+          <p>
+            Over the course of my professional journey spanning diverse sectors and engagements with various organizations and clients, I have cultivated a comprehensive skill set that renders me well-suited for a multitude of roles. I possess the capability to independently initiate and execute projects from inception to completion, while also demonstrating proficiency in collaborating seamlessly within a team environment.</p>
+          <div class="skills-con">
+            <div class="container-sub margin-top50">
+              <div class="row">
+                <div class="col-6 margin-bottom50">
+                  <div class="col-6"><span class="chart" data-percent="70"><span class="percent"></span> </span></div>
+                  <div class="col-6 chart-text">
+                    <h4>Lean Process Optimization</h4>
+                  </div>
+                </div>
+                <div class="col-6 margin-bottom50">
+                  <div class="col-6"><span class="chart" data-percent="75"><span class="percent"></span> </span></div>
+                  <div class="col-6 chart-text">
+                    <h4>UI/UX Design </h4>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="col-6"><span class="chart" data-percent="90"><span class="percent"></span> </span></div>
+                  <div class="col-6 chart-text">
+                    <h4>Product Management / Ownership </h4>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="col-6"><span class="chart" data-percent="60"><span class="percent"></span> </span></div>
+                  <div class="col-6 chart-text">
+                    <h4>Front-End Development</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="full-divider"></div>
+            <div class="container-sub skill-list">
+              <div class="row">
+                <h3 style="color: white;">Knowledge & Main Skills</h3>
+                <p>
+                  Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li style="color: white;">User Experience Development</li>
+                    <li>User/Client Interviewing</li>
+                    <li style="color: white;">Wireframing / Prototyping</li>
+                    <li style="color: white;">Lean Waste Management</li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>User Interface / Design (UI)</li>
+                    <li style="color: white;">Brand Develipment & Branding</li>
+                    <li>Team Building & Management</li>
+                    <li style="color: white;">Project & Product Management</li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>Agile Project Management</li>
+                    <li>Stakeholder Management</li>
+                    <li>Storytelling</li>
+                    <li>Conceptualization</li>
+                  </ul>
+                </div>
+              </div>
+            </div>  
+            <div class="container-sub skill-list">
+              <div class="row">
+                <h3 style="color: white;">Additional Skills & Tools</h3>
+                <p>
+                  Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li style="color: white;">Figma. Adobe XD, InVision</li>
+                    <li>Sketch, InVision, Marvel App</li>
+                    <li style="color: white;">Jira, Confluence, Atlassian Suite</li>
+                    <li><b>WordPress</b></li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>MySQL</li>
+                    <li>Git, SVN</li>
+                    <li>Sublime Text, VS Code</li>
+                    <li style="color: white;">Adobe Suit & Photoshop</li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>HTML5, CSS 3, JavaScript</li>
+                    <li style="color: white;">Database Management</li>
+                    <li>Bootstrap</li>
+                    <li style="color: white;">React</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="container-sub skill-list">
+              <div class="row">
+                <h3 style="color: white;">Development & Software Skills</h3>
+                <p>
+                  Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>Complaint Management</li>
+                    <li style="color: white;">Client and Business Soft Skills</li>
+                    <li>KYC Processing</li>
+                    <li style="color: white;">Financial Analysis</li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li style="color: white;">Global Banking Knolwdge</li>
+                    <li style="color: white;">Risk Management</li>
+                    <li>Competitor Analysis</li>
+                    <li>Marketing Fundamentals</li>
+                  </ul>
+                </div>
+                <div class="col-4 margin-top10">
+                  <ul>
+                    <li>Market Research & Analysis</li>
+                    <li style="color: white;">Business Analysis</li>
+                    <li>Portrait Retouching</li>
+                    <li>Video Editing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="full-divider"></div>
+            <div class="container-sub">
+              <div class="row">
+                <h3 style="color: white;">Language Skills</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.</p>
+                <div class="progressbar-main margin-top50">
+                  <div class="progress-bar-description">English Experienced</div>
+                  <div id="progressBar" class="progress">
+                    <div class="progress-value"></div>
+                  </div>
+                </div>
+                <div class="progressbar-main margin-top40">
+                  <div class="progress-bar-description">French Advanced</div>
+                  <div id="progressBar2" class="progress">
+                    <div class="progress-value"></div>
+                  </div>
+                </div>
+                <div class="progressbar-main margin-top40">
+                  <div class="progress-bar-description">German Basic</div>
+                  <div id="progressBar3" class="progress">
+                    <div class="progress-value"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      <!-- Experience -->
+      <article class="content experience white-bg" id="chapterexperience">
+        <div class="inner">
+          <h2 style="color: white;">Experience</h2>
+          <div class="title-divider"></div>
+          <h3 style="color: white;">6 Years Overall Experience</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.</p>
+          <div class="experience-con">
+            <div class="container-sub">
+              <div class="full-divider"></div>
+              <div class="row">
+                <div class="experience-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"><i class="fa fa-briefcase"></i></div>
+                    <div class="flot-left">
+                      <h5>Clunetech - TransferMate</h5>
+                      <h4>Productr Owner</h4>
+                      <span>2022 - 2024</span>
+                     </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. 
+                    <br>
+                    <br>
+                  </div>
+                </div>
+                <div class="container-sub skill-list">
+                  <div class="row">
+                    <h3 style="color: white;">Knowledge & Main Skills</h3>
+                    <p>
+                      Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                  </div>
+                  <span style="color: white;">2 Years Experience - Currently working here.</span>
+                </div>  
+                <div class="full-divider"></div>
+                <div class="experience-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"><i class="fa fa-building"></i></div>
+                    <div class="flot-left">
+                      <h5>Crypto.com</h5>
+                      <h4>Financial Support</h4>
+                      <span>2022 - 2022</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="container-sub skill-list">
+                  <div class="row">
+                    <h3 style="color: white;">Knowledge & Main Skills</h3>
+                    <p>
+                      Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                  </div>
+                  <span style="color: white;">1 Years Experience</span>
+                  <p><i>Layed off due to Covid</i></p>
+                </div>  
+                <div class="full-divider"></div>
+                <div class="experience-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"><i class="fa fa-building"></i></div>
+                    <div class="flot-left">
+                      <h5>Aeon Agency LTD [UK]</h5>
+                      <h4>Director & UI/UX Designer</h4>
+                      <span>2020 - 2021</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="container-sub skill-list">
+                  <div class="row">
+                    <h3 style="color: white;">Knowledge & Main Skills</h3>
+                    <p>
+                      Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                  </div>
+                  <span style="color: white;">2 Years Experience</span>
+                </div>  
+                <div class="full-divider"></div>
+                <div class="experience-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"><i class="fa fa-quote-right"></i></div>
+                    <div class="flot-left">
+                      <h5>Self Employed</h5>
+                      <h4>UI/UX Designer</h4>
+                      <span>2018 - 2019</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="container-sub skill-list">
+                  <div class="row">
+                    <h3 style="color: white;">Knowledge & Main Skills</h3>
+                    <p>
+                      Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                  </div>
+                  <span style="color: white;">2 Years Experience</span>
+                </div>  
+                <div class="full-divider"></div>
+                <div class="experience-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"><i class="fa fa-bullhorn"></i></div>
+                    <div class="flot-left">
+                      <h5>Sky LTD [UK]</h5>
+                      <h4>Technical Support</h4>
+                      <span>2017 - 2018</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="container-sub skill-list">
+                  <div class="row">
+                    <h3 style="color: white;">Knowledge & Main Skills</h3>
+                    <p>
+                      Having worked across diverse fields and in various roles, I've had the opportunity to acquire a broad spectrum of knowledge. This versatility enables me to proficiently address any project requirement when working independently. Below is a compilation of the knowledge I have gai</p>
+                  </div>
+                  <span style="color: white;">2 Years Experience</span>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      <!-- Education -->
+      <article class="content education gray-bg" id="chaptereducation">
+        <div class="inner">
+          <h2 style="color: white;">Education</h2>
+          <div class="title-divider"></div>
+          <h3 style="color: white;">Just My Education</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.</p>
+          <div class="education-con">
+            <div class="container-sub">
+              <div class="full-divider"></div>
+              <div class="row">
+                <div class="education-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"></i></div>
+                    <div class="flot-left">
+                      <h5>"ВУАРР" Plovdiv University</h5>
+                      <h4>Baclero of Business & Management</h4>
+                      <span>2022 - 2026</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="full-divider"></div>
+                <div class="education-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"></i></div>
+                    <div class="flot-left">
+                      <h5>PGGHT” Asen Zlatarov</h5>
+                      <h4>Automation & Engineering</h4>
+                      <span>2004 - 2005</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                </div>
+                <div class="full-divider"></div>
+                <div class="education-details">
+                  <div class="col-6 margin-bottom50 margin-top50">
+                    <div class="col-3 icon-block"></div>
+                    <div class="flot-left">
+                      <h5>Pre</h5>
+                      <h4>Automation & Engineering</h4>
+                      <span>2004 - 2005</span> </div>
+                  </div>
+                  <div class="col-6 margin-bottom50 margin-top50 no-margin-top"> Phasellus nec gravida purus. Aliquam ac enim vel ipsum consectetur vulputate. Duis quis feugiat neque. Pellentesque eleifend, nisi vel mattis vestibulum, est lacus pretium quam. </div>
+                  <div style="margin-bottom: 50px;" class="full-divider"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 style="color: white;">Certification & proficiency</h2>
+          <div class="title-divider"></div>
+        </div>
+      </article>
+      
+      <!-- Pportfolio -->
+      <article class="content portfolio white-bg" id="chapterportfolio">
+        <div class="inner">
+          <h2 style="color: white;">Portfolio</h2>
+          <div class="title-divider"></div>
+          <h3>Our portfolio features a variety of projects and services</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.</p>
+          <div class="portfolio-con">
+            <div class="container-sub margin-top50">
+              <div class="row">
+                <div id="grid-gallery" class="grid-gallery">
+                  <section class="grid-wrap">
+                    <ul class="grid">
+                      <li>
+                        <a href="uptime.html">
+                        <figure> <img src="images/UptimeThumb.jpg" alt=""/>
+                          <figcaption>
+                            <div class="figcaption-details"> <img src="images/uptimelogo.png" height="82" width="82" alt="" />
+                              <h3>Uptime Monitor</h3>
+                              <span>Website Monitoring SASS App</span> </div>
+                          </figcaption>
+                        </figure>
+                        </a>
+                      </li>
+                      <li>
+                        <figure> <img src="images/brave.jpg" alt=""/>
+                          <figcaption>
+                            <div class="figcaption-details"> <img src="images/icon-plus.png" height="82" width="82" alt="" />
+                              <h3>Herbal Beauty Salon</h3>
+                              <span>Photography</span> </div>
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        <figure> <img src="http://placehold.it/700x475" alt=""/>
+                          <figcaption>
+                            <div class="figcaption-details"> <img src="images/icon-plus.png" height="82" width="82" alt="" />
+                              <h3>Kayra Modelleri</h3>
+                              <span>Branding and Identity</span> </div>
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        <figure> <img src="http://placehold.it/700x475" alt=""/>
+                          <figcaption>
+                            <div class="figcaption-details"> <img src="images/icon-plus.png" height="82" width="82" alt="" />
+                              <h3>Fashion and You</h3>
+                              <span>APPS and Web Design</span> </div>
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        <figure> <img src="http://placehold.it/700x475" alt=""/>
+                          <figcaption>
+                            <div class="figcaption-details"> <img src="images/icon-plus.png" height="82" width="82" alt="" />
+                              <h3>Whole Food Flour</h3>
+                              <span>Branding and Identity</span> </div>
+                          </figcaption>
+                        </figure>
+                      </li>
                     </ul>
+                  </section>
+                  
+                  <!-- Lightbox Popup -->
+                  <section class="slideshow">
+                    <ul>
+                      <li>
+                        <figure>
+                          <figcaption>
+                            <h3>The Flavour Restaurant</h3>
+                            <span>Website Design & Development</span>
+                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, 						ullamco craft beer.</p>
+                          </figcaption>
+                          <div id="owl-demo1" class="owl-carousel">
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                          </div>
+                        </figure>
+                      </li>
+                      <li>
+                        <figure>
+                          <figcaption>
+                            <h3>Herbal Beauty Salon</h3>
+                            <span>Photography</span>
+                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+                          </figcaption>
+                          <img src="http://placehold.it/700x475" alt=""/></figure>
+                      </li>
+                      <li>
+                        <figure>
+                          <figcaption>
+                            <h3>Kayra Modelleri</h3>
+                            <span>Branding and Identity</span>
+                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+                          </figcaption>
+                          <div id="owl-demo2" class="owl-carousel">
+                             <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                            <div class="item"><img src="http://placehold.it/700x475" alt="" /></div>
+                          </div>
+                        </figure>
+                      </li>
+                      <li>
+                        <figure>
+                          <figcaption>
+                            <h3>Fashion and You</h3>
+                            <span>APPS and Web Design</span>
+                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+                          </figcaption>
+                          <iframe width="854" height="480" src="//www.youtube.com/embed/ZwzY1o_hB5Y" frameborder="0" allowfullscreen></iframe></figure>
+                      </li>
+                      <li>
+                        <figure>
+                          <figcaption>
+                            <h3>Whole Food Flour</h3>
+                            <span>Branding and Identity</span>
+                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+                          </figcaption>
+                          <img src="http://placehold.it/700x475" alt=""/></figure>
+                      </li>
+                    </ul>
+                    <nav> <span class="fa nav-prev"></span> <span class="fa nav-next"></span> <span class="fa nav-close"></span> </nav>
+                  </section>
                 </div>
+              </div>
             </div>
-        </nav>
-
-        <!-- ==================== End Navbar ==================== -->
-
-        <div id="smooth-content">
-
-
-            <div class="main-box main-bg ontop">
-
-
-                <!-- ==================== Start Slider ==================== -->
-
-                <header class="header-freelancer full-height bord-thin-bottom valign position-re" data-overlay-dark="5"
-                    data-scroll-index="0">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="caption">
-                                    <h6 class="fw-400 mb-15">Hello <span class="icon-img-30"><img
-                                                src="assets/imgs/svg-assets/hi.png" alt=""></span> , I'm Zlatomir
-                                        Vangelov.
-                                    </h6>
-                                    <h1 class="fz-60">A Product Manager/Owner and Entrepreneur</h1>
-                                    <div class="row mt-50">
-                                        <div class="col-lg-3 cal-act order2">
-                                            <a href="portfolio-classic-grid.html"
-                                                class="butn-circle d-flex align-items-center text-center">
-                                                <div class="full-width">
-                                                    <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
-                                                                fill="currentColor"></path>
-                                                        </svg></span>
-                                                    <span class="full-width">About Me</span>
-                                                </div>
-                                                <img src="assets/imgs/svg-assets/circle-star.svg" alt=""
-                                                    class="circle-star">
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-8 offset-lg-1 valign order1 md-mb50">
-                                            <p class="fz-16"> I am a dynamic product owner and entrepreneur, dedicated to driving innovation and creating impactful solutions in today's ever-evolving business landscape.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-img" data-background="assets/imgs/freelancer/123.png"></div>
-                </header>
-
-                <!-- ==================== End Slider ==================== -->
-
-
-
-                <main class="position-re">
-
-
-                    <!-- ==================== Start marq ==================== -->
-
-                    <section class="serv-marq bord-thin-bottom">
-                        <div class="container-fluid ontop sub-bg rest pt-20 pb-20">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="main-marq light-text">
-                                        <div class="slide-har st1">
-                                            <div class="box non-strok">
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>UI-UX Experience</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Web Development</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span></h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Digital Marketing</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Product Design</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span></h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Project Management</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            <div class="box non-strok">
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>UI-UX Experience</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Web Development</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span></h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Digital Marketing</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Product Design</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span></h4>
-                                                </div>
-                                                <div class="item">
-                                                    <h4 class="d-flex align-items-center"><span>Project Management</span>
-                                                        <span class="fz-50 ml-50 stroke icon">*</span>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End marq ==================== -->
-
-
-
-                    <!-- ==================== Start Services ==================== -->
-
-                    <section class="serv-box section-padding" data-scroll-index="1">
-                        <div class="container">
-                            <div class="sec-lg-head mb-80">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <div class="position-re">
-                                            <h6 class="dot-titl-non mb-10 wow fadeIn">Featured Services</h6>
-                                            <h2 class="fz-50 d-rotate wow">
-                                                <span class="rotate-text">My Experience</span>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 d-flex align-items-center">
-                                        <div class="full-width d-flex justify-content-end justify-end">
-                                            <div class="vew-all">
-                                                <a href="page-services.html">View All Services
-                                                    <span>
-                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
-                                                                fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="serv-item d-flex mb-30 radius-10 wow fadeIn" data-wow-delay=".3s">
-                                        <div class="icon-img-80">
-                                            <img src="assets/imgs/serv-icons/0.png" alt="">
-                                        </div>
-                                        <div class="ml-60">
-                                            <h5 class="mb-15">Brand Strategy & <br> Art Direction</h5>
-                                            <p>Creating a higher spacing and how people move through a unique.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="serv-item d-flex mb-30 radius-10 wow fadeIn" data-wow-delay=".6s">
-                                        <div class="icon-img-80">
-                                            <img src="assets/imgs/serv-icons/1.png" alt="">
-                                        </div>
-                                        <div class="ml-60">
-                                            <h5 class="mb-15">UX/UI Design & <br> Website/App Design</h5>
-                                            <p>Creating a higher spacing and how people move through a unique.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="serv-item d-flex radius-10 md-mb30 wow fadeIn" data-wow-delay=".9s">
-                                        <div class="icon-img-80">
-                                            <img src="assets/imgs/serv-icons/0.png" alt="">
-                                        </div>
-                                        <div class="ml-60">
-                                            <h5 class="mb-15">Project Management & <br> Product Management</h5>
-                                            <p>Creating a higher spacing and how people move through a unique.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="serv-item d-flex radius-10 wow fadeIn" data-wow-delay="1.2s">
-                                        <div class="icon-img-80">
-                                            <img src="assets/imgs/serv-icons/1.png" alt="">
-                                        </div>
-                                        <div class="ml-60">
-                                            <h5 class="mb-15">UX/UI Design & <br> Website/App Design</h5>
-                                            <p>Creating a higher spacing and how people move through a unique.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End Services ==================== -->
-
-
-
-                    <!-- ==================== Start intro ==================== -->
-
-                    <section class="intro-img-parlx section-padding pb-0 sub-bg" data-scroll-index="2">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-5 valign md-hide">
-                                    <h2 class="max-text" data-text=" A catalyst for empowerment, an adaptive agile leader."> A catalyst for empowerment, an adaptive agile leader.
-                                    </h2>
-                                </div>
-                                <div class="col-lg-3 order2">
-                                    <div class="img">
-                                        <img src="assets/imgs/freelancer/1234.png" alt="">
-                                        <span class="star-shape">
-                                            <img src="assets/imgs/svg-assets/star-shape.png" alt="">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 valign order1">
-                                    <div class="text-qoute">
-                                        <span class="exp mb-30 main-bg">7+ Years Experience</span>
-                                        <p>I'm Creative Independent Web Developer, and I'm very passionate and dedicated
-                                            to
-                                            my work,
-                                            Using year-over-year design approaches and the latest technologies.</p>
-                                        <div class="stauts mt-50">
-                                            <div class="item d-flex align-items-center">
-                                                <h2 class="mr-20">12k</h2>
-                                                <p class="fz-14">Happy Users <br> Around World</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End intro ==================== -->
-
-
-
-                    <!-- ==================== Start Portfolio ==================== -->
-
-                    <section class="portfolio clasic section-padding" data-scroll-index="3">
-                        <div class="container">
-                            <div class="sec-lg-head mb-50">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <div class="position-re">
-                                            <h6 class="dot-titl-non mb-10 fadeIn">Portfolio</h6>
-                                            <h2 class="fz-50 d-rotate wow">
-                                                <span class="rotate-text">Selected Works</span>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 d-flex align-items-center">
-                                        <div class="full-width d-flex justify-content-end justify-end">
-                                            <div class="vew-all">
-                                                <a href="portfolio-classic-grid.html">View All Works
-                                                    <span>
-                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
-                                                                fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="item mt-30">
-                                        <div class="o-hidden">
-                                            <div class="img imago wow">
-                                                <img src="assets/imgs/freelancer/works/1.jpg" alt="" class="radius-10">
-                                                <a href="project-details1.html" class="tag">
-                                                    <span>Branding</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="cont mt-30 d-flex wow fadeIn" data-wow-delay=".4s">
-                                            <div>
-                                                <h6 class="line-height-1"><a href="project-details1.html">GeekFolio
-                                                        Architecture</a></h6>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <p class="fz-14">© 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="item mt-30">
-                                        <div class="o-hidden">
-                                            <div class="img imago wow">
-                                                <img src="assets/imgs/freelancer/works/2.jpg" alt="" class="radius-10">
-                                                <a href="project-details1.html" class="tag">
-                                                    <span>Branding</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="cont mt-30 d-flex wow fadeIn" data-wow-delay=".4s">
-                                            <div>
-                                                <h6 class="line-height-1"><a href="project-details1.html">Luxury Modern
-                                                        Chair</a></h6>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <p class="fz-14">© 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="item mt-30">
-                                        <div class="o-hidden">
-                                            <div class="img imago wow">
-                                                <img src="assets/imgs/freelancer/works/3.jpg" alt="" class="radius-10">
-                                                <a href="project-details1.html" class="tag">
-                                                    <span>Branding</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="cont mt-30 d-flex wow fadeIn" data-wow-delay=".4s">
-                                            <div>
-                                                <h6 class="line-height-1"><a href="project-details1.html">Partiner
-                                                        BPO</a>
-                                                </h6>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <p class="fz-14">© 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="item mt-30">
-                                        <div class="o-hidden">
-                                            <div class="img imago wow">
-                                                <img src="assets/imgs/freelancer/works/4.jpg" alt="" class="radius-10">
-                                                <a href="project-details1.html" class="tag">
-                                                    <span>Branding</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="cont mt-30 d-flex wow fadeIn" data-wow-delay=".4s">
-                                            <div>
-                                                <h6 class="line-height-1"><a href="project-details1.html">From our
-                                                        gallery</a></h6>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <p class="fz-14">© 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="item mt-30">
-                                        <div class="o-hidden">
-                                            <div class="img imago wow">
-                                                <img src="assets/imgs/freelancer/works/5.jpg" alt="" class="radius-10">
-                                                <a href="project-details1.html" class="tag">
-                                                    <span>Branding</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="cont mt-30 d-flex wow fadeIn" data-wow-delay=".4s">
-                                            <div>
-                                                <h6 class="line-height-1"><a href="project-details1.html">Astra Brand
-                                                        Identity</a></h6>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <p class="fz-14">© 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End Portfolio ==================== -->
-
-
-
-                    <!-- ==================== Start skills ==================== -->
-
-                    <section class="skills-exp section-padding sub-bg" data-scroll-index="4">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="sec-lg-head mb-80">
-                                        <div class="position-re">
-                                            <h6 class="dot-titl-non mb-10 wow fadeIn">Skills & Experience</h6>
-                                            <h2 class="fz-50 d-rotate wow">
-                                                <span class="rotate-text">My Experience</span>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item d-flex justify-content-between md-mb50">
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/figma.png" alt="">
-                                            </div>
-                                            <span class="mt-15">Figma</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/wordpress.png" alt="">
-                                            </div>
-                                            <span class="mt-15">WordPress</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/react.png" alt="">
-                                            </div>
-                                            <span class="mt-15">React - Fundamental</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/webflow.png" alt="">
-                                            </div>
-                                            <span class="mt-15">Webflow</span>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item d-flex justify-content-between md-mb50">
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/figma.png" alt="">
-                                            </div>
-                                            <span class="mt-15">HTML/CSS - Responsive Design</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/wordpress.png" alt="">
-                                            </div>
-                                            <span class="mt-15">JavaScript</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/react.png" alt="">
-                                            </div>
-                                            <span class="mt-15">React</span>
-                                        </div>
-                                        <div class="item text-center">
-                                            <div class="icon-img-60 m-auto">
-                                                <img src="assets/imgs/freelancer/skills/webflow.png" alt="">
-                                            </div>
-                                            <span class="mt-15">Webflow</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 offset-lg-1 valign">
-                                    <div class="exp-items full-width">
-                                        <div class="item d-flex pb-30 pt-30 mb-30 bord-thin-top bord-thin-bottom">
-                                            <div class="title">
-                                                <h6>TransferMate - Global Payments</h6>
-                                                <p class="fz-12">Mediam Product Owner</p>
-                                            </div>
-                                            <div class="date ml-auto text-right">
-                                                <span class="icon">
-                                                    <a href="page-about.html">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </a>
-                                                </span>
-                                                <p class="fz-12">2014 - 2015</p>
-                                            </div>
-                                        </div>
-                                        <div class="item d-flex pb-30 mb-30 bord-thin-bottom">
-                                            <div class="title">
-                                                <h6>Slack</h6>
-                                                <p class="fz-12">UI/UX Designer & Developer</p>
-                                            </div>
-                                            <div class="date ml-auto text-right">
-                                                <span class="icon">
-                                                    <a href="page-about.html">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </a>
-                                                </span>
-                                                <p class="fz-12">2015 - 2019</p>
-                                            </div>
-                                        </div>
-                                        <div class="item d-flex pb-30 mb-30 bord-thin-bottom">
-                                            <div class="title">
-                                                <h6>Slack</h6>
-                                                <p class="fz-12">UI/UX Designer & Developer</p>
-                                            </div>
-                                            <div class="date ml-auto text-right">
-                                                <span class="icon">
-                                                    <a href="page-about.html">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </a>
-                                                </span>
-                                                <p class="fz-12">2015 - 2019</p>
-                                            </div>
-                                        </div>
-                                        <div class="item d-flex pb-30 bord-thin-bottom">
-                                            <div class="title">
-                                                <h6>Apple</h6>
-                                                <p class="fz-12">ios Developer</p>
-                                            </div>
-                                            <div class="date ml-auto text-right">
-                                                <span class="icon">
-                                                    <a href="page-about.html">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </a>
-                                                </span>
-                                                <p class="fz-12">2019 - 2021</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End skills ==================== -->
-
-
-
-                    <!-- ==================== Start Testimonials ==================== -->
-
-                    <!-- ==================== Start Testimonials ==================== -->
-
-
-                    <!-- ==================== Start Blog ==================== -->
-
-                    <section class="blog-list-half crev section-padding sub-bg" data-scroll-index="6">
-                        <div class="container">
-                            <div class="sec-lg-head mb-80">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <h6 class="dot-titl-non mb-10 wow fadeIn">Our Blog</h6>
-                                        <h2 class="fz-50 d-rotate wow">
-                                            <span class="rotate-text">Latest News</span>
-                                        </h2>
-                                    </div>
-                                    <div class="col-lg-5 d-flex align-items-center">
-                                        <div class="full-width d-flex justify-content-end justify-end">
-                                            <div class="vew-all">
-                                                <a href="blog-half-img.html">View All Our News
-                                                    <span>
-                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
-                                                                fill="currentColor"></path>
-                                                        </svg>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="item md-mb80 wow fadeIn" data-wow-delay=".4s">
-                                        <div class="row rest">
-                                            <div class="col-md-6">
-                                                <div class="img">
-                                                    <img src="assets/imgs/sass-img/blog/1.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 valign">
-                                                <div class="cont">
-                                                    <span class="date fz-12 ls1 text-u opacity-7 mb-15">August 6,
-                                                        2022</span>
-                                                    <h5>
-                                                        <a href="blog-details.html">Free advertising for your online
-                                                            business.</a>
-                                                    </h5>
-                                                    <div class="tags colorbg mt-15">
-                                                        <a href="blog-half-img.html">Marketing</a>
-                                                        <a href="blog-half-img.html">Design</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="item wow fadeIn" data-wow-delay=".8s">
-                                        <div class="row rest">
-                                            <div class="col-md-6">
-                                                <div class="img">
-                                                    <img src="assets/imgs/sass-img/blog/2.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 valign">
-                                                <div class="cont">
-                                                    <span class="date fz-12 ls1 text-u opacity-7 mb-15">August 6,
-                                                        2022</span>
-                                                    <h5>
-                                                        <a href="blog-details.html">Business meeting 2023 in San
-                                                            Francisco.</a>
-                                                    </h5>
-                                                    <div class="tags colorbg mt-15">
-                                                        <a href="blog-half-img.html">Marketing</a>
-                                                        <a href="blog-half-img.html">Design</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ==================== End Blog ==================== -->
-
-            </div>
-
-            <!-- ==================== Start Contact ==================== -->
-
-            <section class="contact-crev section-padding" data-scroll-index="7">
-                <div class="contact-container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="sec-lg-head md-mb80">
-                                    <h6 class="dot-titl-non mb-10 wow fadeIn">Get In Touch</h6>
-                                    <h2 class="fz-50 d-rotate wow">
-                                        <span class="rotate-text">Let's make your brand brilliant!</span>
-                                    </h2>
-                                    <p class="fz-15 mt-10 wow fadeIn">If you would like to work with us or just want to get in
-                                        touch, we’d love to hear from you!</p>
-                                    <div class="phone fz-30 fw-600 mt-30 underline wow fadeIn">
-                                        <a href="#0">+1 840 841 25 69</a>
-                                    </div>
-                                    <ul class="rest social-text d-flex mt-60">
-                                        <li class="mr-30">
-                                            <a href="#0" class="hover-this"><span class="hover-anim">Facebook</span></a>
-                                        </li>
-                                        <li class="mr-30">
-                                            <a href="#0" class="hover-this"><span class="hover-anim">Twitter</span></a>
-                                        </li>
-                                        <li class="mr-30">
-                                            <a href="#0" class="hover-this"><span class="hover-anim">LinkedIn</span></a>
-                                        </li>
-                                        <li>
-                                            <a href="#0" class="hover-this"><span
-                                                    class="hover-anim">Instagram</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 offset-lg-1 valign">
-                                <div class="full-width">
-                                    <form id="contact-form" method="post" action="contact.php">
-
-                                        <div class="messages"></div>
-
-                                        <div class="controls row">
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group mb-30">
-                                                    <input id="form_name" type="text" name="name" placeholder="Name"
-                                                        required="required">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group mb-30">
-                                                    <input id="form_email" type="email" name="email" placeholder="Email"
-                                                        required="required">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="form-group mb-30">
-                                                    <input id="form_subject" type="text" name="subject"
-                                                        placeholder="Subject">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <textarea id="form_message" name="message" placeholder="Message"
-                                                        rows="4" required="required"></textarea>
-                                                </div>
-                                                <div class="mt-30">
-                                                    <button type="submit" class="butn butn-full butn-bord radius-30">
-                                                        <span class="text">Let's Talk</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==================== End Contact ==================== -->
-
-
-            </main>
-
-
-
-            <!-- ==================== Start Footer ==================== -->
-
-            <footer class="sub-bg">
-                <div class="sub-footer pt-40 pb-40 bord-thin-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="logo">
-                                    <a href="#0">
-                                        <img src="assets/imgs/logo-light.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="copyright d-flex">
-                                    <div class="ml-auto">
-                                        <p class="fz-13">© 2023 Geekfolio is Proudly Powered by <span
-                                                class="underline"><a href="https://themeforest.net/user/ui-themez"
-                                                    target="_blank">Ui-ThemeZ</a></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            <!-- ==================== End Footer ==================== -->
-
-
-
-
+          </div>
         </div>
+      </article>
+      
+      <!-- Contact -->
+      <article class="content contact gray-bg" id="chaptercontact">
+        <div class="inner">
+          <h2>Contact</h2>
+          <div class="title-divider"></div>
+          <h3>Let's Keep In Touch</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.</p>
+          <div class="full-divider"></div>
+          <div class="contact-con margin-top50">
+            <div class="container-sub">
+              <div class="row">
+                <div class="contact-details">
+                  <div class="col-6">
+                    <div class="contact-text">
+                      <div class="col-2 icon-block address"><i class="fa fa-map-marker"></i></div>
+                      <div class="flot-left"> <strong>Zlatomir Vangelov</strong><br>
+                        PO Box 16122 Collins Street West,<br>
+                        Victoria 8007, United States. </div>
+                    </div>
+                    <div class="contact-text">
+                      <div class="col-2 icon-block phone"><i class="fa fa-phone"></i></div>
+                      <div class="flot-left"> <strong>Phone</strong><br>
+                        +123-456-7890 </div>
+                    </div>
+                    <div class="contact-text">
+                      <div class="col-2 icon-block email"><i class="fa fa-envelope"></i></div>
+                      <div class="flot-left"> <strong>Email</strong><br>
+                        <a href="mailto:no-reply@domain.com">no-reply@domain.com</a> </div>
+                    </div>
+                  </div>
+                  <div class="col-6 m-margin-top30">
+                    <h3>I'm also on Social Networks</h3>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor.
+                    <div class="contact-social margin-top30"><a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="full-divider"></div>
+            <div class="container-sub">
+              <div class="row">
+                <div class="contact-form">
+                  <h3>Drop Me a Line</h3>
+                  <form id="form1" name="form1" method="post" >
+                    <input name="name" type="text" id="name" placeholder="Your Name..." />
+                    <input name="email" type="text" id="email" placeholder="Your Email..." />
+                    <textarea name="message" id="message" cols="45" rows="5" placeholder="Your Message..."></textarea>
+                    <input type="submit" name="button" id="button" value="say hello!" >
+                    <div id="successmsg" ></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      <!-- Introduction -->
+      <article class="content introduction-end" id="chapterthankyou">
+        <div class="inner">
+          <div class="introduction-end-con margin-top50">
+            <h3><strong>Zlatomir Vangelov</strong></h3>
+            <div id="rotate" class="rotate">
+              <div style="color: white;"><span>Team Builder</span></div>
+              <div style="color: white;"><span>Entrepreneur</span></div>
+              <div style="color: white;"><span>Team Player.</span></div>
+              <div style="color: white;"><span>Creative Visionary</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-
-
-
-
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-3.4.0.min.js"></script>
-
-    <!-- plugins -->
-    <script src="assets/js/plugins.js"></script>
-
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/ScrollSmoother.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <script src="assets/js/smoother-script.js"></script>
-
-    <!-- custom scripts -->
-    <script src="assets/js/scripts.js"></script>
-
+    <!-- content-wrapper --> 
+  </div>
+  <!-- content-scroller --> 
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/head.min.js"></script>
+<!-- Portfolio Thumbnail --> 
+<script type="text/javascript" src="js/imagesloaded.min.js"></script> 
+<script type="text/javascript" src="js/masonry.min.js"></script> 
+<script type="text/javascript" src="js/class_helper.js"></script> 
+<script type="text/javascript" src="js/grid_gallery.js"></script> 
+<!-- Portfolio Grid --> 
+<script>
+    new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+</script>
+<!-- Portfolio Slider--> 
+<script type="text/javascript"  src="js/carousel.js"></script> 
+<script type="text/javascript" src="js/jquery.easypiechart.js"></script> 
+<script type="text/javascript" src="js/text.rotator.js"></script>
+<!-- Page Scrolling --> 
+<script>
+head.js(
+		{ mousewheel : "js/jquery.mousewheel.js" },
+		{ mwheelIntent : "js/mwheelIntent.js" },
+		{ jScrollPane : "js/jquery.jscrollpane.min.js" },
+		{ history : "js/jquery.history.js" },
+		{ stringLib : "js/core.string.js" },
+		{ easing : "js/jquery.easing.1.3.js" },
+		{ smartresize : "js/jquery.smartresize.js" },
+		{ page : "js/jquery.page.js" }
+		);
+</script>  
+<!-- Fit Video --> 
+<script type="text/javascript"  src="js/jquery.fitvids.js"></script>
+<!-- All Javascript Component--> 
+<script src="js/settings.js"></script>
 </body>
-
 </html>
