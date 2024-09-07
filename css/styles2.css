@@ -47,7 +47,6 @@ body {
     flex-flow: row;
     align-items: center;
     gap: 150px;
-    padding-bottom: ;
     padding-top: 50px;
 }
 
@@ -89,4 +88,52 @@ body {
 .hero {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+/* Custom Styles for Cases */
+
+.section2{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.row1-s1 {
+    display: flex;
+    align-items: center;
+}
+.row2-s2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-s1 {
+    font-size: 38px;;
+    font-weight: bold;
+    line-height: 44px;
+    font-family: "Inter", sans-serif;
+    width: 70%;
+}
+.title-s2{
+    font-size: 38px;;
+    font-weight: bold;
+    line-height: 44px;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+}
+.title-s3{
+    font-size: 38px;;
+    font-weight: bold;
+    line-height: 44px;
+    font-family: "Inter", sans-serif;
+}
+.subtitle-s2{
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 34px;
+    text-align: center;
+}
+.subtitle-s1 {
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    line-height: 34px;
 }
