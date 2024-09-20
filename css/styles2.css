@@ -7,6 +7,9 @@ body {
     -webkit-font-smoothing: antialiased;
     background-color: #000;
 }
+p{
+    font-family: "Inter", sans-serif;
+}
 
 
 .navi{
@@ -142,11 +145,42 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 48px;
 }
-.left-container{
+
+.s1-s2{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.col1{
+    max-width: 45%;;
+}
+.col2{
     max-width: 45%;
 }
-.section1{
-    display: flex;
-    gap: 50px;
-    justify-content: space-between;
+
+
+/* General Styles */
+
+.heading{
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
 }
+
+.sub-heading{
+    font-family: "Inter", sans-serif;
+    font-size: 28px; 
+}
+
+.stitle { 
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+ 
+
