@@ -6,6 +6,7 @@ body {
     line-height: 22px;
     -webkit-font-smoothing: antialiased;
     background-color: #000;
+    color: white;
 }
 p{
     font-family: "Inter", sans-serif;
@@ -72,11 +73,6 @@ p{
     
 }
 
-.blocks {
-    display: flex;
-    flex-flow: row;
-    gap: 30px;
-}
 .hero {
     display: flex;
     flex-flow: row;
@@ -154,6 +150,9 @@ p{
 .row{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+}
+.block{
     
 }
 .col1{
