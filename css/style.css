@@ -86,6 +86,10 @@ a {
     margin-right: 25px;
 }
 
+.item{
+    font-size: 25px;
+}
+
 .navi { 
     display: flex;
     flex-flow: row;
