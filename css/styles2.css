@@ -181,4 +181,91 @@ p{
     font-size: 22px;
 }
 
+.navbut{
+    text-decoration: none;
+    color: white;
+}
 
+.nav{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 75px;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 50px;
+}
+.hr1{
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 30px;
+    color: #82BC61;
+}
+.large-heading{ 
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 48px
+  }
+
+.s1{ 
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.s2{ 
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 30px;
+}
+.s3{ 
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 30px;
+}
+.s4{ 
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 30px;
+}
+.block2-s1{
+    display: flex;
+    justify-content: space-between;
+}
+.block3-s1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.row{
+    justify-content: space-between;
+    gap: 130px;
+}
+.box{
+    width: 900px;
+}
+
+.block1-s4{
+    display: flex;
+    gap: 130px;
+    align-items: center;
+}
+.right-s4{
+    max-width: 50%;
+}
+.box2{
+
+}
+.block5-s1{
+    padding-top: 35px;
+}
+.block5-s2{
+    padding-top: 35px;
+    display: flex;
+    align-items: center;
+    gap: 130px;
+}
+.s5{
+    padding-left: 120px;
+    padding-right: 120px;
+}
