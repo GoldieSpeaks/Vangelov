@@ -170,25 +170,10 @@ p{
     font-size: 48px;
 }
 
-.twocol-text {
-    display: flex;
-    justify-content: space-between;
-}
-.twocol-text2{
-    display: flex;
-    justify-content: space-between;
-}
-
 .sub-heading{
     font-family: "Inter", sans-serif;
     font-size: 28px; 
 }
-
-.sub-heading2{
-    font-family: "Inter", sans-serif;
-    font-size: 22px; 
-}
-
 
 .stitle { 
     font-family: "Inter", sans-serif;
@@ -283,23 +268,4 @@ p{
 .s5{
     padding-left: 120px;
     padding-right: 120px;
-}
-
-.left-col2{
-    max-width: 45%;
-}
-.right-col2{
-    max-width: 70%;
-}
-
-.left-col{
-}
-.right-col{
-
-}
-
-p {
-    font-size: 18px;
-    font-weight: 300;
-    color: #DDDDDD;
 }
