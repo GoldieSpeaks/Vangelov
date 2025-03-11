@@ -18,11 +18,29 @@ p{
     font-size: 48px;
     font-weight: bold;
 }
+.main-heading-2{
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: normal;
+}
 
 .heading-sub{
     font-family: "Inter", sans-serif;
     font-size: 22px;
     font-weight: bold;
+}
+
+.unique-heading{
+    font-family: "Inter", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #919191;
+}
+.heading-sub-2{
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 130%;
 }
 
 .pcolor{ 
@@ -325,4 +343,9 @@ p {
     font-size: 18px;
     font-weight: 300;
     color: #DDDDDD;
+}
+
+.twocol-tworow{
+    display: flex;
+    width: 500px;
 }
