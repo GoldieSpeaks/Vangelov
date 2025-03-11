@@ -13,6 +13,18 @@ p{
     color: #818181;
 }
 
+.main-heading{
+    font-family: "Inter", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.heading-sub{
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .pcolor{ 
     color: #818181;;
 }
