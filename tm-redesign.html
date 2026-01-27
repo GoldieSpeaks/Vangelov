@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-        <title>Andrew Smith - Responsive Resume / Personal Portfolio Template</title>
+        <title>Zlatomir Vangelov - Responsive Resume / Personal Portfolio Template</title>
         <link rel="shortcut icon" href="favicon.ico">
 
         <!-- Google Font-->
@@ -18,6 +18,344 @@
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
         <!-- Responsive -->
         <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+        <style>
+            /* Base Mobile Responsive Styles */
+            * {
+                box-sizing: border-box;
+            }
+
+            .s1-s2 {
+                display: flex;
+                gap: 30px;
+                margin: 40px 0;
+                flex-wrap: nowrap;
+            }
+
+            .col1, .col2, .col3 {
+                flex: 0 0 calc(25% - 22.5px);
+                min-width: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+
+            .col1 b, .col2 b, .col3 b {
+                display: block;
+                margin-bottom: 10px;
+                word-break: break-word;
+            }
+
+            .col1 p, .col2 p, .col3 p {
+                margin: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+
+            .two-col-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                margin: 60px 0;
+            }
+
+            .twocol-text {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+
+            .left-col, .right-col {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .blog-details {
+                padding: 30px;
+            }
+
+            .section {
+                margin: 40px 0;
+            }
+
+            .text-image-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+                margin: 60px 0;
+            }
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .text-content ul {
+                padding-left: 20px;
+                list-style: disc;
+            }
+
+            .text-content ul li {
+                margin-bottom: 8px;
+            }
+
+            .image-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .image-content img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+
+            .custom-right-div {
+                display: block;
+                margin: 20px 0;
+            }
+
+            /* Tablet Breakpoint (1024px) */
+            @media (max-width: 1024px) {
+                .blog-details {
+                    padding: 25px;
+                }
+
+                .s1-s2 {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+
+                .col1, .col2, .col3 {
+                    flex: 0 0 calc(50% - 10px);
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                }
+
+                .heading-sub-2 {
+                    font-size: 16px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 28px;
+                }
+
+                .text-image-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+            }
+
+            /* Mobile Breakpoint (768px) */
+            @media (max-width: 768px) {
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 20px;
+                }
+
+                .blog-top {
+                    padding: 20px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 24px;
+                    margin: 20px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 12px;
+                    word-break: break-word;
+                }
+
+                .post-details {
+                    font-size: 11px;
+                    display: block;
+                    margin-top: 15px;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                    margin: 30px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 15px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                    margin: 40px 0;
+                }
+
+                .left-col > div, .right-col > div {
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #f5f5f5;
+                }
+
+                .main-heading {
+                    font-size: 28px;
+                    padding-bottom: 20px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 14px;
+                }
+
+                p {
+                    font-size: 14px;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 15px;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    margin: 20px 0;
+                }
+
+                .custom-right-div {
+                    margin: 15px 0;
+                }
+
+                .section {
+                    margin: 30px 0;
+                }
+            }
+
+            /* Small Mobile Breakpoint (480px) */
+            @media (max-width: 480px) {
+                .menu {
+                    width: 100%;
+                    position: relative;
+                }
+
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 15px;
+                }
+
+                .blog-top {
+                    padding: 15px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 20px;
+                    margin: 15px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .post-details {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    margin: 20px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 10px 0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .main-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                    padding-top: 20px !important;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 18px;
+                    padding-bottom: 10px;
+                    padding-top: 20px !important;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 13px;
+                    padding-bottom: 10px;
+                }
+
+                p {
+                    font-size: 13px;
+                    line-height: 1.5;
+                    margin-bottom: 12px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                }
+
+                img {
+                    margin: 15px 0;
+                }
+
+                .custom-right-div {
+                    margin: 10px 0;
+                }
+
+                .section {
+                    margin: 20px 0;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                div[style*="padding-right"] {
+                    padding-right: 0 !important;
+                }
+            }
+        </style>
     </head>
     <body class="blog">
         <div id="container" class="container"> 
@@ -27,13 +365,13 @@
                     <!-- Logo image--> 
                     <img src="images/logo.png" width="140" height="140" alt=""/> 
                     <!-- Logo name--> 
-                    <span>Andrew Smith</span></div>
+                    <span>Zlatomir Vangelov</span></div>
                 <!-- Mobile Navigation--> 
                 <a href="#menu1" class="menu-link"></a> 
                 <!-- Left Navigation-->
                 <nav id="menu1" role="navigation"> <a href="index.html?page=introduction"><span id="link_introduction">Home</span></a> <a href="index.html?page=about"><span id="link_about">About</span></a> <a href="index.html?page=skills"><span id="link_skills">Skills</span></a> <a href="index.html?page=experience"><span id="link_experience">Experience</span></a> <a href="index.html?page=education"><span id="link_education">Education</span></a> <a href="index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a><a href="index.html?page=contact"><span id="link_contact">Contact</span></a><a href="blog.html"><span id="link_blog" class="active">Blog</span></a></nav>
                 <div class="social"> <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a> </div>
-                <div class="copyright"> &copy; Andrew Smith.<br>
+                <div class="copyright"> &copy; Zlatomir Vangelov.<br>
                     All Rights Reserved. </div>
             </aside>
             <div class="blog-main">
@@ -109,7 +447,7 @@
                                 </div>
                                  <div>
                                     <b class="sub-heading2">Quality Assurance </b>
-                                    <p style="color: #b8b8b8;">Ensuring a high level of quality was a major challenge due to the complexity of customizations and interdependencies within the system. Every change required extensive testing to verify that it did not introduce unexpected bugs or inconsistencies across different client implementations.  Given the intricate nature of the logic and UI components, a robust testing process was necessary, including regression testing, automation, and continuous feedback loops from developers and testers. The goal was to minimize risks while maintaining a stable and scalable system.</p>
+                                    <p style="color: #b8b8b8;">Ensuring a high level of quality was a major challenge due to the complexity of customizations and interdependencies within the system. Every change required extensive testing to verify that it did not introduce unexpected bugs or inconsistencies across different client implementations. Given the intricate nature of the logic and UI components, a robust testing process was necessary, including regression testing, automation, and continuous feedback loops from developers and testers. The goal was to minimize risks while maintaining a stable and scalable system.</p>
                                  </div>
                             </div>
                             <div class="right-col">
@@ -125,7 +463,7 @@
                                  </div>
                                  <div>
                                     <b class="sub-heading2">Client Approvals</b>
-                                    <p style="color: #b8b8b8;">Since the system was heavily customized for individual clients, any updates or modifications required careful approval processes. Clients had different requirements and dependencies, meaning that even minor changes could impact their workflows.  A structured approval pipeline was essential, ensuring that stakeholders were involved in reviewing and testing updates before deployment. Balancing innovation with stability required clear communication and phased rollouts to minimize disruptions.</p>
+                                    <p style="color: #b8b8b8;">Since the system was heavily customized for individual clients, any updates or modifications required careful approval processes. Clients had different requirements and dependencies, meaning that even minor changes could impact their workflows. A structured approval pipeline was essential, ensuring that stakeholders were involved in reviewing and testing updates before deployment. Balancing innovation with stability required clear communication and phased rollouts to minimize disruptions.</p>
                                  </div>
                             </div>
                         </div>
@@ -187,15 +525,53 @@
                          <img style="padding-top: 50px; padding-bottom: 50px;" src="/images/rede-fig2.png" alt="">
                          <img style="padding-bottom: 50px;" src="/images/rede-fig3.png" alt="">
 
-
+                         <div>
                          <div class="custom-right-div">
                             <b class="sub-heading2">Step Two : User Feedback   </b>
                             <p style="color: #b8b8b8;">Through our Customer Support teams and also through employed surveys we were able to gather a lot of quantative and detailed user feedback that was taken into account. After gathering user feedback, we spotted consistent patterns of dissatisfaction. We made it a priority to listen closely and respond directly to the needs of our users.</p>
                          </div>
                          <div class=""> <img src="/images/rede-fig5.png" alt=""> </div>
+                         <p style="color: #b8b8b8;">To gather user feedback, we implemented feedback forms presented to users just before completing their payment process. In parallel, our customer support team actively collected insights by asking users for general feedback during support interactions.</p>
+                         </div>
 
+                         <div>
+                           <div style="padding-top: 20px;" class="custom-right-div">
+                            <b class="sub-heading2">Step Three : Competitor Analysis  </b>
+                            <img class="compa" src="/images/compa.png" alt="">
+                             <p style="color: #b8b8b8;">To inform our design and product decisions, we conducted a thorough competitor analysis. This involved reviewing similar platforms across the industry to identify best practices, usability patterns, and areas where competitors offered a stronger user experience. We focused on aspects such as layout design, user flows, feature sets, and overall user engagement. These insights helped us benchmark our product and identify key opportunities for differentiation and improvement.</p>
+                         </div>
+                         </div>
 
-                    
+                         <div>
+                             <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">The Solution</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Design Process and Takeaway</div>
+                            <div class="heading-sub-2">After taking in all of the analysed data, we were ready to begin the development process.</div>
+                            </div>
+                         </div>
+
+                         <div class="section text-image-section">
+                            <div class="text-content">
+                                <div style="padding-bottom: 30px;" class="heading-sub">Internal Alignment</div>
+                                <p style="color: #b8b8b8;">At the point of development kick off, it was really cruitial to have a tight alignment between QA's and Developers, given the amount of features and pages that had to be tested along with the numerous amount of links that had to be checked, the QA team had to act fast and use automations to optimise the testing phase, so as to go nearly hand to hand with the development.</p>
+                                <p style="color: #b8b8b8;">All re-designed pages would directly go into manual testing in terms of features and also, automation testing in order to review how they handled across the thousands of links that were created.</p>
+                                <p style="color: #b8b8b8;">Ideally, our goal was to achieve 100% coverage across all payment portal links. However, due to the high volume of client-specific portals, we adopted the Pareto principle (80/20 rule) to prioritize testing efforts. This allowed us to focus on the most frequently used and business-critical portals, ensuring maximum impact with available resources.</p>
+                            </div>
+                            <div class="image-content">
+                                <img src="/images/i1.png" alt="Internal Alignment">
+                            </div>
+                         </div>
+
+                        <div class="two-col-section">
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Exception Handeling</div>
+                                <p style="color: #b8b8b8;">It was critically important to understand how the changes we made were impacting customisations and exceptions. It took us a life to chart most of the differences, but with some hardship and manual work, we were able to compile a somewhat descriptive list that was taken into account by the QA team.</p>
+                            </div>
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Client Alignment</div>
+                                <p style="color: #b8b8b8;">Seeing that we were unable to map out all of the different exceptions and customisations, our best approach was to ask for feedback from clients directly. We requested and sent a global ask to all clients to review and mentor their platforms after Go Live .</p>
+                            </div>
+                        </div>
 
 
 
