@@ -194,7 +194,7 @@ Example for "UI/UX Design":
 
 #### 2A. Add Role Clarity Section (New section at top, after title)
 
-**Location:** After `<h2>TransferMate - Payment Separations.</h2>`
+**Location:** After `<h2>Payment Separations.</h2>`
 
 **Add:**
 ```html

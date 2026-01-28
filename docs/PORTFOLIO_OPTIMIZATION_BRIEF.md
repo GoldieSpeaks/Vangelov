@@ -69,7 +69,7 @@ Your portfolio demonstrates a strong foundation with modern design, real-world c
 **Current State:** Good foundational structure, but incomplete storytelling  
 
 **What's There:**
-- Project title: "TransferMate - Payment Separations"
+- Project title: "Payment Separations"
 - Problem statement (payment UX was confusing/cluttered)
 - Business model explanation
 - User alignment & client feedback sections

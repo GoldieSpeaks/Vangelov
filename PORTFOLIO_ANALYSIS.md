@@ -151,11 +151,11 @@ Three subsections:
 
 ### 6. **Projects / Portfolio Section**
 **Current Projects Listed:**
-- TransferMate - Payments Platform (blog-details.html)
-- TransferMate - Invoice Payments API (knowledge-base.html)
-- TransferMate - FX Gains Limiter (blog-details.html)
-- TransferMate - Re-Design (tm-redesign.html)
-- TransferMate - Data Deletion (data-deletion.html)
+- Payments Platform (blog-details.html)
+- Invoice Payments API (knowledge-base.html)
+- FX Gains Limiter (blog-details.html)
+- Re-Design (tm-redesign.html)
+- Data Deletion (data-deletion.html)
 
 **Project Card Components:**
 - Thumbnail image
