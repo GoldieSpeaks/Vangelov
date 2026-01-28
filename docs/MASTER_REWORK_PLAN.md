@@ -563,7 +563,7 @@ Example for "UI/UX Design":
     <div style="padding: 20px;">
       <p style="color: #666; margin: 5px 0; font-size: 13px;"><strong>Role:</strong> Product Owner, Design Lead</p>
       <p style="color: #666; margin: 15px 0; line-height: 1.6;">Redesigned payment flow for 15M+ users. Improved completion rates by 24%, reduced support burden by 60%.</p>
-      <a href="tm-redesign.html" style="color: #0094FF; text-decoration: none; font-weight: bold;">View Case Study →</a>
+      <a href="Projects/tm-redesign.html" style="color: #0094FF; text-decoration: none; font-weight: bold;">View Case Study →</a>
     </div>
   </div>
   
@@ -575,7 +575,7 @@ Example for "UI/UX Design":
     <div style="padding: 20px;">
       <p style="color: #666; margin: 5px 0; font-size: 13px;"><strong>Role:</strong> Process Owner, Technical Lead</p>
       <p style="color: #666; margin: 15px 0; line-height: 1.6;">Achieved 100% GDPR compliance. Securely deleted 47.2M records, passed DPA audit, saved $18K/month ongoing.</p>
-      <a href="data-deletion.html" style="color: #0094FF; text-decoration: none; font-weight: bold;">View Case Study →</a>
+      <a href="Projects/data-deletion.html" style="color: #0094FF; text-decoration: none; font-weight: bold;">View Case Study →</a>
     </div>
   </div>
   
