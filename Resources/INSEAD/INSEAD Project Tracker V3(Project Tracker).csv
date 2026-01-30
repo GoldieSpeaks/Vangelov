@@ -1,0 +1,23 @@
+Task Name,Status,Priority,Assignee,Description,Progress,Estimations
+Restyle CC registered payment e-mail.,In Progress,Normal,Nikolay ,New styles are created and ready for testing by QA. Deployment can be facilitated after holidays.,100%,Released and Fixed
+Error 403 Issues on doc Upload,In Progress,High,"IT Team, Evgeni",Being reviewed by the IT Team.,100%,Fixed
+Error 493 on plan creation,In Progress,High,"IT Team, Evgeni",Fix is being tested by the IT team,100%,Fixed
+2FA For Sponsors,In Progress,High,Nikolay / Evgeni,Placed for development and analysis after new year.,70%,In Testing
+Technical Documentation ,In Progress,Normal,Svet N.,To be reviewed after holidays.,80%,First draft should be shared between 9th and 19th of January 
+Admin Dashboard,Not Started,Normal,N/A,To be analysed and placed on the roadmap ,0%,N/A
+Refund Automation Process,Not Started,Normal,N/A,To be prioritised by business for development ,0%,N/A
+FAQ's on How it Works,In Progress,Normal,ZV / Svet N.,To be prioritised by business for development ,60%,FAQ's drafted. Design needed.
+Alumni Payments,Not Started,Normal,N/A,For analysis,0%,N/A
+Applicant Payments,Not Started,Normal,N/A,For analysis,0%,N/A
+Video guide for Doc upload,In Progress,Normal,N/A,For analysis,30%,Raised to Marketing
+Adding EMPLID to settelment E-mails to INSEAD ,Started,Normal,Edwina / ZV / Desi,For Discussion,0%,Not feasible.
+Bulking settelment E-mails,Started,Normal,Edwina / ZV / Desi,For Discussion,0%,Not feasible.
+Marketing E-mails / Feedback E-mails,In Progress,Normal,Edwina / Syed / Marketing,To be discussed with marketing on the 19th.,30%,Raised to Marketing
+Terms and Conditions for each program to be included on payment forms.,Not Started,Normal,N/A,For analysis,0%,Reviewed with Legal. It is feasible to have two sets of terms. 
+Student names and payment confirmation emails.,Not Started,Normal,N/A,For analysis,60%,Additional development will be included on TM's side. To be done Week 4 of Jan.
+Settelment E-mails.,Not Started,Normal,N/A,For analysis,0%,Fixed
+,,,,,,
+,,,,,,
+In Progress,,,,,,
+Completed,,,,,,
+Not Feasible / Can't be done.,,,,,,

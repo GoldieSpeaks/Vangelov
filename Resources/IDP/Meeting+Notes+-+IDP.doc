@@ -1,0 +1,439 @@
+Date: Fri, 30 Jan 2026 13:04:45 +0000 (UTC)
+Message-ID: <1766720992.19.1769778285982@d5f9f0213320>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_18_1404324356.1769778285982"
+
+------=_Part_18_1404324356.1769778285982
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Meeting Notes - IDP</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Meeting Notes - IDP</h1>
+    <div class=3D"Section1">
+        <h2 local-id=3D"37da2976-90b9-411d-99dc-5e39df192662" id=3D"Meeting=
+Notes-IDP-DiscussionTakeaway."><br>
+Discussion Takeaway.</h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"1800" data-layout=3D"center" data-local-id=3D"89=
+466249-2c6b-4144-aec5-1454471822ea" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 362.0px;">
+<col style=3D"width: 360.0px;">
+<col style=3D"width: 670.0px;">
+<col style=3D"width: 241.0px;">
+<col style=3D"width: 167.0px;">
+</colgroup>
+<tbody>
+<tr data-local-id=3D"a146dd45-7f47-4eb4-83bb-711c4ad28078">
+<th data-local-id=3D"f467ae10-3791-44ce-b57f-8f813ec8bfd7" class=3D"conflue=
+nceTh">
+<p local-id=3D"80d3de44-d176-4a8d-a533-cb3159eec29c"><strong>Call Name / Ag=
+enda</strong></p></th>
+<th data-local-id=3D"371dbfb1-f739-4418-a1f4-57e7b240258d" class=3D"conflue=
+nceTh">
+<p local-id=3D"83e3ae97-7581-4f9a-93fb-247687842fbe"><strong>Date</strong><=
+/p></th>
+<th data-local-id=3D"26f4e6ac-61a1-499e-bf98-cf8bfd39f383" class=3D"conflue=
+nceTh">
+<p local-id=3D"a301cd0b-7cfc-4758-a3c5-fe33b8d4ace7"><strong>Notes</strong>=
+</p></th>
+<th data-local-id=3D"32a17e5d-b4c7-4460-92fb-4a5ba5695da3" class=3D"conflue=
+nceTh">
+<p local-id=3D"a06e18be-6e66-4e8c-944e-e85d3f34624a"><strong>Owner</strong>=
+</p></th>
+<th data-local-id=3D"58701cce-36b7-4895-8cc2-da38bb6f6b48" class=3D"conflue=
+nceTh">
+<p local-id=3D"ae2b0dca-eb94-4c2b-b631-98f7bd40cd11"><strong>Files</strong>=
+</p></th>
+</tr>
+<tr data-local-id=3D"0b6b1a10-dddd-4ee6-aa2e-6f9afbbde72a">
+<td data-local-id=3D"1aac60d0-e4bc-435d-99e6-4f2b7abcd6ac" class=3D"conflue=
+nceTd">
+<p local-id=3D"cbe567cd-46df-495b-bf4a-5847541056d6">Alignment Call with To=
+m</p></td>
+<td data-local-id=3D"4912fb0d-0fd7-4d4e-a062-78c7a13ff9c4" class=3D"conflue=
+nceTd">
+<p local-id=3D"67117f4e-4cc9-4c22-b9c1-c9ce5158ece2"><time datetime=3D"2025=
+-12-11" class=3D"date-past">11 Dec 2025</time></p></td>
+<td data-local-id=3D"58381a3a-4214-4950-b35e-722604b806eb" class=3D"conflue=
+nceTd">
+<div id=3D"expander-799422380" class=3D"expand-container">
+<div id=3D"expander-control-799422380" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"e120591f0ce226ca854f807924839e26a650c1=
+6ee58c16924091406c4556fc1f" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Click here to expand...</span>
+</div>
+<div id=3D"expander-content-799422380" class=3D"expand-content">
+<p local-id=3D"ecdfbc06-2bed-4123-8874-8fbd7ea64c03"><strong>What is IDP Ed=
+ucation</strong></p>
+<ul local-id=3D"212b72b4-4a6a-41b1-b592-601f8900e024">
+<li local-id=3D"b10a5ca4-4552-496f-8731-62bce777ba7c">
+<p local-id=3D"a61c2faa-a8d7-479d-b7d1-2b06500062d0">IDP Education is an in=
+ternational education services organisation (agency), headquartered in Melb=
+ourne, Australia.</p></li>
+</ul>
+<p local-id=3D"fc299927-6883-4f52-9492-458d4b4125f5"><strong>What IDP does<=
+/strong></p>
+<ul local-id=3D"17b7e45e-a369-443a-a736-b8261cd0b24b">
+<li local-id=3D"04c46afd-71e9-44bb-95fa-243311025b97">
+<p local-id=3D"1fb9e801-a4cd-4c5d-be3d-124a741b652c">IDP helps students aro=
+und the world to find and apply for courses abroad =E2=80=94 undergrad, pos=
+tgrad, vocational, etc. =E2=80=94 placing them in countries like Australia,=
+ Canada, the UK, Ireland, New Zealand, the US and beyond.</p></li>
+<li local-id=3D"5aec6f64-f0a7-474b-9b5f-c69881f82bf5">
+<p local-id=3D"c400b285-f276-4d66-ab35-540df41a1a89">On top of that, they c=
+o-own the IELTS (English-language proficiency test), which is globally reco=
+gnised and often required for admission or migration.</p></li>
+</ul>
+<p local-id=3D"a26fa491-df1b-4e29-9497-3ec9e003a2a6"><strong>Global scale &=
+amp; reach</strong></p>
+<ul local-id=3D"83ac8609-512e-457e-bf0c-3f417b0558a6">
+<li local-id=3D"88ac58b5-a5cc-4648-b9e7-8d79ba85f527">
+<p local-id=3D"55e65435-909d-4bc3-a8c7-f7c67897d1d2">IDP operates in more t=
+han 35 countries, with over 210 of offices and a large network of education=
+ counsellors (employees).</p></li>
+<li local-id=3D"08af02e5-dce3-446e-bd4c-1ed89323a74f">
+<p local-id=3D"acf19923-ca4f-40ee-9bc9-cde547a21bc8">Their websites reporte=
+dly draw ~100 million visits per year.</p></li>
+</ul>
+<p local-id=3D"f0068bc1-8010-49c1-913f-e80265be2745"><strong>Business Oppor=
+tunity</strong></p>
+<ul local-id=3D"bb5a5c78-9c02-4f65-90d0-604eaceb1f68">
+<li local-id=3D"633a832a-824a-4802-866c-1d9f3f85e77a">
+<p local-id=3D"b5b3b5f0-f459-4c37-9416-0557d8783287">In 2024 the total amou=
+nt in transactions through Flywire was of AUD100billion, our plan is to cap=
+ture part of that business.</p></li>
+</ul>
+<p local-id=3D"7ea7f62f-0cde-4699-a5b1-98d31c79dd70"><strong>Product Develo=
+pment</strong></p>
+<ul local-id=3D"0a35520e-dfe0-4797-b16e-e72a82dcbb0c">
+<li local-id=3D"b11eb5ef-c3f6-4789-ab22-26096e4c4b8a">
+<p local-id=3D"4ac3b490-88ad-4a59-8c4c-6e4115c33fd4">The idea is to develop=
+ a single platform containing all TransferMate=E2=80=99s educational instit=
+utions, so IDP counsellors refers TransferMate as a payment method to their=
+ students.</p></li>
+<li local-id=3D"c22ff480-fcec-4409-b511-ae319640f300">
+<p local-id=3D"513a52b6-d69f-4886-ac54-5627043f87ef">On top of that IDP wil=
+l also refer their educational institutions to TransferMate, increasing our=
+ reach in crucial markets such Australia, where we do not have a large foot=
+print of educational institutions.</p></li>
+</ul>
+</div>
+</div></td>
+<td data-local-id=3D"af1fdd85-8184-4e12-9a7c-e126c01b2c1f" class=3D"conflue=
+nceTd">
+<p local-id=3D"aa6e5eaf-445e-4b5a-ac40-8b556fbaa930"><a class=3D"confluence=
+-userlink user-mention" data-account-id=3D"63088720d9ee44906b0f1c11" href=
+=3D"https://tm-jira-cloud.atlassian.net/wiki/people/63088720d9ee44906b0f1c1=
+1?ref=3Dconfluence" target=3D"_blank" data-linked-resource-id=3D"321224705"=
+ data-linked-resource-version=3D"1" data-linked-resource-type=3D"userinfo" =
+data-base-url=3D"https://tm-jira-cloud.atlassian.net/wiki">Svetoslav Nikolo=
+v</a></p></td>
+<td data-local-id=3D"00ed8638-3615-4c8f-8f7e-fbdd2e2027f1" class=3D"conflue=
+nceTd">
+<p local-id=3D"6fa0e267-b509-4a6a-96dc-d2fd9ca56152">N/A</p></td>
+</tr>
+<tr data-local-id=3D"f6e75d60-4693-4edd-b6ec-37a471b78b2a">
+<td data-local-id=3D"a57b1ed0-f626-453a-becd-c48c2d47a5c6" class=3D"conflue=
+nceTd">
+<p local-id=3D"f96b634b-c16a-4239-b71d-3706ae17bf56">Alignment Call - Evgen=
+i / Svet</p></td>
+<td data-local-id=3D"d615635b-5f76-4010-9fa9-f449206afd8f" class=3D"conflue=
+nceTd">
+<p local-id=3D"7654bd81-b82b-427c-8238-f73aec94c973"><time datetime=3D"2026=
+-01-07" class=3D"date-past">07 Jan 2026</time></p></td>
+<td data-local-id=3D"e3a1fba2-f80f-443d-b990-9ac544d5a339" class=3D"conflue=
+nceTd">
+<div id=3D"expander-1679322368" class=3D"expand-container">
+<div id=3D"expander-control-1679322368" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"e120591f0ce226ca854f807924839e26a650c1=
+6ee58c16924091406c4556fc1f" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Notes</span>
+</div>
+<div id=3D"expander-content-1679322368" class=3D"expand-content">
+<ol start=3D"1" local-id=3D"184fdd60-dd0e-40b6-adc3-0d735b059458">
+<li local-id=3D"8389fafe-e24f-4d06-8bba-c4e7a408ca9e">
+<p local-id=3D"445b4ed8-ce03-4071-b464-23df9ab8d2df">We=E2=80=99ve discusse=
+d that a proper project brief is needed with all requirements listed, and a=
+lso process flow charts for all the different journeys.</p></li>
+<li local-id=3D"720eeafd-40fd-4bca-974e-f3e3c429b56d">
+<p local-id=3D"c7edd5b9-8165-4c6d-adce-25b90312188b">This has been discusse=
+d with Elena, and a dedicated UI/UX person is needed.</p></li>
+<li local-id=3D"7740c9ca-0a08-4349-a849-c8487098d962">
+<p local-id=3D"2e5c5a9f-07a4-4afa-8c9b-3b9e8d516789">Regular workshops will=
+ be held moving forward, weekly, to progress.</p></li>
+<li local-id=3D"b1888c08-72de-4236-a5fe-9dce9a3fbb71">
+<p local-id=3D"7f1ddccd-6b34-4ffc-8cf2-368c89bd8dbd">Design Brief is needed=
+ in FigmaJam to be handed over to UI/UX.</p></li>
+<li local-id=3D"ca7b6dfd-9d5e-4faa-a7da-6a114921d29e">
+<p local-id=3D"ae378aab-9692-4f3a-8cfb-2f79f265a287">Confluence access is n=
+eeded for the UI/UX designer.</p></li>
+</ol>
+</div>
+</div></td>
+<td data-local-id=3D"10aed602-b894-4bbf-950e-5f558e86d127" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9d678b6-dce8-49a0-b2d7-9de65b48d416"><a class=3D"confluence=
+-userlink user-mention" data-account-id=3D"63088720d9ee44906b0f1c11" href=
+=3D"https://tm-jira-cloud.atlassian.net/wiki/people/63088720d9ee44906b0f1c1=
+1?ref=3Dconfluence" target=3D"_blank" data-linked-resource-id=3D"321224705"=
+ data-linked-resource-version=3D"1" data-linked-resource-type=3D"userinfo" =
+data-base-url=3D"https://tm-jira-cloud.atlassian.net/wiki">Svetoslav Nikolo=
+v</a></p></td>
+<td data-local-id=3D"12025c3f-5997-402a-9c05-8962ff61c326" class=3D"conflue=
+nceTd">
+<p local-id=3D"e2a26e7e-b006-4d52-b932-9628b7e38b9a">N/A</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 local-id=3D"ebdb0a84-59ea-41f8-b53c-1f3d1d206d92" id=3D"MeetingNotes-ID=
+P-ActionPoints">Action Points</h2>
+<ul class=3D"inline-task-list" data-inline-tasks-content-id=3D"1332903938">
+<li data-inline-task-id=3D"7"><span class=3D"placeholder-inline-tasks">We a=
+re waiting on alignment between Tom and Maurice in order to understand our =
+next steps. There is a need to know if we can use our existing client base,=
+ or in general, how to approach the client list scenario. </span></li>
+</ul>
+<h2 local-id=3D"ec05def7-ae53-4224-a05f-ec097276b340" id=3D"MeetingNotes-ID=
+P-Decisions">Decisions</h2>
+<ul class=3D"decision-list">
+<li>Decision 1</li>
+</ul>
+<p local-id=3D"20e8be20-afbc-4175-965c-1a34a3a4ae6e"></p>
+    </div>
+</body>
+</html>
+------=_Part_18_1404324356.1769778285982
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/e120591f0ce226ca854f807924839e26a650c16ee58c16924091406c4556fc1f
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAFVBMVEX/
+//9wcHBwcHBwcHBwcHBwcHBwcHA3RenHAAAAB3RSTlMAZoiZzN3/SzZomQAAAAlwSFlzAAALEgAA
+CxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAUdEVYdENy
+ZWF0aW9uIFRpbWUANi8xLzEzOKlF0AAAACFJREFUCJljYCATsCgwqIAZTMnMyRAhsTABCIMxkVxT
+GQCLcwHyUKXpLgAAAABJRU5ErkJggg==
+------=_Part_18_1404324356.1769778285982--
