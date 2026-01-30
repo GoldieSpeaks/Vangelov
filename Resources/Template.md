@@ -3,7 +3,7 @@
 
 **Role:** Product Owner  
 **Context:** Enterprise digital platform (details anonymized due to NDA)  
-**Timeline:** 12 months  
+**Timeline:** 9 months  
 **Team:** Cross-functional squad (engineering, design, QA, data, stakeholders)
 
 ---
