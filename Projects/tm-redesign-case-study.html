@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <title>Education Payment Links Re-Design - Case Study</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+
+        <!-- Google Font-->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+        <!-- Design Style -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+        <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+        <!-- Icon -->
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+        <!-- Responsive -->
+        <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+        <style>
+            /* Base Mobile Responsive Styles */
+            * {
+                box-sizing: border-box;
+            }
+
+            .s1-s2 {
+                display: flex;
+                gap: 30px;
+                margin: 40px 0;
+                flex-wrap: nowrap;
+            }
+
+            .col1, .col2, .col3 {
+                flex: 0 0 calc(25% - 22.5px);
+                min-width: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                background: rgba(255, 255, 255, 0.02);
+                padding: 25px;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+            }
+
+            .col1:hover, .col2:hover, .col3:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-color: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .col1 b, .col2 b, .col3 b {
+                display: block;
+                margin-bottom: 15px;
+                word-break: break-word;
+                color: #7dba5c;
+                font-size: 16px;
+                border-bottom: 2px solid rgba(125, 186, 92, 0.2);
+                padding-bottom: 10px;
+            }
+
+            .col1 p, .col2 p, .col3 p {
+                margin: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                line-height: 1.8;
+                color: #b8b8b8;
+            }
+
+            .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) {
+                margin-bottom: 8px;
+            }
+
+            /* Stats Cards */
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 40px 0;
+            }
+
+            .stat-card {
+                background: linear-gradient(135deg, rgba(125, 186, 92, 0.1) 0%, rgba(125, 186, 92, 0.02) 100%);
+                border: 1px solid rgba(125, 186, 92, 0.2);
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .stat-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(125, 186, 92, 0.2);
+                border-color: rgba(125, 186, 92, 0.4);
+            }
+
+            .stat-icon {
+                font-size: 32px;
+                margin-bottom: 15px;
+                display: block;
+            }
+
+            .stat-number {
+                font-size: 28px;
+                font-weight: bold;
+                color: #7dba5c;
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+                color: #999;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            /* Tech Stack Pills */
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 30px 0;
+            }
+
+            .tech-pill {
+                background: rgba(125, 186, 92, 0.15);
+                color: #7dba5c;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 13px;
+                border: 1px solid rgba(125, 186, 92, 0.3);
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .tech-pill:hover {
+                background: rgba(125, 186, 92, 0.25);
+                border-color: rgba(125, 186, 92, 0.5);
+                transform: translateY(-2px);
+            }
+
+            .two-col-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                margin: 60px 0;
+            }
+
+            .two-col-section > div {
+                background: rgba(255, 255, 255, 0.02);
+                padding: 30px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+            }
+
+            .two-col-section > div:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-color: rgba(125, 186, 92, 0.3);
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .twocol-text {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+
+            .left-col, .right-col {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-col > div, .right-col > div {
+                background: rgba(255, 255, 255, 0.02);
+                padding: 25px;
+                border-radius: 8px;
+                border-left: 3px solid rgba(125, 186, 92, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .left-col > div:hover, .right-col > div:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-left-color: #7dba5c;
+                transform: translateX(5px);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .blog-details {
+                padding: 30px 0;
+            }
+
+            .section {
+                margin: 40px 0;
+            }
+
+            .text-image-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+                margin: 60px 0;
+            }
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .text-content ul {
+                padding-left: 20px;
+                list-style: disc;
+            }
+
+            .text-content ul li {
+                margin-bottom: 8px;
+                color: #b8b8b8;
+            }
+
+            .image-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .image-content img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+
+            .custom-right-div {
+                display: block;
+                margin: 20px 0;
+            }
+
+            .nda-notice {
+                background-color: rgba(255, 193, 7, 0.1);
+                border-left: 4px solid #ffc107;
+                padding: 15px 20px;
+                margin: 30px 0;
+                border-radius: 4px;
+            }
+
+            .nda-notice p {
+                margin: 0;
+                color: #ffc107;
+                font-size: 14px;
+            }
+
+            /* Tablet Breakpoint (1024px) */
+            @media (max-width: 1024px) {
+                .blog-details {
+                    padding: 25px 0;
+                }
+
+                .s1-s2 {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+
+                .col1, .col2, .col3 {
+                    flex: 0 0 calc(50% - 10px);
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                }
+
+                .heading-sub-2 {
+                    font-size: 16px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 28px;
+                }
+
+                .text-image-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* Mobile Breakpoint (768px) */
+            @media (max-width: 768px) {
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 20px 0;
+                }
+
+                .blog-top {
+                    padding: 20px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 24px;
+                    margin: 20px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 12px;
+                    word-break: break-word;
+                }
+
+                .post-details {
+                    font-size: 11px;
+                    display: block;
+                    margin-top: 15px;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                    margin: 30px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 15px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                    margin: 40px 0;
+                }
+
+                .left-col > div, .right-col > div {
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #f5f5f5;
+                }
+
+                .main-heading {
+                    font-size: 28px;
+                    padding-bottom: 20px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 14px;
+                }
+
+                p {
+                    font-size: 14px;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 15px;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    margin: 20px 0;
+                }
+
+                .custom-right-div {
+                    margin: 15px 0;
+                }
+
+                .section {
+                    margin: 30px 0;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Small Mobile Breakpoint (480px) */
+            @media (max-width: 480px) {
+                .menu {
+                    width: 100%;
+                    position: relative;
+                }
+
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 15px 0;
+                }
+
+                .blog-top {
+                    padding: 15px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 20px;
+                    margin: 15px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .post-details {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    margin: 20px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 10px 0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .main-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                    padding-top: 20px !important;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 18px;
+                    padding-bottom: 10px;
+                    padding-top: 20px !important;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 13px;
+                    padding-bottom: 10px;
+                }
+
+                p {
+                    font-size: 13px;
+                    line-height: 1.5;
+                    margin-bottom: 12px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                }
+
+                img {
+                    margin: 15px 0;
+                }
+
+                .custom-right-div {
+                    margin: 10px 0;
+                }
+
+                .section {
+                    margin: 20px 0;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                div[style*="padding-right"] {
+                    padding-right: 0 !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="blog">
+        <div id="container" class="container"> 
+            <!-- Left Menu / Logo-->
+            <aside class="menu" id="menu">
+                <div class="logo"> 
+                    <!-- Logo image--> 
+                    <img src="../images/logo.png" width="140" height="140" alt=""/> 
+                    <!-- Logo name--> 
+                    <span>Zlatomir Vangelov</span>
+                </div>
+                <!-- Mobile Navigation--> 
+                <a href="#menu1" class="menu-link"></a> 
+                <!-- Left Navigation-->
+                <nav id="menu1" role="navigation"> 
+                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a> 
+                    <a href="../index.html?page=about"><span id="link_about">About</span></a> 
+                    <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a> 
+                    <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a> 
+                    <a href="../index.html?page=education"><span id="link_education">Education</span></a> 
+                    <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                    <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+                </nav>
+                <div class="social"> 
+                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
+                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
+                    <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a> 
+                </div>
+                <div class="copyright"> &copy; Zlatomir Vangelov.<br>All Rights Reserved. </div>
+            </aside>
+
+            <div class="blog-main">
+                <div style="width: 100%;" class="blog-left">
+                    <div class="blog-top">
+                        <div class="blog-title blog-details-title">
+                            <h2>Education Payment Links Re-Design</h2>
+                            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Platform Re-Design</div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-details">
+
+                        <!-- Project Overview -->
+                        <div class="section">
+                            <div style="padding-bottom: 70px;" class="main-heading">Scaling a Digital Payment Platform in a Regulated Environment</div>
+                            <div style="padding-bottom: 30px;" class="heading-sub">Transforming User Experience While Navigating Complex Technical Constraints</div>
+                            <p>This project focused on evolving an existing education payment platform into a more scalable, user-centric solution while operating within strict regulatory and business constraints. The goal was to improve usability, performance, and delivery predictability without disrupting live customers or core business operations across thousands of client implementations.</p>
+                            <p>As Product Owner, I was responsible for maximizing product value while balancing business objectives, technical constraints, and user needs. I led the end-to-end delivery coordinating cross-functional teams across discovery, design, development, and stakeholder management.</p>
+                        </div>
+
+                        <!-- NDA Notice -->
+                        <div class="nda-notice">
+                            <p><strong>⚠️ Confidentiality Notice:</strong> Due to signed non-disclosure agreements, specific company names, exact metrics, proprietary technologies, and internal processes have been anonymized. All details presented accurately reflect the scope, challenges, and outcomes of the project while respecting confidentiality requirements.</p>
+                        </div>
+
+                        <!-- Project Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-icon">📅</span>
+                                <span class="stat-number">4-5</span>
+                                <span class="stat-label">Months</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">👥</span>
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Team Members</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">🔗</span>
+                                <span class="stat-number">1000s</span>
+                                <span class="stat-label">Client Links</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">✅</span>
+                                <span class="stat-number">80%</span>
+                                <span class="stat-label">Test Coverage</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack -->
+                        <div style="margin-top: 50px;">
+                            <div style="padding-bottom: 20px; font-size: 18px; font-weight: bold; color: white;">Tools & Practices</div>
+                            <div class="tech-stack">
+                                <span class="tech-pill">Agile/Scrum</span>
+                                <span class="tech-pill">Google Analytics</span>
+                                <span class="tech-pill">HotJar Heat Maps</span>
+                                <span class="tech-pill">User Surveys</span>
+                                <span class="tech-pill">Figma</span>
+                                <span class="tech-pill">QA Automation</span>
+                                <span class="tech-pill">Regression Testing</span>
+                                <span class="tech-pill">Pareto Principle</span>
+                                <span class="tech-pill">User Story Mapping</span>
+                                <span class="tech-pill">Backlog Refinement</span>
+                                <span class="tech-pill">Data-Driven Design</span>
+                            </div>
+                        </div>
+
+                        <!-- Role & Team Composition -->
+                        <div class="s1-s2">
+                            <div class="col1">
+                                <b>Role & Team</b>
+                                <p>Product Owner - Project Lead</p>
+                                <p>5 Developers</p>
+                                <p>3 QA Engineers + 1 Automation</p>
+                                <p>1 UI/UX Designer</p>
+                            </div>
+                            <div class="col2">
+                                <b>Key Deliverables</b>
+                                <p>Low & High Fidelity Prototypes</p>
+                                <p>QA Automation Suite</p>
+                                <p>Front & Back-end Code</p>
+                                <p>Heat Maps & Analytics</p>
+                            </div>
+                            <div class="col3">
+                                <b>Technologies</b>
+                                <p>Google Analytics</p>
+                                <p>HotJar</p>
+                                <p>Figma</p>
+                                <p>Test Automation</p>
+                            </div>
+                            <div class="col3">
+                                <b>Project Duration</b>
+                                <p>September 2023 - January 2024</p>
+                                <p>4-5 Months</p>
+                                <p>Analysis + Development</p>
+                            </div>
+                        </div>
+
+                        <!-- Problem Statement -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Problem Statement</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">The Challenge</div>
+                            <div class="heading-sub-2">The product faced several challenges that limited its ability to scale and deliver value effectively.</div>
+                            <p>The platform offered both APIs and standalone web-based payment solutions to thousands of clients globally. Over the years, this led to a complex web of client-specific customizations that made any global changes extremely risky. The design language was outdated, the user experience was fragmented, and the overall structure created confusion and poor navigation.</p>
+                            <p>The main challenge was finding the best approach with the least amount of effort, risk impact, and time investment while modernizing a system that had accumulated years of technical debt and customizations.</p>
+                        </div>
+
+                        <!-- Key Challenges -->
+                        <div style="padding-top: 50px;" class="twocol-text"> 
+                            <div style="padding-right: 30px;" class="left-col">
+                                 <div>
+                                    <b class="sub-heading2">Conflicting Customizations</b>
+                                    <p style="color: #b8b8b8;">Major changes to payment links were difficult to execute as numerous customizations had been added over years per client request. Global changes had the potential to impact each client's link differently and create bugs. The volume of customizations made developing unified solutions extremely challenging.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Unified Development Approach</b>
+                                    <p style="color: #b8b8b8;">Finding a unified approach for both UI/UX and development perspectives was one of the hardest aspects. Changes to existing UI or elements touched on logic that could create issues across different client implementations. UI/UX designers and engineers had to work closely to maximize impact with minimal resistance.</p>
+                                </div>
+                                 <div>
+                                    <b class="sub-heading2">Quality Assurance Complexity</b>
+                                    <p style="color: #b8b8b8;">Ensuring high quality was challenging due to customization complexity and interdependencies. Every change required extensive testing to verify it didn't introduce unexpected bugs across different client implementations. A robust testing process was necessary, including regression testing, automation, and continuous feedback loops.</p>
+                                 </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">Logic Modifications</b>
+                                    <p style="color: #b8b8b8;">Altering core logic was complex as layers of conditional logic had accumulated to accommodate different client needs and edge cases. Changes in one area could have unexpected repercussions elsewhere, making updates riskier and more time-consuming. Any modification required careful analysis to prevent disruptions.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Client Approval Processes</b>
+                                    <p style="color: #b8b8b8;">The system was heavily customized for individual clients, requiring careful approval processes for updates. Different requirements meant even minor changes could impact workflows. A structured approval pipeline ensured stakeholders reviewed and tested updates before deployment, balancing innovation with stability.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Technical Debt</b>
+                                    <p style="color: #b8b8b8;">Years of accumulated technical decisions and quick fixes had created a system where the intricate nature of logic and UI components made any change potentially risky. Managing this debt while delivering new features required strategic prioritization and careful change management.</p>
+                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- User Pain Points -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">User Pain Points</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Understanding User Problems</div>
+                            <div class="heading-sub-2">The re-design addressed large pain points that users were facing, including fragmented user experience and limited insight into user needs.</div>
+                        </div>
+
+                        <div style="padding-top: 50px;" class="twocol-text"> 
+                            <div style="padding-right: 30px;" class="left-col">
+                                 <div>
+                                    <b class="sub-heading2">Scattered User Attention</b>
+                                    <p style="color: #b8b8b8;">Unorganized elements throughout pages directed user attention to non-important areas rather than key ones, creating poor user experience. The lack of visual hierarchy and information architecture made it difficult for users to complete their payment tasks efficiently.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Outdated Design Language</b>
+                                    <p style="color: #b8b8b8;">The design language was outdated and didn't cover fundamental principles and rules for modern web-based development. This resulted in an interface that felt dated and untrustworthy, impacting user confidence in completing financial transactions.</p>
+                                </div>
+                                 <div>
+                                    <b class="sub-heading2">Style Guide Misalignments</b>
+                                    <p style="color: #b8b8b8;">The design lacked cohesive visual identity with inconsistent fonts, colors, and UI components across sections. This inconsistency caused confusion and reduced trust in the platform. A unified design system was needed to ensure brand consistency and a polished user experience.</p>
+                                 </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">Misleading User Journey</b>
+                                    <p style="color: #b8b8b8;">Users weren't fully informed of key details throughout the user flow, leading to excessive account creation and a larger need for customer support. The lack of clear communication and progressive disclosure created frustration and abandonment.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Inconsistent Device Performance</b>
+                                    <p style="color: #b8b8b8;">The design wasn't optimized for various screen sizes and devices, leading to inconsistent performance on mobile and tablet platforms. This resulted in poor user experience with slower load times and unresponsive elements, making it difficult to interact effectively across devices.</p>
+                                 </div>
+                                 <div>
+                                    <b class="sub-heading2">Limited Feature Impact Insight</b>
+                                    <p style="color: #b8b8b8;">There was limited visibility into which features were actually being used and which were causing friction. This made it difficult to prioritize improvements and measure the impact of changes, leading to decisions based on assumptions rather than data.</p>
+                                 </div>
+                            </div>
+                        </div>
+
+                        <img style="padding-top: 50px;" src="../images/rede-fig1.png" alt="User Pain Points Visualization">
+
+                        <!-- What I Did -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">My Role & Responsibilities</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">What I Did</div>
+                            <div class="heading-sub-2">As Product Owner, I was responsible for maximizing product value while balancing business objectives, technical constraints, and user needs.</div>
+                        </div>
+
+                        <div style="padding-top: 50px;" class="twocol-text">
+                            <div style="padding-right: 30px;" class="left-col">
+                                <div>
+                                    <b class="sub-heading2">Product Discovery & Alignment</b>
+                                    <p style="color: #b8b8b8;">Collaborated with stakeholders to define a shared product vision and success criteria. Mapped user journeys to identify pain points and opportunities. Worked with UX to validate assumptions through heat maps, analytics, and user surveys. Introduced clearer acceptance criteria to reduce ambiguity and rework.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Backlog & Delivery Management</b>
+                                    <p style="color: #b8b8b8;">Re-structured the backlog around user outcomes rather than feature lists. Introduced prioritization frameworks using the Pareto principle to improve focus and transparency. Balanced short-term delivery needs with longer-term platform improvements while proactively managing dependencies and delivery risks.</p>
+                                </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">Stakeholder & Team Collaboration</b>
+                                    <p style="color: #b8b8b8;">Acted as the bridge between business, technical teams, and clients. Communicated progress and trade-offs clearly and transparently. Fostered a collaborative, outcome-focused delivery culture. Led sprint planning, reviews, and backlog refinement sessions ensuring all team members were aligned.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Data-Driven Decision Making</b>
+                                    <p style="color: #b8b8b8;">Prioritized work using data from Google Analytics, HotJar heat maps, and user feedback. Ensured solution propositions were backed by analytics and statistics before committing development resources. Used insights to identify key elements creating clutter and problematic user experiences.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The Process -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">The Process</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">How We Approached It</div>
+                            <div class="heading-sub-2">A systematic, data-driven approach to modernizing a complex legacy system.</div>
+                        </div>
+
+                        <div style="padding-top: 50px;">
+                            <b class="sub-heading2">Step One: Taking in Metrics</b>
+                            <p style="color: #b8b8b8;">Prior to looking for solutions, we ensured our proposition was backed by analytics and statistics. We analyzed heat maps to understand how users interacted with our product and reviewed statistical data using Google Analytics.</p>
+                            <p style="color: #b8b8b8;">Based on results, we identified key elements creating clutter, confusion, and problematic user experiences, as well as elements that were most focused on. From our research, we distilled the three most important factors and used them to create a balanced and intuitive design language.</p>
+                        </div>
+
+                        <img style="padding-top: 50px; padding-bottom: 50px;" src="../images/rede-fig2.png" alt="Analytics and Heat Maps">
+                        <img style="padding-bottom: 50px;" src="../images/rede-fig3.png" alt="User Interaction Patterns">
+
+                        <div>
+                            <div class="custom-right-div">
+                                <b class="sub-heading2">Step Two: User Feedback</b>
+                                <p style="color: #b8b8b8;">Through customer support teams and employed surveys, we gathered quantitative and detailed user feedback. After gathering feedback, we spotted consistent patterns of dissatisfaction and made it a priority to listen closely and respond directly to user needs.</p>
+                            </div>
+                            <div class=""> <img src="../images/rede-fig5.png" alt="User Feedback Collection"> </div>
+                            <p style="color: #b8b8b8;">To gather user feedback, we implemented feedback forms presented to users just before completing their payment process. In parallel, our customer support team actively collected insights by asking users for general feedback during support interactions.</p>
+                        </div>
+
+                        <div>
+                            <div style="padding-top: 20px;" class="custom-right-div">
+                                <b class="sub-heading2">Step Three: Competitor Analysis</b>
+                                <img class="compa" src="../images/compa.png" alt="Competitor Analysis">
+                                <p style="color: #b8b8b8;">We conducted thorough competitor analysis, reviewing similar platforms across the industry to identify best practices, usability patterns, and areas where competitors offered stronger user experience. We focused on layout design, user flows, feature sets, and overall user engagement. These insights helped us benchmark our product and identify key opportunities for differentiation and improvement.</p>
+                            </div>
+                        </div>
+
+                        <!-- The Solution -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">The Solution</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Design Process and Implementation</div>
+                            <div class="heading-sub-2">After analyzing data, we began the development process with careful planning and tight team alignment.</div>
+                        </div>
+
+                        <div class="text-image-section">
+                            <div class="text-content">
+                                <div style="padding-bottom: 30px;" class="heading-sub">Internal Alignment</div>
+                                <p style="color: #b8b8b8;">At development kickoff, tight alignment between QA and developers was crucial given the features, pages, and numerous links to be tested. The QA team used automations to optimize the testing phase, working hand-in-hand with development.</p>
+                                <p style="color: #b8b8b8;">All re-designed pages went directly into manual testing for features and automation testing to review how they handled across thousands of links created.</p>
+                                <p style="color: #b8b8b8;">Ideally, our goal was to achieve 100% coverage across all payment portal links. However, due to high volume of client-specific portals, we adopted the Pareto principle (80/20 rule) to prioritize testing efforts, focusing on frequently used and business-critical portals.</p>
+                            </div>
+                            <div class="image-content">
+                                <img src="../images/i1.png" alt="Internal Team Alignment">
+                            </div>
+                        </div>
+
+                        <div class="two-col-section">
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Exception Handling</div>
+                                <p style="color: #b8b8b8;">It was critically important to understand how changes impacted customizations and exceptions. Through manual work, we compiled a descriptive list taken into account by the QA team, ensuring we had visibility into variations across client implementations.</p>
+                            </div>
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Client Alignment</div>
+                                <p style="color: #b8b8b8;">Unable to map all exceptions and customizations, we requested direct client feedback. We sent a global ask to all clients to review and monitor their platforms after Go Live, ensuring rapid issue identification and resolution.</p>
+                            </div>
+                        </div>
+
+                        <!-- Outcomes & Impact -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Outcomes & Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Results Delivered</div>
+                            <div class="heading-sub-2">While specific metrics cannot be disclosed, the project delivered measurable improvements.</div>
+                        </div>
+
+                        <div style="padding-top: 30px;" class="twocol-text">
+                            <div style="padding-right: 30px;" class="left-col">
+                                <div>
+                                    <b class="sub-heading2">Predictable Delivery</b>
+                                    <p style="color: #b8b8b8;">Achieved more predictable delivery and improved sprint outcomes through better planning, prioritization, and risk management. The structured approach reduced surprises and allowed for better resource allocation.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Reduced Rework</b>
+                                    <p style="color: #b8b8b8;">Significantly reduced rework through clearer requirements and earlier alignment between design, development, and QA. The investment in discovery and planning paid dividends in reduced defects and faster delivery.</p>
+                                </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">Improved User Experience</b>
+                                    <p style="color: #b8b8b8;">Delivered improved user experience across core workflows with modernized design language, clearer user journeys, and better performance across devices. User feedback indicated increased satisfaction and reduced support needs.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Scalable Foundation</b>
+                                    <p style="color: #b8b8b8;">Established a scalable product foundation to support future growth. The improved architecture and processes make it easier to implement changes and roll out new features without impacting existing client customizations.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Learnings -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Key Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">What I Learned</div>
+                            <div class="heading-sub-2">Critical insights from navigating complex system modernization in a regulated environment.</div>
+                        </div>
+
+                        <div class="text-content">
+                            <ul>
+                                <li><strong>Clear problem framing often delivers more value than detailed solutions upfront</strong> - Investing time in truly understanding the problem space prevented wasted effort on wrong solutions.</li>
+                                <li><strong>Early discovery significantly reduces delivery risk</strong> - The upfront investment in analytics, user research, and competitor analysis paid massive dividends in avoiding costly mistakes.</li>
+                                <li><strong>Transparent prioritization builds trust, even when saying "no"</strong> - Being clear about why certain things weren't prioritized helped manage stakeholder expectations and build credibility.</li>
+                                <li><strong>Strong collaboration between product, design, and engineering accelerates outcomes</strong> - Breaking down silos and fostering continuous communication was essential to success.</li>
+                                <li><strong>Data-informed decisions are essential in regulated environments</strong> - Having concrete data to back decisions helped navigate complex compliance and business constraints.</li>
+                                <li><strong>Change management is as important as technical delivery</strong> - Managing client expectations and coordinating approvals was as critical as the technical work itself.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Why This Matters -->
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Why This Project Matters</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Strategic Importance</div>
+                            <p>This case study highlights my approach as a Product Owner: <strong>outcome-driven, collaborative, and pragmatic</strong>, with a focus on delivering value while navigating real-world constraints.</p>
+                            <p>It demonstrates the ability to lead complex platform modernization efforts in regulated environments where technical debt, customizations, and stakeholder management present significant challenges. The project showcases strategic thinking, user-centricity, and the ability to balance innovation with stability in delivering measurable business value.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script> 
+        <script type="text/javascript" src="../js/head.min.js"></script>
+        <!-- Portfolio Slider--> 
+        <script type="text/javascript"  src="../js/carousel.js"></script> 
+        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="../js/settings-blog.js"></script>
+    </body>
+</html>
