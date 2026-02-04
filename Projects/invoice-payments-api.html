@@ -1,70 +1,1271 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-    <title>TransferMate - Invoice Payments API</title>
-    <link rel="shortcut icon" href="../favicon.ico">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <title>TransferMate Education Invoice Payments API - Case Study</title>
+        <link rel="shortcut icon" href="../favicon.ico">
 
-    <!-- Google Font-->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
-    <!-- Design Style -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
-    <link rel="stylesheet" type="text/css" href="../css/carousel.css">
-    <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
-    <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
-  </head>
-  <body class="blog">
-    <div id="container" class="container">
-      <aside class="menu" id="menu">
-        <div class="logo"> 
-          <img src="../images/logo.png" width="140" height="140" alt=""/>
-          <span>Zlatomir Vangelov</span>
-        </div>
-        <a href="#menu1" class="menu-link"></a>
-        <nav id="menu1" role="navigation">
-          <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
-          <a href="../index.html?page=about"><span id="link_about">About</span></a>
-          <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
-          <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
-          <a href="../index.html?page=education"><span id="link_education">Education</span></a>
-          <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
-          <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
-          <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
-        </nav>
-        <div class="social">
-          <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-          <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
-        </div>
-        <div class="copyright"> &copy; Zlatomir Vangelov.<br> All Rights Reserved. </div>
-      </aside>
+        <!-- Google Font-->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+        <!-- Design Style -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+        <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+        <!-- Icon -->
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+        <!-- Responsive -->
+        <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+        <style>
+            /* Base Mobile Responsive Styles */
+            * {
+                box-sizing: border-box;
+            }
 
-      <div class="blog-main">
-        <div style="width: 100%;" class="blog-left">
-          <div class="blog-top">
-            <div class="blog-title blog-details-title">
-              <h2>TransferMate - Invoice Payments API</h2>
-              <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Invoice Payments API</div>
+            .s1-s2 {
+                display: flex;
+                gap: 30px;
+                margin: 40px 0;
+                flex-wrap: nowrap;
+            }
+
+            .col1, .col2, .col3 {
+                flex: 0 0 calc(25% - 22.5px);
+                min-width: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                background: rgba(255, 255, 255, 0.02);
+                padding: 25px;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+            }
+
+            .col1:hover, .col2:hover, .col3:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-color: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .col1 b, .col2 b, .col3 b {
+                display: block;
+                margin-bottom: 15px;
+                word-break: break-word;
+                color: #7dba5c;
+                font-size: 16px;
+                border-bottom: 2px solid rgba(125, 186, 92, 0.2);
+                padding-bottom: 10px;
+            }
+
+            .col1 p, .col2 p, .col3 p {
+                margin: 0;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                line-height: 1.8;
+                color: #b8b8b8;
+            }
+
+            .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) {
+                margin-bottom: 8px;
+            }
+
+            /* Stats Cards */
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin: 40px 0;
+            }
+
+            .stat-card {
+                background: linear-gradient(135deg, rgba(125, 186, 92, 0.1) 0%, rgba(125, 186, 92, 0.02) 100%);
+                border: 1px solid rgba(125, 186, 92, 0.2);
+                border-radius: 12px;
+                padding: 25px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .stat-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(125, 186, 92, 0.2);
+                border-color: rgba(125, 186, 92, 0.4);
+            }
+
+            .stat-icon {
+                font-size: 32px;
+                margin-bottom: 15px;
+                display: block;
+            }
+
+            .stat-number {
+                font-size: 28px;
+                font-weight: bold;
+                color: #7dba5c;
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+                color: #999;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            /* Tech Stack Pills */
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 30px 0;
+            }
+
+            .tech-pill {
+                background: rgba(125, 186, 92, 0.15);
+                color: #7dba5c;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 13px;
+                border: 1px solid rgba(125, 186, 92, 0.3);
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+            .tech-pill:hover {
+                background: rgba(125, 186, 92, 0.25);
+                border-color: rgba(125, 186, 92, 0.5);
+                transform: translateY(-2px);
+            }
+
+            /* Timeline */
+            .timeline {
+                position: relative;
+                margin: 50px 0;
+                padding-left: 40px;
+            }
+
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: linear-gradient(180deg, #7dba5c 0%, rgba(125, 186, 92, 0.2) 100%);
+            }
+
+            .timeline-item {
+                position: relative;
+                margin-bottom: 40px;
+                padding: 20px 25px;
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 8px;
+                border-left: 3px solid rgba(125, 186, 92, 0.4);
+                transition: all 0.3s ease;
+            }
+
+            .timeline-item:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-left-color: #7dba5c;
+                transform: translateX(5px);
+            }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: -43px;
+                top: 25px;
+                width: 12px;
+                height: 12px;
+                background: #7dba5c;
+                border-radius: 50%;
+                border: 3px solid #1a1a1a;
+                box-shadow: 0 0 15px rgba(125, 186, 92, 0.6);
+            }
+
+            .timeline-date {
+                color: #7dba5c;
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+
+            .timeline-title {
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+            .timeline-desc {
+                color: #b8b8b8;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            /* Progress Bars */
+            .progress-item {
+                margin: 25px 0;
+            }
+
+            .progress-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+
+            .progress-label {
+                color: white;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .progress-percentage {
+                color: #7dba5c;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .progress-bar-container {
+                width: 100%;
+                height: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .progress-bar-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #7dba5c 0%, #6ba84e 100%);
+                border-radius: 10px;
+                transition: width 1.5s ease;
+                box-shadow: 0 0 10px rgba(125, 186, 92, 0.5);
+            }
+
+            /* Deliverables Checklist */
+            .checklist {
+                margin: 30px 0;
+            }
+
+            .checklist-item {
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                margin-bottom: 10px;
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 6px;
+                border-left: 3px solid #4caf50;
+                transition: all 0.3s ease;
+            }
+
+            .checklist-item:hover {
+                background: rgba(255, 255, 255, 0.04);
+                transform: translateX(5px);
+            }
+
+            .checklist-icon {
+                color: #4caf50;
+                font-size: 20px;
+                margin-right: 15px;
+                min-width: 20px;
+            }
+
+            .checklist-text {
+                color: #b8b8b8;
+                font-size: 14px;
+                flex: 1;
+            }
+
+            .checklist-status {
+                background: rgba(76, 175, 80, 0.2);
+                color: #4caf50;
+                padding: 4px 12px;
+                border-radius: 12px;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            /* Process Flow */
+            .process-flow {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                margin: 40px 0;
+                position: relative;
+            }
+
+            .process-step {
+                background: rgba(255, 255, 255, 0.02);
+                border: 2px solid rgba(125, 186, 92, 0.2);
+                border-radius: 10px;
+                padding: 25px 20px;
+                text-align: center;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .process-step:hover {
+                background: rgba(125, 186, 92, 0.05);
+                border-color: rgba(125, 186, 92, 0.5);
+                transform: scale(1.05);
+            }
+
+            .process-number {
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, #7dba5c 0%, #6ba84e 100%);
+                color: #1a1a1a;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 18px;
+                margin: 0 auto 15px;
+            }
+
+            .process-title {
+                color: white;
+                font-size: 15px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .process-desc {
+                color: #999;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            /* Impact Cards with Before/After */
+            .impact-comparison {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 20px;
+                align-items: center;
+                margin: 30px 0;
+                padding: 25px;
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .impact-before, .impact-after {
+                text-align: center;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .impact-before {
+                background: rgba(244, 67, 54, 0.1);
+                border: 1px solid rgba(244, 67, 54, 0.3);
+            }
+
+            .impact-after {
+                background: rgba(76, 175, 80, 0.1);
+                border: 1px solid rgba(76, 175, 80, 0.3);
+            }
+
+            .impact-arrow {
+                color: #7dba5c;
+                font-size: 32px;
+            }
+
+            .impact-label {
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            .impact-before .impact-label {
+                color: #f44336;
+            }
+
+            .impact-after .impact-label {
+                color: #4caf50;
+            }
+
+            .impact-value {
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .impact-description {
+                font-size: 12px;
+                color: #999;
+                margin-top: 8px;
+            }
+
+            .two-col-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                margin: 60px 0;
+            }
+
+            .two-col-section > div {
+                background: rgba(255, 255, 255, 0.02);
+                padding: 30px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.3s ease;
+            }
+
+            .two-col-section > div:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-color: rgba(125, 186, 92, 0.3);
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .twocol-text {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+
+            .left-col, .right-col {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-col > div, .right-col > div {
+                background: rgba(255, 255, 255, 0.02);
+                padding: 25px;
+                border-radius: 8px;
+                border-left: 3px solid rgba(125, 186, 92, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .left-col > div:hover, .right-col > div:hover {
+                background: rgba(255, 255, 255, 0.04);
+                border-left-color: #7dba5c;
+                transform: translateX(5px);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .blog-details {
+                padding: 30px 0;
+            }
+
+            .section {
+                margin: 40px 0;
+            }
+
+            .text-image-section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+                margin: 60px 0;
+            }
+
+            .text-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .text-content ul {
+                padding-left: 20px;
+                list-style: disc;
+            }
+
+            .text-content ul li {
+                margin-bottom: 8px;
+            }
+
+            .image-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .image-content img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+
+            .custom-right-div {
+                display: block;
+                margin: 20px 0;
+            }
+
+            .nda-notice {
+                background-color: rgba(255, 193, 7, 0.1);
+                border-left: 4px solid #ffc107;
+                padding: 15px 20px;
+                margin: 30px 0;
+                border-radius: 4px;
+            }
+
+            .nda-notice p {
+                margin: 0;
+                color: #ffc107;
+                font-size: 14px;
+            }
+
+            /* Tablet Breakpoint (1024px) */
+            @media (max-width: 1024px) {
+                .blog-details {
+                    padding: 25px 0;
+                }
+
+                .s1-s2 {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+
+                .col1, .col2, .col3 {
+                    flex: 0 0 calc(50% - 10px);
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                }
+
+                .heading-sub-2 {
+                    font-size: 16px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 28px;
+                }
+
+                .text-image-section {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .process-flow {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+
+                .impact-comparison {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+
+                .impact-arrow {
+                    transform: rotate(90deg);
+                }
+            }
+
+            /* Mobile Breakpoint (768px) */
+            @media (max-width: 768px) {
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 20px 0;
+                }
+
+                .blog-top {
+                    padding: 20px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 24px;
+                    margin: 20px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 12px;
+                    word-break: break-word;
+                }
+
+                .post-details {
+                    font-size: 11px;
+                    display: block;
+                    margin-top: 15px;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                    margin: 30px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 15px;
+                    border-bottom: 1px solid #f0f0f0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                .two-col-section {
+                    grid-template-columns: 1fr;
+                    gap: 25px;
+                    margin: 40px 0;
+                }
+
+                .left-col > div, .right-col > div {
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #f5f5f5;
+                }
+
+                .main-heading {
+                    font-size: 28px;
+                    padding-bottom: 20px;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 14px;
+                }
+
+                p {
+                    font-size: 14px;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 15px;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                img {
+                    margin: 20px 0;
+                }
+
+                .custom-right-div {
+                    margin: 15px 0;
+                }
+
+                .section {
+                    margin: 30px 0;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .process-flow {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .timeline {
+                    padding-left: 25px;
+                }
+
+                .tech-stack {
+                    justify-content: center;
+                }
+            }
+
+            /* Small Mobile Breakpoint (480px) */
+            @media (max-width: 480px) {
+                .menu {
+                    width: 100%;
+                    position: relative;
+                }
+
+                .blog-main {
+                    width: 100% !important;
+                }
+
+                .blog-details {
+                    padding: 15px 0;
+                }
+
+                .blog-top {
+                    padding: 15px 0;
+                }
+
+                .blog-title h2 {
+                    font-size: 20px;
+                    margin: 15px 0;
+                }
+
+                .breadcrumbs {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .post-details {
+                    font-size: 10px;
+                    display: none;
+                }
+
+                .s1-s2 {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    margin: 20px 0;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 10px 0;
+                }
+
+                .twocol-text {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .main-heading {
+                    font-size: 22px;
+                    padding-bottom: 15px;
+                    padding-top: 20px !important;
+                }
+
+                .main-heading-2, .unique-heading {
+                    font-size: 18px;
+                    padding-bottom: 10px;
+                    padding-top: 20px !important;
+                }
+
+                .heading-sub, .heading-sub-2 {
+                    font-size: 13px;
+                    padding-bottom: 10px;
+                }
+
+                p {
+                    font-size: 13px;
+                    line-height: 1.5;
+                    margin-bottom: 12px;
+                }
+
+                .sub-heading2, b {
+                    font-size: 14px;
+                    margin-bottom: 8px;
+                }
+
+                img {
+                    margin: 15px 0;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+
+                .stat-card {
+                    padding: 20px;
+                }
+
+                .process-flow {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+
+                .col1, .col2, .col3 {
+                    padding: 15px;
+                }
+
+                .custom-right-div {
+                    margin: 10px 0;
+                }
+
+                .section {
+                    margin: 20px 0;
+                }
+
+                .left-col, .right-col {
+                    padding: 0;
+                }
+
+                div[style*="padding-right"] {
+                    padding-right: 0 !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="blog">
+        <div id="container" class="container"> 
+            <!-- Left Menu / Logo-->
+            <aside class="menu" id="menu">
+                <div class="logo"> 
+                    <!-- Logo image--> 
+                    <img src="../images/logo.png" width="140" height="140" alt=""/> 
+                    <!-- Logo name--> 
+                    <span>Zlatomir Vangelov</span>
+                </div>
+                <!-- Mobile Navigation--> 
+                <a href="#menu1" class="menu-link"></a> 
+                <!-- Left Navigation-->
+                <nav id="menu1" role="navigation"> 
+                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a> 
+                    <a href="../index.html?page=about"><span id="link_about">About</span></a> 
+                    <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a> 
+                    <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a> 
+                    <a href="../index.html?page=education"><span id="link_education">Education</span></a> 
+                    <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                    <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+                </nav>
+                <div class="social"> 
+                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
+                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
+                    <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a> 
+                </div>
+                <div class="copyright"> &copy; Zlatomir Vangelov.<br>All Rights Reserved. </div>
+            </aside>
+
+            <div class="blog-main">
+                <div style="width: 100%;" class="blog-left">
+                    <div class="blog-top">
+                        <div class="blog-title blog-details-title" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div>
+                                <h2>TransferMate Education Invoice Payments API</h2>
+                                <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Invoice Payments API</div>
+                            </div>
+                            <!-- Client Logo - Top Right -->
+                            <div style="text-align: right;">
+                                <a href="https://transfermateeducation.com/" target="_blank" style="text-decoration: none;">
+                                    <img src="../images/logo-big.png" alt="TransferMate Education" style="max-width: 140px; height: auto; opacity: 0.6;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-details">
+
+                        <div class="section">
+                            <div style="padding-bottom: 70px;" class="main-heading">B2B Invoice Payments API</div>
+                            <div style="padding-bottom: 30px;" class="heading-sub">Building a New Payment API Using Existing Systems as Reference</div>
+                            <p>This project involved building a completely new payment API for B2B invoice payments, using the existing individual payment system as reference for architecture and business logic. The Invoice Payment API enables companies and agencies to pay universities and institutions via invoice numbers, creating a parallel system for agency-centric B2B invoice-based payments.</p>
+                            <p>As Product Owner, I led the design and development of a new payment API architecture, creating data models, payment logic, FX conversion rules, and system integrations specifically for the B2B workflow. The project required building a parallel system that handles payer identification, margin calculations, payment method filtering, and CRM integration while referencing the existing individual payment flows for consistency.</p>
+                        </div>
+
+                        <div class="nda-notice">
+                            <p><strong>⚠️ Note:</strong> This case study focuses on the public API documentation and publicly available features. Specific implementation details and internal architectural decisions remain confidential.</p>
+                        </div>
+
+                        <!-- Project Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-icon">🔄</span>
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">API Versions</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">🏛️</span>
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Partner Agencies</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">💳</span>
+                                <span class="stat-number">Multiple Methods</span>
+                                <span class="stat-label">Payment Methods</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">💰</span>
+                                <span class="stat-number">100M+</span>
+                                <span class="stat-label">Transactions Processed</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack -->
+                        <div style="margin-top: 50px;">
+                            <div style="padding-bottom: 20px; font-size: 18px; font-weight: bold; color: white;">Core API Features & Architecture</div>
+                            <div class="tech-stack">
+                                <span class="tech-pill">Invoice-Based Payments</span>
+                                <span class="tech-pill">B2B Transactions</span>
+                                <span class="tech-pill">Multiple Payment Methods</span>
+                                <span class="tech-pill">Agency-to-University</span>
+                                <span class="tech-pill">Custom Margin System</span>
+                                <span class="tech-pill">FX Conversion Logic</span>
+                                <span class="tech-pill">CRM Integration</span>
+                                <span class="tech-pill">Beneficiary Management</span>
+                                <span class="tech-pill">Transact Model</span>
+                                <span class="tech-pill">Partner Onboarding</span>
+                                <span class="tech-pill">Payment Method Filtering</span>
+                                <span class="tech-pill">Reference Number Generation</span>
+                            </div>
+                        </div>
+
+                        <div class="s1-s2">
+                            <div class="col1">
+                                <b>API Transformation</b>
+                                <p>From Individual (C2B)</p>
+                                <p>To Agency-Centric (B2B)</p>
+                                <p>Invoice-Based Payments</p>
+                            </div>
+                            <div class="col2">
+                                <b>Key Objectives</b>
+                                <p>Remove Individual Data</p>
+                                <p>Support Invoice Numbers</p>
+                                <p>Enable Agency Payments</p>
+                            </div>
+                            <div class="col3">
+                                <b>System Changes</b>
+                                <p>Multiple Payment Methods</p>
+                                <p>Custom Margins</p>
+                                <p>CRM Integration</p>
+                            </div>
+                            <div class="col3">
+                                <b>Scope</b>
+                                <p>New API Design</p>
+                                <p>Web DB Updates</p>
+                                <p>CRM App Modifications</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">The Challenge</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">New API Use Case</div>
+                            <div class="heading-sub-2">The existing payment services and infrastructure were built specifically for individual payments. Building a new B2B invoice payment system required creating entirely separate infrastructure while using the existing system as reference.</div>
+                            <p>The core challenge was building a completely new API from scratch while using the existing individual payment system as architectural reference. The new B2B invoice-payment use case required creating separate data models and payment flows that operate independently from the individual system, while maintaining consistency in areas like FX conversion and CRM integration.</p>
+                            <p>This required careful architectural decisions: designing new payment flows and interfaces with agency-specific parameters, implementing custom per-agency margin calculations, supporting multiple payment methods for invoice payments, creating new FX conversion logic, and extending the TM EDU CRM system to manage agencies as distinct entity types alongside the existing individual system.</p>
+                        </div>
+
+                        <div style="padding-top: 50px;" class="twocol-text"> 
+                            <div style="padding-right: 30px;" class="left-col">
+                                <div>
+                                    <b class="sub-heading2">Creating Separate Data Models for Agency Payments</b>
+                                    <p style="color: #b8b8b8;">The new API was designed specifically for agency information (company name, invoice number, corporate details). This created a clean separation from individual payment data models, allowing each system to operate independently while using the existing infrastructure as reference for consistency.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Payment Method Filtering and Processing Selection</b>
+                                    <p style="color: #b8b8b8;">The new API supports multiple payment methods suitable for B2B invoice transactions, with eligibility rules that ensure appropriate processing for agency payments.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Custom Per-Agency Margin Calculation</b>
+                                    <p style="color: #b8b8b8;">The new API needed to support flexible pricing models for different partner agencies. This required implementing a custom margin system that could apply differential rates based on agency relationships.</p>
+                                </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">New FX Conversion Logic</b>
+                                    <p style="color: #b8b8b8;">The new API required implementing custom FX conversion logic to handle currency conversion for B2B invoice payments. This included automatic currency routing and settlement calculations specifically designed for agency-to-university transactions.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">CRM System Integration for Agency Management</b>
+                                    <p style="color: #b8b8b8;">The TM EDU CRM was built to manage individuals and institutions. We needed to extend it to manage agencies as distinct entity types, creating new windows for API Invoice Payers with corporate information, transaction history, and beneficiary relationships—matching the functionality of individual windows.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Reference Number Generation and Data Differentiation</b>
+                                    <p style="color: #b8b8b8;">API invoice payments needed to be clearly differentiated from individual payments throughout all systems. We introduced new reference numbering logic, data structures, and CRM records that distinguished API invoice transactions from traditional individual payments.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deliverables Checklist -->
+                        <div style="padding-top: 50px;">
+                            <div style="padding-bottom: 30px; font-size: 24px; font-weight: bold; color: white;">Delivered Features & System Changes</div>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">API Invoice Payment Capability - No Individual Data</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Invoice Number Support & Payment Identification</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Payment Method Filtering</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Custom Per-Agency Margin System</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">New FX Conversion Logic</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Payment History Capability (Invoice Payments)</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Reference Number Generation</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">Payment Method Eligibility Rules</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">TM EDU CRM Integration - API Invoice Payers</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <span class="checklist-icon">✓</span>
+                                    <span class="checklist-text">B2B Only (Removed C2B Flow for Invoice Payments)</span>
+                                    <span class="checklist-status">Delivered</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Milestones -->
+                        <div style="margin-top: 60px;">
+                            <div style="padding-bottom: 30px; font-size: 24px; font-weight: bold; color: white;">Implementation Phases</div>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1</div>
+                                    <div class="timeline-title">Requirements Analysis & API Specification</div>
+                                    <div class="timeline-desc">BRD review, API capability design, data mapping, payment flow definition, dual-path architecture design for individual vs agency payments</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2</div>
+                                    <div class="timeline-title">Core API Changes Implementation</div>
+                                    <div class="timeline-desc">Payment flow design, data definition, custom margin system, FX logic development, payment method filtering for invoice payments</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 3</div>
+                                    <div class="timeline-title">Data Model & Database Updates</div>
+                                    <div class="timeline-desc">Web DB schema changes, beneficiary management, agency identification, reference number generation, transaction differentiation</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 4</div>
+                                    <div class="timeline-title">CRM System Integration</div>
+                                    <div class="timeline-desc">API Invoice Payers window creation, agency profile management, transaction linking, CRM file integration for university/agency relationships</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 5</div>
+                                    <div class="timeline-title">Testing & Partner Onboarding</div>
+                                    <div class="timeline-desc">Integration testing, sandbox configuration, partner testing, documentation, training, go-live preparation</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 6</div>
+                                    <div class="timeline-title">Production Deployment & Ongoing Support</div>
+                                    <div class="timeline-desc">Phased rollout to partners, monitoring, performance optimization, issue resolution, maintenance</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- API Flow Process -->
+                        <div style="margin-top: 60px;">
+                            <div style="padding-bottom: 30px; font-size: 24px; font-weight: bold; color: white;">Invoice Payment Processing Flow</div>
+                            <div class="process-flow">
+                                <div class="process-step">
+                                    <div class="process-number">1</div>
+                                    <div class="process-title">Agency Onboarding</div>
+                                    <div class="process-desc">Partner creates agency account with unique payer ID</div>
+                                </div>
+                                <div class="process-step">
+                                    <div class="process-number">2</div>
+                                    <div class="process-title">Beneficiary Setup</div>
+                                    <div class="process-desc">University pre-created in WEB DB with bank details and beneficiary info</div>
+                                </div>
+                                <div class="process-step">
+                                    <div class="process-number">3</div>
+                                    <div class="process-title">Get FX Rates & Methods</div>
+                                    <div class="process-desc">Agency requests FX conversion - system returns available payment methods</div>
+                                </div>
+                                <div class="process-step">
+                                    <div class="process-number">4</div>
+                                    <div class="process-title">Submit Payment</div>
+                                    <div class="process-desc">Agency submits invoice payment with invoice number, no individual data required</div>
+                                </div>
+                                <div class="process-step">
+                                    <div class="process-number">5</div>
+                                    <div class="process-title">Payment Processing</div>
+                                    <div class="process-desc">Custom margin applied, reference number generated, payment initiated</div>
+                                </div>
+                                <div class="process-step">
+                                    <div class="process-number">6</div>
+                                    <div class="process-title">CRM & Settlement</div>
+                                    <div class="process-desc">Transaction linked to agency in CRM, settlement processed to university bank account</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Key Implementation Details</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">How It Works</div>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                                <div>
+                                    <b class="sub-heading2">Dual-Path API Architecture</b>
+                                    <p style="color: #b8b8b8;">The new API provides dedicated capabilities for invoice payments with agency-specific parameters. The system processes invoice payments separately from individual payments, using different data models and validation rules while referencing existing patterns for consistency.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Agency Unique Identification</b>
+                                    <p style="color: #b8b8b8;">Agencies are identified by the combination of (Web Login ID + Payer Unique ID), which ensures uniqueness across partners. The CRM system checks if an agency already exists using this criteria and either creates a new agency file or reuses the existing one, preventing duplicate records.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Payment Method Selection Logic</b>
+                                    <p style="color: #b8b8b8;">When an agency requests FX rates through the new API, the system returns available payment methods based on eligibility rules for invoice transactions.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Margin Calculation Engine</b>
+                                    <p style="color: #b8b8b8;">The margin system supports custom pricing for specific agency partnerships with fallback to default rates, enabling partners to negotiate different pricing structures based on business relationships.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">FX Conversion Logic</b>
+                                    <p style="color: #b8b8b8;">The new API implements automated currency conversion logic with fallback mechanisms to ensure transactions can be processed regardless of geographic coverage limitations.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">CRM Integration Points</b>
+                                    <p style="color: #b8b8b8;">Extended the TM EDU CRM APP with a new "API Invoice Payers" window specifically for managing agencies. This creates a separate management interface for corporate payers alongside the existing individual system.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Reference Number Generation</b>
+                                    <p style="color: #b8b8b8;">Invoice payments use unique reference numbering that clearly identifies them as B2B transactions, helping with reconciliation and tracking across systems.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Beneficiary Pre-Creation Process</b>
+                                    <p style="color: #b8b8b8;">Universities must be pre-configured with complete institutional and banking information before accepting invoice payments. The new API validates this data independently from the individual payment system.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Risk Management & Compliance</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Risk Management</div>
+                        </div>
+
+                        <div style="padding-top: 50px;" class="twocol-text"> 
+                            <div style="padding-right: 30px;" class="left-col">
+                                <div>
+                                    <b class="sub-heading2">False Company Details Risk</b>
+                                    <p style="color: #b8b8b8;">Agency verification processes and compliance checks are implemented to ensure data accuracy and prevent fraudulent activity, with partners responsible for initial verification and ongoing monitoring.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Beneficiary Onboarding Requirements</b>
+                                    <p style="color: #b8b8b8;">Geographic coverage limitations are managed through clear documentation of supported regions and ongoing expansion of banking partnerships to increase global reach.</p>
+                                </div>
+                            </div>
+                            <div class="right-col">
+                                <div>
+                                    <b class="sub-heading2">Reference Number Length Validation</b>
+                                    <p style="color: #b8b8b8;">The API validates reference numbers to ensure compatibility with banking systems, providing clear error messages and guidance when adjustments are needed.</p>
+                                </div>
+                                <div>
+                                    <b class="sub-heading2">Compliance Advantage Requirements</b>
+                                    <p style="color: #b8b8b8;">Both institutional customers and agency partners require proper compliance onboarding with automated workflows and documentation processes to ensure regulatory compliance.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Key Outcomes</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Success Summary</div>
+                        </div>
+
+                        <div class="two-col-section">
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Comprehensive API Delivered</div>
+                                <p style="color: #b8b8b8;">Successfully delivered a complete, production-ready REST API for invoice-based payment processing. The API abstracted complex payment logic while remaining developer-friendly and easy to integrate.</p>
+                            </div>
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Global Payment Support</div>
+                                <p style="color: #b8b8b8;">The API enables institutions to accept payments in multiple currencies (USD, EUR, GBP, AUD, BRL, CAD) with real-time FX conversion, supporting truly global educational institutions and international populations.</p>
+                            </div>
+                        </div>
+
+                        <div class="two-col-section">
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Developer Experience</div>
+                                <p style="color: #b8b8b8;">Comprehensive API documentation, sandbox testing environment, clear error messages, and real-time webhook support make it easy for developers to integrate. The four-step typical flow is intuitive and follows REST best practices.</p>
+                            </div>
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Real-time Operations</div>
+                                <p style="color: #b8b8b8;">Webhook notifications and real-time FX rates enable institutions to provide immediate feedback to payers and maintain accurate payment records in real-time rather than through batch processes.</p>
+                            </div>
+                        </div>
+
+                        <div class="two-col-section">
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Enterprise Security</div>
+                                <p style="color: #b8b8b8;">API key authentication, HMAC signature verification for webhooks, HTTPS-only communication, and secret key management provide enterprise-grade security appropriate for educational institutions and financial data.</p>
+                            </div>
+                            <div>
+                                <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Seamless Integration Path</div>
+                                <p style="color: #b8b8b8;">Institutions follow a clear, four-step payment flow: get FX rates, display options, submit payment, receive webhook updates. This simple flow supports complex payment scenarios and integrates naturally with institutional systems.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Key Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Key Learnings</div>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <b class="sub-heading2">Dual-Path Architecture Requires Clear Design</b>
+                            <p style="color: #b8b8b8;">Building parallel systems for individual and agency payments required careful design to maintain consistency. The key was creating clear separation at the API level while using existing patterns as reference, ensuring partners understood the distinct interfaces for each payment type.</p>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <b class="sub-heading2">Data Model Changes Impact Downstream Systems</b>
+                            <p style="color: #b8b8b8;">Creating new data models for invoice payments required coordinated development across the API, WEB DB, and CRM system. Each system needed to handle agency data separately from individual data. Planning the data architecture upfront and building integration points systematically ensured clean separation between the two systems.</p>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <b class="sub-heading2">CRM Extensions Are Complex but Necessary</b>
+                            <p style="color: #b8b8b8;">Creating the "API Invoice Payers" window in the CRM as a new feature was more complex than anticipated. However, this dedicated interface provided enormous value for operations teams managing agency relationships. The investment paid off in operational efficiency and clear separation of concerns.</p>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <b class="sub-heading2">Business Rules Drive Technical Architecture</b>
+                            <p style="color: #b8b8b8;">Business requirements for flexible pricing models and payment method filtering shaped the entire system design. Understanding business drivers before diving into technical implementation prevented misalignments between business expectations and technical delivery.</p>
+                        </div>
+
+                        <div style="padding-top: 20px;">
+                            <b class="sub-heading2">Backward Compatibility is Harder Than Greenfield</b>
+                            <p style="color: #b8b8b8;">Building a new API from scratch allowed for clean architecture while using existing systems as reference. Creating separate capabilities and data models for invoice payments enabled focused development without the constraints of modifying live systems. This approach provided flexibility while maintaining operational stability.</p>
+                        </div>
+
+                        <div class="section">
+                            <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">Conclusion</div>
+                            <div style="padding-bottom: 30px;" class="main-heading-2">Conclusion Summary</div>
+                            <p style="color: #b8b8b8;">This project demonstrates my ability to lead the design of new payment systems using existing infrastructure as reference. I managed the challenge of building a completely new API for B2B invoice payments while leveraging proven patterns from the individual payment system for consistency and reliability.</p>
+                            <p style="color: #b8b8b8;">The Invoice Payments API development required coordinating new system components (API, WEB DB extensions, CRM additions), implementing sophisticated business logic (custom margins, dynamic FX conversion, payment method filtering), and ensuring clean integration with existing operations. This type of work—creating new solutions using established patterns—is valuable for expanding capabilities while maintaining system stability.</p>
+                            <p style="color: #b8b8b8;">The skills demonstrated—new system design, pattern reuse, cross-system integration, product ownership, managing complex requirements, and executing reliable production deployments—are essential for succeeding in enterprise environments where building upon existing infrastructure is key to delivering value.</p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="blog-details">
-            <div class="section">
-              <div class="main-heading">Invoice Payments API</div>
-              <div class="heading-sub">Blank template — replace with real content</div>
-              <p>Blank project page — replace with content from knowledge base.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="../js/carousel.js"></script>
-    <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="../js/settings-blog.js"></script>
-  </body>
+
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script> 
+        <script type="text/javascript" src="../js/carousel.js"></script> 
+        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="../js/settings-blog.js"></script>
+        </body>
 </html>
