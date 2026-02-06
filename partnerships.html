@@ -17,6 +17,238 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
 <!-- Responsive -->
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+<style>
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-overlay.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  background: #1a1a1a;
+  margin: 50px auto;
+  padding: 0;
+  max-width: 900px;
+  border-radius: 3px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  background: #82BC62;
+  padding: 25px 30px;
+  border-radius: 3px 3px 0 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.modal-close {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10000;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  transform: translateY(-50%) scale(1.2);
+  color: #1a1a1a;
+}
+
+.modal-body {
+  padding: 40px 30px;
+  color: #d0d0d0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.modal-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-meta-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.modal-meta-value {
+  font-size: 14px;
+  color: #82BC62;
+  font-weight: 500;
+}
+
+.modal-section {
+  margin-bottom: 30px;
+}
+
+.modal-section h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: #82BC62;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.modal-section h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  margin: 20px 0 10px 0;
+  font-weight: 400;
+}
+
+.modal-section p {
+  margin-bottom: 15px;
+  color: #d0d0d0;
+}
+
+.modal-section ul {
+  margin: 10px 0 15px 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-section ul li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+}
+
+.modal-section ul li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #82BC62;
+  font-weight: bold;
+}
+
+.highlight-box {
+  background: #252525;
+  border-left: 3px solid #82BC62;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.highlight-box h4 {
+  margin-top: 0;
+  color: #82BC62;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.stat-item {
+  background: #252525;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #82BC62;
+  font-family: 'Oswald', sans-serif;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.clickable-entry {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable-entry:hover {
+  transform: translateX(5px);
+}
+
+.clickable-entry h3 a {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 20px;
+    max-width: 100%;
+  }
+  
+  .modal-body {
+    padding: 25px 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 <body class="blog">
 <div id="container" class="container"> 
@@ -48,128 +280,14 @@
   </siv>
   </div>
       <div class="row">
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/document-collection.html"><img src="images/tmthumb.jpg" alt=""></a></div>
+        <div class="blog-list clickable-entry" onclick="openModal('modal1')">
+          <div class="blog-img"><img src="images/tmthumb.jpg" alt=""></div>
           <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/document-collection.html">Document Collection</a></h3>
+            <h3><a href="javascript:void(0)">Document Collection</a></h3>
             <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
             <div class="title-divider"></div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/invoice-payments-api.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 13, 2013</span>
-            <h3><a href="Projects/invoice-payments-api.html">Knowledge Base</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;&nbsp; <a href="#"></a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>As part of my internal Lean Six Sigma training, I was tasked with executing a successful Six Sigma project. I decided to create a knowledge base for the educational project, which proved to be a great and successful project. </p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/aws-migration.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/aws-migration.html">AWS Migration & PHP Upgrade</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/tm-redesign.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/tm-redesign.html">Re-Design</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-
-        <div class="blog-list">
-          <div class="blog-img">
-            <div id="owl-demo" class="owl-carousel">
-              <div class="item"><img src="/images/tmthumb.jpg" alt=""></div>
-            </div>
-          </div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-              <h3><a href="Projects/data-deletion.html">Data Deletion</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="/images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img">
-            <div id="owl-demo1" class="owl-carousel">
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-            </div>
-          </div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a slider gallery</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
           </div>
         </div>
       </div>
@@ -179,16 +297,207 @@
     <ul class="pagerblock">
       <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
       <li><a href="javascript:void(0)" class="current">1</a></li>
-      <li><a href="javascript:void(0)">2</a></li>
-      <li><a href="javascript:void(0)">3</a></li>
       <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
     </ul>
   </div>
 </div>
+
+<!-- Modal Popup -->
+<div id="modal1" class="modal-overlay" onclick="closeModal(event, 'modal1')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event, 'modal1')">&times;</button>
+    
+    <div class="modal-header">
+      <h2>Digital Payment Platform Transformation</h2>
+    </div>
+    
+    <div class="modal-body">
+      <div class="modal-meta">
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Client</span>
+          <span class="modal-meta-value">Global Fintech Corp</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Duration</span>
+          <span class="modal-meta-value">18 Months</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Role</span>
+          <span class="modal-meta-value">Lead Product Manager</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Team Size</span>
+          <span class="modal-meta-value">23 People</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3>Executive Summary</h3>
+        <p>Led the end-to-end transformation of a legacy payment processing system serving 50,000+ active users across 40 countries. The project involved modernizing the technical infrastructure, redesigning the user experience, and implementing regulatory compliance measures while maintaining zero downtime during migration.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Challenge</h4>
+        <p>The existing platform was built on outdated technology stack, causing frequent performance issues, security vulnerabilities, and inability to scale with growing business demands. Customer satisfaction scores had dropped to 62%, and operational costs were increasing by 15% annually.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Key Objectives</h3>
+        <ul>
+          <li>Migrate from legacy monolithic architecture to microservices-based cloud infrastructure</li>
+          <li>Redesign user interface to improve conversion rates and reduce support tickets</li>
+          <li>Implement PCI-DSS Level 1 compliance and SOC 2 Type II certification</li>
+          <li>Reduce transaction processing time from 3-5 days to real-time</li>
+          <li>Achieve 99.9% uptime SLA</li>
+          <li>Decrease operational costs by 30%</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>My Role & Responsibilities</h3>
+        <p>As Lead Product Manager, I orchestrated cross-functional collaboration between engineering, design, compliance, and business stakeholders:</p>
+        <ul>
+          <li>Defined product vision and roadmap aligned with business objectives</li>
+          <li>Conducted user research with 200+ customers to identify pain points</li>
+          <li>Led agile ceremonies and sprint planning for 4 development teams</li>
+          <li>Coordinated regulatory compliance efforts with legal and security teams</li>
+          <li>Managed stakeholder communication and executive reporting</li>
+          <li>Oversaw UAT testing with pilot group of 5,000 users</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Approach & Methodology</h3>
+        
+        <h4>Phase 1: Discovery & Planning (3 months)</h4>
+        <p>Conducted comprehensive analysis of existing system limitations, user needs, and market requirements. Created detailed technical architecture blueprint and migration strategy.</p>
+        
+        <h4>Phase 2: Design & Prototyping (4 months)</h4>
+        <p>Developed new UX/UI designs based on user research insights. Created interactive prototypes and conducted usability testing with 50+ users across different personas. Iterated designs based on feedback.</p>
+        
+        <h4>Phase 3: Development & Testing (8 months)</h4>
+        <p>Implemented agile development methodology with 2-week sprints. Built microservices architecture on AWS infrastructure. Conducted continuous integration and automated testing. Achieved 95% code coverage.</p>
+        
+        <h4>Phase 4: Migration & Launch (3 months)</h4>
+        <p>Executed phased rollout strategy starting with pilot group. Implemented blue-green deployment for zero-downtime migration. Monitored system performance and user feedback in real-time.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Technical Implementation</h3>
+        <ul>
+          <li><strong>Architecture:</strong> Migrated to microservices on AWS EKS with Kubernetes orchestration</li>
+          <li><strong>Frontend:</strong> React-based SPA with TypeScript and Redux state management</li>
+          <li><strong>Backend:</strong> Node.js microservices with GraphQL API gateway</li>
+          <li><strong>Database:</strong> PostgreSQL for transactional data, Redis for caching</li>
+          <li><strong>Security:</strong> OAuth 2.0, JWT tokens, end-to-end encryption, fraud detection ML models</li>
+          <li><strong>Monitoring:</strong> CloudWatch, Datadog, Sentry for real-time observability</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Key Innovation</h4>
+        <p>Implemented an intelligent routing system using machine learning that automatically selects optimal payment rails based on cost, speed, and success probability. This resulted in 15% cost savings and 40% faster processing times.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Results & Impact</h3>
+        
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">99.95%</span>
+            <span class="stat-label">Uptime Achieved</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">85%</span>
+            <span class="stat-label">Faster Processing</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">35%</span>
+            <span class="stat-label">Cost Reduction</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">92</span>
+            <span class="stat-label">NPS Score</span>
+          </div>
+        </div>
+
+        <p><strong>Business Outcomes:</strong></p>
+        <ul>
+          <li>Customer satisfaction improved from 62% to 89%</li>
+          <li>Support ticket volume decreased by 45%</li>
+          <li>Transaction volume capacity increased by 300%</li>
+          <li>Successfully processed $2.3B in transactions in first year</li>
+          <li>Reduced operational costs by $4.2M annually</li>
+          <li>Achieved PCI-DSS Level 1 and SOC 2 Type II compliance</li>
+        </ul>
+
+        <p><strong>User Experience Improvements:</strong></p>
+        <ul>
+          <li>Payment initiation flow reduced from 7 steps to 3 steps</li>
+          <li>Mobile conversion rate increased by 67%</li>
+          <li>Average time-to-complete reduced from 8 minutes to 90 seconds</li>
+          <li>Accessibility score improved to WCAG 2.1 AA compliance</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Challenges Overcome</h3>
+        <ul>
+          <li><strong>Data Migration:</strong> Successfully migrated 15TB of historical transaction data with zero data loss using custom ETL pipelines and validation scripts</li>
+          <li><strong>Regulatory Compliance:</strong> Navigated complex regulatory requirements across 40 jurisdictions by working closely with legal teams and external auditors</li>
+          <li><strong>Stakeholder Alignment:</strong> Managed conflicting priorities between business units through transparent communication and data-driven decision making</li>
+          <li><strong>Legacy System Integration:</strong> Built adapters to maintain backward compatibility with 20+ legacy systems during transition period</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Lessons Learned</h3>
+        <p><strong>What Worked Well:</strong> Phased rollout approach allowed us to identify and fix issues early. Strong emphasis on automated testing prevented production incidents. Regular stakeholder demos maintained visibility and trust.</p>
+        
+        <p><strong>What Could Be Improved:</strong> Earlier involvement of compliance team would have accelerated regulatory approval process. More aggressive timeline buffers would have reduced pressure during final phases.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Client Testimonial</h4>
+        <p><em>"This transformation exceeded our expectations. The team delivered a world-class platform that not only solved our immediate problems but positioned us for future growth. The attention to user experience and technical excellence was outstanding."</em></p>
+        <p style="margin-top: 10px; color: #82BC62;">— Chief Technology Officer, Global Fintech Corp</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Skills Demonstrated</h3>
+        <p>Product Management • Agile Methodology • User Research • Stakeholder Management • Technical Architecture • Cloud Infrastructure • Payment Systems • Regulatory Compliance • Data Migration • Team Leadership • Cross-functional Collaboration</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <!-- Portfolio Slider--> 
 <script type="text/javascript" src="js/carousel.js"></script> 
 <script type="text/javascript" src="js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="js/settings-blog.js"></script>
+<script>
+function openModal(modalId) {
+  document.getElementById(modalId).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event, modalId) {
+  event.stopPropagation();
+  document.getElementById(modalId).classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    var modals = document.querySelectorAll('.modal-overlay.active');
+    modals.forEach(function(modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  }
+});
+</script>
 </body>
 </html>

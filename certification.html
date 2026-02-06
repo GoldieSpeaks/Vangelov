@@ -17,6 +17,245 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
 <!-- Responsive -->
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+<style>
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-overlay.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: relative;
+  background: #1a1a1a;
+  margin: 50px auto;
+  padding: 0;
+  max-width: 900px;
+  border-radius: 3px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  background: #82BC62;
+  padding: 25px 30px;
+  border-radius: 3px 3px 0 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.modal-close {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10000;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  transform: translateY(-50%) scale(1.2);
+  color: #1a1a1a;
+}
+
+.certificate-image-container {
+  background: #252525;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 2px solid #333;
+}
+
+.certificate-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #444;
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-body {
+  padding: 40px 30px;
+  color: #d0d0d0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+  flex-wrap: wrap;
+}
+
+.modal-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-meta-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.modal-meta-value {
+  font-size: 14px;
+  color: #82BC62;
+  font-weight: 500;
+}
+
+.modal-section {
+  margin-bottom: 30px;
+}
+
+.modal-section h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: #82BC62;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.modal-section h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  margin: 20px 0 10px 0;
+  font-weight: 400;
+}
+
+.modal-section p {
+  margin-bottom: 15px;
+  color: #d0d0d0;
+}
+
+.modal-section ul {
+  margin: 10px 0 15px 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-section ul li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 8px;
+}
+
+.modal-section ul li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #82BC62;
+  font-weight: bold;
+}
+
+.highlight-box {
+  background: #252525;
+  border-left: 3px solid #82BC62;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.highlight-box h4 {
+  margin-top: 0;
+  color: #82BC62;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.skill-tag {
+  background: #252525;
+  color: #82BC62;
+  padding: 8px 15px;
+  border-radius: 3px;
+  font-size: 12px;
+  border: 1px solid #333;
+}
+
+.clickable-entry {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable-entry:hover {
+  transform: translateX(5px);
+}
+
+.clickable-entry h3 a {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 20px;
+    max-width: 100%;
+  }
+  
+  .modal-body {
+    padding: 25px 20px;
+  }
+  
+  .certificate-image-container {
+    padding: 20px;
+  }
+  
+  .modal-meta {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
 </head>
 <body class="blog">
 <div id="container" class="container"> 
@@ -48,128 +287,13 @@
   </siv>
   </div>
       <div class="row">
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/document-collection.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/document-collection.html">Document Collection</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
+        <div class="blog-list clickable-entry" onclick="openModal('certModal1')">
+          <div class="blog-img"><img src="https://www.datacamp.com/statement-of-accomplishment/track/4cf6004a2b7641788e930916921a66b64c75a8a2?raw=1" alt="DataCamp SQL Certification"></div>
+          <div class="blog-list-details"> <span class="date">October 27, 2025</span>
+            <h3><a href="javascript:void(0)">Associate Data Analyst in SQL</a></h3>
+            <span class="post-details"><a href="#">DataCamp</a> &nbsp;/&nbsp; <a href="#">39 Hours</a> &nbsp;/&nbsp; <a href="#">SQL Certification</a></span>
             <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/invoice-payments-api.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 13, 2013</span>
-            <h3><a href="Projects/invoice-payments-api.html">Knowledge Base</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;&nbsp; <a href="#"></a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>As part of my internal Lean Six Sigma training, I was tasked with executing a successful Six Sigma project. I decided to create a knowledge base for the educational project, which proved to be a great and successful project. </p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/aws-migration.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/aws-migration.html">AWS Migration & PHP Upgrade</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/tm-redesign.html"><img src="images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/tm-redesign.html">Re-Design</a></h3>
-            <span class="post-details"><a href="#">Zlatomir Vangelov</a> &nbsp;/&nbsp; <a href="#">System Logic</a> &nbsp;&nbsp; <a href="#"></a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></div>
-          </div>
-        </div>
-
-        <div class="blog-list">
-          <div class="blog-img">
-            <div id="owl-demo" class="owl-carousel">
-              <div class="item"><img src="/images/tmthumb.jpg" alt=""></div>
-            </div>
-          </div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-              <h3><a href="Projects/data-deletion.html">Data Deletion</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="/images/tmthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img">
-            <div id="owl-demo1" class="owl-carousel">
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-              <div class="item"><img src="http://placehold.it/700x475" alt=""></div>
-            </div>
-          </div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a slider gallery</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="blog-details.html"><img src="http://placehold.it/700x475" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="blog-details.html">This is a standard post with a preview image</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a><a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> </div>
+            <p>Comprehensive 39-hour SQL training track covering fundamentals to advanced data manipulation techniques. Mastered querying, joining, aggregating, and analyzing data using SQL across multiple courses and practical projects.</p>
           </div>
         </div>
       </div>
@@ -179,16 +303,180 @@
     <ul class="pagerblock">
       <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
       <li><a href="javascript:void(0)" class="current">1</a></li>
-      <li><a href="javascript:void(0)">2</a></li>
-      <li><a href="javascript:void(0)">3</a></li>
       <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
     </ul>
   </div>
 </div>
+
+<!-- Certificate Modal Popup -->
+<div id="certModal1" class="modal-overlay" onclick="closeModal(event, 'certModal1')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event, 'certModal1')">&times;</button>
+    
+    <div class="modal-header">
+      <h2>Associate Data Analyst in SQL</h2>
+    </div>
+    
+    <div class="certificate-image-container">
+      <img src="https://www.datacamp.com/statement-of-accomplishment/track/4cf6004a2b7641788e930916921a66b64c75a8a2?raw=1" 
+           alt="DataCamp Certificate" 
+           class="certificate-image">
+    </div>
+    
+    <div class="modal-body">
+      <div class="modal-meta">
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Issued By</span>
+          <span class="modal-meta-value">DataCamp</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Track Duration</span>
+          <span class="modal-meta-value">39 Hours</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Completion Date</span>
+          <span class="modal-meta-value">October 27, 2025</span>
+        </div>
+        <div class="modal-meta-item">
+          <span class="modal-meta-label">Certificate ID</span>
+          <span class="modal-meta-value">4cf6004a2b7641788e930916921a66b64c75a8a2</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3>About This Certification</h3>
+        <p>The Associate Data Analyst in SQL track from DataCamp is a comprehensive 39-hour program designed to build foundational and intermediate SQL skills essential for data analysis. This track prepares learners for the industry-recognized DataCamp Data Analyst Associate certification and covers everything from basic queries to advanced data manipulation techniques.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Achievement Significance</h4>
+        <p>This certification track represents a comprehensive journey through SQL fundamentals and advanced techniques, positioning me to work effectively with relational databases, perform complex data analysis, and extract actionable insights from data. DataCamp's industry-recognized certifications are valued by thousands of companies worldwide.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>What I Achieved</h3>
+        <p>Completing this comprehensive track required mastering SQL from fundamentals to advanced techniques across multiple courses and practical projects:</p>
+        <ul>
+          <li>Writing efficient SQL queries to retrieve, filter, and sort data from relational databases</li>
+          <li>Performing complex data manipulation using JOIN operations across multiple tables</li>
+          <li>Aggregating and summarizing data using GROUP BY, HAVING, and aggregate functions</li>
+          <li>Creating and managing database objects including tables, views, and indexes</li>
+          <li>Implementing subqueries and common table expressions (CTEs) for advanced analysis</li>
+          <li>Working with different SQL data types and performing data type conversions</li>
+          <li>Applying window functions for advanced analytical queries</li>
+          <li>Understanding database design principles and normalization</li>
+          <li>Analyzing real-world datasets and solving practical business problems</li>
+          <li>Writing maintainable, optimized SQL code following best practices</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Learning Journey</h3>
+        <p><strong>Track Duration:</strong> 39 hours of comprehensive SQL training and hands-on practice</p>
+        
+        <h4>Track Structure</h4>
+        <ul>
+          <li><strong>Introduction to SQL:</strong> Learned fundamental SQL syntax, SELECT statements, filtering, and basic queries</li>
+          <li><strong>Intermediate SQL:</strong> Mastered aggregate functions, GROUP BY, HAVING, and intermediate query techniques</li>
+          <li><strong>Joining Data in SQL:</strong> Developed expertise in INNER, LEFT, RIGHT, FULL OUTER, and CROSS JOINs</li>
+          <li><strong>Data Manipulation in SQL:</strong> Advanced into INSERT, UPDATE, DELETE, and CASE statements</li>
+          <li><strong>Practical Projects:</strong> Applied skills to real-world scenarios including analyzing students' mental health data</li>
+          <li>Completed multiple hands-on exercises and coding challenges throughout the track</li>
+        </ul>
+
+        <h4>Learning Approach</h4>
+        <ul>
+          <li>Interactive exercises with immediate feedback on code execution</li>
+          <li>Real-world datasets from various industries and domains</li>
+          <li>Progressive difficulty from basic queries to complex multi-table operations</li>
+          <li>Practical projects simulating actual data analyst workflows</li>
+          <li>Video lessons and written content from industry expert instructors</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Key Skills & Technologies Mastered</h3>
+        <div class="skills-tags">
+          <span class="skill-tag">SQL Queries</span>
+          <span class="skill-tag">Data Retrieval</span>
+          <span class="skill-tag">JOIN Operations</span>
+          <span class="skill-tag">Aggregate Functions</span>
+          <span class="skill-tag">GROUP BY & HAVING</span>
+          <span class="skill-tag">Subqueries</span>
+          <span class="skill-tag">CTEs</span>
+          <span class="skill-tag">Window Functions</span>
+          <span class="skill-tag">Data Filtering</span>
+          <span class="skill-tag">Data Sorting</span>
+          <span class="skill-tag">Data Manipulation</span>
+          <span class="skill-tag">Database Design</span>
+          <span class="skill-tag">Relational Databases</span>
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">SQL Best Practices</span>
+          <span class="skill-tag">Data Visualization</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3>Real-World Application</h3>
+        <p>The SQL skills gained from this certification have been directly applied to professional projects and business challenges:</p>
+        <ul>
+          <li><strong>Data Analysis:</strong> Extracted insights from complex datasets to support business decision-making</li>
+          <li><strong>Reporting Automation:</strong> Created efficient SQL queries to automate regular reporting processes</li>
+          <li><strong>Database Optimization:</strong> Improved query performance through proper indexing and query optimization techniques</li>
+          <li><strong>Cross-Functional Collaboration:</strong> Worked effectively with data engineers and business stakeholders using SQL as a common language</li>
+          <li><strong>Data Quality:</strong> Implemented data validation and quality checks using SQL queries</li>
+          <li><strong>Business Intelligence:</strong> Supported BI initiatives by writing complex analytical queries</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Professional Impact</h4>
+        <p>This certification has strengthened my data analysis capabilities and established SQL as a core competency in my professional toolkit. The ability to efficiently query and analyze data enables me to derive actionable insights, support data-driven decision-making, and contribute meaningfully to business intelligence initiatives across various industries.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Continuing Education</h3>
+        <p>To build upon this foundation and expand my data analytics capabilities:</p>
+        <ul>
+          <li>Pursuing advanced DataCamp tracks in Python for Data Science and Machine Learning</li>
+          <li>Exploring database performance optimization and query tuning techniques</li>
+          <li>Learning about modern data warehouse solutions and cloud-based analytics platforms</li>
+          <li>Practicing with real-world datasets on Kaggle and other data science platforms</li>
+          <li>Working toward the DataCamp Data Analyst Professional certification</li>
+          <li>Expanding skills into data visualization tools like Tableau and Power BI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 <!-- Portfolio Slider--> 
 <script type="text/javascript" src="js/carousel.js"></script> 
 <script type="text/javascript" src="js/jquery.fitvids.js"></script>
 <script type="text/javascript" src="js/settings-blog.js"></script>
+<script>
+function openModal(modalId) {
+  document.getElementById(modalId).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event, modalId) {
+  event.stopPropagation();
+  document.getElementById(modalId).classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    var modals = document.querySelectorAll('.modal-overlay.active');
+    modals.forEach(function(modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  }
+});
+</script>
 </body>
 </html>
