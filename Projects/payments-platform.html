@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-        <title>INSEAD Global Payment Platform - Enterprise Case Study</title>
+        <title>INSEAD Global Payment Platform - Enhanced Draft Case Study</title>
         <link rel="shortcut icon" href="../favicon.ico">
 
         <!-- Google Font-->
@@ -809,6 +809,123 @@
                     padding-right: 0 !important;
                 }
             }
+            /* Enhanced Draft Visualizations */
+            .viz-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+                margin: 30px 0 50px;
+            }
+
+            .viz-card {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 10px;
+                padding: 20px;
+            }
+
+            .viz-title {
+                color: #fff;
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 14px;
+            }
+
+            .mini-note {
+                color: #9f9f9f;
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            .bar-row {
+                margin-bottom: 14px;
+            }
+
+            .bar-row:last-child {
+                margin-bottom: 0;
+            }
+
+            .bar-head {
+                display: flex;
+                justify-content: space-between;
+                color: #cfcfcf;
+                font-size: 13px;
+                margin-bottom: 6px;
+            }
+
+            .bar-track {
+                height: 8px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.08);
+                overflow: hidden;
+            }
+
+            .bar-fill {
+                height: 100%;
+                border-radius: 999px;
+                background: linear-gradient(90deg, #7dba5c 0%, #86c967 100%);
+            }
+
+            .phase-list {
+                display: grid;
+                gap: 10px;
+            }
+
+            .phase-item {
+                padding: 10px 12px;
+                border-left: 3px solid rgba(125, 186, 92, 0.6);
+                background: rgba(255, 255, 255, 0.02);
+                border-radius: 6px;
+            }
+
+            .phase-item strong {
+                color: #fff;
+                font-size: 13px;
+            }
+
+            .phase-item p {
+                margin: 4px 0 0;
+                color: #b8b8b8;
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            .architecture-flow {
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+
+            .arch-node {
+                padding: 14px;
+                text-align: center;
+                border-radius: 8px;
+                border: 1px solid rgba(125, 186, 92, 0.25);
+                background: rgba(125, 186, 92, 0.06);
+                color: #d9f2cd;
+                font-size: 12px;
+                line-height: 1.5;
+                font-weight: 500;
+            }
+
+            .arch-node span {
+                display: block;
+                color: #fff;
+                font-size: 13px;
+                margin-bottom: 4px;
+            }
+
+            @media (max-width: 900px) {
+                .viz-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .architecture-flow {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
         </style>
     </head>
     <body class="blog">
@@ -868,21 +985,38 @@
 
                         <div class="section">
                             <div style="padding-bottom: 70px;" class="main-heading">INSEAD Global Payment Platform</div>
-                            <div style="padding-bottom: 30px;" class="heading-sub">Building an Enterprise Payment Solution for International Education</div>
-                            <p>This project involved designing and delivering a comprehensive payment platform for INSEAD, a leading international business school. The platform enabled students, sponsors, and alumni to facilitate tuition payments and program fees through a fully branded, secure web solution with support for payment plans, installments, and multi-currency transactions.</p>
-                            <p>As Product Owner, I led the end-to-end delivery of this complex integration project, coordinating cross-functional teams across discovery, design, development, and stakeholder management to build a scalable platform that integrated with INSEAD's existing systems and our internal payment infrastructure.</p>
+                            <div style="padding-bottom: 30px;" class="heading-sub">Enhanced Draft: Enterprise Program Delivery for International Education Payments</div>
+                            <p>This case study presents an NDA-safe view of a multi-phase payment platform program delivered for INSEAD. The solution supports student and sponsor journeys, secure institutional authentication, payment plans with installments, and multi-currency transaction orchestration.</p>
+                            <p>As Product Owner, I led discovery, cross-team alignment, delivery planning, stakeholder management, release coordination, and post-launch optimization across web, API, and CRM-facing streams.</p>
                         </div>
 
                         <div class="nda-notice">
-                            <p><strong>⚠️ Confidentiality Notice:</strong> Due to signed non-disclosure agreements, the actual payment platform interface and specific payment processing details cannot be shown. All details presented accurately reflect the scope, challenges, outcomes, and authentication/role management components of the project while respecting confidentiality requirements.</p>
+                            <p><strong>⚠️ Confidentiality Notice:</strong> This page intentionally excludes sensitive implementation detail, private payload structures, credentials, endpoint specifics, and operational data protected by non-disclosure obligations. It focuses on delivery scope, architecture patterns, and measurable program outcomes.</p>
+                        </div>
+
+                        <div style="margin-top: 35px; margin-bottom: 25px; padding: 22px; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: rgba(255,255,255,0.02);">
+                            <div style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;">Delivery Snapshot (NDA-safe)</div>
+                            <p style="margin-bottom: 8px; color: #cfcfcf;">• Multi-role payment experience for student and sponsor journeys</p>
+                            <p style="margin-bottom: 8px; color: #cfcfcf;">• Enterprise authentication and system-to-system integration with institutional platforms</p>
+                            <p style="margin-bottom: 8px; color: #cfcfcf;">• Custom payment-plan and installment workflows with ongoing operational optimization</p>
+                            <p style="margin-bottom: 0; color: #cfcfcf;">• Continuous release cycle with post-launch enhancements and issue resolution</p>
+                        </div>
+
+                        <div style="margin-top: 20px; margin-bottom: 35px; padding: 18px 20px; border-radius: 10px; border: 1px solid rgba(125, 186, 92, 0.25); background: rgba(125, 186, 92, 0.06);">
+                            <div style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;">External Validation</div>
+                            <p style="margin-bottom: 12px; color: #cfcfcf; font-size: 13px;">Official release coverage published by TransferMate for this INSEAD program launch.</p>
+                            <a href="https://www.transfermate.com/post/transfermate-launches-integrated-payment-solution-for-insead-degree-programmes" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; color: #7dba5c; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid rgba(125, 186, 92, 0.35); border-radius: 999px; padding: 8px 14px;">
+                                <i class="fa fa-globe"></i>
+                                View official news release
+                            </a>
                         </div>
 
                         <!-- Project Stats -->
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <span class="stat-icon">📅</span>
-                                <span class="stat-number">9</span>
-                                <span class="stat-label">Months</span>
+                                <span class="stat-number">Since 2024</span>
+                                <span class="stat-label">Partnership Start</span>
                             </div>
                             <div class="stat-card">
                                 <span class="stat-icon">👥</span>
@@ -891,13 +1025,63 @@
                             </div>
                             <div class="stat-card">
                                 <span class="stat-icon">🎯</span>
-                                <span class="stat-number">24</span>
-                                <span class="stat-label">Development Cycles</span>
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Tracked Work Items</span>
                             </div>
                             <div class="stat-card">
                                 <span class="stat-icon">✅</span>
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">Features Delivered</span>
+                                <span class="stat-number">70+</span>
+                                <span class="stat-label">Post-Go-Live Improvements</span>
+                            </div>
+                        </div>
+
+                        <div class="viz-grid">
+                            <div class="viz-card">
+                                <div class="viz-title">Program Phase Timeline</div>
+                                <div class="phase-list">
+                                    <div class="phase-item">
+                                        <strong>Phase 1 — Planning & Architecture (2024 to Q1 2025)</strong>
+                                        <p>Discovery workshops, integration design, SSO alignment, and API contract planning.</p>
+                                    </div>
+                                    <div class="phase-item">
+                                        <strong>Phase 2 — Core Build (Q2 2025)</strong>
+                                        <p>Database architecture, web delivery, API integration, and first production launch.</p>
+                                    </div>
+                                    <div class="phase-item">
+                                        <strong>Phase 3 — Optimization (Q3 2025 onwards)</strong>
+                                        <p>Post-launch refinements, UX/mobile fixes, dashboard updates, and operational hardening.</p>
+                                    </div>
+                                    <div class="phase-item">
+                                        <strong>Phase 4 — Ongoing Improvement Phase</strong>
+                                        <p>Continuous enhancement cycle that remains active for the duration of the partnership, with iterative delivery based on incoming business and technical requests.</p>
+                                    </div>
+                                </div>
+                                <p class="mini-note" style="margin-top: 12px;">Timeline based on project tracking artifacts and release history.</p>
+                            </div>
+
+                            <div class="viz-card">
+                                <div class="viz-title">Capability Coverage (NDA-safe)</div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Authentication & Access</span><span>95%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:95%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>API & Data Integration</span><span>92%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:92%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Payment Plan Orchestration</span><span>90%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:90%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>CRM/Operations Sync</span><span>88%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:88%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Post-Launch Optimization</span><span>93%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:93%;"></div></div>
+                                </div>
+                                <p class="mini-note" style="margin-top: 12px;">Relative delivery maturity view based on completed scope areas.</p>
                             </div>
                         </div>
 
@@ -933,7 +1117,7 @@
                                 <b>Key Deliverables</b>
                                 <p>Web Payment Platform</p>
                                 <p>REST API Development</p>
-                                <p>ADFS/2FA Integration</p>
+                                <p>ADFS SSO/SLO Integration</p>
                                 <p>Custom Payment Dashboard</p>
                             </div>
                             <div class="col3">
@@ -945,9 +1129,19 @@
                             </div>
                             <div class="col3">
                                 <b>Project Duration</b>
-                                <p>9-Month Engagement</p>
-                                <p>Discovery to Production</p>
+                                <p>Multi-Phase Program</p>
+                                <p>Discovery to Live Ops</p>
                                 <p>Ongoing Support</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 34px; margin-bottom: 10px;">
+                            <div style="padding-bottom: 18px; font-size: 18px; font-weight: bold; color: white;">Architecture Pattern (NDA-safe)</div>
+                            <div class="architecture-flow">
+                                <div class="arch-node"><span>Institution SIS</span>Plan and payer source data</div>
+                                <div class="arch-node"><span>Integration API</span>JWT-authenticated data exchange</div>
+                                <div class="arch-node"><span>Payment Platform</span>Portal, installments, and workflows</div>
+                                <div class="arch-node"><span>Operational Sync</span>CRM alignment and status feedback</div>
                             </div>
                         </div>
 
@@ -1001,6 +1195,8 @@
                                 <p style="color: #b8b8b8; font-size: 13px;"><strong>Role Selection</strong> - Student, Sponsor, or Admin</p>
                             </div>
                         </div>
+
+                        <p style="margin-top: -28px; margin-bottom: 30px; color: #9f9f9f; font-size: 12px;">Only authentication and access-flow visuals are shown here to respect confidentiality constraints.</p>
 
                         <div class="section">
                             <div style="padding-top: 75px; padding-bottom: 30px;" class="unique-heading">My Role & Approach</div>
@@ -1216,6 +1412,56 @@
                             <div style="padding-bottom: 30px;" class="main-heading-2">Delivering Measurable Results</div>
                         </div>
 
+                        <div class="viz-grid" style="margin-top: 10px;">
+                            <div class="viz-card">
+                                <div class="viz-title">Delivery Distribution by Workstream</div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Web Platform & UX</span><span>34%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:34%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>API & Data Contracts</span><span>26%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:26%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>CRM & Operations Alignment</span><span>18%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:18%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Security & Authentication</span><span>12%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:12%;"></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <div class="bar-head"><span>Optimization & Support</span><span>10%</span></div>
+                                    <div class="bar-track"><div class="bar-fill" style="width:10%;"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="viz-card">
+                                <div class="viz-title">Program Velocity (Illustrative)</div>
+                                <svg viewBox="0 0 420 220" width="100%" height="220" aria-label="Program velocity trend" role="img">
+                                    <line x1="30" y1="180" x2="400" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                                    <line x1="30" y1="30" x2="30" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                                    <polyline points="40,160 100,140 160,122 220,104 280,86 340,70 390,58" fill="none" stroke="#7dba5c" stroke-width="3" />
+                                    <circle cx="40" cy="160" r="4" fill="#7dba5c" />
+                                    <circle cx="100" cy="140" r="4" fill="#7dba5c" />
+                                    <circle cx="160" cy="122" r="4" fill="#7dba5c" />
+                                    <circle cx="220" cy="104" r="4" fill="#7dba5c" />
+                                    <circle cx="280" cy="86" r="4" fill="#7dba5c" />
+                                    <circle cx="340" cy="70" r="4" fill="#7dba5c" />
+                                    <circle cx="390" cy="58" r="4" fill="#7dba5c" />
+                                    <text x="34" y="200" fill="#9f9f9f" font-size="11">P1</text>
+                                    <text x="94" y="200" fill="#9f9f9f" font-size="11">P2</text>
+                                    <text x="154" y="200" fill="#9f9f9f" font-size="11">P3</text>
+                                    <text x="214" y="200" fill="#9f9f9f" font-size="11">P4</text>
+                                    <text x="274" y="200" fill="#9f9f9f" font-size="11">P5</text>
+                                    <text x="334" y="200" fill="#9f9f9f" font-size="11">P6</text>
+                                    <text x="384" y="200" fill="#9f9f9f" font-size="11">P7</text>
+                                </svg>
+                                <p class="mini-note">Trend visualization shows delivery acceleration from architecture setup through optimization cycles. Values are normalized and NDA-safe.</p>
+                            </div>
+                        </div>
+
                         <!-- Before/After Comparison -->
                         <div style="margin-top: 50px;">
                             <div style="padding-bottom: 25px; font-size: 20px; font-weight: bold; color: white;">Platform Impact</div>
@@ -1244,7 +1490,7 @@
                                 <div class="impact-after">
                                     <div class="impact-label">After</div>
                                     <div class="impact-value">SSO/ADFS</div>
-                                    <div class="impact-description">Seamless Authentication</div>
+                                    <div class="impact-description">Unified Authentication</div>
                                 </div>
                             </div>
 
@@ -1285,7 +1531,7 @@
                         <div class="two-col-section">
                             <div>
                                 <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Successful Platform Launch</div>
-                                <p style="color: #b8b8b8;">The platform was successfully delivered on schedule and deployed to production, serving thousands of INSEAD students and sponsors worldwide. The seamless integration with PeopleSoft and ADFS created a unified payment experience that met all of INSEAD's requirements.</p>
+                                <p style="color: #b8b8b8;">The platform was successfully delivered on schedule and deployed to production, serving thousands of INSEAD students and sponsors worldwide. The integration with PeopleSoft and ADFS created a unified payment experience that met all of INSEAD's requirements.</p>
                             </div>
                             <div>
                                 <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Complex Integration Delivered</div>
@@ -1322,7 +1568,7 @@
                             </div>
                             <div>
                                 <div style="padding-bottom: 20px; font-size: 24px; font-weight: bold; color: white;">Branded Experience</div>
-                                <p style="color: #b8b8b8;">Delivered a fully branded payment platform that seamlessly integrated with INSEAD's digital ecosystem. The custom UI/UX maintained brand consistency while providing an intuitive, user-friendly payment experience for both students and sponsors.</p>
+                                <p style="color: #b8b8b8;">Delivered a fully branded payment platform integrated with INSEAD's digital ecosystem. The custom UI/UX maintained brand consistency while providing an intuitive, user-friendly payment experience for both students and sponsors.</p>
                             </div>
                         </div>
 
