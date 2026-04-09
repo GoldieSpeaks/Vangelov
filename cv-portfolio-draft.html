@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+<meta name="robots" content="index, follow" />
+<title>CV Portfolio Draft - Zlatomir Vangelov</title>
+<link rel="shortcut icon" href="zfav.png">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700%7COswald:300,400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<style>
+.cv-page {
+  background: transparent !important;
+  padding: 0 0 60px 0 !important;
+}
+
+.cv-wrap {
+  background: #1a1a1a;
+  border: 1px solid #2b2b2b;
+}
+
+.cv-hero {
+  padding: 30px 34px;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+.cv-hero .tag {
+  color: #82BC62;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cv-hero h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 44px;
+}
+
+.cv-hero h1 span { color: #82BC62; }
+
+.cv-hero p {
+  margin: 10px 0 0 0;
+  color: #b0b0b0;
+  max-width: 900px;
+}
+
+.cv-nav {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  border-bottom: 1px solid #2b2b2b;
+  padding: 14px 22px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(26,26,26,0.95);
+}
+
+.cv-nav a {
+  text-align: center;
+  color: #9e9e9e;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  padding: 7px 8px;
+  border-radius: 3px;
+}
+
+.cv-nav a:hover { background: #242424; color: #fff; }
+
+.cv-section {
+  padding: 30px 34px 8px;
+}
+
+.cv-label {
+  color: #82BC62;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  margin-bottom: 7px;
+}
+
+.cv-section h2 {
+  margin: 0 0 12px 0;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.cv-section .intro {
+  color: #b0b0b0;
+  max-width: 900px;
+  margin-bottom: 18px;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.cv-card {
+  background: #212121;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 18px;
+}
+
+.cv-card h3 {
+  margin: 0 0 8px 0;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.cv-card p,
+.cv-card li {
+  color: #b0b0b0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.cv-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.cv-divider {
+  height: 1px;
+  background: #2b2b2b;
+  margin: 20px 34px 0;
+}
+
+.cv-footer {
+  text-align: center;
+  color: #9f9f9f;
+  padding: 24px 20px 10px;
+  border-top: 1px solid #2b2b2b;
+  margin: 24px 34px 0;
+}
+
+@media (max-width: 980px) {
+  .cv-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cv-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .cv-hero,
+  .cv-nav,
+  .cv-section { padding-left: 18px; padding-right: 18px; }
+  .cv-divider,
+  .cv-footer { margin-left: 18px; margin-right: 18px; }
+  .cv-hero h1 { font-size: 34px; }
+}
+</style>
+</head>
+
+<body class="blog">
+<div id="container" class="container">
+  <aside class="menu" id="menu">
+    <div class="logo">
+      <img src="images/logo.png" width="140" height="140" alt=""/>
+      <span>Portfolio</span>
+    </div>
+    <a href="#menu1" class="menu-link"></a>
+    <nav id="menu1" role="navigation">
+      <a href="index.html?page=introduction"><span id="link_introduction">Home</span></a>
+      <a href="index.html?page=about"><span id="link_about">About</span></a>
+      <a href="index.html?page=skills"><span id="link_skills">Skills</span></a>
+      <a href="index.html?page=experience"><span id="link_experience">Experience</span></a>
+      <a href="index.html?page=education"><span id="link_education">Education</span></a>
+      <a href="index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+      <a href="index.html?page=contact"><span id="link_contact">Contact</span></a>
+      <a href="all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+    </nav>
+    <div class="social">
+      <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+      <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+    </div>
+    <div class="copyright">&copy; Portfolio.<br>All Rights Reserved.</div>
+  </aside>
+
+  <div class="blog-main cv-page">
+    <div class="blog-left blog-listing" style="width: 100%;">
+      <div class="cv-wrap">
+        <div class="cv-hero">
+          <div class="tag">CV Portfolio Draft</div>
+          <h1>Your <span>Name Here</span></h1>
+          <p>Dummy introduction text for your professional summary. This block is intentionally placeholder copy so we can validate structure and design before replacing it with your final CV content.</p>
+        </div>
+
+        <div class="cv-nav">
+          <a href="#profile">Profile</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <section class="cv-section" id="profile">
+          <div class="cv-label">Profile</div>
+          <h2>Professional Summary</h2>
+          <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et vehicula est. Duis at lorem vitae sem blandit consequat. Curabitur volutpat, justo in luctus aliquet, neque ligula faucibus lacus, nec suscipit nunc est nec sem.</p>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Core Focus</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id tincidunt massa. Pellentesque habitant morbi tristique senectus et netus.</p>
+            </div>
+            <div class="cv-card">
+              <h3>Professional Values</h3>
+              <p>Donec malesuada, justo at pretium hendrerit, lectus erat maximus dui, sed cursus quam elit ut est. Suspendisse potenti.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-divider"></div>
+
+        <section class="cv-section" id="experience">
+          <div class="cv-label">Experience</div>
+          <h2>Work History</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Job Title — Company Name</h3>
+              <p>2022 — Present</p>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li>Praesent feugiat orci sed ligula porta, in luctus nisl feugiat.</li>
+                <li>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</li>
+              </ul>
+            </div>
+            <div class="cv-card">
+              <h3>Previous Role — Company Name</h3>
+              <p>2019 — 2022</p>
+              <ul>
+                <li>Integer vel nibh eu mauris tincidunt mattis.</li>
+                <li>Aliquam feugiat lectus ac tortor faucibus tristique.</li>
+                <li>Morbi vulputate sem a sapien volutpat posuere.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-divider"></div>
+
+        <section class="cv-section" id="education">
+          <div class="cv-label">Education</div>
+          <h2>Academic Background</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Degree / Program</h3>
+              <p>University Name — 2015</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, turpis eget tristique tincidunt, risus est dignissim nunc.</p>
+            </div>
+            <div class="cv-card">
+              <h3>Certification</h3>
+              <p>Institution Name — 2018</p>
+              <p>Curabitur sit amet lorem ut enim pretium semper. Integer hendrerit nisl non velit cursus, a dictum nulla pellentesque.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-divider"></div>
+
+        <section class="cv-section" id="skills">
+          <div class="cv-label">Skills</div>
+          <h2>Capabilities</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Technical Skills</h3>
+              <ul>
+                <li>Placeholder Skill One</li>
+                <li>Placeholder Skill Two</li>
+                <li>Placeholder Skill Three</li>
+                <li>Placeholder Skill Four</li>
+              </ul>
+            </div>
+            <div class="cv-card">
+              <h3>Professional Skills</h3>
+              <ul>
+                <li>Placeholder Skill A</li>
+                <li>Placeholder Skill B</li>
+                <li>Placeholder Skill C</li>
+                <li>Placeholder Skill D</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-divider"></div>
+
+        <section class="cv-section" id="projects">
+          <div class="cv-label">Projects</div>
+          <h2>Selected Portfolio Work</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Project Title One</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis nulla quis justo hendrerit, in bibendum enim efficitur.</p>
+            </div>
+            <div class="cv-card">
+              <h3>Project Title Two</h3>
+              <p>Morbi feugiat, turpis vel aliquet aliquet, ligula augue tincidunt lectus, nec tristique lectus eros nec dui.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-divider"></div>
+
+        <section class="cv-section" id="contact">
+          <div class="cv-label">Contact</div>
+          <h2>Get in Touch</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3>Email</h3>
+              <p>your.email@example.com</p>
+            </div>
+            <div class="cv-card">
+              <h3>Phone</h3>
+              <p>+000 000 0000</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="cv-footer">
+          <div style="font-family: 'Oswald', sans-serif; color: #fff; font-size: 20px; margin-bottom: 4px;">Your Name Here</div>
+          <p>CV Portfolio Draft • Dummy Content</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/settings-blog.js"></script>
+</body>
+</html>
