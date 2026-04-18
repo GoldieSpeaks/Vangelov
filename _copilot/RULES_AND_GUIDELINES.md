@@ -32,6 +32,15 @@ Each case study must include:
 - Outcome metrics (before/after or directional impact).
 - Key learnings and next-step opportunities.
 
+## Case Study Build Workflow
+1. Start from the source case study or project notes and preserve the factual content.
+2. Choose an existing approved portfolio case study as the visual and structural reference.
+3. Rebuild the page inside the portfolio shell, not as a standalone microsite.
+4. Carry over important visuals from the source page, then restyle them to match the active portfolio theme.
+5. Prefer sections such as overview, metrics, timeline, scope, delivery breakdown, validation, stakeholders, and learnings when they fit the material.
+6. Use temporary project pages while iterating, then replace the canonical `Projects/*.html` page after approval.
+7. Delete the temporary project page after promotion so the workspace does not accumulate stale duplicates.
+
 ## UX/Content Rules
 - Headline should state business value, not only feature name.
 - First viewport must contain role + impact summary.

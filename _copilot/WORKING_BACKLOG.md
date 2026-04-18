@@ -1,6 +1,14 @@
 # Working Backlog
 
-Last updated: 2026-04-09
+Last updated: 2026-04-18
+
+## Session Handover — 2026-04-18
+- [x] Rebuilt `Projects/transfermate-payments-dashboard.html` from latest temp case study content in the approved portfolio shell style.
+- [x] Updated lifecycle step row spacing for even desktop distribution with mobile/tablet fallback behavior.
+- [x] Matched footer treatment to `Projects/data-deletion.html` pattern (inline centered, top border, metadata + status line).
+- [x] Audited all-project listing coverage vs `Projects/*.html` and identified currently unlisted project files.
+- [x] Created new case study page `Projects/api-dashboard-disbursements.html` from temp source.
+- [x] Added new tile on `all-projects-3.html` linking to `Projects/api-dashboard-disbursements.html`.
 
 ## Phase 0 — Project Setup
 - [x] Create persistent context folder for execution memory.

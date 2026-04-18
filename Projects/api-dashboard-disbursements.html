@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <title>API Dashboard Disbursements - Case Study | Zlatomir Vangelov</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+    <link rel="stylesheet" type="text/css" href="../css/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+    <style>
+      * { box-sizing: border-box; }
+      .blog-details { padding: 30px 0; }
+      .section { margin: 40px 0; }
+      .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+      .stat-card { background: linear-gradient(135deg, rgba(125,186,92,0.1) 0%, rgba(125,186,92,0.02) 100%); border: 1px solid rgba(125,186,92,0.2); border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; }
+      .stat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(125,186,92,0.2); border-color: rgba(125,186,92,0.4); }
+      .stat-icon { font-size: 32px; margin-bottom: 15px; display: block; }
+      .stat-number { font-size: 28px; font-weight: bold; color: #7dba5c; display: block; margin-bottom: 8px; }
+      .stat-label { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+      .s1-s2 { display: flex; gap: 30px; margin: 40px 0; flex-wrap: nowrap; }
+      .col1, .col2, .col3 { flex: 1; min-width: 0; overflow-wrap: break-word; background: rgba(255,255,255,0.02); padding: 25px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+      .col1:hover, .col2:hover, .col3:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+      .col1 b, .col2 b, .col3 b { display: block; margin-bottom: 15px; color: #7dba5c; font-size: 16px; border-bottom: 2px solid rgba(125,186,92,0.2); padding-bottom: 10px; }
+      .col1 p, .col2 p, .col3 p { margin: 0; line-height: 1.8; color: #b8b8b8; }
+      .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) { margin-bottom: 8px; }
+      .nda-notice { background-color: rgba(255,193,7,0.1); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 30px 0; border-radius: 4px; }
+      .nda-notice p { margin: 0; color: #ffc107; font-size: 14px; }
+      .timeline { position: relative; margin: 50px 0; padding-left: 40px; }
+      .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #7dba5c 0%, rgba(125,186,92,0.2) 100%); }
+      .timeline-item { position: relative; margin-bottom: 30px; padding: 20px 25px; background: rgba(255,255,255,0.02); border-radius: 8px; border-left: 3px solid rgba(125,186,92,0.4); transition: all 0.3s ease; }
+      .timeline-item:hover { background: rgba(255,255,255,0.04); border-left-color: #7dba5c; transform: translateX(5px); }
+      .timeline-item::before { content: ''; position: absolute; left: -43px; top: 25px; width: 12px; height: 12px; background: #7dba5c; border-radius: 50%; border: 3px solid #1a1a1a; box-shadow: 0 0 15px rgba(125,186,92,0.6); }
+      .timeline-date { color: #7dba5c; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+      .timeline-title { color: white; font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+      .timeline-desc { color: #b8b8b8; font-size: 14px; line-height: 1.6; }
+      .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+      .scope-card { border-radius: 10px; padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); }
+      .scope-card.in-scope { border-left: 4px solid #7dba5c; }
+      .scope-card.out-scope { border-left: 4px solid rgba(255,255,255,0.2); }
+      .scope-card h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; font-weight: 700; }
+      .scope-card.in-scope h4 { color: #7dba5c; }
+      .scope-card.out-scope h4 { color: #888; }
+      .scope-card ul { list-style: none; padding: 0; margin: 0; }
+      .scope-card li { padding: 6px 0; font-size: 14px; color: #b8b8b8; display: flex; align-items: flex-start; gap: 8px; }
+      .scope-card.in-scope li::before { content: "checkmark"; color: #7dba5c; font-weight: 700; flex-shrink: 0; }
+      .scope-card.out-scope li::before { content: "dash"; color: #666; font-weight: 700; flex-shrink: 0; }
+      .arch-card { border-radius: 12px; padding: 10px; margin-bottom: 30px; overflow-x: auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); }
+      .decision-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+      .decision-table thead th { background: rgba(125,186,92,0.2); color: #fff; padding: 14px 18px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; }
+      .decision-table tbody td { padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: #c8c8c8; }
+      .decision-table tbody tr:last-child td { border-bottom: none; }
+      .decision-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+      .decision-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+      .badge-technical { background: rgba(52,152,219,0.2); color: #89c8f2; }
+      .badge-strategic { background: rgba(125,186,92,0.15); color: #7dba5c; }
+      .badge-ux { background: rgba(243,156,18,0.2); color: #ffbf68; }
+      .badge-risk { background: rgba(233,69,96,0.2); color: #ff8ea3; }
+      .stakeholder-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 10px; }
+      .stakeholder-card { background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 22px; transition: all 0.25s ease; min-width: 0; }
+      .stakeholder-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.14); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+      .stakeholder-card.core { border-top: 3px solid #7dba5c; }
+      .stakeholder-card.business { border-top: 3px solid #3498db; }
+      .stakeholder-card.delivery { border-top: 3px solid #f39c12; }
+      .stakeholder-card.users { border-top: 3px solid #8a8a8a; }
+      .stakeholder-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; margin-bottom: 10px; }
+      .stakeholder-card.core .stakeholder-label { color: #7dba5c; }
+      .stakeholder-card.business .stakeholder-label { color: #3498db; }
+      .stakeholder-card.delivery .stakeholder-label { color: #f39c12; }
+      .stakeholder-card.users .stakeholder-label { color: #9a9a9a; }
+      .stakeholder-title { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+      .stakeholder-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+      .stakeholder-chip { display: inline-flex; align-items: center; min-height: 34px; padding: 8px 12px; border-radius: 999px; font-size: 13px; line-height: 1.4; color: #d7d7d7; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+      .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+      .insight-card { background: rgba(255,255,255,0.02); border-radius: 10px; padding: 22px; border-left: 4px solid; border-top: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .insight-card.positive { border-left-color: #7dba5c; }
+      .insight-card.caution { border-left-color: #f39c12; }
+      .insight-card.learn { border-left-color: #3498db; }
+      .insight-card.risk { border-left-color: #e94560; }
+      .insight-type { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; }
+      .insight-card.positive .insight-type { color: #7dba5c; }
+      .insight-card.caution .insight-type { color: #f39c12; }
+      .insight-card.learn .insight-type { color: #3498db; }
+      .insight-card.risk .insight-type { color: #e94560; }
+      .insight-card h4 { font-size: 15px; color: white; margin-bottom: 8px; font-weight: 600; }
+      .insight-card p { font-size: 13px; color: #b8b8b8; line-height: 1.6; margin: 0; }
+      @media (max-width: 1024px) {
+        .s1-s2 { flex-wrap: wrap; gap: 20px; }
+        .col1, .col2, .col3 { flex: 0 0 calc(50% - 10px); }
+        .scope-grid, .stakeholder-grid, .insight-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 768px) {
+        .blog-main { width: 100% !important; }
+        .s1-s2 { flex-direction: column; gap: 20px; margin: 30px 0; }
+        .col1, .col2, .col3 { flex: 1; padding: 15px; }
+        .main-heading { font-size: 28px; padding-bottom: 20px; }
+        .timeline { padding-left: 25px; }
+      }
+    </style>
+  </head>
+  <body class="blog">
+    <div id="container" class="container">
+      <aside class="menu" id="menu">
+        <div class="logo">
+          <img src="../images/logo.png" width="140" height="140" alt="" />
+          <span>Zlatomir Vangelov</span>
+        </div>
+        <a href="#menu1" class="menu-link"></a>
+        <nav id="menu1" role="navigation">
+          <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+          <a href="../index.html?page=about"><span id="link_about">About</span></a>
+          <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+          <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+          <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+          <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+          <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+          <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+        </nav>
+        <div class="social">
+          <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <div class="copyright">&copy; Zlatomir Vangelov.<br />All Rights Reserved.</div>
+      </aside>
+
+      <div class="blog-main">
+        <div style="width: 100%;" class="blog-left">
+          <div class="blog-top">
+            <div class="blog-title blog-details-title">
+              <h2>API Dashboard Disbursements</h2>
+              <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects-3.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;API Dashboard Disbursements</div>
+            </div>
+          </div>
+
+          <div class="blog-details">
+            <div class="section">
+              <div style="padding-bottom: 70px;" class="main-heading">API Dashboard: Disbursements Module</div>
+              <div style="padding-bottom: 30px;" class="heading-sub">Building a self-service disbursement view for API clients, enabling on-demand payout reconciliation and eliminating manual report generation.</div>
+              <p>The existing reconciliation process required the payments team to manually generate and send payout reports to API clients. This created delays and operational overhead for both internal teams and customers.</p>
+              <p>Phase 2 introduced a dedicated Disbursements module so clients can view payout data directly in the dashboard with filterable tables, date-range selection, and transaction-level drill-down visibility.</p>
+            </div>
+
+            <div class="nda-notice">
+              <p><strong>Confidentiality Notice:</strong> Internal schemas, transfer logic details, and client identifiers are generalized while preserving delivery scope, approach, and outcomes.</p>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card"><span class="stat-icon">&#10003;</span><span class="stat-number">Delivered</span><span class="stat-label">Current Status</span></div>
+              <div class="stat-card"><span class="stat-icon">&#9203;</span><span class="stat-number">Phase 2</span><span class="stat-label">Dashboard Evolution</span></div>
+              <div class="stat-card"><span class="stat-icon">&#128196;</span><span class="stat-number">1 BRD</span><span class="stat-label">Signed Off</span></div>
+              <div class="stat-card"><span class="stat-icon">&#9881;</span><span class="stat-number">4 Areas</span><span class="stat-label">Core Deliverables</span></div>
+            </div>
+
+            <div class="s1-s2">
+              <div class="col1">
+                <b>Role and Team</b>
+                <p>Product Manager</p>
+                <p>Business Director and BDM stakeholders</p>
+                <p>Web developer delivery ownership</p>
+              </div>
+              <div class="col2">
+                <b>Delivered Capabilities</b>
+                <p>Disbursements table and filters</p>
+                <p>Transaction detail popup</p>
+                <p>Cross-system transfer handler</p>
+                <p>Dedicated payout schema</p>
+              </div>
+              <div class="col3">
+                <b>Business Objective</b>
+                <p>Remove manual report dependency</p>
+                <p>Enable client self-service reconciliation</p>
+                <p>Improve payout visibility and trust</p>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+              <div style="padding: 22px; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(255,255,255,0.02);">
+                <p style="color: #cfcfcf; margin-bottom: 14px;">The Disbursements module was developed as part of API Dashboard Phase 2 to replace manual payout reporting with a client-facing self-service experience.</p>
+                <p style="color: #cfcfcf; margin: 0;">The solution includes data replication from back office into web tables, filterable payout views, and transaction-level drill-down to support faster reconciliation and fewer operational handoffs.</p>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Implementation Timeline</div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">Week 1</div>
+                  <div class="timeline-title">Scope and BRD Sign-Off</div>
+                  <div class="timeline-desc">Defined feature boundaries and secured formal sign-off covering table views, filtering model, popup detail behavior, and data transfer requirements.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">Weeks 2-3</div>
+                  <div class="timeline-title">Schema and Transfer Handler</div>
+                  <div class="timeline-desc">Created new web-side schema for payout and transaction data and implemented handler logic to ingest disbursement records from back office sources.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">Weeks 3-4</div>
+                  <div class="timeline-title">UI Delivery</div>
+                  <div class="timeline-desc">Built the disbursements table page with filters and date range controls, plus popup drill-down for transaction-level visibility.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">Week 5</div>
+                  <div class="timeline-title">Validation and Release</div>
+                  <div class="timeline-desc">Validated data consistency across source and dashboard views and completed release as a delivered Phase 2 module.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+              <p style="margin-bottom: 30px; color: #b8b8b8;">Flow of disbursement data from back office records to client-facing reconciliation views.</p>
+              <div class="arch-card">
+                <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto; display: block;">
+                  <defs>
+                    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                      <path d="M0,0 L8,4 L0,8" fill="rgba(125,186,92,0.75)" />
+                    </marker>
+                  </defs>
+                  <rect x="20" y="20" width="220" height="240" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5" />
+                  <text x="130" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">BACK OFFICE SYSTEM</text>
+
+                  <rect x="300" y="20" width="260" height="240" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5" />
+                  <text x="430" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">WEB PLATFORM</text>
+
+                  <rect x="620" y="20" width="260" height="240" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5" />
+                  <text x="750" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">CLIENT DASHBOARD</text>
+
+                  <rect x="40" y="80" width="180" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.35)" stroke-width="1.5" />
+                  <text x="130" y="107" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Disbursement Records</text>
+
+                  <rect x="40" y="145" width="180" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.35)" stroke-width="1.5" />
+                  <text x="130" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Batch + Single Payouts</text>
+
+                  <rect x="320" y="80" width="220" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" />
+                  <text x="430" y="107" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Data Transfer Handler</text>
+
+                  <rect x="320" y="145" width="220" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" />
+                  <text x="430" y="172" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Payout + Transaction Tables</text>
+
+                  <rect x="320" y="210" width="220" height="35" rx="8" fill="rgba(125,186,92,0.08)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" />
+                  <text x="430" y="232" text-anchor="middle" font-size="10" fill="#cfcfcf" font-weight="600">New Database Schema</text>
+
+                  <rect x="640" y="80" width="220" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.35)" stroke-width="1.5" />
+                  <text x="750" y="107" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Main Table + Filters</text>
+
+                  <rect x="640" y="145" width="220" height="45" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.35)" stroke-width="1.5" />
+                  <text x="750" y="172" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Transaction Detail Popup</text>
+
+                  <rect x="640" y="210" width="220" height="35" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.35)" stroke-width="1.5" />
+                  <text x="750" y="232" text-anchor="middle" font-size="10" fill="#cfcfcf" font-weight="600">Client Self-Service View</text>
+
+                  <line x1="220" y1="102" x2="316" y2="102" stroke="rgba(125,186,92,0.45)" stroke-width="2" marker-end="url(#arrow)" />
+                  <line x1="220" y1="167" x2="316" y2="167" stroke="rgba(125,186,92,0.45)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)" />
+                  <line x1="540" y1="102" x2="636" y2="102" stroke="rgba(125,186,92,0.45)" stroke-width="2" marker-end="url(#arrow)" />
+                  <line x1="540" y1="167" x2="636" y2="167" stroke="rgba(125,186,92,0.45)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+              <div class="scope-grid">
+                <div class="scope-card in-scope">
+                  <h4>In Scope</h4>
+                  <ul>
+                    <li>Disbursements main table with filtering</li>
+                    <li>Transaction-level detail popup</li>
+                    <li>Cross-system data transfer handler</li>
+                    <li>New payout and transaction schema</li>
+                    <li>Batch and single payout aggregation</li>
+                    <li>Date-range reporting capability</li>
+                  </ul>
+                </div>
+                <div class="scope-card out-scope">
+                  <h4>Out of Scope</h4>
+                  <ul>
+                    <li>Partner system dashboard</li>
+                    <li>Back-office UI redesign</li>
+                    <li>Phase 1 dashboard rewrites</li>
+                    <li>Real-time payout streaming</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Development Breakdown</div>
+              <table class="decision-table">
+                <thead>
+                  <tr>
+                    <th>Deliverable</th>
+                    <th>Outcome</th>
+                    <th>Area</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Database Schema</td>
+                    <td>New web tables created for payout and transaction data structures</td>
+                    <td><span class="decision-badge badge-technical">Technical</span></td>
+                  </tr>
+                  <tr>
+                    <td>Data Transfer Handler</td>
+                    <td>Reliable ingestion path from back-office disbursement records to web platform</td>
+                    <td><span class="decision-badge badge-strategic">Integration</span></td>
+                  </tr>
+                  <tr>
+                    <td>Main Dashboard Page</td>
+                    <td>Filterable disbursements table with date-range support and summary visibility</td>
+                    <td><span class="decision-badge badge-ux">UX</span></td>
+                  </tr>
+                  <tr>
+                    <td>Transaction Popup</td>
+                    <td>Drill-down detail view to support transaction-level reconciliation by clients</td>
+                    <td><span class="decision-badge badge-risk">Data Clarity</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Stakeholder Map</div>
+              <div class="stakeholder-grid">
+                <div class="stakeholder-card core">
+                  <div class="stakeholder-label">Core Owner</div>
+                  <div class="stakeholder-title">Product</div>
+                  <div class="stakeholder-chips"><span class="stakeholder-chip">Product Manager</span></div>
+                </div>
+                <div class="stakeholder-card business">
+                  <div class="stakeholder-label">Business Stakeholders</div>
+                  <div class="stakeholder-title">Commercial Team</div>
+                  <div class="stakeholder-chips"><span class="stakeholder-chip">Business Director</span><span class="stakeholder-chip">BDM Team</span></div>
+                </div>
+                <div class="stakeholder-card delivery">
+                  <div class="stakeholder-label">Delivery</div>
+                  <div class="stakeholder-title">Engineering</div>
+                  <div class="stakeholder-chips"><span class="stakeholder-chip">Web Developer</span></div>
+                </div>
+                <div class="stakeholder-card users">
+                  <div class="stakeholder-label">End Users</div>
+                  <div class="stakeholder-title">Operations and Clients</div>
+                  <div class="stakeholder-chips"><span class="stakeholder-chip">API Clients</span><span class="stakeholder-chip">Payments Team</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section">
+              <div style="padding-bottom: 30px;" class="main-heading">Lessons and Insights</div>
+              <div class="insight-grid">
+                <div class="insight-card learn">
+                  <div class="insight-type">Design Decision</div>
+                  <h4>Replicated Data Model</h4>
+                  <p>Replicating disbursement data into the web platform decoupled client reporting from back-office runtime dependency and improved UX responsiveness.</p>
+                </div>
+                <div class="insight-card positive">
+                  <div class="insight-type">What Worked</div>
+                  <h4>Phase-Based Delivery</h4>
+                  <p>Building on Phase 1 foundations reduced setup overhead and kept access patterns consistent for existing dashboard users.</p>
+                </div>
+                <div class="insight-card caution">
+                  <div class="insight-type">Challenge</div>
+                  <h4>Sign-Off Timing</h4>
+                  <p>BRD approvals took longer than expected, reinforcing the need for explicit sign-off milestones and escalation paths in delivery plans.</p>
+                </div>
+                <div class="insight-card risk">
+                  <div class="insight-type">Risk</div>
+                  <h4>Cross-System Consistency</h4>
+                  <p>Data transfer monitoring remains critical. Any handler gaps can lead to incomplete payout visibility and reconciliation errors.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px;">
+              <p style="color: #888; font-size: 13px;"><strong style="color: #b8b8b8;">Case Study: API Dashboard Disbursements Module</strong></p>
+              <p style="color: #666; font-size: 12px; margin-top: 6px;">Generated from retrospective knowledge base &bull; All sensitive information redacted per NDA requirements</p>
+              <p style="color: #666; font-size: 12px; margin-top: 4px;">Delivery Phase: 2 &bull; Status: <span style="color: #7dba5c;">&#9679;</span> Delivered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../js/head.min.js"></script>
+    <script type="text/javascript" src="../js/carousel.js"></script>
+    <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="../js/settings-blog.js"></script>
+  </body>
+</html>
