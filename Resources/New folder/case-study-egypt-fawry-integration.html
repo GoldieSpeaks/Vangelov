@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Egypt Local Payment Integration</title>
+    <style>
+        :root{--primary:#1a1a2e;--secondary:#16213e;--accent:#0f3460;--highlight:#e94560;--success:#2ecc71;--warning:#f39c12;--info:#3498db;--light:#f8f9fa;--muted:#6c757d;--border:#dee2e6;--card-shadow:0 4px 6px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);--card-hover:0 10px 25px rgba(0,0,0,.12)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#333;line-height:1.7;background:#f5f6fa}.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 50%,#1a5276 100%);color:#fff;padding:80px 0 60px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(233,69,96,.15) 0%,transparent 70%);border-radius:50%}.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(52,152,219,.1) 0%,transparent 70%);border-radius:50%}.hero-content{max-width:1100px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero-badge{display:inline-block;background:rgba(233,69,96,.2);border:1px solid rgba(233,69,96,.4);color:#ff8a9e;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}.hero h1{font-size:2.8rem;font-weight:700;margin-bottom:16px;line-height:1.2}.hero p.subtitle{font-size:1.15rem;color:rgba(255,255,255,.8);max-width:700px;margin-bottom:30px}.hero-stats{display:flex;gap:40px;flex-wrap:wrap}.hero-stat{text-align:center}.hero-stat .number{font-size:2.2rem;font-weight:700;color:var(--highlight);display:block}.hero-stat .label{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.6)}.container{max-width:1100px;margin:0 auto;padding:0 40px}section{padding:60px 0}section:nth-child(even){background:#fff}.section-header{margin-bottom:40px}.section-header h2{font-size:1.8rem;color:var(--primary);margin-bottom:8px;display:flex;align-items:center;gap:12px}.section-header h2 .icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--info));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}.section-header p{color:var(--muted);font-size:1rem}.card{background:#fff;border-radius:12px;padding:28px;box-shadow:var(--card-shadow);transition:box-shadow .3s ease,transform .2s ease}.card:hover{box-shadow:var(--card-hover);transform:translateY(-2px)}.card h3{font-size:1.1rem;color:var(--primary);margin-bottom:12px}.card p{color:#555;font-size:.95rem}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}.kpi-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);text-align:center;border-top:4px solid var(--info)}.kpi-card.green{border-top-color:var(--success)}.kpi-card.orange{border-top-color:var(--warning)}.kpi-card.red{border-top-color:var(--highlight)}.kpi-card .kpi-value{font-size:2rem;font-weight:700;color:var(--primary)}.kpi-card .kpi-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}.exec-summary{background:linear-gradient(135deg,#f8f9fa,#e8ecf1);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:28px 32px;font-size:1.05rem;color:#444}.timeline{position:relative;padding-left:40px}.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--info),var(--success));border-radius:2px}.timeline-item{position:relative;margin-bottom:32px;padding-left:20px}.timeline-item::before{content:'';position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--info);z-index:1}.timeline-item.milestone::before{background:var(--highlight);border-color:var(--highlight);width:18px;height:18px;left:-33px;top:4px}.timeline-item.success::before{background:var(--success);border-color:var(--success)}.timeline-date{font-size:.78rem;font-weight:600;color:var(--info);text-transform:uppercase;letter-spacing:.5px}.timeline-item.milestone .timeline-date{color:var(--highlight)}.timeline-item.success .timeline-date{color:var(--success)}.timeline-title{font-size:1rem;font-weight:600;color:var(--primary);margin:4px 0}.timeline-desc{font-size:.9rem;color:#666}.arch-diagram{background:#fff;border-radius:12px;padding:40px;box-shadow:var(--card-shadow);text-align:center}.arch-diagram svg{max-width:100%;height:auto}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.scope-card{border-radius:12px;padding:24px;box-shadow:var(--card-shadow)}.scope-card.in-scope{background:#fff;border-left:4px solid var(--success)}.scope-card.out-scope{background:#fff;border-left:4px solid var(--muted)}.scope-card h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}.scope-card.in-scope h4{color:var(--success)}.scope-card.out-scope h4{color:var(--muted)}.scope-card ul{list-style:none;padding:0}.scope-card li{padding:6px 0;font-size:.9rem;color:#555;display:flex;align-items:center;gap:8px}.scope-card.in-scope li::before{content:'\2713';color:var(--success);font-weight:700}.scope-card.out-scope li::before{content:'\2014';color:var(--muted);font-weight:700}.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}.insight-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);border-left:4px solid;transition:transform .2s}.insight-card:hover{transform:translateY(-3px)}.insight-card.positive{border-left-color:var(--success)}.insight-card.caution{border-left-color:var(--warning)}.insight-card.learn{border-left-color:var(--info)}.insight-card.risk{border-left-color:var(--highlight)}.insight-card .insight-type{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px}.insight-card.positive .insight-type{color:var(--success)}.insight-card.caution .insight-type{color:var(--warning)}.insight-card.learn .insight-type{color:var(--info)}.insight-card.risk .insight-type{color:var(--highlight)}.insight-card h4{font-size:1rem;color:var(--primary);margin-bottom:8px}.insight-card p{font-size:.88rem;color:#666}.stakeholder-map{display:flex;flex-direction:column;gap:16px}.stakeholder-ring{display:flex;align-items:center;gap:16px}.ring-label{width:120px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;text-align:right;flex-shrink:0}.ring-people{display:flex;flex-wrap:wrap;gap:8px}.person-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:500}.ring-core .ring-label{color:var(--highlight)}.ring-core .person-chip{background:#fde8ec;color:#b71c3c}.ring-decision .ring-label{color:var(--accent)}.ring-decision .person-chip{background:#e3ecf5;color:#1a3a5c}.ring-delivery .ring-label{color:var(--warning)}.ring-delivery .person-chip{background:#fef3e0;color:#8d5a1a}.ring-external .ring-label{color:var(--muted)}.ring-external .person-chip{background:#eee;color:#555}.footer{background:var(--primary);color:rgba(255,255,255,.5);text-align:center;padding:30px 0;font-size:.8rem}.footer strong{color:rgba(255,255,255,.8)}@media(max-width:900px){.hero h1{font-size:2rem}.grid-2,.grid-3,.grid-4,.scope-grid,.insight-cards{grid-template-columns:1fr}.hero-stats{gap:20px}}@media print{.hero{background:#1a1a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}section{break-inside:avoid}.card,.kpi-card{box-shadow:none;border:1px solid #ddd}}
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Case Study</span>
+        <h1>Egypt Local Payment Integration</h1>
+        <p class="subtitle">
+            Extending an existing third-party payment provider integration to enable local currency
+            bank transfers for Egyptian payers &mdash; unlocking a new market with minimal custom development.
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat"><span class="number">7 Weeks</span><span class="label">End-to-End Delivery</span></div>
+            <div class="hero-stat"><span class="number">Local Currency</span><span class="label">EGP Payments Enabled</span></div>
+            <div class="hero-stat"><span class="number">Provider-Led</span><span class="label">Existing Integration</span></div>
+            <div class="hero-stat"><span class="number">Revenue Driver</span><span class="label">Commercial Priority</span></div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">E</span> Executive Summary</h2></div>
+        <div class="exec-summary">
+            <p>Egyptian payers could previously only make payments in base currencies (EUR, GBP, AUD) via bank transfer, creating friction and reducing conversion rates. This project leveraged an <strong>existing third-party payment provider integration</strong> to add a local payment method supporting Egyptian Pounds (EGP). Since the provider integration was already in place, no formal BRD was required &mdash; the work focused on enabling the new payment method, configuring margin rates, and validating the end-to-end flow through sandbox and production environments.</p>
+            <br>
+            <p><strong>Key outcome:</strong> Payers in Egypt can now complete local currency bank transfers through a familiar payment method. The integration was deployed to production test links for penny testing before full enablement. Two post-release defects were identified and resolved: an incorrect API redirect link and a missing transaction details button on payment history pages.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">#</span> Key Metrics at a Glance</h2></div>
+        <div class="grid-4">
+            <div class="kpi-card green"><div class="kpi-value">7 Weeks</div><div class="kpi-label">Delivery Timeline</div></div>
+            <div class="kpi-card"><div class="kpi-value">0</div><div class="kpi-label">BRD Required</div></div>
+            <div class="kpi-card orange"><div class="kpi-value">EGP</div><div class="kpi-label">New Currency Added</div></div>
+            <div class="kpi-card red"><div class="kpi-value">Sandbox + Prod</div><div class="kpi-label">Dual Testing</div></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9716;</span> Project Timeline</h2><p>From commercial request through sandbox validation to production enablement</p></div>
+        <div class="grid-2">
+            <div><div class="timeline">
+                <div class="timeline-item"><div class="timeline-date">Week 1</div><div class="timeline-title">Commercial Request</div><div class="timeline-desc">Commercial team identified revenue opportunity in Egypt. Formal request raised. Existing third-party provider confirmed support for the local payment method. No BRD needed as this extends existing integration.</div></div>
+                <div class="timeline-item"><div class="timeline-date">Week 2</div><div class="timeline-title">Provider Sandbox Issues</div><div class="timeline-desc">Initial sandbox testing revealed issues with the provider's test environment. Escalation email sent to provider. Margin rate confirmed at 9.5% by commercial team.</div></div>
+                <div class="timeline-item milestone"><div class="timeline-date">Week 3&ndash;5</div><div class="timeline-title">Development &amp; Configuration</div><div class="timeline-desc">Payment method enabled for web payment platforms and payer API. Exceptions documented: not compatible with partner systems, invoice API, older API versions, or specific sponsor flows.</div></div>
+            </div></div>
+            <div><div class="timeline">
+                <div class="timeline-item"><div class="timeline-date">Week 6</div><div class="timeline-title">Production Deployment &amp; Testing</div><div class="timeline-desc">Deployed to production test links for penny testing and sandbox links for QA. Two defects found: incorrect redirect link in API response and missing transaction details button. Back office system data sync issue identified separately.</div></div>
+                <div class="timeline-item success"><div class="timeline-date">Week 7</div><div class="timeline-title">Defect Resolution &amp; Closure</div><div class="timeline-desc">Both defects resolved. Production testing completed directly on test production links. Payment method enabled for payers on web platforms and Payer API. Project closed.</div></div>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9881;</span> Technical Architecture</h2><p>Extending existing provider integration for Egypt local payments</p></div>
+        <div class="arch-diagram">
+            <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+                <rect x="20" y="20" width="220" height="260" rx="16" fill="#f0f4ff" stroke="#c0d0f0" stroke-width="1.5"/>
+                <text x="130" y="48" text-anchor="middle" font-size="11" fill="#6080b0" font-weight="700" letter-spacing="1">PAYER (EGYPT)</text>
+                <rect x="280" y="20" width="280" height="260" rx="16" fill="#f5f0ff" stroke="#d0c0f0" stroke-width="1.5"/>
+                <text x="420" y="48" text-anchor="middle" font-size="11" fill="#8060b0" font-weight="700" letter-spacing="1">PAYMENT PLATFORM</text>
+                <rect x="600" y="20" width="280" height="260" rx="16" fill="#f0fff4" stroke="#a0e0b0" stroke-width="1.5"/>
+                <text x="740" y="48" text-anchor="middle" font-size="11" fill="#408060" font-weight="700" letter-spacing="1">PAYMENT PROVIDER</text>
+
+                <rect x="40" y="80" width="180" height="50" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+                <text x="130" y="102" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">Web Payment Platform</text>
+                <text x="130" y="116" text-anchor="middle" font-size="9" fill="#7f8c8d">Payer Checkout</text>
+
+                <rect x="40" y="155" width="180" height="50" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+                <text x="130" y="177" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">API System</text>
+                <text x="130" y="191" text-anchor="middle" font-size="9" fill="#7f8c8d">Payer API v4.2</text>
+
+                <rect x="300" y="80" width="240" height="50" rx="10" fill="white" stroke="#9b59b6" stroke-width="2"/>
+                <text x="420" y="102" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">Payment Method Selector</text>
+                <text x="420" y="116" text-anchor="middle" font-size="9" fill="#7f8c8d">Egypt = Local Payment Option</text>
+
+                <rect x="300" y="155" width="240" height="50" rx="10" fill="white" stroke="#9b59b6" stroke-width="2"/>
+                <text x="420" y="177" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">Margin Configuration</text>
+                <text x="420" y="191" text-anchor="middle" font-size="9" fill="#7f8c8d">9.5% Rate Applied</text>
+
+                <rect x="300" y="230" width="240" height="36" rx="8" fill="#fde8ea" stroke="#e94560" stroke-width="1.5"/>
+                <text x="420" y="252" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">Exceptions: Partners, Invoice, Old API</text>
+
+                <rect x="620" y="80" width="240" height="50" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+                <text x="740" y="102" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">Provider API</text>
+                <text x="740" y="116" text-anchor="middle" font-size="9" fill="#7f8c8d">Existing Integration</text>
+
+                <rect x="620" y="155" width="240" height="50" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+                <text x="740" y="177" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="600">Local Payment Processing</text>
+                <text x="740" y="191" text-anchor="middle" font-size="9" fill="#7f8c8d">EGP Settlement</text>
+
+                <rect x="620" y="230" width="240" height="36" rx="8" fill="#e8f5e9" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="740" y="252" text-anchor="middle" font-size="10" fill="#1b5e20" font-weight="600">Sandbox + Production Environments</text>
+
+                <defs><marker id="a1" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#3498db"/></marker></defs>
+                <line x1="220" y1="105" x2="296" y2="105" stroke="#3498db" stroke-width="2" marker-end="url(#a1)"/>
+                <line x1="220" y1="180" x2="296" y2="175" stroke="#3498db" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+                <line x1="540" y1="105" x2="616" y2="105" stroke="#9b59b6" stroke-width="2" marker-end="url(#a1)"/>
+                <line x1="540" y1="180" x2="616" y2="175" stroke="#9b59b6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9745;</span> Project Scope</h2></div>
+        <div class="scope-grid">
+            <div class="scope-card in-scope"><h4>In Scope</h4><ul>
+                <li>Local payment method for Egypt (EGP)</li>
+                <li>Web payment platform integration</li>
+                <li>Payer API support</li>
+                <li>Margin rate configuration (9.5%)</li>
+                <li>Back office system transaction sync</li>
+                <li>Sandbox and production testing</li>
+            </ul></div>
+            <div class="scope-card out-scope"><h4>Out of Scope</h4><ul>
+                <li>Invoice API integration</li>
+                <li>Agent portal payments</li>
+                <li>Partner system integration</li>
+                <li>Older API versions (v3.x)</li>
+                <li>Specific sponsor payment flows</li>
+            </ul></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9734;</span> Stakeholder Map</h2></div>
+        <div class="card"><div class="stakeholder-map">
+            <div class="stakeholder-ring ring-core"><div class="ring-label">Core</div><div class="ring-people"><span class="person-chip">Product Manager</span></div></div>
+            <div class="stakeholder-ring ring-decision"><div class="ring-label">Commercial</div><div class="ring-people"><span class="person-chip">Commercial Lead</span><span class="person-chip">Business Director</span></div></div>
+            <div class="stakeholder-ring ring-delivery"><div class="ring-label">Delivery</div><div class="ring-people"><span class="person-chip">Senior Web Developer</span><span class="person-chip">QA Engineer</span></div></div>
+            <div class="stakeholder-ring ring-external"><div class="ring-label">External</div><div class="ring-people"><span class="person-chip">Payment Provider</span><span class="person-chip">Egyptian Payers</span></div></div>
+        </div></div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9733;</span> Lessons &amp; Insights</h2></div>
+        <div class="insight-cards">
+            <div class="insight-card positive"><div class="insight-type">What Went Well</div><h4>Leveraging Existing Integration</h4><p>Because the payment provider integration already existed, enabling a new country/payment method required configuration rather than new architecture. This reduced delivery time significantly and eliminated BRD overhead.</p></div>
+            <div class="insight-card learn"><div class="insight-type">Learning</div><h4>Provider Sandbox Reliability</h4><p>The provider's sandbox environment had issues that required escalation. Third-party sandbox environments cannot be assumed to be production-ready. Building buffer time for provider-side issues is essential for integration projects.</p></div>
+            <div class="insight-card caution"><div class="insight-type">Consideration</div><h4>Exception Documentation Is Critical</h4><p>The payment method had multiple platform exceptions (partners, invoice API, old API versions, specific flows). Documenting these clearly prevented false-positive bug reports and set correct expectations for QA and stakeholders.</p></div>
+            <div class="insight-card risk"><div class="insight-type">Cross-System Impact</div><h4>Operations Data Sync Gap</h4><p>A separate defect was identified where transactions using the new payment method were not syncing correctly to the corporate back-office system. This highlights that new payment methods need end-to-end validation including downstream data flows.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Egypt Local Payment Integration</strong> &mdash; Case Study</p>
+        <p style="margin-top:6px;">Web Payment Platforms &bull; Third-Party Provider Extension &bull; Completed in 7 Weeks</p>
+    </div>
+</footer>
+
+</body>
+</html>

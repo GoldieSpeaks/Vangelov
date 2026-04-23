@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Agent Payment Platform</title>
+    <style>
+        :root{--primary:#1a1a2e;--secondary:#16213e;--accent:#0f3460;--highlight:#e94560;--success:#2ecc71;--warning:#f39c12;--info:#3498db;--light:#f8f9fa;--muted:#6c757d;--border:#dee2e6;--card-shadow:0 4px 6px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);--card-hover:0 10px 25px rgba(0,0,0,.12)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#333;line-height:1.7;background:#f5f6fa}.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 50%,#1a5276 100%);color:#fff;padding:80px 0 60px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(233,69,96,.15) 0%,transparent 70%);border-radius:50%}.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(52,152,219,.1) 0%,transparent 70%);border-radius:50%}.hero-content{max-width:1100px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero-badge{display:inline-block;background:rgba(233,69,96,.2);border:1px solid rgba(233,69,96,.4);color:#ff8a9e;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}.hero h1{font-size:2.8rem;font-weight:700;margin-bottom:16px;line-height:1.2}.hero p.subtitle{font-size:1.15rem;color:rgba(255,255,255,.8);max-width:700px;margin-bottom:30px}.hero-stats{display:flex;gap:40px;flex-wrap:wrap}.hero-stat{text-align:center}.hero-stat .number{font-size:2.2rem;font-weight:700;color:var(--highlight);display:block}.hero-stat .label{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.6)}.container{max-width:1100px;margin:0 auto;padding:0 40px}section{padding:60px 0}section:nth-child(even){background:#fff}.section-header{margin-bottom:40px}.section-header h2{font-size:1.8rem;color:var(--primary);margin-bottom:8px;display:flex;align-items:center;gap:12px}.section-header h2 .icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--info));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}.section-header p{color:var(--muted);font-size:1rem}.card{background:#fff;border-radius:12px;padding:28px;box-shadow:var(--card-shadow);transition:box-shadow .3s,transform .2s}.card:hover{box-shadow:var(--card-hover);transform:translateY(-2px)}.card h3{font-size:1.1rem;color:var(--primary);margin-bottom:12px}.card p{color:#555;font-size:.95rem}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}.kpi-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);text-align:center;border-top:4px solid var(--info)}.kpi-card.green{border-top-color:var(--success)}.kpi-card.orange{border-top-color:var(--warning)}.kpi-card.red{border-top-color:var(--highlight)}.kpi-card .kpi-value{font-size:2rem;font-weight:700;color:var(--primary)}.kpi-card .kpi-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}.exec-summary{background:linear-gradient(135deg,#f8f9fa,#e8ecf1);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:28px 32px;font-size:1.05rem;color:#444}.timeline{position:relative;padding-left:40px}.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--info),var(--success));border-radius:2px}.timeline-item{position:relative;margin-bottom:32px;padding-left:20px}.timeline-item::before{content:'';position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--info);z-index:1}.timeline-item.milestone::before{background:var(--highlight);border-color:var(--highlight);width:18px;height:18px;left:-33px;top:4px}.timeline-item.success::before{background:var(--success);border-color:var(--success)}.timeline-date{font-size:.78rem;font-weight:600;color:var(--info);text-transform:uppercase;letter-spacing:.5px}.timeline-item.milestone .timeline-date{color:var(--highlight)}.timeline-item.success .timeline-date{color:var(--success)}.timeline-title{font-size:1rem;font-weight:600;color:var(--primary);margin:4px 0}.timeline-desc{font-size:.9rem;color:#666}.arch-diagram{background:#fff;border-radius:12px;padding:40px;box-shadow:var(--card-shadow);text-align:center}.arch-diagram svg{max-width:100%;height:auto}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.scope-card{border-radius:12px;padding:24px;box-shadow:var(--card-shadow)}.scope-card.in-scope{background:#fff;border-left:4px solid var(--success)}.scope-card.out-scope{background:#fff;border-left:4px solid var(--muted)}.scope-card h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}.scope-card.in-scope h4{color:var(--success)}.scope-card.out-scope h4{color:var(--muted)}.scope-card ul{list-style:none;padding:0}.scope-card li{padding:6px 0;font-size:.9rem;color:#555;display:flex;align-items:center;gap:8px}.scope-card.in-scope li::before{content:'\2713';color:var(--success);font-weight:700}.scope-card.out-scope li::before{content:'\2014';color:var(--muted);font-weight:700}.stakeholder-map{display:flex;flex-direction:column;gap:16px}.stakeholder-ring{display:flex;align-items:center;gap:16px}.ring-label{width:120px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;text-align:right;flex-shrink:0}.ring-people{display:flex;flex-wrap:wrap;gap:8px}.person-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:500}.ring-core .ring-label{color:var(--highlight)}.ring-core .person-chip{background:#fde8ec;color:#b71c3c}.ring-decision .ring-label{color:var(--accent)}.ring-decision .person-chip{background:#e3ecf5;color:#1a3a5c}.ring-delivery .ring-label{color:var(--warning)}.ring-delivery .person-chip{background:#fef3e0;color:#8d5a1a}.ring-external .ring-label{color:var(--muted)}.ring-external .person-chip{background:#eee;color:#555}.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}.insight-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);border-left:4px solid;transition:transform .2s}.insight-card:hover{transform:translateY(-3px)}.insight-card.positive{border-left-color:var(--success)}.insight-card.caution{border-left-color:var(--warning)}.insight-card.learn{border-left-color:var(--info)}.insight-card.risk{border-left-color:var(--highlight)}.insight-card .insight-type{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px}.insight-card.positive .insight-type{color:var(--success)}.insight-card.caution .insight-type{color:var(--warning)}.insight-card.learn .insight-type{color:var(--info)}.insight-card.risk .insight-type{color:var(--highlight)}.insight-card h4{font-size:1rem;color:var(--primary);margin-bottom:8px}.insight-card p{font-size:.88rem;color:#666}.footer{background:var(--primary);color:rgba(255,255,255,.5);text-align:center;padding:30px 0;font-size:.8rem}.footer strong{color:rgba(255,255,255,.8)}@media(max-width:900px){.hero h1{font-size:2rem}.grid-2,.grid-3,.grid-4,.scope-grid,.insight-cards{grid-template-columns:1fr}.hero-stats{gap:20px}}@media print{.hero{background:#1a1a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}section{break-inside:avoid}.card,.kpi-card{box-shadow:none;border:1px solid #ddd}}
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Case Study</span>
+        <h1>Agent Payment Platform</h1>
+        <p class="subtitle">
+            Designing and specifying a multi-tenant agent portal for international cross-border payments &mdash;
+            enabling counsellors at the world's largest cross-border placement agency to generate secure payment links
+            for payers across dozens of countries and hundreds of universities.
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat"><span class="number">Multi-Tenant</span><span class="label">Agency-Extensible Design</span></div>
+            <div class="hero-stat"><span class="number">4-Level</span><span class="label">Organisation Hierarchy</span></div>
+            <div class="hero-stat"><span class="number">2 Flows</span><span class="label">Agent + Payer Initiated</span></div>
+            <div class="hero-stat"><span class="number">Global</span><span class="label">Multi-Country Coverage</span></div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">E</span> Executive Summary</h2></div>
+        <div class="exec-summary">
+            <p>
+                This project defined the complete product requirements for a <strong>new Agent Payment Platform</strong> serving the world's
+                largest international cross-border placement agency. The platform enables counsellors (agents) to generate secure payment links
+                for payers, supporting tuition, accommodation, living expenses, and visa fees across all onboarded universities.
+                Built on a <strong>multi-tenant architecture</strong>, the platform supports a four-level organisational hierarchy
+                (Platform, Agency, Master User, Sub-Accounts) and is designed for future expansion to additional agencies.
+            </p><br>
+            <p>
+                <strong>Key outcome:</strong> A comprehensive PRD and BRD were produced covering two payment flows (agent-initiated ~90%,
+                payer-initiated ~10%), role-based permissions, product-to-beneficiary mapping, dashboard and reporting requirements,
+                email notifications, and integration with existing Web and Operations infrastructure. The project advanced through
+                kick-off meetings, design sessions, and stakeholder alignment with the agency partner.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">#</span> Key Metrics at a Glance</h2></div>
+        <div class="grid-4">
+            <div class="kpi-card green"><div class="kpi-value">Comprehensive</div><div class="kpi-label">PRD + BRD Produced</div></div>
+            <div class="kpi-card"><div class="kpi-value">4 Roles</div><div class="kpi-label">Permission Levels</div></div>
+            <div class="kpi-card orange"><div class="kpi-value">5 Products</div><div class="kpi-label">Payment Categories</div></div>
+            <div class="kpi-card red"><div class="kpi-value">Phased</div><div class="kpi-label">Delivery Strategy</div></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9716;</span> Project Timeline</h2><p>From initial design call through comprehensive BRD completion</p></div>
+        <div class="grid-2">
+            <div><div class="timeline">
+                <div class="timeline-item"><div class="timeline-date">Week 1</div><div class="timeline-title">Design Call &amp; Epic Creation</div><div class="timeline-desc">Initial design session held with the agency partner. Epic created to track the platform build. Business analyst assigned for requirements gathering.</div></div>
+                <div class="timeline-item"><div class="timeline-date">Weeks 2 &ndash; 4</div><div class="timeline-title">PRD Authoring</div><div class="timeline-desc">Product Requirements Document drafted covering platform hierarchy, roles and permissions, payment flows, data requirements, and integration points.</div></div>
+                <div class="timeline-item milestone"><div class="timeline-date">Week 5</div><div class="timeline-title">Kick-Off Meeting with Agency</div><div class="timeline-desc">Formal kick-off meeting with the agency partner. Key decisions on commission visibility, AML requirements, and university database approach. Action items assigned.</div></div>
+            </div></div>
+            <div><div class="timeline">
+                <div class="timeline-item"><div class="timeline-date">Weeks 6 &ndash; 8</div><div class="timeline-title">BRD Development</div><div class="timeline-desc">Detailed Business Requirements Document produced covering complete platform specification: agent portal, payment processing, product mapping, Operations integration, and phased delivery plan.</div></div>
+                <div class="timeline-item"><div class="timeline-date">Weeks 8 &ndash; 10</div><div class="timeline-title">Open Questions Resolution</div><div class="timeline-desc">Ongoing alignment with agency partner on data fields, link expiration, address book sharing, and document collection requirements. Several questions resolved, others pending agency input.</div></div>
+                <div class="timeline-item success"><div class="timeline-date">Ongoing</div><div class="timeline-title">Architecture Review &amp; Phase 1 Scoping</div><div class="timeline-desc">Technical architecture review with senior developer. Phase 1 scope defined: core payment flow, agent portal, payment processing, and Operations integration.</div></div>
+            </div></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9881;</span> Platform Architecture</h2><p>Multi-tenant hierarchy with dual payment flows</p></div>
+        <div class="arch-diagram">
+            <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+                <!-- Hierarchy -->
+                <rect x="20" y="20" width="400" height="180" rx="16" fill="#f0f4ff" stroke="#c0d0f0" stroke-width="1.5"/>
+                <text x="220" y="48" text-anchor="middle" font-size="11" fill="#6080b0" font-weight="700" letter-spacing="1">ORGANISATION HIERARCHY</text>
+
+                <rect x="40" y="65" width="90" height="35" rx="8" fill="var(--primary)" stroke="none"/><text x="85" y="87" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">Platform</text>
+                <rect x="145" y="65" width="90" height="35" rx="8" fill="var(--accent)" stroke="none"/><text x="190" y="87" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">Agency</text>
+                <rect x="250" y="65" width="90" height="35" rx="8" fill="var(--info)" stroke="none"/><text x="295" y="87" text-anchor="middle" font-size="9" fill="#fff" font-weight="600">Master User</text>
+                <rect x="355" y="65" width="50" height="35" rx="8" fill="var(--highlight)" stroke="none"/><text x="380" y="87" text-anchor="middle" font-size="8" fill="#fff" font-weight="600">Agents</text>
+
+                <text x="133" y="84" text-anchor="middle" font-size="14" fill="#999">&rarr;</text>
+                <text x="238" y="84" text-anchor="middle" font-size="14" fill="#999">&rarr;</text>
+                <text x="348" y="84" text-anchor="middle" font-size="14" fill="#999">&rarr;</text>
+
+                <!-- Roles -->
+                <rect x="40" y="115" width="160" height="30" rx="6" fill="white" stroke="#9b59b6" stroke-width="1.5"/>
+                <text x="120" y="135" text-anchor="middle" font-size="9" fill="#2c3e50" font-weight="600">HQ/Admin (Full Access)</text>
+                <rect x="215" y="115" width="85" height="30" rx="6" fill="white" stroke="#f39c12" stroke-width="1.5"/>
+                <text x="257" y="135" text-anchor="middle" font-size="8" fill="#2c3e50" font-weight="600">Regional Mgr</text>
+                <rect x="310" y="115" width="95" height="30" rx="6" fill="white" stroke="#2ecc71" stroke-width="1.5"/>
+                <text x="357" y="135" text-anchor="middle" font-size="8" fill="#2c3e50" font-weight="600">Country/City Mgr</text>
+
+                <rect x="40" y="155" width="365" height="30" rx="6" fill="white" stroke="#3498db" stroke-width="1.5"/>
+                <text x="222" y="175" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Counsellors / Agents (Branch-Level, Generate Payment Links)</text>
+
+                <!-- Payment Flows -->
+                <rect x="440" y="20" width="440" height="180" rx="16" fill="#f5f0ff" stroke="#d0c0f0" stroke-width="1.5"/>
+                <text x="660" y="48" text-anchor="middle" font-size="11" fill="#8060b0" font-weight="700" letter-spacing="1">PAYMENT FLOWS</text>
+
+                <rect x="460" y="65" width="200" height="55" rx="10" fill="white" stroke="#e94560" stroke-width="2"/>
+                <text x="560" y="85" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Flow A: Agent-Initiated</text>
+                <text x="560" y="102" text-anchor="middle" font-size="9" fill="#7f8c8d">~90% of volume. Agent creates link.</text>
+
+                <rect x="460" y="135" width="200" height="55" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+                <text x="560" y="155" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Flow B: Payer-Initiated</text>
+                <text x="560" y="172" text-anchor="middle" font-size="9" fill="#7f8c8d">~10% of volume. Direct from website.</text>
+
+                <rect x="680" y="65" width="180" height="125" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+                <text x="770" y="90" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Payment Methods</text>
+                <text x="770" y="112" text-anchor="middle" font-size="9" fill="#555">Credit Card (Gateway)</text>
+                <text x="770" y="128" text-anchor="middle" font-size="9" fill="#555">Bank Transfer</text>
+                <text x="770" y="144" text-anchor="middle" font-size="9" fill="#555">Regional APMs</text>
+                <text x="770" y="160" text-anchor="middle" font-size="9" fill="#7f8c8d">(per university agreements)</text>
+
+                <!-- Platform Features -->
+                <rect x="20" y="220" width="860" height="180" rx="16" fill="#f0fff4" stroke="#a0e0b0" stroke-width="1.5"/>
+                <text x="450" y="248" text-anchor="middle" font-size="11" fill="#408060" font-weight="700" letter-spacing="1">PLATFORM FEATURES</text>
+
+                <rect x="40" y="265" width="155" height="55" rx="10" fill="white" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="117" y="287" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Agent Portal</text>
+                <text x="117" y="303" text-anchor="middle" font-size="8" fill="#7f8c8d">Login, 2FA, Profile, Links</text>
+
+                <rect x="210" y="265" width="155" height="55" rx="10" fill="white" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="287" y="287" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Payment Links</text>
+                <text x="287" y="303" text-anchor="middle" font-size="8" fill="#7f8c8d">Generate, Send, Track, Deactivate</text>
+
+                <rect x="380" y="265" width="155" height="55" rx="10" fill="white" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="457" y="287" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Dashboard</text>
+                <text x="457" y="303" text-anchor="middle" font-size="8" fill="#7f8c8d">Stats, Filters, Role-Scoped</text>
+
+                <rect x="550" y="265" width="155" height="55" rx="10" fill="white" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="627" y="287" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">User Management</text>
+                <text x="627" y="303" text-anchor="middle" font-size="8" fill="#7f8c8d">Create, Edit, Roles, Status</text>
+
+                <rect x="720" y="265" width="145" height="55" rx="10" fill="white" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="792" y="287" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Notifications</text>
+                <text x="792" y="303" text-anchor="middle" font-size="8" fill="#7f8c8d">Confirmation, Reminder, Receipt</text>
+
+                <rect x="40" y="335" width="250" height="50" rx="10" fill="white" stroke="#9b59b6" stroke-width="1.5"/>
+                <text x="165" y="360" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Existing Web DB (PostgreSQL)</text>
+                <text x="165" y="375" text-anchor="middle" font-size="8" fill="#7f8c8d">Transactions, Products, Routing</text>
+
+                <rect x="310" y="335" width="250" height="50" rx="10" fill="white" stroke="#9b59b6" stroke-width="1.5"/>
+                <text x="435" y="360" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Operations (SQL Server)</text>
+                <text x="435" y="375" text-anchor="middle" font-size="8" fill="#7f8c8d">File Routing, Auto-Attach, Processing</text>
+
+                <rect x="580" y="335" width="250" height="50" rx="10" fill="white" stroke="#9b59b6" stroke-width="1.5"/>
+                <text x="705" y="360" text-anchor="middle" font-size="10" fill="#2c3e50" font-weight="600">Payment Gateway</text>
+                <text x="705" y="375" text-anchor="middle" font-size="8" fill="#7f8c8d">Card Payments, Bank Transfers</text>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#9745;</span> Project Scope</h2></div>
+        <div class="scope-grid">
+            <div class="scope-card in-scope"><h4>In Scope (Phase 1)</h4><ul>
+                <li>Agent portal with authentication and 2FA</li>
+                <li>Payment link generation (up to 5 product categories)</li>
+                <li>Individual Payment Form with T&amp;C acceptance</li>
+                <li>Dual payment flows (agent-initiated + payer-initiated)</li>
+                <li>Role-based permissions (4 levels)</li>
+                <li>Web DB and Operations integration</li>
+                <li>Product-to-beneficiary bank mapping</li>
+                <li>Email notifications (confirmation, reminder, receipt)</li>
+            </ul></div>
+            <div class="scope-card out-scope"><h4>Out of Scope / Future Phases</h4><ul>
+                <li>Automated refund processing</li>
+                <li>Agency Internal System-to-Internal System API integration</li>
+                <li>Native mobile application</li>
+                <li>Agency self-registration</li>
+                <li>Commission visibility in agent portal</li>
+                <li>Advanced dashboard and reporting</li>
+                <li>University self-onboarding</li>
+            </ul></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#60;/&#62;</span> Key Design Decisions</h2><p>Critical architectural and business decisions shaping the platform</p></div>
+        <div class="grid-3">
+            <div class="card">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#f39c12,#e67e22);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;">1</div><h3 style="margin:0;">Multi-Tenant Architecture</h3></div>
+                <p>Platform designed as <strong>agency-agnostic</strong> from day one. The hierarchy (Platform &rarr; Agency &rarr; Master &rarr; Agents) supports onboarding additional agencies with full data isolation, avoiding agency-specific implementation.</p>
+            </div>
+            <div class="card">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#e94560,#c0392b);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;">2</div><h3 style="margin:0;">Existing Infrastructure Reuse</h3></div>
+                <p>Rather than building standalone systems, the platform <strong>integrates with existing Web DB and Operations</strong> pipelines &mdash; reusing transaction processing, product mapping, and file routing infrastructure already proven in production.</p>
+            </div>
+            <div class="card">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#2ecc71,#27ae60);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;">3</div><h3 style="margin:0;">Payment Link Model</h3></div>
+                <p>Agents <strong>never handle payer card details</strong>. The link-based payment model ensures payers always complete the payment step directly, maintaining PCI compliance and reducing fraud risk across all payment channels.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#128101;</span> Stakeholder Map</h2></div>
+        <div class="card"><div class="stakeholder-map">
+            <div class="stakeholder-ring ring-core"><div class="ring-label">Agency Partner</div><div class="ring-people">
+                <div class="person-chip">Agency Project Lead (Requirements, Branch Data)</div>
+                <div class="person-chip">Agency Business Development (Commercial Alignment)</div>
+            </div></div>
+            <div class="stakeholder-ring ring-decision"><div class="ring-label">Core Team</div><div class="ring-people">
+                <div class="person-chip">Product Manager (PRD/BRD Author, Coordinator)</div>
+                <div class="person-chip">Business Analyst (Requirements Analysis)</div>
+            </div></div>
+            <div class="stakeholder-ring ring-delivery"><div class="ring-label">Delivery</div><div class="ring-people">
+                <div class="person-chip">Senior Developer (Architecture Review)</div>
+                <div class="person-chip">Design Team (UI/UX Sessions)</div>
+            </div></div>
+            <div class="stakeholder-ring ring-external"><div class="ring-label">Internal</div><div class="ring-people">
+                <div class="person-chip">Compliance (Due Diligence, AML Review)</div>
+                <div class="person-chip">Operations (Operations Processing)</div>
+            </div></div>
+        </div></div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-header"><h2><span class="icon">&#128161;</span> Lessons &amp; Insights</h2></div>
+        <div class="insight-cards">
+            <div class="insight-card positive"><div class="insight-type">What Worked Well</div><h4>Comprehensive PRD Before Development</h4><p>Producing a detailed product requirements document covering the full platform vision before beginning development ensured all stakeholders were aligned on scope, hierarchy, and phased delivery before any code was written.</p></div>
+            <div class="insight-card positive"><div class="insight-type">What Worked Well</div><h4>Agency-Agnostic Design Principle</h4><p>Building the multi-tenant hierarchy as a platform feature rather than an agency-specific implementation means additional agencies can be onboarded in the future without structural changes, maximising the return on development investment.</p></div>
+            <div class="insight-card caution"><div class="insight-type">Challenge</div><h4>Open Questions Requiring Partner Input</h4><p>Several critical decisions (data fields, link expiration, document collection) required input from the agency partner. Tracking these systematically and addressing them in recurring meetings prevented them from blocking progress.</p></div>
+            <div class="insight-card learn"><div class="insight-type">Key Learning</div><h4>Integration over Greenfield</h4><p>Choosing to build on existing Web DB and Operations infrastructure rather than creating standalone systems significantly reduced scope, risk, and delivery time while maintaining consistency with existing transaction processing.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong>Case Study: Agent Payment Platform</strong></p>
+        <p style="margin-top:6px;">All sensitive information redacted per NDA requirements</p>
+        <p style="margin-top:4px;">Phase: Analysis &amp; BRD &bull; Status: <span style="color:#3498db;">&#9679;</span> In Progress</p>
+    </div>
+</footer>
+
+</body>
+</html>

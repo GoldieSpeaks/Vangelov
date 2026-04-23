@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Webhook Configuration Management</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #3498db;
+            --light: #f8f9fa;
+            --muted: #6c757d;
+            --border: #dee2e6;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+            --card-hover: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #333;
+            line-height: 1.7;
+            background: #f5f6fa;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, #1a5276 100%);
+            color: white;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233,69,96,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(233,69,96,0.2);
+            border: 1px solid rgba(233,69,96,0.4);
+            color: #ff8a9e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p.subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--highlight);
+            display: block;
+        }
+        .hero-stat .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== LAYOUT ===== */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        section { padding: 60px 0; }
+        section:nth-child(even) { background: white; }
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-header h2 .icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent), var(--info));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        .section-header p { color: var(--muted); font-size: 1rem; }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        .card:hover { box-shadow: var(--card-hover); transform: translateY(-2px); }
+        .card h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 12px; }
+        .card p { color: #555; font-size: 0.95rem; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+
+        /* ===== KPI ===== */
+        .kpi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            border-top: 4px solid var(--info);
+        }
+        .kpi-card.green { border-top-color: var(--success); }
+        .kpi-card.orange { border-top-color: var(--warning); }
+        .kpi-card.red { border-top-color: var(--highlight); }
+        .kpi-card .kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .kpi-card .kpi-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+        /* ===== EXEC SUMMARY ===== */
+        .exec-summary {
+            background: linear-gradient(135deg, #f8f9fa, #e8ecf1);
+            border-left: 5px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 28px 32px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--info), var(--success));
+            border-radius: 2px;
+        }
+        .timeline-item { position: relative; margin-bottom: 32px; padding-left: 20px; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--info);
+            z-index: 1;
+        }
+        .timeline-item.milestone::before { background: var(--highlight); border-color: var(--highlight); width: 18px; height: 18px; left: -33px; top: 4px; }
+        .timeline-item.success::before { background: var(--success); border-color: var(--success); }
+        .timeline-date { font-size: 0.78rem; font-weight: 600; color: var(--info); text-transform: uppercase; letter-spacing: 0.5px; }
+        .timeline-item.milestone .timeline-date { color: var(--highlight); }
+        .timeline-item.success .timeline-date { color: var(--success); }
+        .timeline-title { font-size: 1rem; font-weight: 600; color: var(--primary); margin: 4px 0; }
+        .timeline-desc { font-size: 0.9rem; color: #666; }
+
+        /* ===== ARCHITECTURE ===== */
+        .arch-diagram { background: white; border-radius: 12px; padding: 40px; box-shadow: var(--card-shadow); text-align: center; }
+        .arch-diagram svg { max-width: 100%; height: auto; }
+
+        /* ===== DECISION TABLE ===== */
+        .decision-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); }
+        .decision-table thead th { background: var(--primary); color: white; padding: 14px 18px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; }
+        .decision-table tbody td { padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .decision-table tbody tr:last-child td { border-bottom: none; }
+        .decision-table tbody tr:nth-child(even) { background: #f8f9fa; }
+        .decision-table tbody tr:hover { background: #eef2f7; }
+        .decision-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .badge-strategic { background: #e8d5f5; color: #7b2d8e; }
+        .badge-technical { background: #d5e8f5; color: #2d6b8e; }
+        .badge-ux { background: #d5f5e3; color: #1e7e4a; }
+        .badge-process { background: #fde8d0; color: #b35c1e; }
+
+        /* ===== BAR CHART ===== */
+        .chart-container { background: white; border-radius: 12px; padding: 28px; box-shadow: var(--card-shadow); }
+        .chart-container h3 { font-size: 1rem; color: var(--primary); margin-bottom: 20px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+        .bar-row { display: flex; align-items: center; gap: 12px; }
+        .bar-label { width: 160px; font-size: 0.82rem; color: #555; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 6px; height: 28px; position: relative; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 0.75rem; font-weight: 600; color: white; }
+        .bar-fill.blue { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .bar-fill.green { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+        .bar-fill.orange { background: linear-gradient(90deg, #f39c12, #e67e22); }
+        .bar-fill.red { background: linear-gradient(90deg, #e94560, #c0392b); }
+        .bar-fill.purple { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+
+        /* ===== LIFECYCLE ===== */
+        .lifecycle { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .lifecycle-step {
+            background: white;
+            border-radius: 10px;
+            padding: 14px 22px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            min-width: 130px;
+        }
+        .lifecycle-step .step-num { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+        .lifecycle-step .step-name { font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+        .lifecycle-arrow { color: var(--info); font-size: 1.4rem; font-weight: 700; }
+
+        /* ===== GANTT ===== */
+        .gantt-chart { overflow-x: auto; }
+        .gantt-table { width: 100%; min-width: 700px; }
+        .gantt-header { display: grid; grid-template-columns: 180px 1fr; background: var(--primary); color: white; border-radius: 8px 8px 0 0; overflow: hidden; }
+        .gantt-header-label { padding: 12px 16px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .gantt-months { display: grid; grid-template-columns: repeat(6, 1fr); padding: 0; }
+        .gantt-month { padding: 12px 4px; text-align: center; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; border-left: 1px solid rgba(255,255,255,0.15); }
+        .gantt-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: 1px solid var(--border); }
+        .gantt-row:last-child { border-bottom: none; }
+        .gantt-row-label { padding: 14px 16px; font-size: 0.85rem; font-weight: 500; color: var(--primary); background: #f8f9fa; display: flex; align-items: center; }
+        .gantt-row-bar { display: grid; grid-template-columns: repeat(6, 1fr); position: relative; padding: 10px 0; align-items: center; }
+        .gantt-bar { height: 24px; border-radius: 12px; position: relative; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 600; color: white; }
+        .gantt-bar.analysis { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .gantt-bar.dev { background: linear-gradient(90deg, #f39c12, #e67e22); }
+        .gantt-bar.qa { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+        .gantt-bar.release { background: linear-gradient(90deg, #e94560, #c0392b); }
+
+        /* ===== SCOPE ===== */
+        .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .scope-card { border-radius: 12px; padding: 24px; box-shadow: var(--card-shadow); }
+        .scope-card.in-scope { background: white; border-left: 4px solid var(--success); }
+        .scope-card.out-scope { background: white; border-left: 4px solid var(--muted); }
+        .scope-card h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .scope-card.in-scope h4 { color: var(--success); }
+        .scope-card.out-scope h4 { color: var(--muted); }
+        .scope-card ul { list-style: none; padding: 0; }
+        .scope-card li { padding: 6px 0; font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 8px; }
+        .scope-card.in-scope li::before { content: '\2713'; color: var(--success); font-weight: 700; }
+        .scope-card.out-scope li::before { content: '\2014'; color: var(--muted); font-weight: 700; }
+
+        /* ===== STAKEHOLDER ===== */
+        .stakeholder-map { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+        .stakeholder-card { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: var(--card-shadow); text-align: center; min-width: 160px; }
+        .stakeholder-card .role { font-size: 0.95rem; font-weight: 600; color: var(--primary); }
+        .stakeholder-card .dept { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+        /* ===== LESSONS ===== */
+        .lesson-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .lesson-card { background: white; border-radius: 12px; padding: 24px; box-shadow: var(--card-shadow); border-left: 4px solid var(--info); }
+        .lesson-card.positive { border-left-color: var(--success); }
+        .lesson-card.negative { border-left-color: var(--warning); }
+        .lesson-card h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 8px; }
+        .lesson-card p { font-size: 0.9rem; color: #555; }
+
+        /* ===== FOOTER ===== */
+        .footer { background: var(--primary); color: rgba(255,255,255,0.6); padding: 40px 0; text-align: center; font-size: 0.85rem; }
+        .footer strong { color: rgba(255,255,255,0.9); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-2, .grid-3, .grid-4, .scope-grid, .lesson-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 20px; }
+            .lifecycle { flex-direction: column; }
+            .lifecycle-arrow { transform: rotate(90deg); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">New Feature</div>
+        <h1>Webhook Configuration Management</h1>
+        <p class="subtitle">Migrating webhook configurations from static files to a database-driven admin panel, eliminating deployment dependencies and enabling self-service client management.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="number">Rapid</span>
+                <span class="label">Delivery Cycle</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">Zero</span>
+                <span class="label">Deployment Coupling</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">2</span>
+                <span class="label">Core Deliverables</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">Dual</span>
+                <span class="label">Environment Support</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">S</span> Executive Summary</h2>
+        </div>
+        <div class="exec-summary">
+            <p>Webhook configurations were previously maintained in a static file, requiring a full release cycle for any change to a client's webhook setup. This project moved all configuration data into the platform's database, built an internal administration panel for real-time management, and redesigned the background processing to work from cached database records with race-condition protection. The result is a self-service capability that decouples webhook management from the release pipeline and supports both production and sandbox environments from a single interface.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== KPI CARDS ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">K</span> Key Performance Indicators</h2>
+        </div>
+        <div class="grid-4">
+            <div class="kpi-card green">
+                <div class="kpi-value">100%</div>
+                <div class="kpi-label">Config Migration</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">~0</div>
+                <div class="kpi-label">Release Dependency</div>
+            </div>
+            <div class="kpi-card orange">
+                <div class="kpi-value">Dual</div>
+                <div class="kpi-label">Env. Coverage</div>
+            </div>
+            <div class="kpi-card red">
+                <div class="kpi-value">Cached</div>
+                <div class="kpi-label">Config Reads</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LIFECYCLE ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">L</span> Project Lifecycle</h2>
+            <p>From concept to production in a compressed timeline</p>
+        </div>
+        <div class="lifecycle">
+            <div class="lifecycle-step"><div class="step-num">Phase 1</div><div class="step-name">Analysis</div></div>
+            <span class="lifecycle-arrow">&#8594;</span>
+            <div class="lifecycle-step"><div class="step-num">Phase 2</div><div class="step-name">Development</div></div>
+            <span class="lifecycle-arrow">&#8594;</span>
+            <div class="lifecycle-step"><div class="step-num">Phase 3</div><div class="step-name">QA / Testing</div></div>
+            <span class="lifecycle-arrow">&#8594;</span>
+            <div class="lifecycle-step"><div class="step-num">Phase 4</div><div class="step-name">Release</div></div>
+            <span class="lifecycle-arrow">&#8594;</span>
+            <div class="lifecycle-step"><div class="step-num">Phase 5</div><div class="step-name">Post-Release Support</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">T</span> Project Timeline</h2>
+            <p>Compressed ~3-month delivery from initiation to live</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item milestone">
+                <div class="timeline-date">Week 1</div>
+                <div class="timeline-title">Project Created &amp; Scoped</div>
+                <div class="timeline-desc">Feature request filed. Problem identified: static config file creates release dependency for every webhook change.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Week 1</div>
+                <div class="timeline-title">Rapid Analysis &amp; Task Breakdown</div>
+                <div class="timeline-desc">Analysis completed same day. Two deliverables defined: background job redesign and admin panel creation. QA Engineer assigned.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Weeks 2 - 4</div>
+                <div class="timeline-title">Development Phase</div>
+                <div class="timeline-desc">Database schema created (webhooks_config table). Lock file mechanism added for race-condition prevention. In-Memory caching layer implemented. Sandbox job mirroring production.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Week 4</div>
+                <div class="timeline-title">Version Adjustments</div>
+                <div class="timeline-desc">Release target adjusted from initial window to accommodate thorough testing across both environments.</div>
+            </div>
+            <div class="timeline-item success">
+                <div class="timeline-date">Week 5</div>
+                <div class="timeline-title">Release to Production</div>
+                <div class="timeline-desc">Both deliverables released simultaneously. All webhook configurations migrated to database. Admin panel operational.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Weeks 6 - 12</div>
+                <div class="timeline-title">Post-Release &amp; Ongoing Client Support</div>
+                <div class="timeline-desc">Extensive post-release activity: new client onboarding, webhook retrieval API for partners, UAT troubleshooting, and sandbox environment safeguards added after an incident.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ARCHITECTURE ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">A</span> Architecture Overview</h2>
+        </div>
+        <div class="arch-diagram">
+            <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background -->
+                <rect x="0" y="0" width="900" height="320" rx="12" fill="#f8f9fa"/>
+
+                <!-- Static Config (old) -->
+                <rect x="30" y="40" width="160" height="60" rx="8" fill="#e0e0e0" stroke="#bbb" stroke-width="1.5"/>
+                <text x="110" y="65" text-anchor="middle" font-size="11" fill="#888" font-weight="600">OLD: Static File</text>
+                <text x="110" y="82" text-anchor="middle" font-size="9" fill="#aaa">config.json</text>
+                <line x1="110" y1="100" x2="110" y2="130" stroke="#ccc" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <text x="110" y="145" text-anchor="middle" font-size="9" fill="#ccc">DEPRECATED</text>
+
+                <!-- Database -->
+                <rect x="260" y="30" width="180" height="70" rx="10" fill="#1a5276" stroke="#0f3460" stroke-width="2"/>
+                <text x="350" y="58" text-anchor="middle" font-size="12" fill="white" font-weight="600">Platform Database</text>
+                <text x="350" y="78" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">webhooks_config table</text>
+
+                <!-- In-Memory Cache -->
+                <rect x="260" y="130" width="180" height="50" rx="10" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+                <text x="350" y="160" text-anchor="middle" font-size="12" fill="white" font-weight="600">In-Memory Cache Layer</text>
+
+                <!-- Arrow DB to Cache -->
+                <line x1="350" y1="100" x2="350" y2="130" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+                <!-- Cron Job -->
+                <rect x="530" y="120" width="170" height="70" rx="10" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+                <text x="615" y="148" text-anchor="middle" font-size="12" fill="white" font-weight="600">Background Jobs</text>
+                <text x="615" y="168" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">+ Lock File Guard</text>
+
+                <!-- Arrow Cache to Cron -->
+                <line x1="440" y1="155" x2="530" y2="155" stroke="#f39c12" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+                <!-- Admin Panel -->
+                <rect x="530" y="30" width="170" height="60" rx="10" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+                <text x="615" y="55" text-anchor="middle" font-size="12" fill="white" font-weight="600">Admin Panel</text>
+                <text x="615" y="72" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">Prod + Sandbox modes</text>
+
+                <!-- Arrow Admin to DB -->
+                <line x1="530" y1="60" x2="440" y2="60" stroke="#3498db" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+                <!-- Clients -->
+                <rect x="740" y="40" width="130" height="50" rx="10" fill="#e94560" stroke="#c0392b" stroke-width="2"/>
+                <text x="805" y="65" text-anchor="middle" font-size="11" fill="white" font-weight="600">API Clients</text>
+                <text x="805" y="80" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)">Receive webhooks</text>
+
+                <!-- Arrow Cron to Clients -->
+                <path d="M700 155 L735 155 L735 70 L740 70" fill="none" stroke="#e94560" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+                <!-- Sandbox Job -->
+                <rect x="530" y="220" width="170" height="60" rx="10" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+                <text x="615" y="248" text-anchor="middle" font-size="12" fill="white" font-weight="600">Sandbox Job</text>
+                <text x="615" y="265" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">Test environment</text>
+
+                <!-- Arrow Cache to Sandbox -->
+                <path d="M400 180 L400 250 L530 250" fill="none" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+                <!-- Arrows defs -->
+                <defs>
+                    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#27ae60"/></marker>
+                    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f39c12"/></marker>
+                    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="8 0, 0 3, 8 6" fill="#3498db"/></marker>
+                    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#e94560"/></marker>
+                    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#9b59b6"/></marker>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SCOPE ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">S</span> Project Scope</h2>
+        </div>
+        <div class="scope-grid">
+            <div class="scope-card in-scope">
+                <h4>In Scope</h4>
+                <ul>
+                    <li>Database-backed webhook configuration storage</li>
+                    <li>Admin panel for internal staff</li>
+                    <li>Background job redesign with caching</li>
+                    <li>Race-condition prevention (lock file)</li>
+                    <li>Sandbox environment mirroring</li>
+                    <li>Webhook retrieval API endpoint</li>
+                </ul>
+            </div>
+            <div class="scope-card out-scope">
+                <h4>Out of Scope</h4>
+                <ul>
+                    <li>Client self-service portal (future phase)</li>
+                    <li>Webhook payload format changes</li>
+                    <li>Internal systems integration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DECISIONS ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">D</span> Key Decisions</h2>
+        </div>
+        <table class="decision-table">
+            <thead>
+                <tr>
+                    <th>Decision</th>
+                    <th>Rationale</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Migrate configs from static file to database</td>
+                    <td>Eliminate release-cycle coupling; enable real-time changes without deployment</td>
+                    <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                </tr>
+                <tr>
+                    <td>Implement In-Memory caching for config reads</td>
+                    <td>Ensure background job performance is not degraded by frequent DB queries; auto-invalidate on config change</td>
+                    <td><span class="decision-badge badge-technical">Technical</span></td>
+                </tr>
+                <tr>
+                    <td>Add lock file mechanism to background jobs</td>
+                    <td>Prevent race conditions where overlapping job instances could send duplicate webhooks</td>
+                    <td><span class="decision-badge badge-technical">Technical</span></td>
+                </tr>
+                <tr>
+                    <td>Build dual-mode admin panel (Production / Sandbox)</td>
+                    <td>Allow staff to manage both environments from a single interface; reduces tool sprawl</td>
+                    <td><span class="decision-badge badge-ux">UX</span></td>
+                </tr>
+                <tr>
+                    <td>Default sandbox URLs to test endpoints</td>
+                    <td>Post-incident safeguard: prevent accidental webhook delivery to production systems during testing</td>
+                    <td><span class="decision-badge badge-process">Process</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ===== DEV BREAKDOWN ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">D</span> Development Breakdown</h2>
+        </div>
+        <div class="grid-2">
+            <div class="chart-container">
+                <h3>Deliverables by Area</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">Background Job Redesign</span>
+                        <div class="bar-track"><div class="bar-fill orange" style="width:55%">Core Engine</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Admin Panel</span>
+                        <div class="bar-track"><div class="bar-fill blue" style="width:45%">UI + Logic</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Technical Components</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">DB Schema Design</span>
+                        <div class="bar-track"><div class="bar-fill purple" style="width:25%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">In-Memory Caching</span>
+                        <div class="bar-track"><div class="bar-fill green" style="width:20%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Lock File Guard</span>
+                        <div class="bar-track"><div class="bar-fill red" style="width:15%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Sandbox Mirror</span>
+                        <div class="bar-track"><div class="bar-fill orange" style="width:20%"></div></div>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">Admin UI</span>
+                        <div class="bar-track"><div class="bar-fill blue" style="width:40%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GANTT ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">G</span> Delivery Timeline</h2>
+        </div>
+        <div class="gantt-chart">
+            <div class="gantt-table">
+                <div class="gantt-header">
+                    <div class="gantt-header-label">Deliverable</div>
+                    <div class="gantt-months">
+                        <div class="gantt-month">Wk 1</div>
+                        <div class="gantt-month">Wk 2</div>
+                        <div class="gantt-month">Wk 3</div>
+                        <div class="gantt-month">Wk 4</div>
+                        <div class="gantt-month">Wk 5</div>
+                        <div class="gantt-month">Wk 6+</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Analysis</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar analysis" style="grid-column: 1/2;">Scoping</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Job Redesign</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar dev" style="grid-column: 1/4;">Development</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Admin Panel</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar dev" style="grid-column: 1/4;">Development</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Testing</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar qa" style="grid-column: 3/5;">QA</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Release</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar release" style="grid-column: 5/6;">Go Live</div>
+                    </div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-row-label">Post-Release</div>
+                    <div class="gantt-row-bar">
+                        <div class="gantt-bar analysis" style="grid-column: 5/7;">Client Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STAKEHOLDER MAP ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">P</span> Stakeholder Map</h2>
+        </div>
+        <div class="stakeholder-map">
+            <div class="stakeholder-card">
+                <div class="role">Product Manager</div>
+                <div class="dept">Scoping, Prioritization, Release</div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="role">Senior Developer</div>
+                <div class="dept">Architecture, Implementation</div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="role">QA Engineer</div>
+                <div class="dept">Validation, Regression</div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="role">Operations Manager</div>
+                <div class="dept">Client Onboarding</div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="role">External Partner Teams</div>
+                <div class="dept">UAT, Webhook Consumers</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LESSONS ===== -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">L</span> Lessons Learned</h2>
+        </div>
+        <div class="lesson-grid">
+            <div class="lesson-card positive">
+                <h4>Eliminating Deployment Coupling Pays Dividends</h4>
+                <p>Moving configuration to a database with an admin UI removed the most frequent reason for unplanned releases, freeing the team to focus on feature work.</p>
+            </div>
+            <div class="lesson-card positive">
+                <h4>Caching + Lock File = Reliable Automation</h4>
+                <p>The combination of In-Memory caching and file-based locking gave the background jobs both speed and safety, preventing duplicate deliveries without added infrastructure.</p>
+            </div>
+            <div class="lesson-card negative">
+                <h4>Sandbox Defaults Need Guardrails</h4>
+                <p>A post-release incident where test webhooks reached a partner's production system highlighted the need for sandbox URL defaults to always point to test endpoints.</p>
+            </div>
+            <div class="lesson-card positive">
+                <h4>Dual-Environment Admin Panel Reduces Friction</h4>
+                <p>Supporting both production and sandbox from one tool meant staff could onboard clients and debug issues without switching contexts or tools.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    <div class="container">
+        <p><strong>Webhook Configuration Management</strong> &mdash; Cross-Border Payments Platform Case Study</p>
+        <p style="margin-top: 8px;">Delivered by the API Systems &amp; Web Payment Platforms team. All data anonymized for NDA compliance.</p>
+    </div>
+</div>
+
+</body>
+</html>

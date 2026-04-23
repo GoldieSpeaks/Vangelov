@@ -9,26 +9,286 @@
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="stylesheet" type="text/css" href="../css/style.css" />
   <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+  <link rel="stylesheet" type="text/css" href="../css/carousel.css" />
   <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+  <style>
+    .case-section {
+      margin: 40px 0;
+    }
+
+    .nda-note {
+      margin: 25px 0 35px;
+      padding: 16px 18px;
+      border-left: 4px solid #ffc107;
+      background: rgba(255, 193, 7, 0.1);
+      border-radius: 4px;
+      color: #ffc107;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin: 30px 0 10px;
+    }
+
+    .summary-card {
+      border: 1px solid rgba(125, 186, 92, 0.22);
+      background: rgba(125, 186, 92, 0.08);
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .summary-card .k {
+      color: #7dba5c;
+      font-size: 24px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .summary-card .v {
+      color: #b8b8b8;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-top: 20px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .panel b {
+      display: block;
+      color: #fff;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .panel p,
+    .panel li {
+      color: #b8b8b8;
+      line-height: 1.7;
+    }
+
+    .panel ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .timeline {
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      border-left: 3px solid rgba(125, 186, 92, 0.55);
+      padding: 12px 0 12px 16px;
+      margin: 0 0 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 6px;
+    }
+
+    .timeline-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item span {
+      color: #9e9e9e;
+      font-size: 13px;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body class="blog">
   <div id="container" class="container">
     <aside class="menu" id="menu">
-      <div class="logo"><img src="../images/logo.png" width="140" height="140" alt="" /><span>Zlatomir Vangelov</span></div>
+      <div class="logo">
+        <img src="../images/logo.png" width="140" height="140" alt="" />
+        <span>Zlatomir Vangelov</span>
+      </div>
       <a href="#menu1" class="menu-link"></a>
-      <nav id="menu1" role="navigation"><a href="../index.html"><span>Home</span></a><a href="../all-projects.html"><span class="active">All Projects</span></a></nav>
+      <nav id="menu1" role="navigation">
+        <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+        <a href="../index.html?page=about"><span id="link_about">About</span></a>
+        <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+        <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+        <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+        <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+        <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+        <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+      </nav>
+      <div class="social">
+        <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+      </div>
+      <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
     </aside>
+
     <div class="blog-main">
-      <div class="blog-left blog-listing" style="width:100%;">
+      <div style="width: 100%;" class="blog-left">
         <div class="blog-top">
-          <div class="blog-title"><h2>IDP Agent Payment Platform</h2><div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;IDP Agent Payment Platform</div></div>
+          <div class="blog-title blog-details-title">
+            <h2>IDP Agent Payment Platform</h2>
+            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;IDP Agent Payment Platform</div>
+          </div>
         </div>
-        <div class="blog-list-details" style="padding: 30px;">
-          <p>Case study content coming soon.</p>
+
+        <div class="blog-details">
+          <div class="case-section">
+            <div style="padding-bottom: 14px;" class="main-heading">Global Agent Payment Enablement Program</div>
+            <div style="padding-bottom: 26px;" class="heading-sub">NDA-safe case study draft focused on delivery outcomes and product leadership</div>
+            <p style="color: #b8b8b8;">This program focused on enabling a scalable payment journey for education agents, improving how agent-driven tuition flows are initiated, tracked, and reconciled across operational teams. The scope covered journey redesign, operational clarity, and delivery of a production-ready platform capability for agent payments.</p>
+            <p style="color: #b8b8b8;">As Product Owner, I led discovery, roadmap definition, stakeholder alignment, release planning, and rollout governance from initial requirements to adoption.</p>
+          </div>
+
+          <div class="nda-note">
+            <strong>⚠ NDA Notice:</strong> This case study intentionally omits sensitive implementation details, internal architecture specifics, proprietary workflows, partner confidential data, credentials, and non-public technical configurations.
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card"><span class="k">Multi-Phase</span><span class="v">Delivery model</span></div>
+            <div class="summary-card"><span class="k">Cross-Functional</span><span class="v">Program team</span></div>
+            <div class="summary-card"><span class="k">Global</span><span class="v">Agent ecosystem scope</span></div>
+            <div class="summary-card"><span class="k">Live</span><span class="v">Operational capability</span></div>
+          </div>
+
+          <div class="case-section">
+            <div class="unique-heading" style="padding-bottom: 20px;">Problem Space</div>
+            <div class="two-col">
+              <div class="panel">
+                <b>Business Challenges</b>
+                <ul>
+                  <li>Inconsistent agent payment journeys across regions and partner operating models.</li>
+                  <li>Limited transparency for operations teams during payment lifecycle tracking.</li>
+                  <li>Manual handling overhead in exception and follow-up scenarios.</li>
+                  <li>Need for stronger consistency between commercial and operational expectations.</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <b>Product Goals</b>
+                <ul>
+                  <li>Create a predictable and scalable agent payment flow.</li>
+                  <li>Improve operational visibility and handoff quality.</li>
+                  <li>Reduce avoidable manual interventions.</li>
+                  <li>Enable controlled rollout with measurable adoption checkpoints.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="unique-heading" style="padding-bottom: 20px;">My Role as Product Owner</div>
+            <div class="two-col">
+              <div class="panel">
+                <b>Leadership Scope</b>
+                <ul>
+                  <li>Owned end-to-end product planning and release direction.</li>
+                  <li>Ran discovery workshops with business and operations stakeholders.</li>
+                  <li>Prioritized scope into incremental milestones and delivery slices.</li>
+                  <li>Facilitated alignment across commercial, compliance, operations, and engineering groups.</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <b>Execution Approach</b>
+                <ul>
+                  <li>Defined acceptance standards around business outcomes, not only feature output.</li>
+                  <li>Used iterative demos and feedback loops to reduce delivery risk.</li>
+                  <li>Maintained strict scope governance for go-live readiness.</li>
+                  <li>Structured rollout communications and support playbooks for downstream teams.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="unique-heading" style="padding-bottom: 20px;">Delivery Phases</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>Phase 1 — Discovery & Current-State Mapping</strong>
+                <span>Captured user journeys, key friction points, and operational dependencies.</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Phase 2 — Product Design & Workflow Definition</strong>
+                <span>Defined target journey, decision points, and exception handling model.</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Phase 3 — Build & Validation</strong>
+                <span>Delivered incremental capability slices with stakeholder reviews and UAT cycles.</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Phase 4 — Launch & Adoption</strong>
+                <span>Released controlled rollout with enablement, monitoring, and refinement loop.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="unique-heading" style="padding-bottom: 20px;">Outcomes (NDA-safe)</div>
+            <div class="two-col">
+              <div class="panel">
+                <b>Business & Operational Impact</b>
+                <ul>
+                  <li>Standardized agent payment handling across participating regions.</li>
+                  <li>Improved visibility for payment status tracking and ownership.</li>
+                  <li>Reduced process ambiguity in cross-team execution paths.</li>
+                  <li>Established a repeatable foundation for future enhancements.</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <b>Program Learnings</b>
+                <ul>
+                  <li>Early operational involvement significantly improves rollout quality.</li>
+                  <li>Shared definitions and handoff rules prevent downstream friction.</li>
+                  <li>Incremental rollout lowers risk while preserving delivery momentum.</li>
+                  <li>NDA-safe storytelling should focus on decisions, outcomes, and governance.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="unique-heading" style="padding-bottom: 20px;">Next Revision Inputs</div>
+            <p style="color: #b8b8b8;">To produce the final version, add project-specific details from your retrospective folder (timeline dates, team shape, quantified outcomes, and approved visuals). The structure above is ready for safe enrichment without exposing confidential implementation data.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="../js/carousel.js"></script>
+  <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="../js/settings-blog.js"></script>
 </body>
 </html>

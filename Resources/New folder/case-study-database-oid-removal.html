@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Database OID Removal</title>
+    <style>
+        :root{--primary:#1a1a2e;--secondary:#16213e;--accent:#0f3460;--highlight:#e94560;--success:#2ecc71;--warning:#f39c12;--info:#3498db;--light:#f8f9fa;--muted:#6c757d;--border:#dee2e6;--card-shadow:0 4px 6px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);--card-hover:0 10px 25px rgba(0,0,0,.12)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#333;line-height:1.7;background:#f5f6fa}.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--accent) 50%,#1a5276 100%);color:#fff;padding:80px 0 60px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(233,69,96,.15) 0%,transparent 70%);border-radius:50%}.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(52,152,219,.1) 0%,transparent 70%);border-radius:50%}.hero-content{max-width:1100px;margin:0 auto;padding:0 40px;position:relative;z-index:1}.hero-badge{display:inline-block;background:rgba(233,69,96,.2);border:1px solid rgba(233,69,96,.4);color:#ff8a9e;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}.hero h1{font-size:2.8rem;font-weight:700;margin-bottom:16px;line-height:1.2}.hero p.subtitle{font-size:1.15rem;color:rgba(255,255,255,.8);max-width:700px;margin-bottom:30px}.hero-stats{display:flex;gap:40px;flex-wrap:wrap}.hero-stat{text-align:center}.hero-stat .number{font-size:2.2rem;font-weight:700;color:var(--highlight);display:block}.hero-stat .label{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.6)}.container{max-width:1100px;margin:0 auto;padding:0 40px}section{padding:60px 0}section:nth-child(even){background:#fff}.section-header{margin-bottom:40px}.section-header h2{font-size:1.8rem;color:var(--primary);margin-bottom:8px;display:flex;align-items:center;gap:12px}.section-header h2 .icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--info));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;flex-shrink:0}.section-header p{color:var(--muted);font-size:1rem}.card{background:#fff;border-radius:12px;padding:28px;box-shadow:var(--card-shadow);transition:box-shadow .3s ease,transform .2s ease}.card:hover{box-shadow:var(--card-hover);transform:translateY(-2px)}.card h3{font-size:1.1rem;color:var(--primary);margin-bottom:12px}.card p{color:#555;font-size:.95rem}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px}.kpi-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);text-align:center;border-top:4px solid var(--info)}.kpi-card.green{border-top-color:var(--success)}.kpi-card.orange{border-top-color:var(--warning)}.kpi-card.red{border-top-color:var(--highlight)}.kpi-card .kpi-value{font-size:2rem;font-weight:700;color:var(--primary)}.kpi-card .kpi-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}.exec-summary{background:linear-gradient(135deg,#f8f9fa,#e8ecf1);border-left:5px solid var(--accent);border-radius:0 12px 12px 0;padding:28px 32px;font-size:1.05rem;color:#444}.timeline{position:relative;padding-left:40px}.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--info),var(--success));border-radius:2px}.timeline-item{position:relative;margin-bottom:32px;padding-left:20px}.timeline-item::before{content:'';position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--info);z-index:1}.timeline-item.milestone::before{background:var(--highlight);border-color:var(--highlight);width:18px;height:18px;left:-33px;top:4px}.timeline-item.success::before{background:var(--success);border-color:var(--success)}.timeline-date{font-size:.78rem;font-weight:600;color:var(--info);text-transform:uppercase;letter-spacing:.5px}.timeline-item.milestone .timeline-date{color:var(--highlight)}.timeline-item.success .timeline-date{color:var(--success)}.timeline-title{font-size:1rem;font-weight:600;color:var(--primary);margin:4px 0}.timeline-desc{font-size:.9rem;color:#666}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.scope-card{border-radius:12px;padding:24px;box-shadow:var(--card-shadow)}.scope-card.in-scope{background:#fff;border-left:4px solid var(--success)}.scope-card.out-scope{background:#fff;border-left:4px solid var(--muted)}.scope-card h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}.scope-card.in-scope h4{color:var(--success)}.scope-card.out-scope h4{color:var(--muted)}.scope-card ul{list-style:none;padding:0}.scope-card li{padding:6px 0;font-size:.9rem;color:#555;display:flex;align-items:center;gap:8px}.scope-card.in-scope li::before{content:'\2713';color:var(--success);font-weight:700}.scope-card.out-scope li::before{content:'\2014';color:var(--muted);font-weight:700}.insight-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}.insight-card{background:#fff;border-radius:12px;padding:24px;box-shadow:var(--card-shadow);border-left:4px solid;transition:transform .2s}.insight-card:hover{transform:translateY(-3px)}.insight-card.positive{border-left-color:var(--success)}.insight-card.caution{border-left-color:var(--warning)}.insight-card.learn{border-left-color:var(--info)}.insight-card.risk{border-left-color:var(--highlight)}.insight-card .insight-type{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px}.insight-card.positive .insight-type{color:var(--success)}.insight-card.caution .insight-type{color:var(--warning)}.insight-card.learn .insight-type{color:var(--info)}.insight-card.risk .insight-type{color:var(--highlight)}.insight-card h4{font-size:1rem;color:var(--primary);margin-bottom:8px}.insight-card p{font-size:.88rem;color:#666}.stakeholder-map{display:flex;flex-direction:column;gap:16px}.stakeholder-ring{display:flex;align-items:center;gap:16px}.ring-label{width:120px;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;text-align:right;flex-shrink:0}.ring-people{display:flex;flex-wrap:wrap;gap:8px}.person-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:500}.ring-core .ring-label{color:var(--highlight)}.ring-core .person-chip{background:#fde8ec;color:#b71c3c}.ring-decision .ring-label{color:var(--accent)}.ring-decision .person-chip{background:#e3ecf5;color:#1a3a5c}.ring-delivery .ring-label{color:var(--warning)}.ring-delivery .person-chip{background:#fef3e0;color:#8d5a1a}.ring-external .ring-label{color:var(--muted)}.ring-external .person-chip{background:#eee;color:#555}.footer{background:var(--primary);color:rgba(255,255,255,.5);text-align:center;padding:30px 0;font-size:.8rem}.footer strong{color:rgba(255,255,255,.8)}@media(max-width:900px){.hero h1{font-size:2rem}.grid-2,.grid-3,.grid-4,.scope-grid,.insight-cards{grid-template-columns:1fr}.hero-stats{gap:20px}}@media print{.hero{background:#1a1a2e!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}section{break-inside:avoid}.card,.kpi-card{box-shadow:none;border:1px solid #ddd}}
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Case Study</span>
+        <h1>Database OID Removal &amp; Modernisation</h1>
+        <p class="subtitle">Systematically identifying, analysing, and replacing legacy Object Identifiers (OIDs) across the entire database layer &mdash; unblocking critical PostgreSQL version upgrades.</p>
+        <div class="hero-stats">
+            <div class="hero-stat"><span class="number">4 Months</span><span class="label">End-to-End Delivery</span></div>
+            <div class="hero-stat"><span class="number">Full Audit</span><span class="label">Database-Wide Analysis</span></div>
+            <div class="hero-stat"><span class="number">Isolated Dev</span><span class="label">Separate Environment</span></div>
+            <div class="hero-stat"><span class="number">Upgrade Enabler</span><span class="label">PostgreSQL Readiness</span></div>
+        </div>
+    </div>
+</header>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">E</span> Executive Summary</h2></div>
+    <div class="exec-summary"><p>The platform's PostgreSQL database contained legacy <strong>Object Identifiers (OIDs)</strong> — a deprecated feature that newer PostgreSQL versions no longer support. These OIDs were embedded across database schemas, application queries, models, and API endpoints, creating a <strong>direct blocker for database version upgrades</strong>. Without removal, the infrastructure team could not modernise the database engine, leaving the platform on an increasingly outdated version with growing security and performance risks.</p><br><p><strong>Key outcome:</strong> A comprehensive technical analysis mapped every OID usage across the entire system. All OIDs were systematically replaced with standard identifiers (IDs) across the database schema, application logic, and API layer. Development was conducted on an isolated environment to prevent interference with parallel projects, then merged to the main development environment for staged testing. The project was released as a dedicated deployment, confirming zero regression across all affected systems.</p></div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">#</span> Key Metrics at a Glance</h2></div>
+    <div class="grid-4">
+        <div class="kpi-card green"><div class="kpi-value">4 Months</div><div class="kpi-label">Delivery Timeline</div></div>
+        <div class="kpi-card"><div class="kpi-value">1</div><div class="kpi-label">Technical Analysis Doc</div></div>
+        <div class="kpi-card orange"><div class="kpi-value">All Systems</div><div class="kpi-label">Scope of Impact</div></div>
+        <div class="kpi-card red"><div class="kpi-value">Upgrade Enabled</div><div class="kpi-label">PostgreSQL Readiness</div></div>
+    </div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9716;</span> Project Timeline</h2></div>
+    <div class="grid-2">
+        <div><div class="timeline">
+            <div class="timeline-item"><div class="timeline-date">Week 1&ndash;4</div><div class="timeline-title">Project Initiation &amp; Planning</div><div class="timeline-desc">Project created as a high-priority infrastructure initiative. Requirements defined: map all OID usage across the database and application layer, then replace with standard identifiers while maintaining full backward compatibility.</div></div>
+            <div class="timeline-item"><div class="timeline-date">Week 5&ndash;8</div><div class="timeline-title">Technical Analysis</div><div class="timeline-desc">Developer conducted comprehensive audit of all OID references across the database schema, application code, queries, models, and API endpoints. Analysis documentation produced with detailed mapping of every OID location and its function.</div></div>
+        </div></div>
+        <div><div class="timeline">
+            <div class="timeline-item milestone"><div class="timeline-date">Week 9&ndash;14</div><div class="timeline-title">Isolated Development &amp; Rework</div><div class="timeline-desc">All OID-to-ID replacements developed on a separate environment to avoid interference with concurrent projects. Schema changes, query refactoring, and API endpoint updates performed across every affected system. Changes later transferred to main development environment.</div></div>
+            <div class="timeline-item success"><div class="timeline-date">Week 15&ndash;17</div><div class="timeline-title">Staged Testing &amp; Release</div><div class="timeline-desc">QA validated on internal and external test environments. Confirmed zero performance degradation and no regression in any system functionality. Released as a dedicated deployment focused exclusively on the OID removal.</div></div>
+        </div></div>
+    </div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9881;</span> Technical Architecture</h2><p>Database modernisation across the full application stack</p></div>
+    <div class="arch-diagram" style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--card-shadow);text-align:center">
+        <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+            <!-- Background zones -->
+            <rect x="20" y="20" width="260" height="260" rx="16" fill="#fff5f5" stroke="#f0c0c0" stroke-width="1.5"/>
+            <text x="150" y="48" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700" letter-spacing="1">LEGACY STATE (OIDs)</text>
+
+            <rect x="320" y="20" width="260" height="260" rx="16" fill="#f0f4ff" stroke="#c0d0f0" stroke-width="1.5"/>
+            <text x="450" y="48" text-anchor="middle" font-size="11" fill="#6080b0" font-weight="700" letter-spacing="1">TRANSFORMATION</text>
+
+            <rect x="620" y="20" width="260" height="260" rx="16" fill="#f0fff4" stroke="#a0e0b0" stroke-width="1.5"/>
+            <text x="750" y="48" text-anchor="middle" font-size="11" fill="#408060" font-weight="700" letter-spacing="1">MODERN STATE (IDs)</text>
+
+            <!-- Legacy boxes -->
+            <rect x="40" y="75" width="220" height="40" rx="10" fill="white" stroke="#e74c3c" stroke-width="2"/>
+            <text x="150" y="100" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Database Schema (OIDs)</text>
+
+            <rect x="40" y="130" width="220" height="40" rx="10" fill="white" stroke="#e74c3c" stroke-width="2"/>
+            <text x="150" y="155" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Application Queries</text>
+
+            <rect x="40" y="185" width="220" height="40" rx="10" fill="white" stroke="#e74c3c" stroke-width="2"/>
+            <text x="150" y="210" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">API Endpoints</text>
+
+            <!-- Transformation boxes -->
+            <rect x="340" y="75" width="220" height="40" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+            <text x="450" y="100" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Technical Analysis Audit</text>
+
+            <rect x="340" y="130" width="220" height="40" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+            <text x="450" y="155" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Isolated Dev Environment</text>
+
+            <rect x="340" y="185" width="220" height="40" rx="10" fill="white" stroke="#3498db" stroke-width="2"/>
+            <text x="450" y="210" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Staged Migration</text>
+
+            <rect x="340" y="240" width="220" height="30" rx="8" fill="#fff3e0" stroke="#f39c12" stroke-width="1.5"/>
+            <text x="450" y="260" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="600">Zero-Downtime Approach</text>
+
+            <!-- Modern boxes -->
+            <rect x="640" y="75" width="220" height="40" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+            <text x="750" y="100" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Schema with Standard IDs</text>
+
+            <rect x="640" y="130" width="220" height="40" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+            <text x="750" y="155" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Refactored App Layer</text>
+
+            <rect x="640" y="185" width="220" height="40" rx="10" fill="white" stroke="#27ae60" stroke-width="2"/>
+            <text x="750" y="210" text-anchor="middle" font-size="11" fill="#2c3e50" font-weight="600">Updated API Layer</text>
+
+            <rect x="640" y="240" width="220" height="30" rx="8" fill="#e8f5e9" stroke="#27ae60" stroke-width="1.5"/>
+            <text x="750" y="260" text-anchor="middle" font-size="10" fill="#1b5e20" font-weight="600">PostgreSQL Upgrade Ready</text>
+
+            <!-- Arrows -->
+            <defs><marker id="a1" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#3498db"/></marker></defs>
+            <line x1="260" y1="95" x2="336" y2="95" stroke="#e74c3c" stroke-width="2" marker-end="url(#a1)"/>
+            <line x1="260" y1="150" x2="336" y2="150" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+            <line x1="260" y1="205" x2="336" y2="205" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+            <line x1="560" y1="95" x2="636" y2="95" stroke="#27ae60" stroke-width="2" marker-end="url(#a1)"/>
+            <line x1="560" y1="150" x2="636" y2="150" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+            <line x1="560" y1="205" x2="636" y2="205" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a1)"/>
+        </svg>
+    </div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9745;</span> Project Scope</h2></div>
+    <div class="scope-grid">
+        <div class="scope-card in-scope"><h4>In Scope</h4><ul>
+            <li>Comprehensive OID audit across entire database</li>
+            <li>Database schema rework (OIDs to standard IDs)</li>
+            <li>Application query and model refactoring</li>
+            <li>API endpoint identifier updates</li>
+            <li>Front-end component and validation logic updates</li>
+            <li>Migration scripts for backward compatibility</li>
+            <li>Isolated development environment setup</li>
+        </ul></div>
+        <div class="scope-card out-scope"><h4>Out of Scope</h4><ul>
+            <li>Back office system (separate database)</li>
+            <li>PostgreSQL version upgrade itself</li>
+            <li>Performance optimisation beyond OID removal</li>
+            <li>New feature development</li>
+        </ul></div>
+    </div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9881;</span> Development Breakdown</h2></div>
+    <div class="grid-3">
+        <div class="card"><h3>Technical Analysis</h3><p>Comprehensive audit documenting every OID usage across the database schema, application code, and API layer. The analysis mapped each OID to its function, dependencies, and replacement approach, serving as the authoritative reference for all subsequent rework.</p></div>
+        <div class="card"><h3>Schema &amp; Code Rework</h3><p>Systematic replacement of all OIDs with standard identifiers. This spanned database schema changes, query refactoring, model updates, and API endpoint modifications. Developed on an isolated environment to prevent interference with concurrent projects across the platform.</p></div>
+        <div class="card"><h3>Staged Validation</h3><p>Multi-environment testing strategy: initial validation on isolated development environment, followed by transfer to main development environment for integration testing, then internal and external QA cycles. Confirmed zero regression and no performance impact.</p></div>
+    </div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9734;</span> Stakeholder Map</h2></div>
+    <div class="card"><div class="stakeholder-map">
+        <div class="stakeholder-ring ring-core"><div class="ring-label">Core</div><div class="ring-people"><span class="person-chip">Product Manager</span></div></div>
+        <div class="stakeholder-ring ring-decision"><div class="ring-label">Requestor</div><div class="ring-people"><span class="person-chip">IT Director</span></div></div>
+        <div class="stakeholder-ring ring-delivery"><div class="ring-label">Delivery</div><div class="ring-people"><span class="person-chip">Senior Developer</span><span class="person-chip">QA Engineer</span></div></div>
+        <div class="stakeholder-ring ring-external"><div class="ring-label">Beneficiaries</div><div class="ring-people"><span class="person-chip">IT Operations</span><span class="person-chip">Development Team</span></div></div>
+    </div></div>
+</div></section>
+
+<section><div class="container">
+    <div class="section-header"><h2><span class="icon">&#9733;</span> Lessons &amp; Insights</h2></div>
+    <div class="insight-cards">
+        <div class="insight-card positive"><div class="insight-type">What Went Well</div><h4>Isolated Development Environment</h4><p>Using a separate development environment for the OID rework was critical. The changes touched a large number of interrelated files and systems, and isolating them prevented any disruption to other active projects during the multi-week development period.</p></div>
+        <div class="insight-card learn"><div class="insight-type">Learning</div><h4>Analysis-First Approach Pays Off</h4><p>Investing in a thorough technical analysis before any code changes reduced rework risk. The comprehensive audit document served as both a development guide and a testing checklist, ensuring no OID references were missed during replacement.</p></div>
+        <div class="insight-card caution"><div class="insight-type">Consideration</div><h4>Legacy Debt Accumulation</h4><p>OIDs had been embedded in the system for years without causing visible issues — until they became an upgrade blocker. This project highlights the value of periodically reviewing technical debt before it becomes a constraint on infrastructure modernisation.</p></div>
+        <div class="insight-card risk"><div class="insight-type">Risk Managed</div><h4>Cross-System Regression Risk</h4><p>Replacing identifiers across every layer of the application stack carried significant regression risk. The staged testing approach — isolated environment, then main dev, then internal QA, then external QA — provided multiple safety nets that caught issues before production.</p></div>
+    </div>
+</div></section>
+
+<footer class="footer"><div class="container">
+    <p><strong>Database OID Removal &amp; Modernisation</strong> &mdash; Case Study</p>
+    <p style="margin-top:6px;">Web Payment Platforms &bull; Database Infrastructure &bull; Completed in 4 Months</p>
+</div></footer>
+
+</body>
+</html>

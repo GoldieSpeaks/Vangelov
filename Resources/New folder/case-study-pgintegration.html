@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Payment Provider Replacement</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --info: #3498db;
+            --light: #f8f9fa;
+            --muted: #6c757d;
+            --border: #dee2e6;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+            --card-hover: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #333; line-height: 1.7; background: #f5f6fa; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, #1a5276 100%); color: white; padding: 80px 0 60px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(233,69,96,0.15) 0%, transparent 70%); border-radius: 50%; }
+        .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(52,152,219,0.1) 0%, transparent 70%); border-radius: 50%; }
+        .hero-content { max-width: 1100px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+        .hero-badge { display: inline-block; background: rgba(233,69,96,0.2); border: 1px solid rgba(233,69,96,0.4); color: #ff8a9e; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+        .hero p.subtitle { font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 30px; }
+        .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+        .hero-stat { text-align: center; }
+        .hero-stat .number { font-size: 2.2rem; font-weight: 700; color: var(--highlight); display: block; }
+        .hero-stat .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        section { padding: 60px 0; }
+        section:nth-child(even) { background: white; }
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
+        .section-header h2 .icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--info)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: white; flex-shrink: 0; }
+        .section-header p { color: var(--muted); font-size: 1rem; }
+        .card { background: white; border-radius: 12px; padding: 28px; box-shadow: var(--card-shadow); transition: box-shadow 0.3s ease, transform 0.2s ease; }
+        .card:hover { box-shadow: var(--card-hover); transform: translateY(-2px); }
+        .card h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 12px; }
+        .card p { color: #555; font-size: 0.95rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+        .kpi-card { background: white; border-radius: 12px; padding: 24px; box-shadow: var(--card-shadow); text-align: center; border-top: 4px solid var(--info); }
+        .kpi-card.green { border-top-color: var(--success); }
+        .kpi-card.orange { border-top-color: var(--warning); }
+        .kpi-card.red { border-top-color: var(--highlight); }
+        .kpi-card .kpi-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .kpi-card .kpi-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        .exec-summary { background: linear-gradient(135deg, #f8f9fa, #e8ecf1); border-left: 5px solid var(--accent); border-radius: 0 12px 12px 0; padding: 28px 32px; font-size: 1.05rem; color: #444; }
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--info), var(--success)); border-radius: 2px; }
+        .timeline-item { position: relative; margin-bottom: 32px; padding-left: 20px; }
+        .timeline-item::before { content: ''; position: absolute; left: -31px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: white; border: 3px solid var(--info); z-index: 1; }
+        .timeline-item.milestone::before { background: var(--highlight); border-color: var(--highlight); width: 18px; height: 18px; left: -33px; top: 4px; }
+        .timeline-item.success::before { background: var(--success); border-color: var(--success); }
+        .timeline-date { font-size: 0.78rem; font-weight: 600; color: var(--info); text-transform: uppercase; letter-spacing: 0.5px; }
+        .timeline-item.milestone .timeline-date { color: var(--highlight); }
+        .timeline-item.success .timeline-date { color: var(--success); }
+        .timeline-title { font-size: 1rem; font-weight: 600; color: var(--primary); margin: 4px 0; }
+        .timeline-desc { font-size: 0.9rem; color: #666; }
+        .arch-diagram { background: white; border-radius: 12px; padding: 40px; box-shadow: var(--card-shadow); text-align: center; }
+        .arch-diagram svg { max-width: 100%; height: auto; }
+        .decision-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); }
+        .decision-table thead th { background: var(--primary); color: white; padding: 14px 18px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; }
+        .decision-table tbody td { padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .decision-table tbody tr:last-child td { border-bottom: none; }
+        .decision-table tbody tr:nth-child(even) { background: #f8f9fa; }
+        .decision-table tbody tr:hover { background: #eef2f7; }
+        .decision-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .badge-strategic { background: #e8d5f5; color: #7b2d8e; }
+        .badge-technical { background: #d5e8f5; color: #2d6b8e; }
+        .badge-ux { background: #d5f5e3; color: #1e7e4a; }
+        .badge-process { background: #fde8d0; color: #b35c1e; }
+        .chart-container { background: white; border-radius: 12px; padding: 28px; box-shadow: var(--card-shadow); }
+        .chart-container h3 { font-size: 1rem; color: var(--primary); margin-bottom: 20px; }
+        .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+        .bar-row { display: flex; align-items: center; gap: 12px; }
+        .bar-label { width: 140px; font-size: 0.82rem; color: #555; text-align: right; flex-shrink: 0; }
+        .bar-track { flex: 1; background: #eee; border-radius: 6px; height: 28px; position: relative; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 0.75rem; font-weight: 600; color: white; transition: width 1.5s ease; }
+        .bar-fill.blue { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .bar-fill.green { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+        .bar-fill.orange { background: linear-gradient(90deg, #f39c12, #e67e22); }
+        .bar-fill.red { background: linear-gradient(90deg, #e94560, #c0392b); }
+        .bar-fill.purple { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+        .donut-wrapper { display: flex; align-items: center; justify-content: center; gap: 30px; }
+        .donut-chart { position: relative; width: 180px; height: 180px; }
+        .donut-chart svg { transform: rotate(-90deg); }
+        .donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .donut-center .big { font-size: 2rem; font-weight: 700; color: var(--primary); display: block; }
+        .donut-center .small { font-size: 0.75rem; color: var(--muted); }
+        .donut-legend { display: flex; flex-direction: column; gap: 10px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #555; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+        .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .scope-card { border-radius: 12px; padding: 24px; box-shadow: var(--card-shadow); }
+        .scope-card.in-scope { background: white; border-left: 4px solid var(--success); }
+        .scope-card.out-scope { background: white; border-left: 4px solid var(--muted); }
+        .scope-card h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .scope-card.in-scope h4 { color: var(--success); }
+        .scope-card.out-scope h4 { color: var(--muted); }
+        .scope-card ul { list-style: none; padding: 0; }
+        .scope-card li { padding: 6px 0; font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 8px; }
+        .scope-card.in-scope li::before { content: '\2713'; color: var(--success); font-weight: 700; }
+        .scope-card.out-scope li::before { content: '\2014'; color: var(--muted); font-weight: 700; }
+        .test-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+        .test-card { background: white; border-radius: 12px; padding: 20px; box-shadow: var(--card-shadow); text-align: center; }
+        .test-card .test-name { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .test-card .test-count { font-size: 2.2rem; font-weight: 700; color: var(--success); }
+        .test-card .test-pass { font-size: 0.8rem; color: var(--success); font-weight: 600; }
+        .pass-indicator { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--success); margin-right: 4px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .stakeholder-map { display: flex; flex-direction: column; gap: 16px; }
+        .stakeholder-ring { display: flex; align-items: center; gap: 16px; }
+        .ring-label { width: 120px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-align: right; flex-shrink: 0; }
+        .ring-people { display: flex; flex-wrap: wrap; gap: 8px; }
+        .person-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
+        .ring-core .ring-label { color: var(--highlight); }
+        .ring-core .person-chip { background: #fde8ec; color: #b71c3c; }
+        .ring-decision .ring-label { color: var(--accent); }
+        .ring-decision .person-chip { background: #e3ecf5; color: #1a3a5c; }
+        .ring-delivery .ring-label { color: var(--warning); }
+        .ring-delivery .person-chip { background: #fef3e0; color: #8d5a1a; }
+        .ring-external .ring-label { color: var(--muted); }
+        .ring-external .person-chip { background: #eee; color: #555; }
+        .insight-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .insight-card { background: white; border-radius: 12px; padding: 24px; box-shadow: var(--card-shadow); border-left: 4px solid; transition: transform 0.2s; }
+        .insight-card:hover { transform: translateY(-3px); }
+        .insight-card.positive { border-left-color: var(--success); }
+        .insight-card.caution { border-left-color: var(--warning); }
+        .insight-card.learn { border-left-color: var(--info); }
+        .insight-card.risk { border-left-color: var(--highlight); }
+        .insight-card .insight-type { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; }
+        .insight-card.positive .insight-type { color: var(--success); }
+        .insight-card.caution .insight-type { color: var(--warning); }
+        .insight-card.learn .insight-type { color: var(--info); }
+        .insight-card.risk .insight-type { color: var(--highlight); }
+        .insight-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 8px; }
+        .insight-card p { font-size: 0.88rem; color: #666; }
+        .footer { background: var(--primary); color: rgba(255,255,255,0.5); text-align: center; padding: 30px 0; font-size: 0.8rem; }
+        .footer strong { color: rgba(255,255,255,0.8); }
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-2, .grid-3, .grid-4, .scope-grid, .insight-cards, .test-summary-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: 20px; }
+        }
+        @media print {
+            .hero { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            section { break-inside: avoid; }
+            .card, .kpi-card, .chart-container { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Case Study</span>
+        <h1>Local Payment Provider Replacement</h1>
+        <p class="subtitle">
+            Replacing a high-cost third-party payment provider with a more competitive alternative for South Korean payments &mdash;
+            reducing transaction fees and improving settlement times through a static account integration approach.
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="number">4 Months</span>
+                <span class="label">End-to-End Delivery</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">Cost Saving</span>
+                <span class="label">Lower Transaction Fees</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">Dual Channel</span>
+                <span class="label">Web &amp; API Impact</span>
+            </div>
+            <div class="hero-stat">
+                <span class="number">Seamless</span>
+                <span class="label">Payer Experience</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">E</span> Executive Summary</h2>
+        </div>
+        <div class="exec-summary">
+            <p>
+                This project replaced the existing third-party payment processing partner for <strong>South Korean payments</strong> with a new, more cost-effective provider. The previous partnership suffered from <strong>high transaction fees and slow processing/settlement times</strong>, prompting a strategic switch to a provider offering competitive rates and faster settlement.
+            </p>
+            <br>
+            <p>
+                <strong>Key outcome:</strong> The integration followed a static account approach, replacing the existing provider's framework within the payment flow. When payers select South Korea as their payment origin, they now see the new provider's account details &mdash; resulting in lower fees, faster processing, and an improved commercial position for both the platform and its clients.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- KPI DASHBOARD -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">#</span> Key Metrics at a Glance</h2>
+        </div>
+        <div class="grid-4">
+            <div class="kpi-card green">
+                <div class="kpi-value">4 Months</div>
+                <div class="kpi-label">Delivery Timeline</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">1 Country</div>
+                <div class="kpi-label">South Korea Focus</div>
+            </div>
+            <div class="kpi-card orange">
+                <div class="kpi-value">2 Channels</div>
+                <div class="kpi-label">Web &amp; API</div>
+            </div>
+            <div class="kpi-card red">
+                <div class="kpi-value">Lower Fees</div>
+                <div class="kpi-label">Revenue Impact</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9716;</span> Project Timeline</h2>
+            <p>From commercial decision through integration and production deployment</p>
+        </div>
+        <div class="grid-2">
+            <div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Weeks 1 &ndash; 2</div>
+                        <div class="timeline-title">Commercial Decision &amp; Scoping</div>
+                        <div class="timeline-desc">Commercial and treasury teams confirmed the switch from the existing provider due to high fees and slow settlement. Initial scoping of technical requirements completed.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Weeks 3 &ndash; 4</div>
+                        <div class="timeline-title">Analysis &amp; Provider Onboarding</div>
+                        <div class="timeline-desc">Technical analysis of the static account integration approach. New provider account details obtained and integration specifications reviewed.</div>
+                    </div>
+                    <div class="timeline-item milestone">
+                        <div class="timeline-date">Weeks 5 &ndash; 8</div>
+                        <div class="timeline-title">Development &mdash; Web Platform</div>
+                        <div class="timeline-desc">Deconstructed existing provider framework within web payment flows. Replaced with new provider's static account details for South Korea country selection.</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Weeks 9 &ndash; 12</div>
+                        <div class="timeline-title">Development &mdash; API Channel</div>
+                        <div class="timeline-desc">Extended the provider replacement to API payment flows, ensuring API users also receive the new provider's account details for South Korean payments.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Weeks 13 &ndash; 14</div>
+                        <div class="timeline-title">Testing &amp; Validation</div>
+                        <div class="timeline-desc">End-to-end testing across both channels. Verified correct account details display, payment routing, and settlement confirmation.</div>
+                    </div>
+                    <div class="timeline-item success">
+                        <div class="timeline-date">Weeks 15 &ndash; 16</div>
+                        <div class="timeline-title">Production Release</div>
+                        <div class="timeline-desc">Released to production. Post-release account detail update handled as a minor change. South Korean payments now processed through the new provider.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9881;</span> System Architecture</h2>
+            <p>Provider replacement within the payment routing layer</p>
+        </div>
+        <div class="arch-diagram">
+            <svg viewBox="0 0 850 350" xmlns="http://www.w3.org/2000/svg">
+                <!-- Payer -->
+                <rect x="20" y="80" width="150" height="70" rx="10" fill="#3498db"/>
+                <text x="95" y="108" text-anchor="middle" fill="white" font-size="12" font-weight="600">Payer</text>
+                <text x="95" y="128" text-anchor="middle" fill="#d5e8f5" font-size="9">Selects South Korea</text>
+
+                <!-- Payment Platform -->
+                <rect x="250" y="40" width="220" height="150" rx="12" fill="#1a1a2e" stroke="#3498db" stroke-width="2"/>
+                <text x="360" y="70" text-anchor="middle" fill="white" font-size="13" font-weight="700">Payment Platform</text>
+
+                <!-- Web Channel -->
+                <rect x="270" y="85" width="85" height="40" rx="6" fill="#0f3460"/>
+                <text x="312" y="109" text-anchor="middle" fill="#8db4d8" font-size="9">Web Portal</text>
+
+                <!-- API Channel -->
+                <rect x="365" y="85" width="85" height="40" rx="6" fill="#0f3460"/>
+                <text x="407" y="109" text-anchor="middle" fill="#8db4d8" font-size="9">API Channel</text>
+
+                <!-- Country Routing -->
+                <rect x="270" y="140" width="180" height="30" rx="6" fill="#f39c12"/>
+                <text x="360" y="159" text-anchor="middle" fill="white" font-size="9" font-weight="600">Country Routing: South Korea</text>
+
+                <path d="M170 115 L250 115" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+                <!-- Old Provider (crossed out) -->
+                <rect x="580" y="30" width="200" height="70" rx="10" fill="#ddd" stroke="#999" stroke-width="1" stroke-dasharray="6,4"/>
+                <text x="680" y="55" text-anchor="middle" fill="#999" font-size="11" font-weight="600">Previous Provider</text>
+                <text x="680" y="75" text-anchor="middle" fill="#bbb" font-size="9">High Fees | Slow Settlement</text>
+                <line x1="590" y1="35" x2="770" y2="95" stroke="#e94560" stroke-width="2"/>
+                <line x1="770" y1="35" x2="590" y2="95" stroke="#e94560" stroke-width="2"/>
+
+                <!-- New Provider -->
+                <rect x="580" y="130" width="200" height="80" rx="10" fill="#2ecc71"/>
+                <text x="680" y="158" text-anchor="middle" fill="white" font-size="12" font-weight="700">New Provider</text>
+                <text x="680" y="178" text-anchor="middle" fill="#d5f5e3" font-size="9">Lower Fees | Faster Settlement</text>
+                <text x="680" y="195" text-anchor="middle" fill="#d5f5e3" font-size="9">Static Account Approach</text>
+
+                <path d="M470 160 L580 170" stroke="#2ecc71" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+                <!-- Benefits -->
+                <rect x="230" y="260" width="150" height="45" rx="8" fill="#2ecc71"/>
+                <text x="305" y="287" text-anchor="middle" fill="white" font-size="10" font-weight="600">Lower Fees</text>
+
+                <rect x="400" y="260" width="150" height="45" rx="8" fill="#3498db"/>
+                <text x="475" y="287" text-anchor="middle" fill="white" font-size="10" font-weight="600">Faster Processing</text>
+
+                <rect x="570" y="260" width="150" height="45" rx="8" fill="#f39c12"/>
+                <text x="645" y="287" text-anchor="middle" fill="white" font-size="10" font-weight="600">Better Settlement</text>
+
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- SCOPE -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9744;</span> Scope Definition</h2>
+        </div>
+        <div class="scope-grid">
+            <div class="scope-card in-scope">
+                <h4>In Scope</h4>
+                <ul>
+                    <li>Replace payment provider for South Korea</li>
+                    <li>Web portal payment flow updates</li>
+                    <li>API channel payment flow updates</li>
+                    <li>Static account detail integration</li>
+                    <li>Account detail display for South Korea selection</li>
+                    <li>Post-release account detail changes</li>
+                </ul>
+            </div>
+            <div class="scope-card out-scope">
+                <h4>Out of Scope</h4>
+                <ul>
+                    <li>Operations system changes</li>
+                    <li>Other countries or providers</li>
+                    <li>Dynamic account routing</li>
+                    <li>Payment reconciliation changes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEVELOPMENT BREAKDOWN -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9874;</span> Development Breakdown</h2>
+            <p>Key workstreams in the provider migration</p>
+        </div>
+        <div class="grid-2">
+            <div class="chart-container">
+                <h3>Effort by Workstream</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <div class="bar-label">Provider Removal</div>
+                        <div class="bar-track"><div class="bar-fill red" style="width:70%">70%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">New Integration</div>
+                        <div class="bar-track"><div class="bar-fill green" style="width:80%">80%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Web Channel</div>
+                        <div class="bar-track"><div class="bar-fill blue" style="width:65%">65%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">API Channel</div>
+                        <div class="bar-track"><div class="bar-fill orange" style="width:60%">60%</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Testing</div>
+                        <div class="bar-track"><div class="bar-fill purple" style="width:45%">45%</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Impact Comparison</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <div class="bar-label">Transaction Fees</div>
+                        <div class="bar-track"><div class="bar-fill green" style="width:100%">Reduced</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Settlement Speed</div>
+                        <div class="bar-track"><div class="bar-fill green" style="width:100%">Faster</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Payer Experience</div>
+                        <div class="bar-track"><div class="bar-fill blue" style="width:90%">Seamless</div></div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Integration Effort</div>
+                        <div class="bar-track"><div class="bar-fill orange" style="width:50%">Moderate</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTING & QA -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9989;</span> Testing &amp; Quality Assurance</h2>
+            <p>End-to-end validation across both payment channels</p>
+        </div>
+        <div class="test-summary-grid">
+            <div class="test-card">
+                <div class="test-name">Web Channel</div>
+                <div class="test-count">Pass</div>
+                <div class="test-pass"><span class="pass-indicator"></span> Account Details Correct</div>
+            </div>
+            <div class="test-card">
+                <div class="test-name">API Channel</div>
+                <div class="test-count">Pass</div>
+                <div class="test-pass"><span class="pass-indicator"></span> Routing Validated</div>
+            </div>
+            <div class="test-card">
+                <div class="test-name">Production</div>
+                <div class="test-count">Pass</div>
+                <div class="test-pass"><span class="pass-indicator"></span> Live Payments Confirmed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STAKEHOLDER MAP -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#9823;</span> Stakeholder Map</h2>
+        </div>
+        <div class="card">
+            <div class="stakeholder-map">
+                <div class="stakeholder-ring ring-core">
+                    <div class="ring-label">Core Team</div>
+                    <div class="ring-people">
+                        <span class="person-chip">Product Manager</span>
+                        <span class="person-chip">Developer</span>
+                    </div>
+                </div>
+                <div class="stakeholder-ring ring-decision">
+                    <div class="ring-label">Decision Makers</div>
+                    <div class="ring-people">
+                        <span class="person-chip">Head of Commercial</span>
+                        <span class="person-chip">Head of Product</span>
+                        <span class="person-chip">Finance Team</span>
+                    </div>
+                </div>
+                <div class="stakeholder-ring ring-delivery">
+                    <div class="ring-label">Delivery</div>
+                    <div class="ring-people">
+                        <span class="person-chip">QA Engineer</span>
+                    </div>
+                </div>
+                <div class="stakeholder-ring ring-external">
+                    <div class="ring-label">External</div>
+                    <div class="ring-people">
+                        <span class="person-chip">New Payment Provider</span>
+                        <span class="person-chip">Previous Payment Provider</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LESSONS LEARNED -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="icon">&#128161;</span> Lessons Learned</h2>
+        </div>
+        <div class="insight-cards">
+            <div class="insight-card positive">
+                <div class="insight-type">What Went Well</div>
+                <h4>Static Account Simplicity</h4>
+                <p>The static account approach significantly reduced integration complexity compared to a full API-to-API provider migration, enabling a cleaner and faster transition.</p>
+            </div>
+            <div class="insight-card learn">
+                <div class="insight-type">Key Learning</div>
+                <h4>Provider Evaluation Should Be Continuous</h4>
+                <p>The fee and settlement issues with the previous provider accumulated over time. Regular provider benchmarking could have identified the need for a switch earlier.</p>
+            </div>
+            <div class="insight-card caution">
+                <div class="insight-type">Caution</div>
+                <h4>Dual-Channel Coordination Required</h4>
+                <p>Replacing a provider across both web and API channels requires coordinated releases to ensure payers on both platforms receive consistent account details simultaneously.</p>
+            </div>
+            <div class="insight-card risk">
+                <div class="insight-type">Risk Identified</div>
+                <h4>Provider Dependency Concentration</h4>
+                <p>Switching from one provider to another for a single country still concentrates risk. A fallback or dual-provider strategy could provide resilience for future country-specific integrations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <p><strong>Local Payment Provider Replacement</strong> &mdash; Case Study &mdash; Confidential</p>
+    </div>
+</footer>
+
+</body>
+</html>
