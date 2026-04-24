@@ -15,60 +15,392 @@
         <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
         <style>
             * { box-sizing: border-box; }
-            .main-heading { font-size: 2.4rem; font-weight: 700; color: white; margin-bottom: 14px; }
-            .heading-sub { font-size: 1.1rem; color: #b8b8b8; }
+            body { color: #cfcfcf; line-height: 1.7; background: #000; }
+
             .section { margin: 40px 0; }
             .blog-details { padding: 30px 0; }
-            .info-box { padding: 22px; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(255,255,255,0.02); }
+            section, section:nth-child(even), section:nth-child(odd) { background: transparent !important; padding: 40px 0 !important; }
+
+            .content-wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+            .main-heading { font-size: 2.4rem; font-weight: 700; color: #fff; margin-bottom: 14px; padding-bottom: 20px; }
+            .heading-sub { font-size: 1.05rem; color: #b8b8b8; max-width: 780px; line-height: 1.7; padding-bottom: 30px; }
+
+            .section-header { margin-bottom: 32px; }
+            .section-header h2 { font-size: 1.5rem; font-weight: 700; color: #e5e5e5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+            .section-header p { color: #999; font-size: 0.95rem; }
+
+            .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+            .stat-card { background: linear-gradient(135deg, rgba(125,186,92,0.1) 0%, rgba(125,186,92,0.02) 100%); border: 1px solid rgba(125,186,92,0.2); border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; }
+            .stat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(125,186,92,0.2); border-color: rgba(125,186,92,0.4); }
+            .stat-number { font-size: 26px; font-weight: 700; color: #7dba5c; display: block; margin-bottom: 8px; }
+            .stat-label { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+
+            .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+            .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+            .exec-summary { background: rgba(255,255,255,0.03); border-left: 5px solid #3498db; border-radius: 0 12px 12px 0; padding: 28px 32px; font-size: 1.05rem; color: #cfcfcf; }
+            .exec-summary p { margin-bottom: 12px; }
+            .exec-summary p:last-child { margin-bottom: 0; }
+
+            .kpi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 24px; text-align: center; border-top: 4px solid #3498db; transition: all 0.3s ease; }
+            .kpi-card:hover { border-color: rgba(255,255,255,0.14); transform: translateY(-3px); }
+            .kpi-card.green { border-top-color: #7dba5c; }
+            .kpi-card.orange { border-top-color: #f39c12; }
+            .kpi-card.red { border-top-color: #e94560; }
+            .kpi-card .kpi-value { font-size: 1.9rem; font-weight: 700; color: #e5e5e5; display: block; margin-bottom: 6px; }
+            .kpi-card .kpi-label { font-size: 0.78rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+
+            .timeline { position: relative; padding-left: 40px; }
+            .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #3498db 0%, rgba(52,152,219,0.2) 100%); }
+            .timeline-item { position: relative; margin-bottom: 32px; padding: 20px 25px; background: rgba(255,255,255,0.02); border-radius: 8px; border-left: 3px solid rgba(52,152,219,0.4); transition: all 0.3s ease; }
+            .timeline-item:hover { background: rgba(255,255,255,0.04); border-left-color: #3498db; transform: translateX(5px); }
+            .timeline-item::before { content: ''; position: absolute; left: -43px; top: 25px; width: 12px; height: 12px; background: #3498db; border-radius: 50%; border: 3px solid #1a1a1a; box-shadow: 0 0 15px rgba(52,152,219,0.6); }
+            .timeline-item.milestone::before { background: #e94560; border-color: #e94560; width: 14px; height: 14px; left: -44px; top: 24px; }
+            .timeline-item.success::before { background: #7dba5c; border-color: #7dba5c; }
+            .timeline-date { color: #3498db; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+            .timeline-item.milestone .timeline-date { color: #e94560; }
+            .timeline-item.success .timeline-date { color: #7dba5c; }
+            .timeline-title { color: #e5e5e5; font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+            .timeline-desc { color: #b8b8b8; font-size: 0.9rem; line-height: 1.6; }
+
+            .arch-diagram { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 30px; overflow-x: auto; }
+            .arch-diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+            .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+            .scope-card { border-radius: 12px; padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); }
+            .scope-card.in-scope { border-left: 4px solid rgba(125,186,92,0.5); }
+            .scope-card.out-scope { border-left: 4px solid rgba(255,255,255,0.15); }
+            .scope-card h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+            .scope-card.in-scope h4 { color: #7dba5c; }
+            .scope-card.out-scope h4 { color: #888; }
+            .scope-card ul { list-style: none; padding: 0; }
+            .scope-card li { padding: 6px 0; font-size: 0.9rem; color: #b8b8b8; display: flex; align-items: flex-start; gap: 8px; }
+            .scope-card.in-scope li::before { content: '✓'; color: #7dba5c; font-weight: 700; flex-shrink: 0; }
+            .scope-card.out-scope li::before { content: '—'; color: #666; font-weight: 700; flex-shrink: 0; }
+
+            .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 28px; }
+            .stakeholder-map { display: flex; flex-direction: column; gap: 16px; }
+            .stakeholder-ring { display: flex; align-items: center; gap: 16px; }
+            .ring-label { width: 120px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-align: right; flex-shrink: 0; }
+            .ring-people { display: flex; flex-wrap: wrap; gap: 8px; }
+            .person-chip { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
+            .ring-core .ring-label { color: #e94560; }
+            .ring-core .person-chip { background: rgba(233,69,96,0.15); color: #f08090; border: 1px solid rgba(233,69,96,0.3); }
+            .ring-decision .ring-label { color: #3498db; }
+            .ring-decision .person-chip { background: rgba(52,152,219,0.15); color: #7ab8e8; border: 1px solid rgba(52,152,219,0.3); }
+            .ring-delivery .ring-label { color: #f39c12; }
+            .ring-delivery .person-chip { background: rgba(243,156,18,0.15); color: #f5c060; border: 1px solid rgba(243,156,18,0.3); }
+            .ring-external .ring-label { color: #999; }
+            .ring-external .person-chip { background: rgba(255,255,255,0.06); color: #cfcfcf; border: 1px solid rgba(255,255,255,0.1); }
+
+            .insight-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .insight-card { background: rgba(255,255,255,0.02); border-radius: 12px; padding: 24px; border-left: 4px solid; border-top: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s; }
+            .insight-card:hover { transform: translateY(-3px); }
+            .insight-card.positive { border-left-color: #7dba5c; }
+            .insight-card.caution { border-left-color: #f39c12; }
+            .insight-card.learn { border-left-color: #3498db; }
+            .insight-card.risk { border-left-color: #e94560; }
+            .insight-card .insight-type { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 8px; }
+            .insight-card.positive .insight-type { color: #7dba5c; }
+            .insight-card.caution .insight-type { color: #f39c12; }
+            .insight-card.learn .insight-type { color: #3498db; }
+            .insight-card.risk .insight-type { color: #e94560; }
+            .insight-card h4 { font-size: 1rem; color: #e5e5e5; margin-bottom: 8px; }
+            .insight-card p { font-size: 0.88rem; color: #b8b8b8; margin: 0; }
+
+            .case-footer { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.07); text-align: center; padding: 30px 0; font-size: 0.8rem; color: #666; margin-top: 60px; }
+            .case-footer strong { color: #999; }
+
+            @media (max-width: 1024px) {
+                .content-wrap { padding: 0 24px; }
+                .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            }
+            @media (max-width: 768px) {
+                .grid-2, .grid-4, .scope-grid, .insight-cards { grid-template-columns: 1fr; }
+                .main-heading { font-size: 1.8rem; }
+                .timeline { padding-left: 25px; }
+            }
         </style>
+        <script src="../js/head.min.js"></script>
     </head>
     <body class="blog">
-        <div id="container" class="container">
-            <aside class="menu" id="menu">
-                <div class="logo"><img src="../images/logo.png" width="140" height="140" alt=""/><span>Zlatomir Vangelov</span></div>
-                <a href="#menu1" class="menu-link"></a>
-                <nav id="menu1" role="navigation">
-                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
-                    <a href="../index.html?page=about"><span id="link_about">About</span></a>
-                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
-                </nav>
-                <div class="social">
-                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+    <div id="container" class="container">
+        <aside class="menu" id="menu">
+            <div class="logo">
+                <img src="../images/logo.png" width="140" height="140" alt=""/>
+                <span>Zlatomir Vangelov</span>
+            </div>
+            <a href="#menu1" class="menu-link"></a>
+            <nav id="menu1" role="navigation">
+                <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+                <a href="../index.html?page=about"><span id="link_about">About</span></a>
+                <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+                <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+                <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+                <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+            </nav>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            </div>
+            <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
+        </aside>
+
+        <div class="blog-main">
+            <div style="width: 100%;" class="blog-left">
+                <div class="blog-top">
+                    <div class="blog-title blog-details-title">
+                        <h2>Bulk Escrow Payment Platform</h2>
+                        <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Bulk Escrow Payment Platform</div>
+                    </div>
                 </div>
-                <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
-            </aside>
-            <div class="blog-main">
-                <div style="width: 100%;" class="blog-left">
-                    <div class="blog-top">
-                        <div class="blog-title blog-details-title">
-                            <h2>Bulk Escrow Payments for API Clients</h2>
-                            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Bulk Escrow</div>
+
+                <div class="blog-details">
+                    <div class="section">
+                        <div class="main-heading">Bulk Escrow Payment Platform</div>
+                        <div class="heading-sub">Extending an API payments platform to support bulk escrow transactions &mdash; enabling agents to process grouped payments with document-based fund release and compliance-first design across multiple stakeholder teams.</div>
+                        <div class="stats-grid">
+                            <div class="stat-card"><span class="stat-number">4 Months</span><span class="stat-label">Discovery to Release</span></div>
+                            <div class="stat-card"><span class="stat-number">5 Teams</span><span class="stat-label">Cross-Functional Alignment</span></div>
+                            <div class="stat-card"><span class="stat-number">Compliance-First</span><span class="stat-label">Screening &amp; Funds Flow</span></div>
+                            <div class="stat-card"><span class="stat-number">Scalable</span><span class="stat-label">Multi-Beneficiary Ready</span></div>
                         </div>
                     </div>
-                    <div class="blog-details">
-                        <div class="section">
-                            <div style="padding-bottom: 70px;" class="main-heading">Bulk Escrow Payments for API Clients</div>
-                            <div style="padding-bottom: 30px;" class="heading-sub">Enabling API integrations to submit, process, and reconcile multiple escrow payments in a single bulk operation &mdash; streamlining workflows for large-scale payment operations and reducing per-transaction overhead.</div>
-                        </div>
-                        <div class="section">
-                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
-                            <div class="info-box">
-                                <p style="color: #cfcfcf; margin: 0;">API clients handling high-volume escrow payments faced significant operational friction: each payment required individual API calls, manual reconciliation, and repeated credential validation. This project delivered a <strong>bulk escrow payment capability</strong> enabling clients to submit multiple payments in a single operation, with coordinated processing, unified reconciliation, and detailed transaction reporting.</p>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Executive Summary</h2></div>
+                            <div class="exec-summary">
+                                <p>This project extended the existing API payment platform to support <strong>bulk escrow payments</strong>, enabling agents to submit a single payment covering multiple individuals. Funds are held in escrow accounts until required documentation is submitted and verified for each individual. The project required extensive <strong>cross-functional alignment</strong> across commercial, compliance, finance, customer support, and development teams to define the funds flow, screening requirements, and document handling processes.</p>
+                                <p><strong>Key outcome:</strong> Agents can now process grouped escrow payments through the API, with per-individual status tracking, document-based fund release, and automated refund handling for rejected individuals &mdash; all within a compliance-validated framework.</p>
                             </div>
                         </div>
-                        <div style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px;">
-                            <p style="color: #888; font-size: 13px;"><strong style="color: #b8b8b8;">Case Study: Bulk Escrow Payments</strong></p>
-                            <p style="color: #666; font-size: 12px; margin-top: 6px;">All sensitive information redacted per NDA requirements</p>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Key Metrics at a Glance</h2></div>
+                            <div class="grid-4">
+                                <div class="kpi-card green"><span class="kpi-value">4 Months</span><div class="kpi-label">Delivery Timeline</div></div>
+                                <div class="kpi-card"><span class="kpi-value">5 Teams</span><div class="kpi-label">Cross-Functional Alignment</div></div>
+                                <div class="kpi-card orange"><span class="kpi-value">3 Weeks</span><div class="kpi-label">Core Development</div></div>
+                                <div class="kpi-card red"><span class="kpi-value">Compliant</span><div class="kpi-label">Multi-Hop Screening</div></div>
+                            </div>
                         </div>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Project Timeline</h2></div>
+                            <div class="grid-2">
+                                <div>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-date">Week 1 &ndash; 2</div>
+                                            <div class="timeline-title">Discovery &amp; Requirements</div>
+                                            <div class="timeline-desc">Initial scoping calls with development, business analyst, and architecture teams. Reviewed existing single-escrow payment process and identified gaps for bulk processing.</div>
+                                        </div>
+                                        <div class="timeline-item milestone">
+                                            <div class="timeline-date">Weeks 3 &ndash; 5</div>
+                                            <div class="timeline-title">Compliance Deep-Dive</div>
+                                            <div class="timeline-desc">Multiple calls with compliance team to define screening requirements for multi-hop fund flows (payer to agent to platform to recipient). Finance and payment teams included in alignment sessions.</div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-date">Weeks 6 &ndash; 8</div>
+                                            <div class="timeline-title">Solution Architecture</div>
+                                            <div class="timeline-desc">Ideation workshops produced the solution design: extend the existing payment API with new bulk parameters, create per-individual line items within single payments, and build internal processing views.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-date">Weeks 9 &ndash; 10</div>
+                                            <div class="timeline-title">BRD &amp; Sign-Off</div>
+                                            <div class="timeline-desc">Business requirements document authored and approved. Funds flow diagrams created. Payment team workflows validated for both bulk and individual line processing.</div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-date">Weeks 11 &ndash; 14</div>
+                                            <div class="timeline-title">Development &amp; Integration</div>
+                                            <div class="timeline-desc">Core API development: escrow check logic, new query parameters, additional attributes, and API documentation. Post-development refinement based on team feedback.</div>
+                                        </div>
+                                        <div class="timeline-item success">
+                                            <div class="timeline-date">Weeks 15 &ndash; 16</div>
+                                            <div class="timeline-title">Production Deployment</div>
+                                            <div class="timeline-desc">Deployed to production for continued testing. Per-beneficiary configuration required before client access. Additional internal test cycle completed.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header">
+                                <h2>Technical Architecture</h2>
+                                <p>Bulk escrow payment flow from agent submission to fund release</p>
+                            </div>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+                                    <rect x="20" y="20" width="180" height="260" rx="16" fill="#0f1724" stroke="#2a3f63" stroke-width="1.5"/>
+                                    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#8fc3ef" font-weight="700" letter-spacing="1">AGENT</text>
+                                    <rect x="240" y="20" width="200" height="260" rx="16" fill="#171225" stroke="#4c3a72" stroke-width="1.5"/>
+                                    <text x="340" y="48" text-anchor="middle" font-size="11" fill="#c5a5f3" font-weight="700" letter-spacing="1">API PLATFORM</text>
+                                    <rect x="480" y="20" width="200" height="260" rx="16" fill="#0f1f18" stroke="#2e6547" stroke-width="1.5"/>
+                                    <text x="580" y="48" text-anchor="middle" font-size="11" fill="#8ad7a8" font-weight="700" letter-spacing="1">OPERATIONS</text>
+                                    <rect x="720" y="20" width="160" height="260" rx="16" fill="#24170f" stroke="#8a5a3a" stroke-width="1.5"/>
+                                    <text x="800" y="48" text-anchor="middle" font-size="11" fill="#f0b286" font-weight="700" letter-spacing="1">COMPLIANCE</text>
+
+                                    <rect x="40" y="80" width="140" height="50" rx="10" fill="#111827" stroke="#3498db" stroke-width="2"/>
+                                    <text x="110" y="100" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Bulk Payment</text>
+                                    <text x="110" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">N individuals per request</text>
+
+                                    <rect x="40" y="150" width="140" height="50" rx="10" fill="#111827" stroke="#3498db" stroke-width="2"/>
+                                    <text x="110" y="170" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Documentation</text>
+                                    <text x="110" y="188" text-anchor="middle" font-size="9" fill="#9ca3af">Per-individual uploads</text>
+
+                                    <rect x="260" y="80" width="160" height="50" rx="10" fill="#111827" stroke="#9b59b6" stroke-width="2"/>
+                                    <text x="340" y="100" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Payment API</text>
+                                    <text x="340" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">Escrow check logic</text>
+
+                                    <rect x="260" y="150" width="160" height="50" rx="10" fill="#111827" stroke="#9b59b6" stroke-width="2"/>
+                                    <text x="340" y="170" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Escrow Accounts</text>
+                                    <text x="340" y="188" text-anchor="middle" font-size="9" fill="#9ca3af">Holding until verified</text>
+
+                                    <rect x="500" y="80" width="160" height="50" rx="10" fill="#111827" stroke="#27ae60" stroke-width="2"/>
+                                    <text x="580" y="100" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Line Processing</text>
+                                    <text x="580" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">Per-individual tracking</text>
+
+                                    <rect x="500" y="150" width="160" height="50" rx="10" fill="#111827" stroke="#27ae60" stroke-width="2"/>
+                                    <text x="580" y="170" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Fund Release</text>
+                                    <text x="580" y="188" text-anchor="middle" font-size="9" fill="#9ca3af">Doc verified &rarr; settle</text>
+
+                                    <rect x="740" y="80" width="120" height="50" rx="10" fill="#111827" stroke="#e67e22" stroke-width="2"/>
+                                    <text x="800" y="100" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Screening</text>
+                                    <text x="800" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">Multi-hop validation</text>
+
+                                    <rect x="740" y="150" width="120" height="50" rx="10" fill="#111827" stroke="#e67e22" stroke-width="2"/>
+                                    <text x="800" y="170" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="600">Refund Logic</text>
+                                    <text x="800" y="188" text-anchor="middle" font-size="9" fill="#9ca3af">Rejected individuals</text>
+
+                                    <defs><marker id="a1" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#9b59b6"/></marker></defs>
+                                    <line x1="180" y1="105" x2="256" y2="105" stroke="#3498db" stroke-width="2" marker-end="url(#a1)"/>
+                                    <line x1="420" y1="105" x2="496" y2="105" stroke="#9b59b6" stroke-width="2" marker-end="url(#a1)"/>
+                                    <line x1="660" y1="105" x2="736" y2="105" stroke="#27ae60" stroke-width="2" marker-end="url(#a1)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Project Scope</h2></div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Payment API &mdash; bulk escrow payment extension</li>
+                                        <li>Escrow check logic and new query parameters</li>
+                                        <li>Per-individual line item tracking</li>
+                                        <li>Document-based fund release workflow</li>
+                                        <li>Compliance screening framework</li>
+                                        <li>Operations processing views</li>
+                                        <li>API documentation updates</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Individual payer API (handled separately)</li>
+                                        <li>Partner system modifications</li>
+                                        <li>Historical escrow migration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Stakeholder Map</h2></div>
+                            <div class="card">
+                                <div class="stakeholder-map">
+                                    <div class="stakeholder-ring ring-core">
+                                        <div class="ring-label">Sponsors</div>
+                                        <div class="ring-people"><div class="person-chip">Commercial Lead (Demand Originator)</div></div>
+                                    </div>
+                                    <div class="stakeholder-ring ring-decision">
+                                        <div class="ring-label">Core Team</div>
+                                        <div class="ring-people">
+                                            <div class="person-chip">Product Manager (Coordinator, Compliance Liaison)</div>
+                                            <div class="person-chip">Business Analyst (BRD Author)</div>
+                                        </div>
+                                    </div>
+                                    <div class="stakeholder-ring ring-delivery">
+                                        <div class="ring-label">Delivery</div>
+                                        <div class="ring-people">
+                                            <div class="person-chip">Developer (API Implementation)</div>
+                                            <div class="person-chip">QA Engineer (Testing)</div>
+                                        </div>
+                                    </div>
+                                    <div class="stakeholder-ring ring-external">
+                                        <div class="ring-label">Advisory</div>
+                                        <div class="ring-people">
+                                            <div class="person-chip">Compliance Team (Screening Requirements)</div>
+                                            <div class="person-chip">Finance (Fund Flow Design)</div>
+                                            <div class="person-chip">Payment Operations (Processing Workflows)</div>
+                                            <div class="person-chip">Customer Support (Client Communication)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="content-wrap">
+                            <div class="section-header"><h2>Lessons &amp; Insights</h2></div>
+                            <div class="insight-cards">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">What Worked Well</div>
+                                    <h4>Compliance-First Design</h4>
+                                    <p>Engaging compliance early and through multiple sessions ensured that the multi-hop fund flow met all regulatory requirements before development began. This avoided costly rework that would have occurred if compliance was consulted post-build.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">Challenge</div>
+                                    <h4>Cross-Functional Coordination</h4>
+                                    <p>Five teams needed to align on a single solution. Payment processing, compliance screening, API design, internal workflows, and customer support each had different priorities. Multiple ideation workshops were required to converge on a unified approach.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">Key Learning</div>
+                                    <h4>Controlled Production Release</h4>
+                                    <p>The solution was deployed to production before being client-accessible because test data transfer to internal databases was not feasible. Per-beneficiary configuration acted as a gating mechanism, demonstrating that controlled rollouts can enable earlier validation.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">Risk Identified</div>
+                                    <h4>Screening Complexity Growth</h4>
+                                    <p>Compliance screening requirements escalated during the project as the multi-hop nature of escrow payments introduced additional regulatory obligations. Future escrow enhancements should budget for compliance scope growth upfront.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="case-footer">
+                        <p><strong>Case Study: Bulk Escrow Payment Platform</strong></p>
+                        <p style="margin-top:6px;">All sensitive information redacted per NDA requirements</p>
+                        <p style="margin-top:4px;">Project Duration: 4 Months &bull; Status: <span style="color:#7dba5c;">&#9679;</span> Complete &amp; Deployed</p>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="../js/head.min.js"></script>
-        <script type="text/javascript" src="../js/carousel.js"></script>
-        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="../js/settings-blog.js"></script>
+    </div>
+    <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="../js/carousel.js"></script>
+    <script type="text/javascript" src="../js/settings-blog.js"></script>
     </body>
 </html>

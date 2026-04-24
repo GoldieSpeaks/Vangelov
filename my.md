@@ -56,16 +56,18 @@ NEW
 
 - case-study-document-collection-regional.html ✅ [](http://127.0.0.1:5500/Projects/document-collection-regional.html)
 - case-study-domestic-cc-fee-config.html ✅ [](http://127.0.0.1:5500/Projects/domestic-cc-fee-config.html)
-- case-study-egypt-fawry-integration.html
-- case-study-enterprise-api-development.html
-- case-study-escrow-api-clients.html
-- case-study-escrow-api-extension.html
-- case-study-invoice-payments-agent-flow.html
+- case-study-egypt-fawry-integration.html ✅ [](http://127.0.0.1:5500/Projects/egypt-fawry-integration.html)
+- case-study-escrow-api-clients.html ✅ [](http://127.0.0.1:5500/Projects/escrow-api-clients.html)
+- case-study-escrow-api-extension. - No need 
+- case-study-invoice-payments-agent-flow.html ✅ [](http://127.0.0.1:5500/Projects/invoice-payments-agent-flow.html)
 - case-study-mxn-payments-local-provider.html
 - case-study-pgintegration.html
-- case-study-php-upgrade-aws-migration.html
-- case-study-publisher-payment-portal.html
-- case-study-recurring-cc-payments.html
-- case-study-refund-functionality.html
+- case-study-php-upgrade-aws-migration.html ✅ [](http://127.0.0.1:5500/Projects/php-upgrade-aws-migration.html)
+- case-study-publisher-payment-portal.html ✅ [](http://127.0.0.1:5500/Projects/publisher-payment-portal.html)
+- case-study-recurring-cc-payments.html ✅ [](http://127.0.0.1:5500/Projects/recurring-cc-payments.html)
+- case-study-refund-functionality.html ✅ [](http://127.0.0.1:5500/Projects/refund-functionality.html)
 - case-study-tax-collection-integration.html
 - case-study-webhook-config-management.html
+
+
+LIST 
