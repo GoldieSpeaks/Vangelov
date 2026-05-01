@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <title>PHP 8 Upgrade &amp; AWS Cloud Migration - Case Study | Zlatomir Vangelov</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+        <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+        <style>
+            * { box-sizing: border-box; }
+
+            /* --- Scroll reveal animation --- */
+            @keyframes revealUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+            .reveal.visible { opacity: 1; transform: translateY(0); }
+
+            /* --- Gradient text headings --- */
+            .main-heading {
+                background: linear-gradient(135deg, #7dba5c 0%, #a8e063 40%, #56ab2f 100%);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                background-clip: text;
+                padding-top: 6px; line-height: 1.3; display: block;
+            }
+
+            /* --- Subtle section dividers --- */
+            .section-divider {
+                height: 1px; border: none; margin: 60px 0;
+                background: linear-gradient(90deg, transparent 0%, rgba(125,186,92,0.4) 30%, rgba(125,186,92,0.4) 70%, transparent 100%);
+            }
+
+            /* --- Hero intro area --- */
+            .hero-intro {
+                position: relative; padding: 50px 0 30px; margin-bottom: 10px;
+            }
+            .hero-intro::after {
+                content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent);
+            }
+            .hero-subtitle {
+                font-size: 18px; line-height: 1.7; color: #b8b8b8; max-width: 90%;
+            }
+            .hero-subtitle strong { color: #7dba5c; font-weight: 600; }
+
+            /* --- Category badge --- */
+            .category-badge {
+                display: inline-block;
+                padding: 8px 20px;
+                border: 2px solid #7dba5c;
+                border-radius: 30px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #7dba5c;
+                margin-bottom: 24px;
+                background: rgba(125,186,92,0.06);
+                transition: all 0.3s ease;
+            }
+            .category-badge:hover {
+                background: rgba(125,186,92,0.15);
+                box-shadow: 0 0 20px rgba(125,186,92,0.2);
+            }
+
+            /* --- Stat cards --- */
+            .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 40px 0; }
+            .stat-card {
+                position: relative; overflow: hidden;
+                background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.3) 100%);
+                border: 1px solid rgba(125,186,92,0.15); border-radius: 16px; padding: 30px 20px; text-align: center;
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .stat-card::before {
+                content: ''; position: absolute; inset: 0; border-radius: 16px;
+                background: radial-gradient(circle at 50% 0%, rgba(125,186,92,0.12) 0%, transparent 70%);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .stat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(125,186,92,0.1); border-color: rgba(125,186,92,0.35); }
+            .stat-card:hover::before { opacity: 1; }
+            .stat-icon { font-size: 36px; margin-bottom: 16px; display: block; filter: drop-shadow(0 0 8px rgba(125,186,92,0.3)); }
+            .stat-number { font-size: 28px; font-weight: 800; color: #7dba5c; display: block; margin-bottom: 8px; letter-spacing: -0.5px; }
+            .stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+            /* --- Counter animation --- */
+            @keyframes countPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .stat-number.animated {
+                animation: countPulse 0.3s ease-out;
+            }
+
+            /* --- Info cards (s1-s2 columns) --- */
+            .s1-s2 { display: flex; gap: 20px; margin: 40px 0; flex-wrap: nowrap; }
+            .col1, .col2, .col3 {
+                flex: 1; min-width: 0; overflow-wrap: break-word;
+                background: rgba(255,255,255,0.015); padding: 28px; border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+                position: relative;
+            }
+            .col1::before, .col2::before, .col3::before {
+                content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 12px 12px 0 0;
+                background: linear-gradient(90deg, #7dba5c, #56ab2f);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .col1:hover, .col2:hover, .col3:hover {
+                background: rgba(255,255,255,0.035); border-color: rgba(125,186,92,0.2);
+                transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            }
+            .col1:hover::before, .col2:hover::before, .col3:hover::before { opacity: 1; }
+            .col1 b, .col2 b, .col3 b { display: block; margin-bottom: 16px; color: #7dba5c; font-size: 15px; border-bottom: 1px solid rgba(125,186,92,0.15); padding-bottom: 12px; letter-spacing: 0.3px; }
+            .col1 p, .col2 p, .col3 p { margin: 0; line-height: 1.8; color: #b0b0b0; font-size: 13px; }
+            .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) { margin-bottom: 6px; }
+
+            /* --- NDA notice --- */
+            .nda-notice {
+                background: linear-gradient(135deg, rgba(255,193,7,0.08) 0%, rgba(255,193,7,0.02) 100%);
+                border-left: 4px solid #ffc107; border: 1px solid rgba(255,193,7,0.15); border-left: 4px solid #ffc107;
+                padding: 18px 24px; margin: 40px 0; border-radius: 10px;
+                display: flex; align-items: center; gap: 14px;
+            }
+            .nda-notice p { margin: 0; color: #d4a837; font-size: 13px; line-height: 1.6; }
+
+            /* --- My Role Card --- */
+            .my-role-card {
+                position: relative;
+                background: linear-gradient(160deg, rgba(125,186,92,0.06) 0%, rgba(0,0,0,0.25) 100%);
+                border: 1px solid rgba(125,186,92,0.2);
+                border-left: 6px solid;
+                border-image: linear-gradient(180deg, #7dba5c 0%, #56ab2f 50%, #a8e063 100%) 1;
+                border-radius: 0 16px 16px 0;
+                padding: 40px 36px;
+                margin: 40px 0;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 60px rgba(125,186,92,0.05);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .my-role-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 80px rgba(125,186,92,0.08);
+                border-color: rgba(125,186,92,0.4);
+            }
+            .my-role-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle at top right, rgba(125,186,92,0.08) 0%, transparent 70%);
+                pointer-events: none;
+            }
+            .my-role-card h3 {
+                color: #7dba5c;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .my-role-card h3::before {
+                content: '';
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #7dba5c, #56ab2f);
+                border-radius: 8px;
+                flex-shrink: 0;
+                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                -webkit-mask-size: 20px 20px;
+                mask-size: 20px 20px;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+                mask-position: center;
+            }
+            .my-role-card ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .my-role-card li {
+                padding: 14px 0;
+                font-size: 15px;
+                color: #d0d0d0;
+                line-height: 1.6;
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+            }
+            .my-role-card li:last-child { border-bottom: none; }
+            .my-role-card li::before {
+                content: "\2714";
+                color: #7dba5c;
+                font-weight: 700;
+                font-size: 16px;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            /* --- Before/After Section --- */
+            .before-after {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                margin: 40px 0;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            }
+            .before-col {
+                background: linear-gradient(160deg, rgba(233,69,96,0.08) 0%, rgba(0,0,0,0.4) 100%);
+                padding: 36px 32px;
+                border-right: 1px solid rgba(255,255,255,0.06);
+                position: relative;
+            }
+            .before-col::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; height: 4px;
+                background: linear-gradient(90deg, #e94560, rgba(233,69,96,0.3));
+            }
+            .after-col {
+                background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.4) 100%);
+                padding: 36px 32px;
+                position: relative;
+            }
+            .after-col::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; height: 4px;
+                background: linear-gradient(90deg, #7dba5c, rgba(125,186,92,0.3));
+            }
+            .before-col h4, .after-col h4 {
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 700;
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .before-col h4 { color: #e94560; }
+            .after-col h4 { color: #7dba5c; }
+            .before-col h4::before { content: "\2716"; font-size: 14px; }
+            .after-col h4::before { content: "\2714"; font-size: 14px; }
+            .before-col ul, .after-col ul { list-style: none; padding: 0; margin: 0; }
+            .before-col li, .after-col li {
+                padding: 12px 0; font-size: 14px; line-height: 1.6;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+                display: flex; align-items: flex-start; gap: 10px;
+            }
+            .before-col li:last-child, .after-col li:last-child { border-bottom: none; }
+            .before-col li { color: #c0a0a0; }
+            .after-col li { color: #b0d0a0; }
+            .before-col li::before { content: "\2022"; color: #e94560; font-size: 18px; line-height: 1; flex-shrink: 0; }
+            .after-col li::before { content: "\2022"; color: #7dba5c; font-size: 18px; line-height: 1; flex-shrink: 0; }
+
+            /* --- Key Outcome Callout --- */
+            .key-outcome {
+                background: linear-gradient(135deg, rgba(125,186,92,0.1) 0%, rgba(86,171,47,0.05) 50%, rgba(0,0,0,0.3) 100%);
+                border: 1px solid rgba(125,186,92,0.25);
+                border-radius: 16px;
+                padding: 40px 48px;
+                margin: 30px 0;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .key-outcome::before {
+                content: '';
+                position: absolute;
+                top: -50%; left: -50%; width: 200%; height: 200%;
+                background: radial-gradient(circle at center, rgba(125,186,92,0.04) 0%, transparent 50%);
+                animation: outcomeGlow 6s ease-in-out infinite;
+            }
+            @keyframes outcomeGlow {
+                0%, 100% { opacity: 0.5; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.1); }
+            }
+            .key-outcome-label {
+                font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px;
+                color: #7dba5c; font-weight: 700; margin-bottom: 16px;
+                position: relative; z-index: 1;
+            }
+            .key-outcome-text {
+                font-size: 22px; font-weight: 600; color: #e8e8e8; line-height: 1.5;
+                position: relative; z-index: 1; max-width: 700px; margin: 0 auto;
+            }
+            .key-outcome-text::before {
+                content: '\201C'; color: rgba(125,186,92,0.3); font-size: 60px;
+                font-family: Georgia, serif; position: absolute; top: -20px; left: -30px;
+            }
+
+            /* --- Executive summary glass card --- */
+            .exec-summary {
+                padding: 32px; border: 1px solid rgba(125,186,92,0.12); border-radius: 16px;
+                background: linear-gradient(160deg, rgba(125,186,92,0.04) 0%, rgba(0,0,0,0.2) 100%);
+                backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+                position: relative; overflow: hidden;
+            }
+            .exec-summary::before {
+                content: '\201C'; position: absolute; top: -10px; left: 16px; font-size: 120px;
+                color: rgba(125,186,92,0.06); font-family: Georgia, serif; line-height: 1;
+            }
+            .exec-summary p { position: relative; z-index: 1; color: #c8c8c8; margin-bottom: 14px; line-height: 1.8; font-size: 15px; }
+            .exec-summary p:last-child { margin-bottom: 0; }
+
+            /* --- Timeline --- */
+            .timeline { position: relative; margin: 50px 0; padding-left: 45px; }
+            .timeline::before {
+                content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px;
+                background: linear-gradient(180deg, #7dba5c 0%, rgba(125,186,92,0.3) 50%, rgba(125,186,92,0.05) 100%);
+            }
+            @keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 0 0 rgba(125,186,92,0.4); } 50% { box-shadow: 0 0 0 8px rgba(125,186,92,0); } }
+            .timeline-item {
+                position: relative; margin-bottom: 30px; padding: 22px 28px;
+                background: rgba(255,255,255,0.015); border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid rgba(125,186,92,0.3);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .timeline-item:hover {
+                background: rgba(255,255,255,0.04); border-left-color: #7dba5c;
+                transform: translateX(8px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            }
+            .timeline-item::before {
+                content: ''; position: absolute; left: -40px; top: 28px; width: 14px; height: 14px;
+                background: #7dba5c; border-radius: 50%; border: 3px solid #111;
+                box-shadow: 0 0 12px rgba(125,186,92,0.5);
+                animation: pulse-dot 3s ease-in-out infinite;
+            }
+            .timeline-item:nth-child(1)::before { animation-delay: 0s; }
+            .timeline-item:nth-child(2)::before { animation-delay: 0.3s; }
+            .timeline-item:nth-child(3)::before { animation-delay: 0.6s; }
+            .timeline-item:nth-child(4)::before { animation-delay: 0.9s; }
+            .timeline-item:nth-child(5)::before { animation-delay: 1.2s; }
+            .timeline-item:nth-child(6)::before { animation-delay: 1.5s; }
+            .timeline-item:nth-child(7)::before { animation-delay: 1.8s; }
+            .timeline-item:nth-child(8)::before { animation-delay: 2.1s; }
+            .timeline-item:nth-child(9)::before { animation-delay: 2.4s; }
+            .timeline-item:nth-child(10)::before { animation-delay: 2.7s; }
+            .timeline-date { color: #7dba5c; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+            .timeline-title { color: white; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+            .timeline-desc { color: #a8a8a8; font-size: 13px; line-height: 1.7; }
+
+            /* --- Scope cards --- */
+            .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+            .scope-card {
+                border-radius: 14px; padding: 28px;
+                background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.3s ease;
+            }
+            .scope-card:hover { background: rgba(255,255,255,0.03); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+            .scope-card.in-scope { border-left: 4px solid #7dba5c; }
+            .scope-card.out-scope { border-left: 4px solid rgba(255,255,255,0.15); }
+            .scope-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; font-weight: 700; }
+            .scope-card.in-scope h4 { color: #7dba5c; }
+            .scope-card.out-scope h4 { color: #666; }
+            .scope-card ul { list-style: none; padding: 0; margin: 0; }
+            .scope-card li { padding: 8px 0; font-size: 13px; color: #b0b0b0; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .scope-card li:last-child { border-bottom: none; }
+            .scope-card.in-scope li::before { content: "\2713"; color: #7dba5c; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+            .scope-card.out-scope li::before { content: "\2014"; color: #555; font-weight: 700; flex-shrink: 0; }
+
+            /* --- Architecture diagram wrapper --- */
+            .arch-diagram {
+                border-radius: 16px; padding: 24px; margin-bottom: 30px; overflow-x: auto;
+                background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.15) 100%);
+                border: 1px solid rgba(255,255,255,0.06);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+            }
+
+            /* --- Decision table --- */
+            .decision-table {
+                width: 100%; border-collapse: separate; border-spacing: 0;
+                border-radius: 14px; overflow: hidden; margin: 30px 0;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            }
+            .decision-table thead th {
+                background: linear-gradient(135deg, rgba(125,186,92,0.12) 0%, rgba(125,186,92,0.04) 100%);
+                color: #7dba5c; padding: 16px 20px; font-size: 11px; text-transform: uppercase;
+                letter-spacing: 1px; text-align: left; border-bottom: 2px solid rgba(125,186,92,0.2);
+            }
+            .decision-table tbody td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: #b0b0b0; line-height: 1.6; }
+            .decision-table tbody tr { transition: background 0.3s; }
+            .decision-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+            .decision-table tbody tr:last-child td { border-bottom: none; }
+            .decision-table tbody td strong { color: #e0e0e0; }
+            .decision-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+            .badge-strategic { background: rgba(233,69,96,0.12); color: #e94560; }
+            .badge-technical { background: rgba(52,152,219,0.12); color: #3498db; }
+            .badge-process { background: rgba(243,156,18,0.12); color: #f39c12; }
+
+            /* --- QA donut area --- */
+            .qa-summary {
+                display: flex; align-items: center; gap: 50px; margin-top: 30px; flex-wrap: wrap;
+                background: linear-gradient(160deg, rgba(125,186,92,0.03) 0%, rgba(0,0,0,0.15) 100%);
+                border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            /* --- Progress ring animation --- */
+            @keyframes progressRing {
+                from { stroke-dasharray: 0 439.8; }
+                to { stroke-dasharray: 439.8 0; }
+            }
+            .progress-ring-circle {
+                animation: progressRing 2s cubic-bezier(.22,1,.36,1) forwards;
+            }
+            .progress-ring-circle.animated {
+                stroke-dasharray: 439.8 0;
+            }
+
+            /* --- Insight cards --- */
+            .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+            .insight-card {
+                background: rgba(255,255,255,0.015); border-radius: 14px; padding: 26px;
+                border-left: 4px solid; border-top: 1px solid rgba(255,255,255,0.05);
+                border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .insight-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+            .insight-card.positive { border-left-color: #7dba5c; }
+            .insight-card.positive:hover { background: rgba(125,186,92,0.04); }
+            .insight-card.caution { border-left-color: #f39c12; }
+            .insight-card.caution:hover { background: rgba(243,156,18,0.04); }
+            .insight-card.learn { border-left-color: #3498db; }
+            .insight-card.learn:hover { background: rgba(52,152,219,0.04); }
+            .insight-card.risk { border-left-color: #e94560; }
+            .insight-card.risk:hover { background: rgba(233,69,96,0.04); }
+            .insight-card.reflect { border-left-color: #9b59b6; }
+            .insight-card.reflect:hover { background: rgba(155,89,182,0.04); }
+            .insight-type { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+            .insight-card.positive .insight-type { color: #7dba5c; }
+            .insight-card.caution .insight-type { color: #f39c12; }
+            .insight-card.learn .insight-type { color: #3498db; }
+            .insight-card.risk .insight-type { color: #e94560; }
+            .insight-card.reflect .insight-type { color: #9b59b6; }
+            .insight-card h4 { font-size: 15px; color: white; margin-bottom: 10px; font-weight: 700; }
+            .insight-card p { font-size: 13px; color: #a8a8a8; line-height: 1.7; margin: 0; }
+
+            /* --- Footer --- */
+            .case-footer {
+                text-align: center; padding: 50px 0 30px; margin-top: 50px; position: relative;
+            }
+            .case-footer::before {
+                content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent);
+            }
+            .case-footer .footer-title { color: #c0c0c0; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+            .case-footer .footer-sub { color: #555; font-size: 12px; margin-top: 6px; }
+            .case-footer .footer-status { color: #555; font-size: 12px; margin-top: 4px; }
+            .footer-status-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: rgba(125,186,92,0.08);
+                border: 1px solid rgba(125,186,92,0.2);
+                border-radius: 20px;
+                padding: 6px 16px;
+                font-size: 11px;
+                color: #7dba5c;
+                font-weight: 600;
+                margin-top: 12px;
+            }
+            .footer-status-badge::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: #7dba5c;
+                border-radius: 50%;
+                animation: pulse-dot 2s ease-in-out infinite;
+            }
+
+            /* --- General --- */
+            .blog-details { padding: 30px 0; }
+            .section { margin: 50px 0; }
+            .section-label {
+                display: flex; align-items: center; gap: 8px;
+                font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+                color: #555; font-weight: 700; margin-bottom: 12px;
+            }
+            .section-label .section-num {
+                display: inline-flex; align-items: center; justify-content: center;
+                width: 22px; height: 22px; border-radius: 50%;
+                background: rgba(125,186,92,0.15); color: #7dba5c;
+                font-size: 10px; font-weight: 800;
+            }
+
+            @media (max-width: 1024px) {
+                .s1-s2 { flex-wrap: wrap; gap: 16px; }
+                .col1, .col2, .col3 { flex: 0 0 calc(50% - 8px); }
+                .stats-grid { grid-template-columns: repeat(2, 1fr); }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            }
+            @media (max-width: 768px) {
+                .blog-main { width: 100% !important; }
+                .s1-s2 { flex-direction: column; gap: 16px; margin: 30px 0; }
+                .col1, .col2, .col3 { flex: 1; padding: 20px; }
+                .main-heading { font-size: 28px; padding-bottom: 20px; }
+                .stats-grid { grid-template-columns: 1fr 1fr; }
+                .timeline { padding-left: 30px; }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .qa-summary { gap: 30px; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                .my-role-card { padding: 28px 24px; }
+                .key-outcome { padding: 30px 24px; }
+                .key-outcome-text { font-size: 18px; }
+            }
+            @media (max-width: 480px) {
+                .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+                .section { margin: 30px 0; }
+                .key-outcome-text { font-size: 16px; }
+                .key-outcome-text::before { display: none; }
+            }
+        </style>
+    </head>
+    <body class="blog">
+        <div id="container" class="container">
+            <aside class="menu" id="menu">
+                <div class="logo">
+                    <img src="../images/logo.png" width="140" height="140" alt=""/>
+                    <span>Zlatomir Vangelov</span>
+                </div>
+                <a href="#menu1" class="menu-link"></a>
+                <nav id="menu1" role="navigation">
+                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+                    <a href="../index.html?page=about"><span id="link_about">About</span></a>
+                    <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+                    <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+                    <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+                    <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                    <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+                </nav>
+                <div class="social">
+                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                </div>
+                <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
+            </aside>
+
+            <div class="blog-main">
+                <div style="width: 100%;" class="blog-left">
+                    <div class="blog-top">
+                        <div class="blog-title blog-details-title">
+                            <h2>PHP 8 Upgrade &amp; AWS Cloud Migration</h2>
+                            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;PHP 8 Upgrade &amp; AWS Migration</div>
+                        </div>
+                    </div>
+
+                    <div class="blog-details">
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Infrastructure</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">PHP 8 Upgrade &amp; AWS Cloud Migration</div>
+                            <div class="hero-subtitle">Coordinating a dual-track infrastructure transformation &mdash; <strong>upgrading the platform runtime to PHP 8 while simultaneously migrating hosting to AWS</strong> &mdash; across a large cross-functional team through four release target adjustments.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">The platform ran on an outdated PHP version hosted on traditional infrastructure, creating mounting security exposure, performance limitations, and incompatibility with modern libraries. The decision was made to combine the PHP 8 upgrade with a simultaneous migration to AWS, consolidating two major infrastructure changes into a single coordinated initiative. This dual-scope project involved multiple development teams, QA resources, DevOps specialists, and project leadership across a six-month delivery timeline that required four release date adjustments as complexity was uncovered.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: NDA NOTICE ===== -->
+                        <div class="nda-notice reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> This case study intentionally excludes provider-specific implementation details, company identifiers, and infrastructure specifics protected by non-disclosure obligations. It focuses on delivery scope, process, personal contributions, and outcomes.</p>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="6" data-suffix="-Month">6-Month</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128101;</span>
+                                <span class="stat-number" data-count="9" data-suffix="+">9+</span>
+                                <span class="stat-label">Team Members</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128295;</span>
+                                <span class="stat-number" data-count="4" data-suffix="">4</span>
+                                <span class="stat-label">Release Adjustments</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number">Dual-Track</span>
+                                <span class="stat-label">Combined Delivery</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created the epic as a strategic infrastructure initiative, defining the combined scope of PHP 8 upgrade and cloud migration as a unified programme</li>
+                                    <li>Made the priority decision to combine both infrastructure changes into a single initiative rather than sequential projects, reducing total platform disruption</li>
+                                    <li>Managed release scheduling through four target adjustments (March to April to May to June) as true complexity was uncovered during development and testing</li>
+                                    <li>Coordinated QA assignment and test planning across the full platform surface area, ensuring regression coverage matched the scope of underlying infrastructure changes</li>
+                                    <li>Provided ongoing delivery oversight across the cross-functional team, making escalation decisions when blockers emerged and adjusting priorities as dependencies shifted</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from legacy hosting with outdated runtime to modern cloud infrastructure with current PHP version.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Outdated PHP version with growing security vulnerabilities</li>
+                                        <li>Traditional hosting with limited scalability options</li>
+                                        <li>Incompatibility with modern PHP libraries and frameworks</li>
+                                        <li>Manual infrastructure management without cloud automation</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>PHP 8 with modern language features and security patches</li>
+                                        <li>AWS cloud hosting with elastic scalability</li>
+                                        <li>Full compatibility with current ecosystem libraries</li>
+                                        <li>Cloud-native infrastructure with automated management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Successfully delivered a dual-track infrastructure transformation across a nine-person team, modernising both runtime and hosting in a single coordinated initiative with zero extended downtime</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">6</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>The platform operated on an end-of-life PHP version hosted on traditional infrastructure. Security patches were no longer available for the runtime, modern libraries required PHP 8 as a minimum, and the hosting environment lacked the scalability and automation capabilities of cloud platforms. Both issues needed addressing, and the decision was made to combine them into a single initiative to minimise total disruption.</p>
+                                <p>The project involved upgrading the entire codebase to PHP 8 compatibility, migrating all hosting infrastructure to AWS, and validating that the full platform functioned correctly on both the new runtime and new infrastructure simultaneously. A cross-functional team of nine worked across development, DevOps, QA, and project coordination, with the release target adjusted four times as the true scope of compatibility work became apparent.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">The platform was successfully migrated to AWS running PHP 8, with full regression validation confirming zero functional impact. The combined approach saved months of repeated testing that sequential migrations would have required.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Six-month delivery from epic creation through iterative release adjustments to successful production deployment.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 1</div>
+                                    <div class="timeline-title">Epic Creation &amp; Strategic Scoping</div>
+                                    <div class="timeline-desc">Epic created defining the combined PHP 8 upgrade and AWS migration as a unified infrastructure initiative. Initial release target set for March. Cross-functional team identified: developers, DevOps, QA, and project coordination resources.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 1-2</div>
+                                    <div class="timeline-title">Team Assembly &amp; Work Breakdown</div>
+                                    <div class="timeline-desc">Nine team members assigned across parallel workstreams. PHP compatibility assessment began on the codebase while DevOps started AWS environment provisioning. Child tasks created for each major component requiring PHP 8 adaptation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 2</div>
+                                    <div class="timeline-title">First Release Adjustment (March &rarr; April)</div>
+                                    <div class="timeline-desc">PHP compatibility analysis revealed more extensive refactoring needed than initially estimated. Deprecated function usage was pervasive across the codebase. Release target moved to April to accommodate the full scope of compatibility work.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 3</div>
+                                    <div class="timeline-title">Core Development &amp; AWS Setup</div>
+                                    <div class="timeline-desc">PHP 8 codebase adaptations progressed across all major modules. AWS infrastructure configured with matching environment specifications. Integration challenges between new PHP version and existing database layer identified and resolved.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 3</div>
+                                    <div class="timeline-title">Second Release Adjustment (April &rarr; May)</div>
+                                    <div class="timeline-desc">AWS migration complexity exceeded initial estimates. Environment parity between legacy hosting and AWS required additional configuration work. QA flagged that full regression testing needed more time given the dual-change scope.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 4</div>
+                                    <div class="timeline-title">Integration Testing &amp; Third Adjustment (May &rarr; June)</div>
+                                    <div class="timeline-desc">Combined testing of PHP 8 code on AWS infrastructure began. Edge cases emerged in specific platform modules requiring additional developer attention. Release moved to June to ensure comprehensive regression coverage.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 5</div>
+                                    <div class="timeline-title">Full Regression &amp; Performance Validation</div>
+                                    <div class="timeline-desc">Complete platform regression testing on AWS with PHP 8. Performance benchmarking confirmed improvements over legacy stack. Load testing validated elastic scaling behaviour under production traffic patterns.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 5-6</div>
+                                    <div class="timeline-title">Pre-Production Hardening</div>
+                                    <div class="timeline-desc">Final hardening phase: security configuration, monitoring setup, rollback procedures documented, and cutover plan established. Team rehearsed migration procedure to minimise production transition window.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 6</div>
+                                    <div class="timeline-title">Production Deployment</div>
+                                    <div class="timeline-desc">Platform migrated to AWS running PHP 8 during planned maintenance window. Cutover completed within scheduled timeframe. Immediate post-deployment monitoring confirmed all systems operational with no functional regression.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 6+</div>
+                                    <div class="timeline-title">Post-Deployment Validation &amp; Closure</div>
+                                    <div class="timeline-desc">Extended monitoring period confirmed platform stability on new infrastructure. Performance metrics validated against baseline. Project formally closed and marked as Live. Infrastructure modernisation roadmap unblocked for future enhancements.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Full codebase upgrade to PHP 8 compatibility</li>
+                                        <li>AWS infrastructure provisioning and configuration</li>
+                                        <li>Database layer compatibility with new PHP version</li>
+                                        <li>Complete platform regression testing on new stack</li>
+                                        <li>Performance benchmarking and load testing</li>
+                                        <li>Production cutover and migration execution</li>
+                                        <li>Rollback procedure documentation and rehearsal</li>
+                                        <li>Post-deployment monitoring and validation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>New feature development during migration</li>
+                                        <li>Database engine upgrade (separate initiative)</li>
+                                        <li>Application redesign or architecture changes</li>
+                                        <li>Third-party integration renegotiation</li>
+                                        <li>Back-office system migration (separate timeline)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Dual-track transformation: PHP runtime upgrade combined with hosting infrastructure migration to AWS.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Legacy state -->
+                                    <rect x="20" y="20" width="250" height="300" rx="16" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="145" y="48" text-anchor="middle" font-size="10" fill="#e94560" font-weight="700" letter-spacing="1">LEGACY INFRASTRUCTURE</text>
+
+                                    <!-- Transformation -->
+                                    <rect x="310" y="20" width="250" height="300" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="435" y="48" text-anchor="middle" font-size="10" fill="#f39c12" font-weight="700" letter-spacing="1">DUAL-TRACK MIGRATION</text>
+
+                                    <!-- Modern state -->
+                                    <rect x="600" y="20" width="280" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="740" y="48" text-anchor="middle" font-size="10" fill="#7dba5c" font-weight="700" letter-spacing="1">MODERN INFRASTRUCTURE</text>
+
+                                    <!-- Legacy boxes -->
+                                    <rect x="35" y="75" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Outdated PHP Runtime</text>
+
+                                    <rect x="35" y="125" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Traditional Hosting</text>
+
+                                    <rect x="35" y="175" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Manual Scaling</text>
+
+                                    <rect x="35" y="225" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Deprecated Libraries</text>
+
+                                    <rect x="35" y="280" width="220" height="28" rx="8" fill="rgba(233,69,96,0.08)" stroke="none"/>
+                                    <text x="145" y="298" text-anchor="middle" font-size="9" fill="#e94560" font-weight="600">Security &amp; Performance Risk</text>
+
+                                    <!-- Transformation boxes -->
+                                    <rect x="325" y="75" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">PHP 8 Codebase Adaptation</text>
+
+                                    <rect x="325" y="125" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">AWS Environment Setup</text>
+
+                                    <rect x="325" y="175" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Integration Testing</text>
+
+                                    <rect x="325" y="225" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Load &amp; Performance Testing</text>
+
+                                    <rect x="325" y="280" width="220" height="28" rx="8" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
+                                    <text x="435" y="298" text-anchor="middle" font-size="9" fill="#f39c12" font-weight="600">4 Release Adjustments</text>
+
+                                    <!-- Modern boxes -->
+                                    <rect x="615" y="75" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">PHP 8 Runtime (Modern)</text>
+
+                                    <rect x="615" y="125" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">AWS Cloud Hosting</text>
+
+                                    <rect x="615" y="175" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Elastic Auto-Scaling</text>
+
+                                    <rect x="615" y="225" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Current Library Ecosystem</text>
+
+                                    <rect x="615" y="280" width="250" height="28" rx="8" fill="rgba(125,186,92,0.08)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="740" y="298" text-anchor="middle" font-size="9" fill="#7dba5c" font-weight="600">Secure &amp; Scalable Platform</text>
+
+                                    <!-- Flow arrows -->
+                                    <defs><marker id="arrG2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker></defs>
+                                    <line x1="255" y1="93" x2="322" y2="93" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="143" x2="322" y2="143" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="193" x2="322" y2="193" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="243" x2="322" y2="243" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="93" x2="612" y2="93" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="143" x2="612" y2="143" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="193" x2="612" y2="193" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="243" x2="612" y2="243" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Month 1</td>
+                                        <td><strong>Combined dual-track approach.</strong> PHP upgrade and AWS migration executed together rather than sequentially, avoiding the cost of full regression testing twice and reducing total platform disruption from two initiatives to one.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 2</td>
+                                        <td><strong>Quality over fixed dates.</strong> First release adjustment made when compatibility analysis revealed scope beyond initial estimates. Prioritised comprehensive testing over hitting an arbitrary deadline.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 3</td>
+                                        <td><strong>Parallel workstreams.</strong> PHP codebase adaptation and AWS environment setup ran simultaneously, with integration testing as the convergence point. Reduced total timeline compared to sequential execution.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 4</td>
+                                        <td><strong>Full regression scope.</strong> Given dual infrastructure changes, regression testing covered the entire platform surface area rather than targeted testing. Zero-risk tolerance for production deployment on fundamentally new stack.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 5</td>
+                                        <td><strong>Rehearsed cutover procedure.</strong> Production migration rehearsed before execution to validate the procedure, identify timing, and confirm rollback capability before committing to the live cutover.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 6</td>
+                                        <td><strong>Planned maintenance window.</strong> Production cutover scheduled during a planned maintenance window with full team availability, minimising user impact and ensuring immediate issue response capability.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Full platform regression across new runtime and new infrastructure with performance validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>PHP 8 Compat</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Full codebase adapted and validated</p>
+                                </div>
+                                <div class="col2">
+                                    <b>AWS Migration</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Environment parity confirmed</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Load Testing</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Performance improved over legacy</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Zero</strong> functional regression across entire platform</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Improved</strong> performance metrics over legacy infrastructure</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Elastic</strong> scaling validated under production traffic patterns</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Rehearsed</strong> cutover procedure before live execution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Combined Initiative Approach</h4>
+                                    <p>Running the PHP upgrade and AWS migration as a single programme saved months of duplicated regression testing. The team only needed to validate the full platform once on the combined new stack, rather than twice for each change independently.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Flexible Release Scheduling</h4>
+                                    <p>Adjusting the release target four times showed willingness to prioritise quality over deadlines. Each adjustment was made when real complexity was uncovered, preventing a rushed deployment that could have caused production incidents on critical infrastructure.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Scope Estimation Complexity</h4>
+                                    <p>The initial timeline significantly underestimated the PHP compatibility work required. Deprecated function usage was more pervasive than code analysis suggested. Future infrastructure upgrades should include a dedicated compatibility assessment phase before committing to timelines.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Cutover Rehearsal Value</h4>
+                                    <p>Rehearsing the production migration procedure before the actual cutover identified timing issues and procedural gaps that would have extended the maintenance window. This practice should be mandatory for all infrastructure migrations affecting production traffic.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Managed</div>
+                                    <h4>Dual-Change Production Risk</h4>
+                                    <p>Changing both runtime and hosting simultaneously doubled the potential failure surface. The rehearsed rollback procedure, comprehensive regression coverage, and planned maintenance window with full team availability created the safety net needed for a confident deployment.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have invested in a dedicated compatibility assessment phase upfront before committing to the initial release target. A two-week deep analysis of deprecated PHP function usage across the codebase would have produced a more realistic timeline from the start and avoided the perception of repeated delays.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: PHP 8 Upgrade &amp; AWS Cloud Migration</div>
+                            <div class="footer-sub">Generated from retrospective knowledge base &bull; All sensitive information redacted per NDA requirements</div>
+                            <div class="footer-status">Project Duration: 6-Month Lifecycle &bull; Strategic Infrastructure Initiative</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="../js/head.min.js"></script>
+        <script type="text/javascript" src="../js/carousel.js"></script>
+        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="../js/settings-blog.js"></script>
+        <script>
+            (function(){
+                // --- Scroll reveal animation ---
+                var els = document.querySelectorAll('.reveal');
+                if (!els.length) return;
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function(el){ io.observe(el); });
+
+                // --- Counter animation ---
+                function animateCounter(el) {
+                    var target = parseInt(el.getAttribute('data-count'));
+                    var suffix = el.getAttribute('data-suffix') || '';
+                    if (isNaN(target)) return;
+                    var duration = 1500;
+                    var startTime = null;
+                    var startVal = 0;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var current = Math.round(startVal + (target - startVal) * eased);
+                        el.textContent = current + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            el.textContent = target + suffix;
+                            el.classList.add('animated');
+                        }
+                    }
+                    requestAnimationFrame(step);
+                }
+
+                var counterEls = document.querySelectorAll('.stat-number[data-count]');
+                if (counterEls.length) {
+                    var counterObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                animateCounter(e.target);
+                                counterObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    counterEls.forEach(function(el) {
+                        el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+                        counterObserver.observe(el);
+                    });
+                }
+
+                // --- Progress ring animation on scroll ---
+                var ringEl = document.querySelector('.progress-ring-circle');
+                if (ringEl) {
+                    var ringObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                e.target.style.transition = 'stroke-dasharray 2s cubic-bezier(.22,1,.36,1)';
+                                e.target.style.strokeDasharray = '439.8 0';
+                                e.target.classList.add('animated');
+                                ringObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    ringObserver.observe(ringEl);
+                }
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <title>API Payment Instructions Rework - Case Study | Zlatomir Vangelov</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+        <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+        <style>
+            * { box-sizing: border-box; }
+
+            /* --- Scroll reveal animation --- */
+            @keyframes revealUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+            .reveal.visible { opacity: 1; transform: translateY(0); }
+
+            /* --- Gradient text headings --- */
+            .main-heading {
+                background: linear-gradient(135deg, #7dba5c 0%, #a8e063 40%, #56ab2f 100%);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                background-clip: text;
+                padding-top: 6px; line-height: 1.3; display: block;
+            }
+
+            /* --- Subtle section dividers --- */
+            .section-divider {
+                height: 1px; border: none; margin: 60px 0;
+                background: linear-gradient(90deg, transparent 0%, rgba(125,186,92,0.4) 30%, rgba(125,186,92,0.4) 70%, transparent 100%);
+            }
+
+            /* --- Hero intro area --- */
+            .hero-intro {
+                position: relative; padding: 50px 0 30px; margin-bottom: 10px;
+            }
+            .hero-intro::after {
+                content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent);
+            }
+            .hero-subtitle {
+                font-size: 18px; line-height: 1.7; color: #b8b8b8; max-width: 90%;
+            }
+            .hero-subtitle strong { color: #7dba5c; font-weight: 600; }
+
+            /* --- Category badge --- */
+            .category-badge {
+                display: inline-block;
+                padding: 8px 20px;
+                border: 2px solid #7dba5c;
+                border-radius: 30px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #7dba5c;
+                margin-bottom: 24px;
+                background: rgba(125,186,92,0.06);
+                transition: all 0.3s ease;
+            }
+            .category-badge:hover {
+                background: rgba(125,186,92,0.15);
+                box-shadow: 0 0 20px rgba(125,186,92,0.2);
+            }
+
+            /* --- Stat cards --- */
+            .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 40px 0; }
+            .stat-card {
+                position: relative; overflow: hidden;
+                background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.3) 100%);
+                border: 1px solid rgba(125,186,92,0.15); border-radius: 16px; padding: 30px 20px; text-align: center;
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .stat-card::before {
+                content: ''; position: absolute; inset: 0; border-radius: 16px;
+                background: radial-gradient(circle at 50% 0%, rgba(125,186,92,0.12) 0%, transparent 70%);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .stat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(125,186,92,0.1); border-color: rgba(125,186,92,0.35); }
+            .stat-card:hover::before { opacity: 1; }
+            .stat-icon { font-size: 36px; margin-bottom: 16px; display: block; filter: drop-shadow(0 0 8px rgba(125,186,92,0.3)); }
+            .stat-number { font-size: 28px; font-weight: 800; color: #7dba5c; display: block; margin-bottom: 8px; letter-spacing: -0.5px; }
+            .stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+            /* --- Counter animation --- */
+            @keyframes countPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .stat-number.animated {
+                animation: countPulse 0.3s ease-out;
+            }
+
+            /* --- Info cards (s1-s2 columns) --- */
+            .s1-s2 { display: flex; gap: 20px; margin: 40px 0; flex-wrap: nowrap; }
+            .col1, .col2, .col3 {
+                flex: 1; min-width: 0; overflow-wrap: break-word;
+                background: rgba(255,255,255,0.015); padding: 28px; border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+                position: relative;
+            }
+            .col1::before, .col2::before, .col3::before {
+                content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 12px 12px 0 0;
+                background: linear-gradient(90deg, #7dba5c, #56ab2f);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .col1:hover, .col2:hover, .col3:hover {
+                background: rgba(255,255,255,0.035); border-color: rgba(125,186,92,0.2);
+                transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            }
+            .col1:hover::before, .col2:hover::before, .col3:hover::before { opacity: 1; }
+            .col1 b, .col2 b, .col3 b { display: block; margin-bottom: 16px; color: #7dba5c; font-size: 15px; border-bottom: 1px solid rgba(125,186,92,0.15); padding-bottom: 12px; letter-spacing: 0.3px; }
+            .col1 p, .col2 p, .col3 p { margin: 0; line-height: 1.8; color: #b0b0b0; font-size: 13px; }
+            .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) { margin-bottom: 6px; }
+
+            /* --- NDA notice --- */
+            .nda-notice {
+                background: linear-gradient(135deg, rgba(255,193,7,0.08) 0%, rgba(255,193,7,0.02) 100%);
+                border-left: 4px solid #ffc107; border: 1px solid rgba(255,193,7,0.15); border-left: 4px solid #ffc107;
+                padding: 18px 24px; margin: 40px 0; border-radius: 10px;
+                display: flex; align-items: center; gap: 14px;
+            }
+            .nda-notice p { margin: 0; color: #d4a837; font-size: 13px; line-height: 1.6; }
+
+            /* --- My Role Card --- */
+            .my-role-card {
+                position: relative;
+                background: linear-gradient(160deg, rgba(125,186,92,0.06) 0%, rgba(0,0,0,0.25) 100%);
+                border: 1px solid rgba(125,186,92,0.2);
+                border-left: 6px solid;
+                border-image: linear-gradient(180deg, #7dba5c 0%, #56ab2f 50%, #a8e063 100%) 1;
+                border-radius: 0 16px 16px 0;
+                padding: 40px 36px;
+                margin: 40px 0;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 60px rgba(125,186,92,0.05);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .my-role-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 80px rgba(125,186,92,0.08);
+                border-color: rgba(125,186,92,0.4);
+            }
+            .my-role-card::before {
+                content: '';
+                position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+                background: radial-gradient(circle at top right, rgba(125,186,92,0.08) 0%, transparent 70%);
+                pointer-events: none;
+            }
+            .my-role-card h3 { color: #7dba5c; font-size: 20px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+            .my-role-card h3::before {
+                content: '';
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #7dba5c, #56ab2f);
+                border-radius: 8px;
+                flex-shrink: 0;
+                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                -webkit-mask-size: 20px 20px;
+                mask-size: 20px 20px;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+                mask-position: center;
+            }
+            .my-role-card ul { list-style: none; padding: 0; margin: 0; }
+            .my-role-card li { padding: 14px 0; font-size: 15px; color: #d0d0d0; line-height: 1.6; display: flex; align-items: flex-start; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+            .my-role-card li:last-child { border-bottom: none; }
+            .my-role-card li::before { content: "\2714"; color: #7dba5c; font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+
+            /* --- Before/After Section --- */
+            .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 40px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+            .before-col { background: linear-gradient(160deg, rgba(233,69,96,0.08) 0%, rgba(0,0,0,0.4) 100%); padding: 36px 32px; border-right: 1px solid rgba(255,255,255,0.06); position: relative; }
+            .before-col::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #e94560, rgba(233,69,96,0.3)); }
+            .after-col { background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.4) 100%); padding: 36px 32px; position: relative; }
+            .after-col::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #7dba5c, rgba(125,186,92,0.3)); }
+            .before-col h4, .after-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+            .before-col h4 { color: #e94560; }
+            .after-col h4 { color: #7dba5c; }
+            .before-col h4::before { content: "\2716"; font-size: 14px; }
+            .after-col h4::before { content: "\2714"; font-size: 14px; }
+            .before-col ul, .after-col ul { list-style: none; padding: 0; margin: 0; }
+            .before-col li, .after-col li { padding: 12px 0; font-size: 14px; line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px; }
+            .before-col li:last-child, .after-col li:last-child { border-bottom: none; }
+            .before-col li { color: #c0a0a0; }
+            .after-col li { color: #b0d0a0; }
+            .before-col li::before { content: "\2022"; color: #e94560; font-size: 18px; line-height: 1; flex-shrink: 0; }
+            .after-col li::before { content: "\2022"; color: #7dba5c; font-size: 18px; line-height: 1; flex-shrink: 0; }
+
+            /* --- Key Outcome Callout --- */
+            .key-outcome { background: linear-gradient(135deg, rgba(125,186,92,0.1) 0%, rgba(86,171,47,0.05) 50%, rgba(0,0,0,0.3) 100%); border: 1px solid rgba(125,186,92,0.25); border-radius: 16px; padding: 40px 48px; margin: 30px 0; text-align: center; position: relative; overflow: hidden; }
+            .key-outcome::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at center, rgba(125,186,92,0.04) 0%, transparent 50%); animation: outcomeGlow 6s ease-in-out infinite; }
+            @keyframes outcomeGlow { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+            .key-outcome-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px; color: #7dba5c; font-weight: 700; margin-bottom: 16px; position: relative; z-index: 1; }
+            .key-outcome-text { font-size: 22px; font-weight: 600; color: #e8e8e8; line-height: 1.5; position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+            .key-outcome-text::before { content: '\201C'; color: rgba(125,186,92,0.3); font-size: 60px; font-family: Georgia, serif; position: absolute; top: -20px; left: -30px; }
+
+            /* --- Executive summary glass card --- */
+            .exec-summary { padding: 32px; border: 1px solid rgba(125,186,92,0.12); border-radius: 16px; background: linear-gradient(160deg, rgba(125,186,92,0.04) 0%, rgba(0,0,0,0.2) 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+            .exec-summary::before { content: '\201C'; position: absolute; top: -10px; left: 16px; font-size: 120px; color: rgba(125,186,92,0.06); font-family: Georgia, serif; line-height: 1; }
+            .exec-summary p { position: relative; z-index: 1; color: #c8c8c8; margin-bottom: 14px; line-height: 1.8; font-size: 15px; }
+            .exec-summary p:last-child { margin-bottom: 0; }
+
+            /* --- Timeline --- */
+            .timeline { position: relative; margin: 50px 0; padding-left: 45px; }
+            .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #7dba5c 0%, rgba(125,186,92,0.3) 50%, rgba(125,186,92,0.05) 100%); }
+            @keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 0 0 rgba(125,186,92,0.4); } 50% { box-shadow: 0 0 0 8px rgba(125,186,92,0); } }
+            .timeline-item { position: relative; margin-bottom: 30px; padding: 22px 28px; background: rgba(255,255,255,0.015); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid rgba(125,186,92,0.3); transition: all 0.4s cubic-bezier(.22,1,.36,1); }
+            .timeline-item:hover { background: rgba(255,255,255,0.04); border-left-color: #7dba5c; transform: translateX(8px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+            .timeline-item::before { content: ''; position: absolute; left: -40px; top: 28px; width: 14px; height: 14px; background: #7dba5c; border-radius: 50%; border: 3px solid #111; box-shadow: 0 0 12px rgba(125,186,92,0.5); animation: pulse-dot 3s ease-in-out infinite; }
+            .timeline-item:nth-child(1)::before { animation-delay: 0s; }
+            .timeline-item:nth-child(2)::before { animation-delay: 0.3s; }
+            .timeline-item:nth-child(3)::before { animation-delay: 0.6s; }
+            .timeline-item:nth-child(4)::before { animation-delay: 0.9s; }
+            .timeline-item:nth-child(5)::before { animation-delay: 1.2s; }
+            .timeline-item:nth-child(6)::before { animation-delay: 1.5s; }
+            .timeline-item:nth-child(7)::before { animation-delay: 1.8s; }
+            .timeline-item:nth-child(8)::before { animation-delay: 2.1s; }
+            .timeline-item:nth-child(9)::before { animation-delay: 2.4s; }
+            .timeline-item:nth-child(10)::before { animation-delay: 2.7s; }
+            .timeline-date { color: #7dba5c; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+            .timeline-title { color: white; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+            .timeline-desc { color: #a8a8a8; font-size: 13px; line-height: 1.7; }
+
+            /* --- Scope cards --- */
+            .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+            .scope-card { border-radius: 14px; padding: 28px; background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s ease; }
+            .scope-card:hover { background: rgba(255,255,255,0.03); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+            .scope-card.in-scope { border-left: 4px solid #7dba5c; }
+            .scope-card.out-scope { border-left: 4px solid rgba(255,255,255,0.15); }
+            .scope-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; font-weight: 700; }
+            .scope-card.in-scope h4 { color: #7dba5c; }
+            .scope-card.out-scope h4 { color: #666; }
+            .scope-card ul { list-style: none; padding: 0; margin: 0; }
+            .scope-card li { padding: 8px 0; font-size: 13px; color: #b0b0b0; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .scope-card li:last-child { border-bottom: none; }
+            .scope-card.in-scope li::before { content: "\2713"; color: #7dba5c; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+            .scope-card.out-scope li::before { content: "\2014"; color: #555; font-weight: 700; flex-shrink: 0; }
+
+            /* --- Architecture diagram wrapper --- */
+            .arch-diagram { border-radius: 16px; padding: 24px; margin-bottom: 30px; overflow-x: auto; background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.15) 100%); border: 1px solid rgba(255,255,255,0.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+
+            /* --- Decision table --- */
+            .decision-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 14px; overflow: hidden; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+            .decision-table thead th { background: linear-gradient(135deg, rgba(125,186,92,0.12) 0%, rgba(125,186,92,0.04) 100%); color: #7dba5c; padding: 16px 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; text-align: left; border-bottom: 2px solid rgba(125,186,92,0.2); }
+            .decision-table tbody td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: #b0b0b0; line-height: 1.6; }
+            .decision-table tbody tr { transition: background 0.3s; }
+            .decision-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+            .decision-table tbody tr:last-child td { border-bottom: none; }
+            .decision-table tbody td strong { color: #e0e0e0; }
+            .decision-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+            .badge-strategic { background: rgba(233,69,96,0.12); color: #e94560; }
+            .badge-technical { background: rgba(52,152,219,0.12); color: #3498db; }
+            .badge-process { background: rgba(243,156,18,0.12); color: #f39c12; }
+
+            /* --- QA donut area --- */
+            .qa-summary { display: flex; align-items: center; gap: 50px; margin-top: 30px; flex-wrap: wrap; background: linear-gradient(160deg, rgba(125,186,92,0.03) 0%, rgba(0,0,0,0.15) 100%); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.06); }
+
+            /* --- Progress ring animation --- */
+            @keyframes progressRing { from { stroke-dasharray: 0 439.8; } to { stroke-dasharray: 439.8 0; } }
+            .progress-ring-circle { animation: progressRing 2s cubic-bezier(.22,1,.36,1) forwards; }
+            .progress-ring-circle.animated { stroke-dasharray: 439.8 0; }
+
+            /* --- Insight cards --- */
+            .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+            .insight-card { background: rgba(255,255,255,0.015); border-radius: 14px; padding: 26px; border-left: 4px solid; border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(.22,1,.36,1); }
+            .insight-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+            .insight-card.positive { border-left-color: #7dba5c; }
+            .insight-card.positive:hover { background: rgba(125,186,92,0.04); }
+            .insight-card.caution { border-left-color: #f39c12; }
+            .insight-card.caution:hover { background: rgba(243,156,18,0.04); }
+            .insight-card.learn { border-left-color: #3498db; }
+            .insight-card.learn:hover { background: rgba(52,152,219,0.04); }
+            .insight-card.risk { border-left-color: #e94560; }
+            .insight-card.risk:hover { background: rgba(233,69,96,0.04); }
+            .insight-card.reflect { border-left-color: #9b59b6; }
+            .insight-card.reflect:hover { background: rgba(155,89,182,0.04); }
+            .insight-type { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+            .insight-card.positive .insight-type { color: #7dba5c; }
+            .insight-card.caution .insight-type { color: #f39c12; }
+            .insight-card.learn .insight-type { color: #3498db; }
+            .insight-card.risk .insight-type { color: #e94560; }
+            .insight-card.reflect .insight-type { color: #9b59b6; }
+            .insight-card h4 { font-size: 15px; color: white; margin-bottom: 10px; font-weight: 700; }
+            .insight-card p { font-size: 13px; color: #a8a8a8; line-height: 1.7; margin: 0; }
+
+            /* --- Footer --- */
+            .case-footer { text-align: center; padding: 50px 0 30px; margin-top: 50px; position: relative; }
+            .case-footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent); }
+            .case-footer .footer-title { color: #c0c0c0; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+            .case-footer .footer-sub { color: #555; font-size: 12px; margin-top: 6px; }
+            .case-footer .footer-status { color: #555; font-size: 12px; margin-top: 4px; }
+            .footer-status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(125,186,92,0.08); border: 1px solid rgba(125,186,92,0.2); border-radius: 20px; padding: 6px 16px; font-size: 11px; color: #7dba5c; font-weight: 600; margin-top: 12px; }
+            .footer-status-badge::before { content: ''; width: 8px; height: 8px; background: #7dba5c; border-radius: 50%; animation: pulse-dot 2s ease-in-out infinite; }
+
+            /* --- General --- */
+            .blog-details { padding: 30px 0; }
+            .section { margin: 50px 0; }
+            .section-label { display: flex; align-items: center; gap: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #555; font-weight: 700; margin-bottom: 12px; }
+            .section-label .section-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(125,186,92,0.15); color: #7dba5c; font-size: 10px; font-weight: 800; }
+
+            @media (max-width: 1024px) {
+                .s1-s2 { flex-wrap: wrap; gap: 16px; }
+                .col1, .col2, .col3 { flex: 0 0 calc(50% - 8px); }
+                .stats-grid { grid-template-columns: repeat(2, 1fr); }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            }
+            @media (max-width: 768px) {
+                .blog-main { width: 100% !important; }
+                .s1-s2 { flex-direction: column; gap: 16px; margin: 30px 0; }
+                .col1, .col2, .col3 { flex: 1; padding: 20px; }
+                .main-heading { font-size: 28px; padding-bottom: 20px; }
+                .stats-grid { grid-template-columns: 1fr 1fr; }
+                .timeline { padding-left: 30px; }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .qa-summary { gap: 30px; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                .my-role-card { padding: 28px 24px; }
+                .key-outcome { padding: 30px 24px; }
+                .key-outcome-text { font-size: 18px; }
+            }
+            @media (max-width: 480px) {
+                .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+                .section { margin: 30px 0; }
+                .key-outcome-text { font-size: 16px; }
+                .key-outcome-text::before { display: none; }
+            }
+        </style>
+    </head>
+    <body class="blog">
+        <div id="container" class="container">
+            <aside class="menu" id="menu">
+                <div class="logo">
+                    <img src="../images/logo.png" width="140" height="140" alt=""/>
+                    <span>Zlatomir Vangelov</span>
+                </div>
+                <a href="#menu1" class="menu-link"></a>
+                <nav id="menu1" role="navigation">
+                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+                    <a href="../index.html?page=about"><span id="link_about">About</span></a>
+                    <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+                    <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+                    <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+                    <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                    <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+                </nav>
+                <div class="social">
+                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                </div>
+                <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
+            </aside>
+
+            <div class="blog-main">
+                <div style="width: 100%;" class="blog-left">
+                    <div class="blog-top">
+                        <div class="blog-title blog-details-title">
+                            <h2>API Payment Instructions Rework</h2>
+                            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;API Payment Instructions Rework</div>
+                        </div>
+                    </div>
+
+                    <div class="blog-details">
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Development</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">API Payment Instructions Rework</div>
+                            <div class="hero-subtitle">Replacing legacy pre-rendered HTML payment instructions with a <strong>structured XML data model and TM-hosted payment page</strong> &mdash; giving API clients parseable, styled, and secure payment guidance across 5 regions and 14 languages.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">The Student Payments API delivered bank transfer instructions as pre-rendered HTML blobs with CSS class references that depended on an internal stylesheet clients never had access to. Students handling international payments saw broken formatting, unstyled text, and warnings that lost all visual weight &mdash; damaging trust and increasing payment abandonment. This project proposed a layered solution: structured XML for full client control, and a branded hosted page for zero-effort integration.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: NDA NOTICE ===== -->
+                        <div class="nda-notice reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> This case study intentionally excludes provider-specific implementation details, company identifiers, client names, and settlement figures protected by non-disclosure obligations. It focuses on delivery scope, process, personal contributions, and outcomes.</p>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127758;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Regions">5 Regions</span>
+                                <span class="stat-label">Country Variants</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128483;</span>
+                                <span class="stat-number" data-count="14" data-suffix=" Languages">14 Languages</span>
+                                <span class="stat-label">Bilingual Support</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="15" data-suffix=" Payloads">15 Payloads</span>
+                                <span class="stat-label">Sample XML Artifacts</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128274;</span>
+                                <span class="stat-number">Zero Breaking</span>
+                                <span class="stat-label">Backward Compatible</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Authored the full Business Requirements Document (BRD) defining the layered solution architecture &mdash; structured XML response format and TM-hosted payment page</li>
+                                    <li>Designed the XSD schema and produced 15 sample XML payloads covering all 5 regions and 10 instruction variants</li>
+                                    <li>Created technical specifications for the hosted page including JWT token authentication, rate limiting, and security measures (no bank details in URLs or JavaScript)</li>
+                                    <li>Produced wireframes for all 5 regional page layouts, error states, and mobile viewports &mdash; plus two static HTML/CSS prototype mockups for stakeholder validation</li>
+                                    <li>Drove cross-functional alignment meetings with commercial, treasury, and development teams to gain sign-off on the instruction standardization approach</li>
+                                    <li>Coordinated with the external payment partner on regional instruction amendments, managing the provider-specific payment instructions update end-to-end</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From broken, unstyled HTML blobs to structured, secure, and professionally rendered payment instructions.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>HTML with CSS class references to unavailable stylesheets</li>
+                                        <li>Students saw unstyled walls of text for high-value payments</li>
+                                        <li>Critical warnings lost all visual weight</li>
+                                        <li>Clients built fragile HTML parsers to extract bank details</li>
+                                        <li>Support volume elevated due to legitimacy concerns</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Structured XML with typed, parseable fields for full client control</li>
+                                        <li>Branded hosted page with copy-to-clipboard and severity-coloured warnings</li>
+                                        <li>Each data point (IBAN, BIC, reference, deadline) is a discrete element</li>
+                                        <li>JWT-secured, stateless page with 48-hour token expiry</li>
+                                        <li>Zero breaking changes &mdash; existing API response unchanged</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated the stylesheet dependency that caused broken payment instructions across all API partner surfaces</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">6</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>The education payments platform API returned bank transfer instructions as pre-rendered HTML containing CSS classes from an internal stylesheet that API clients never had access to. When clients rendered these instructions, students saw broken formatting at the most critical point in the payment journey &mdash; handling transfers of significant sums for international tuition fees.</p>
+                                <p>This project proposed and documented a layered solution: (1) a new structured XML element providing typed, parseable data that clients can render with their own design system, and (2) a TM-hosted payment instructions page where clients can redirect students instead of rendering instructions themselves. The solution covers 5 regions, 14 languages, and preserves full backward compatibility.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">The BRD, XSD schema, 15 sample payloads, hosted page architecture, wireframes for all regions, interaction specifications, and two HTML prototype mockups were all produced as part of this initiative. The initial alignment phase (mirroring existing instructions) went live in a prior release, while the structured data rework is in active development.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-phase delivery spanning initial alignment, infrastructure pause, and structured data rework.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Early Period</div>
+                                    <div class="timeline-title">Project Created &amp; Instruction Audit</div>
+                                    <div class="timeline-desc">Discrepancies identified between web platform and API payment instructions. Developer assigned to export and analyse all instruction data from production. Complete inventory documented across all regional variants.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Alignment</div>
+                                    <div class="timeline-title">Stakeholder Sign-Off &amp; Mirroring Decision</div>
+                                    <div class="timeline-desc">Group consensus reached: API instructions to mirror the web platform content exactly. Sign-off obtained via formal email chain with all stakeholders confirming the approach.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Pause Period</div>
+                                    <div class="timeline-title">Infrastructure Migration Priority</div>
+                                    <div class="timeline-desc">Platform-wide AWS and PHP migration took priority. Project paused for several months while the team was reallocated to critical infrastructure work.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Resumed</div>
+                                    <div class="timeline-title">Deep Comparison &amp; Implementation</div>
+                                    <div class="timeline-desc">Full difference audit performed between college links and API instructions. Discrepancy document produced with changes marked. Development completed and tested on internal environment.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Release</div>
+                                    <div class="timeline-title">Alignment Go-Live</div>
+                                    <div class="timeline-desc">Instruction alignment released to production. QA confirmed parity across all regions. Minor version discrepancy in one region identified and documented for follow-up.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Analysis</div>
+                                    <div class="timeline-title">Root Cause Analysis &amp; Solution Design</div>
+                                    <div class="timeline-desc">Identified that the HTML approach conflates data with presentation. Designed layered solution: structured XML for client-side rendering plus hosted page for zero-effort integration.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; BRD</div>
+                                    <div class="timeline-title">BRD &amp; Technical Artifacts</div>
+                                    <div class="timeline-desc">Full BRD authored covering structured XML specification, XSD schema, 15 sample payloads, hosted page architecture with JWT security, wireframes for all 5 regions, and interaction specifications.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Prototyping</div>
+                                    <div class="timeline-title">HTML Mockups &amp; Validation</div>
+                                    <div class="timeline-desc">Two static HTML/CSS mockups produced &mdash; one for the redirect flow (regional provider data) and one for the API flow (default region). Used for stakeholder validation of the visual approach.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Partner</div>
+                                    <div class="timeline-title">Regional Provider Instruction Amendments</div>
+                                    <div class="timeline-desc">Coordinated amendments to the Chinese payment instructions with the external payment partner. Organised alignment meetings and managed the validation process end-to-end.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Ongoing</div>
+                                    <div class="timeline-title">Development &amp; Deprecation Planning</div>
+                                    <div class="timeline-desc">Structured XML implementation in active development. 12-month dual-format deprecation period planned. Migration guides being prepared for all API clients.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Structured XML payment_instructions element (namespace-versioned)</li>
+                                        <li>TM-hosted payment instructions page with JWT authentication</li>
+                                        <li>5 regional variants: Default, India, China, Brazil, South Africa</li>
+                                        <li>14 language support with bilingual content handling</li>
+                                        <li>XSD schema and API specification documentation</li>
+                                        <li>Copy-to-clipboard for IBAN, BIC, reference, and amount fields</li>
+                                        <li>Severity-typed warnings (critical, warning, info)</li>
+                                        <li>12-month deprecation timeline for legacy HTML blob</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Third-party partner-managed instruction content</li>
+                                        <li>Changes to bank account details or routing</li>
+                                        <li>CRM system modifications</li>
+                                        <li>Rewriting general instruction text (structure changes only)</li>
+                                        <li>Partner portal rendering changes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Layered solution providing two integration paths for API clients.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Current State -->
+                                    <rect x="20" y="20" width="240" height="380" rx="16" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="140" y="48" text-anchor="middle" font-size="11" fill="#e94560" font-weight="700" letter-spacing="1">LEGACY (HTML BLOB)</text>
+
+                                    <!-- Center zone: New Structured Layer -->
+                                    <rect x="300" y="20" width="240" height="380" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="420" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">LAYER 1: STRUCTURED XML</text>
+
+                                    <!-- Right zone: Hosted Page -->
+                                    <rect x="580" y="20" width="240" height="380" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#3498db" font-weight="700" letter-spacing="1">LAYER 2: HOSTED PAGE</text>
+
+                                    <!-- Legacy boxes -->
+                                    <rect x="40" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">HTML with CSS Classes</text>
+                                    <text x="140" y="118" text-anchor="middle" font-size="9" fill="#999">Depends on unavailable stylesheet</text>
+
+                                    <rect x="40" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Data Mixed with Presentation</text>
+                                    <text x="140" y="188" text-anchor="middle" font-size="9" fill="#999">Bank details inside HTML blob</text>
+
+                                    <rect x="40" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">No Structured Fields</text>
+                                    <text x="140" y="258" text-anchor="middle" font-size="9" fill="#999">Clients must parse HTML</text>
+
+                                    <rect x="40" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Broken Rendering</text>
+                                    <text x="140" y="328" text-anchor="middle" font-size="9" fill="#999">On all partner surfaces</text>
+
+                                    <!-- Structured XML boxes -->
+                                    <rect x="320" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">bank_account Element</text>
+                                    <text x="420" y="118" text-anchor="middle" font-size="9" fill="#999">IBAN, BIC, beneficiary</text>
+
+                                    <rect x="320" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">payment_reference</text>
+                                    <text x="420" y="188" text-anchor="middle" font-size="9" fill="#999">Reference + amount + currency</text>
+
+                                    <rect x="320" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">warnings + deadline</text>
+                                    <text x="420" y="258" text-anchor="middle" font-size="9" fill="#999">Severity-typed, ISO 8601</text>
+
+                                    <rect x="320" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">partner + documents</text>
+                                    <text x="420" y="328" text-anchor="middle" font-size="9" fill="#999">Regional PSP + required docs</text>
+
+                                    <!-- Hosted page boxes -->
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">JWT Token Auth</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">HMAC-SHA256, 48h expiry</text>
+
+                                    <rect x="600" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Server-Side Rendering</text>
+                                    <text x="700" y="188" text-anchor="middle" font-size="9" fill="#999">No bank details in JS</text>
+
+                                    <rect x="600" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Copy-to-Clipboard</text>
+                                    <text x="700" y="258" text-anchor="middle" font-size="9" fill="#999">IBAN, BIC, ref, amount</text>
+
+                                    <rect x="600" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Branded Experience</text>
+                                    <text x="700" y="328" text-anchor="middle" font-size="9" fill="#999">Responsive, all regions</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(52,152,219,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="244" y1="200" x2="316" y2="200" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="524" y1="200" x2="596" y2="200" stroke="rgba(52,152,219,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+
+                                    <!-- Bottom label -->
+                                    <text x="420" y="400" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Both layers coexist during 12-month deprecation period</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Phase 1</td>
+                                        <td><strong>Mirror web platform instructions on API.</strong> Stakeholder consensus that API should use identical instruction text to the web platform as an immediate alignment step.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Additive structured XML element &mdash; no new API version.</strong> New element appears as a sibling; clients detect via presence. Existing parsers see no change whatsoever.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Namespace-versioned schema (v1).</strong> Enables future breaking changes without affecting existing parsers. Follows XML best practice for extensibility.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>JWT token contains NO bank details.</strong> Only transaction ID reference stored in token; financial data fetched server-side. Eliminates data exposure risk.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>12-month minimum deprecation period.</strong> Both HTML blob and structured XML present simultaneously during transition. Gives clients adequate migration runway.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Two migration paths offered.</strong> Clients choose: parse structured XML (medium effort, full control) or redirect to hosted page (low effort, no control). Accommodates different client capabilities.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Security-first architecture with comprehensive artifact validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Phase 1 QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Tested on internal and production environments. All regional variants verified.</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Security Measures</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Designed</p>
+                                    <p>HTTPS/HSTS, rate limiting (60/min per-IP), CSP frame-ancestors none, no-referrer policy</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Artifact Coverage</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Complete</p>
+                                    <p>XSD, data model, API spec, 15 payloads, wireframes, interactions, 2 mockups</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Artifact Complete</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Phase 1</strong> alignment released and production-tested</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">XSD schema</strong> and 15 sample payloads validated</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Security spec:</strong> JWT, rate limiting, HSTS, CSP, no bank details in URLs</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Wireframes</strong> for all 5 regions, error states, and mobile viewports</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Layered Solution Architecture</h4>
+                                    <p>Offering two integration paths (structured XML for full control vs. hosted page for zero effort) accommodates the full spectrum of client technical capability &mdash; from sophisticated platforms with custom renderers to small colleges that just need a redirect URL.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Backward Compatibility Preserved</h4>
+                                    <p>By making the structured XML purely additive and running both formats in parallel for 12 months, the project eliminates integration risk for existing clients while enabling a clear migration path forward.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Infrastructure Pause Caused Re-Analysis</h4>
+                                    <p>A platform-wide infrastructure migration paused Phase 1 for several months. When work resumed, a full re-analysis was required because initial context had been lost. Documentation became critical for continuity.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Regional Complexity Is a Product in Itself</h4>
+                                    <p>India requires 6-step processes, 11 documents, TCS tax, and relative eligibility rules. China needs dual bank accounts and full bilingual content. Each regional variant is essentially a separate product requiring dedicated analysis.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Data-Presentation Coupling in Legacy APIs</h4>
+                                    <p>The original API was designed when all instructions rendered inside the internal web application. When extended to serve external clients, the HTML was reused without removing the stylesheet dependency &mdash; a pattern that created years of poor client experience.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I Would Do Differently</h4>
+                                    <p>Would have pushed for the structured data approach from the start rather than the intermediate alignment step. While the phased approach was politically necessary for stakeholder buy-in, the technical debt of maintaining the HTML blob format adds ongoing complexity that could have been avoided with a more ambitious initial proposal.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: API Payment Instructions Rework</div>
+                            <div class="footer-sub">Generated from retrospective knowledge base &bull; All sensitive information redacted per NDA requirements</div>
+                            <div class="footer-status">Project Duration: Multi-Phase Lifecycle &bull; 5 Regions &bull; 14 Languages</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="../js/head.min.js"></script>
+        <script type="text/javascript" src="../js/carousel.js"></script>
+        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="../js/settings-blog.js"></script>
+        <script>
+            (function(){
+                // --- Scroll reveal animation ---
+                var els = document.querySelectorAll('.reveal');
+                if (!els.length) return;
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function(el){ io.observe(el); });
+
+                // --- Counter animation ---
+                function animateCounter(el) {
+                    var target = parseInt(el.getAttribute('data-count'));
+                    var suffix = el.getAttribute('data-suffix') || '';
+                    if (isNaN(target)) return;
+                    var duration = 1500;
+                    var startTime = null;
+                    var startVal = 0;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var current = Math.round(startVal + (target - startVal) * eased);
+                        el.textContent = current + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            el.textContent = target + suffix;
+                            el.classList.add('animated');
+                        }
+                    }
+                    requestAnimationFrame(step);
+                }
+
+                var counterEls = document.querySelectorAll('.stat-number[data-count]');
+                if (counterEls.length) {
+                    var counterObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                animateCounter(e.target);
+                                counterObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    counterEls.forEach(function(el) {
+                        el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+                        counterObserver.observe(el);
+                    });
+                }
+
+                // --- Progress ring animation on scroll ---
+                var ringEl = document.querySelector('.progress-ring-circle');
+                if (ringEl) {
+                    var ringObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                e.target.style.transition = 'stroke-dasharray 2s cubic-bezier(.22,1,.36,1)';
+                                e.target.style.strokeDasharray = '439.8 0';
+                                e.target.classList.add('animated');
+                                ringObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    ringObserver.observe(ringEl);
+                }
+            })();
+        </script>
+    </body>
+</html>

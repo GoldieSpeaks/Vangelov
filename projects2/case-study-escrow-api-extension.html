@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <title>Escrow Service Platform - Case Study | Zlatomir Vangelov</title>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styles2.css" />
+        <link rel="stylesheet" type="text/css" href="../css/carousel.css">
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+        <style>
+            * { box-sizing: border-box; }
+
+            @keyframes revealUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+            .reveal.visible { opacity: 1; transform: translateY(0); }
+
+            .main-heading {
+                background: linear-gradient(135deg, #7dba5c 0%, #a8e063 40%, #56ab2f 100%);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                background-clip: text;
+                padding-top: 6px; line-height: 1.3; display: block;
+            }
+
+            .section-divider {
+                height: 1px; border: none; margin: 60px 0;
+                background: linear-gradient(90deg, transparent 0%, rgba(125,186,92,0.4) 30%, rgba(125,186,92,0.4) 70%, transparent 100%);
+            }
+
+            .hero-intro {
+                position: relative; padding: 50px 0 30px; margin-bottom: 10px;
+            }
+            .hero-intro::after {
+                content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent);
+            }
+            .hero-subtitle {
+                font-size: 18px; line-height: 1.7; color: #b8b8b8; max-width: 90%;
+            }
+            .hero-subtitle strong { color: #7dba5c; font-weight: 600; }
+
+            .category-badge {
+                display: inline-block;
+                padding: 8px 20px;
+                border: 2px solid #7dba5c;
+                border-radius: 30px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #7dba5c;
+                margin-bottom: 24px;
+                background: rgba(125,186,92,0.06);
+                transition: all 0.3s ease;
+            }
+            .category-badge:hover {
+                background: rgba(125,186,92,0.15);
+                box-shadow: 0 0 20px rgba(125,186,92,0.2);
+            }
+
+            .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 40px 0; }
+            .stat-card {
+                position: relative; overflow: hidden;
+                background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.3) 100%);
+                border: 1px solid rgba(125,186,92,0.15); border-radius: 16px; padding: 30px 20px; text-align: center;
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .stat-card::before {
+                content: ''; position: absolute; inset: 0; border-radius: 16px;
+                background: radial-gradient(circle at 50% 0%, rgba(125,186,92,0.12) 0%, transparent 70%);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .stat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(125,186,92,0.1); border-color: rgba(125,186,92,0.35); }
+            .stat-card:hover::before { opacity: 1; }
+            .stat-icon { font-size: 36px; margin-bottom: 16px; display: block; filter: drop-shadow(0 0 8px rgba(125,186,92,0.3)); }
+            .stat-number { font-size: 28px; font-weight: 800; color: #7dba5c; display: block; margin-bottom: 8px; letter-spacing: -0.5px; }
+            .stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+            @keyframes countPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .stat-number.animated {
+                animation: countPulse 0.3s ease-out;
+            }
+
+            .s1-s2 { display: flex; gap: 20px; margin: 40px 0; flex-wrap: nowrap; }
+            .col1, .col2, .col3 {
+                flex: 1; min-width: 0; overflow-wrap: break-word;
+                background: rgba(255,255,255,0.015); padding: 28px; border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+                position: relative;
+            }
+            .col1::before, .col2::before, .col3::before {
+                content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 12px 12px 0 0;
+                background: linear-gradient(90deg, #7dba5c, #56ab2f);
+                opacity: 0; transition: opacity 0.4s;
+            }
+            .col1:hover, .col2:hover, .col3:hover {
+                background: rgba(255,255,255,0.035); border-color: rgba(125,186,92,0.2);
+                transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            }
+            .col1:hover::before, .col2:hover::before, .col3:hover::before { opacity: 1; }
+            .col1 b, .col2 b, .col3 b { display: block; margin-bottom: 16px; color: #7dba5c; font-size: 15px; border-bottom: 1px solid rgba(125,186,92,0.15); padding-bottom: 12px; letter-spacing: 0.3px; }
+            .col1 p, .col2 p, .col3 p { margin: 0; line-height: 1.8; color: #b0b0b0; font-size: 13px; }
+            .col1 p:not(:last-child), .col2 p:not(:last-child), .col3 p:not(:last-child) { margin-bottom: 6px; }
+
+            .nda-notice {
+                background: linear-gradient(135deg, rgba(255,193,7,0.08) 0%, rgba(255,193,7,0.02) 100%);
+                border-left: 4px solid #ffc107; border: 1px solid rgba(255,193,7,0.15); border-left: 4px solid #ffc107;
+                padding: 18px 24px; margin: 40px 0; border-radius: 10px;
+                display: flex; align-items: center; gap: 14px;
+            }
+            .nda-notice p { margin: 0; color: #d4a837; font-size: 13px; line-height: 1.6; }
+
+            .my-role-card {
+                position: relative;
+                background: linear-gradient(160deg, rgba(125,186,92,0.06) 0%, rgba(0,0,0,0.25) 100%);
+                border: 1px solid rgba(125,186,92,0.2);
+                border-left: 6px solid;
+                border-image: linear-gradient(180deg, #7dba5c 0%, #56ab2f 50%, #a8e063 100%) 1;
+                border-radius: 0 16px 16px 0;
+                padding: 40px 36px;
+                margin: 40px 0;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 60px rgba(125,186,92,0.05);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .my-role-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 80px rgba(125,186,92,0.08);
+                border-color: rgba(125,186,92,0.4);
+            }
+            .my-role-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle at top right, rgba(125,186,92,0.08) 0%, transparent 70%);
+                pointer-events: none;
+            }
+            .my-role-card h3 {
+                color: #7dba5c;
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .my-role-card h3::before {
+                content: '';
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #7dba5c, #56ab2f);
+                border-radius: 8px;
+                flex-shrink: 0;
+                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+                -webkit-mask-size: 20px 20px;
+                mask-size: 20px 20px;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+                mask-position: center;
+            }
+            .my-role-card ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .my-role-card li {
+                padding: 14px 0;
+                font-size: 15px;
+                color: #d0d0d0;
+                line-height: 1.6;
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+            }
+            .my-role-card li:last-child { border-bottom: none; }
+            .my-role-card li::before {
+                content: "\2714";
+                color: #7dba5c;
+                font-weight: 700;
+                font-size: 16px;
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .before-after {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                margin: 40px 0;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            }
+            .before-col {
+                background: linear-gradient(160deg, rgba(233,69,96,0.08) 0%, rgba(0,0,0,0.4) 100%);
+                padding: 36px 32px;
+                border-right: 1px solid rgba(255,255,255,0.06);
+                position: relative;
+            }
+            .before-col::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #e94560, rgba(233,69,96,0.3));
+            }
+            .after-col {
+                background: linear-gradient(160deg, rgba(125,186,92,0.08) 0%, rgba(0,0,0,0.4) 100%);
+                padding: 36px 32px;
+                position: relative;
+            }
+            .after-col::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #7dba5c, rgba(125,186,92,0.3));
+            }
+            .before-col h4, .after-col h4 {
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 700;
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .before-col h4 { color: #e94560; }
+            .after-col h4 { color: #7dba5c; }
+            .before-col h4::before { content: "\2716"; font-size: 14px; }
+            .after-col h4::before { content: "\2714"; font-size: 14px; }
+            .before-col ul, .after-col ul { list-style: none; padding: 0; margin: 0; }
+            .before-col li, .after-col li {
+                padding: 12px 0; font-size: 14px; line-height: 1.6;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+                display: flex; align-items: flex-start; gap: 10px;
+            }
+            .before-col li:last-child, .after-col li:last-child { border-bottom: none; }
+            .before-col li { color: #c0a0a0; }
+            .after-col li { color: #b0d0a0; }
+            .before-col li::before { content: "\2022"; color: #e94560; font-size: 18px; line-height: 1; flex-shrink: 0; }
+            .after-col li::before { content: "\2022"; color: #7dba5c; font-size: 18px; line-height: 1; flex-shrink: 0; }
+
+            .key-outcome {
+                background: linear-gradient(135deg, rgba(125,186,92,0.1) 0%, rgba(86,171,47,0.05) 50%, rgba(0,0,0,0.3) 100%);
+                border: 1px solid rgba(125,186,92,0.25);
+                border-radius: 16px;
+                padding: 40px 48px;
+                margin: 30px 0;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .key-outcome::before {
+                content: '';
+                position: absolute;
+                top: -50%; left: -50%;
+                width: 200%; height: 200%;
+                background: radial-gradient(circle at center, rgba(125,186,92,0.04) 0%, transparent 50%);
+                animation: outcomeGlow 6s ease-in-out infinite;
+            }
+            @keyframes outcomeGlow {
+                0%, 100% { opacity: 0.5; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.1); }
+            }
+            .key-outcome-label {
+                font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px;
+                color: #7dba5c; font-weight: 700; margin-bottom: 16px;
+                position: relative; z-index: 1;
+            }
+            .key-outcome-text {
+                font-size: 22px; font-weight: 600; color: #e8e8e8; line-height: 1.5;
+                position: relative; z-index: 1; max-width: 700px; margin: 0 auto;
+            }
+            .key-outcome-text::before {
+                content: '\201C'; color: rgba(125,186,92,0.3); font-size: 60px;
+                font-family: Georgia, serif; position: absolute; top: -20px; left: -30px;
+            }
+
+            .exec-summary {
+                padding: 32px; border: 1px solid rgba(125,186,92,0.12); border-radius: 16px;
+                background: linear-gradient(160deg, rgba(125,186,92,0.04) 0%, rgba(0,0,0,0.2) 100%);
+                backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+                position: relative; overflow: hidden;
+            }
+            .exec-summary::before {
+                content: '\201C'; position: absolute; top: -10px; left: 16px; font-size: 120px;
+                color: rgba(125,186,92,0.06); font-family: Georgia, serif; line-height: 1;
+            }
+            .exec-summary p { position: relative; z-index: 1; color: #c8c8c8; margin-bottom: 14px; line-height: 1.8; font-size: 15px; }
+            .exec-summary p:last-child { margin-bottom: 0; }
+
+            .timeline { position: relative; margin: 50px 0; padding-left: 45px; }
+            .timeline::before {
+                content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px;
+                background: linear-gradient(180deg, #7dba5c 0%, rgba(125,186,92,0.3) 50%, rgba(125,186,92,0.05) 100%);
+            }
+            @keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 0 0 rgba(125,186,92,0.4); } 50% { box-shadow: 0 0 0 8px rgba(125,186,92,0); } }
+            .timeline-item {
+                position: relative; margin-bottom: 30px; padding: 22px 28px;
+                background: rgba(255,255,255,0.015); border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.06); border-left: 3px solid rgba(125,186,92,0.3);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .timeline-item:hover {
+                background: rgba(255,255,255,0.04); border-left-color: #7dba5c;
+                transform: translateX(8px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            }
+            .timeline-item::before {
+                content: ''; position: absolute; left: -40px; top: 28px; width: 14px; height: 14px;
+                background: #7dba5c; border-radius: 50%; border: 3px solid #111;
+                box-shadow: 0 0 12px rgba(125,186,92,0.5);
+                animation: pulse-dot 3s ease-in-out infinite;
+            }
+            .timeline-item:nth-child(1)::before { animation-delay: 0s; }
+            .timeline-item:nth-child(2)::before { animation-delay: 0.3s; }
+            .timeline-item:nth-child(3)::before { animation-delay: 0.6s; }
+            .timeline-item:nth-child(4)::before { animation-delay: 0.9s; }
+            .timeline-item:nth-child(5)::before { animation-delay: 1.2s; }
+            .timeline-item:nth-child(6)::before { animation-delay: 1.5s; }
+            .timeline-item:nth-child(7)::before { animation-delay: 1.8s; }
+            .timeline-item:nth-child(8)::before { animation-delay: 2.1s; }
+            .timeline-item:nth-child(9)::before { animation-delay: 2.4s; }
+            .timeline-item:nth-child(10)::before { animation-delay: 2.7s; }
+            .timeline-date { color: #7dba5c; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+            .timeline-title { color: white; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+            .timeline-desc { color: #a8a8a8; font-size: 13px; line-height: 1.7; }
+
+            .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+            .scope-card {
+                border-radius: 14px; padding: 28px;
+                background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.3s ease;
+            }
+            .scope-card:hover { background: rgba(255,255,255,0.03); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+            .scope-card.in-scope { border-left: 4px solid #7dba5c; }
+            .scope-card.out-scope { border-left: 4px solid rgba(255,255,255,0.15); }
+            .scope-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; font-weight: 700; }
+            .scope-card.in-scope h4 { color: #7dba5c; }
+            .scope-card.out-scope h4 { color: #666; }
+            .scope-card ul { list-style: none; padding: 0; margin: 0; }
+            .scope-card li { padding: 8px 0; font-size: 13px; color: #b0b0b0; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+            .scope-card li:last-child { border-bottom: none; }
+            .scope-card.in-scope li::before { content: "\2713"; color: #7dba5c; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+            .scope-card.out-scope li::before { content: "\2014"; color: #555; font-weight: 700; flex-shrink: 0; }
+
+            .arch-diagram {
+                border-radius: 16px; padding: 24px; margin-bottom: 30px; overflow-x: auto;
+                background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.15) 100%);
+                border: 1px solid rgba(255,255,255,0.06);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+            }
+
+            .decision-table {
+                width: 100%; border-collapse: separate; border-spacing: 0;
+                border-radius: 14px; overflow: hidden; margin: 30px 0;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            }
+            .decision-table thead th {
+                background: linear-gradient(135deg, rgba(125,186,92,0.12) 0%, rgba(125,186,92,0.04) 100%);
+                color: #7dba5c; padding: 16px 20px; font-size: 11px; text-transform: uppercase;
+                letter-spacing: 1px; text-align: left; border-bottom: 2px solid rgba(125,186,92,0.2);
+            }
+            .decision-table tbody td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: #b0b0b0; line-height: 1.6; }
+            .decision-table tbody tr { transition: background 0.3s; }
+            .decision-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+            .decision-table tbody tr:last-child td { border-bottom: none; }
+            .decision-table tbody td strong { color: #e0e0e0; }
+            .decision-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+            .badge-strategic { background: rgba(233,69,96,0.12); color: #e94560; }
+            .badge-technical { background: rgba(52,152,219,0.12); color: #3498db; }
+            .badge-process { background: rgba(243,156,18,0.12); color: #f39c12; }
+
+            .qa-summary {
+                display: flex; align-items: center; gap: 50px; margin-top: 30px; flex-wrap: wrap;
+                background: linear-gradient(160deg, rgba(125,186,92,0.03) 0%, rgba(0,0,0,0.15) 100%);
+                border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            @keyframes progressRing {
+                from { stroke-dasharray: 0 439.8; }
+                to { stroke-dasharray: 439.8 0; }
+            }
+            .progress-ring-circle {
+                animation: progressRing 2s cubic-bezier(.22,1,.36,1) forwards;
+            }
+            .progress-ring-circle.animated {
+                stroke-dasharray: 439.8 0;
+            }
+
+            .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+            .insight-card {
+                background: rgba(255,255,255,0.015); border-radius: 14px; padding: 26px;
+                border-left: 4px solid; border-top: 1px solid rgba(255,255,255,0.05);
+                border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
+                transition: all 0.4s cubic-bezier(.22,1,.36,1);
+            }
+            .insight-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+            .insight-card.positive { border-left-color: #7dba5c; }
+            .insight-card.positive:hover { background: rgba(125,186,92,0.04); }
+            .insight-card.caution { border-left-color: #f39c12; }
+            .insight-card.caution:hover { background: rgba(243,156,18,0.04); }
+            .insight-card.learn { border-left-color: #3498db; }
+            .insight-card.learn:hover { background: rgba(52,152,219,0.04); }
+            .insight-card.risk { border-left-color: #e94560; }
+            .insight-card.risk:hover { background: rgba(233,69,96,0.04); }
+            .insight-card.reflect { border-left-color: #9b59b6; }
+            .insight-card.reflect:hover { background: rgba(155,89,182,0.04); }
+            .insight-type { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+            .insight-card.positive .insight-type { color: #7dba5c; }
+            .insight-card.caution .insight-type { color: #f39c12; }
+            .insight-card.learn .insight-type { color: #3498db; }
+            .insight-card.risk .insight-type { color: #e94560; }
+            .insight-card.reflect .insight-type { color: #9b59b6; }
+            .insight-card h4 { font-size: 15px; color: white; margin-bottom: 10px; font-weight: 700; }
+            .insight-card p { font-size: 13px; color: #a8a8a8; line-height: 1.7; margin: 0; }
+
+            .case-footer {
+                text-align: center; padding: 50px 0 30px; margin-top: 50px; position: relative;
+            }
+            .case-footer::before {
+                content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(125,186,92,0.3), transparent);
+            }
+            .case-footer .footer-title { color: #c0c0c0; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+            .case-footer .footer-sub { color: #555; font-size: 12px; margin-top: 6px; }
+            .case-footer .footer-status { color: #555; font-size: 12px; margin-top: 4px; }
+            .footer-status-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: rgba(125,186,92,0.08);
+                border: 1px solid rgba(125,186,92,0.2);
+                border-radius: 20px;
+                padding: 6px 16px;
+                font-size: 11px;
+                color: #7dba5c;
+                font-weight: 600;
+                margin-top: 12px;
+            }
+            .footer-status-badge::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: #7dba5c;
+                border-radius: 50%;
+                animation: pulse-dot 2s ease-in-out infinite;
+            }
+
+            .blog-details { padding: 30px 0; }
+            .section { margin: 50px 0; }
+            .section-label {
+                display: flex; align-items: center; gap: 8px;
+                font-size: 10px; text-transform: uppercase; letter-spacing: 2px;
+                color: #555; font-weight: 700; margin-bottom: 12px;
+            }
+            .section-label .section-num {
+                display: inline-flex; align-items: center; justify-content: center;
+                width: 22px; height: 22px; border-radius: 50%;
+                background: rgba(125,186,92,0.15); color: #7dba5c;
+                font-size: 10px; font-weight: 800;
+            }
+
+            @media (max-width: 1024px) {
+                .s1-s2 { flex-wrap: wrap; gap: 16px; }
+                .col1, .col2, .col3 { flex: 0 0 calc(50% - 8px); }
+                .stats-grid { grid-template-columns: repeat(2, 1fr); }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            }
+            @media (max-width: 768px) {
+                .blog-main { width: 100% !important; }
+                .s1-s2 { flex-direction: column; gap: 16px; margin: 30px 0; }
+                .col1, .col2, .col3 { flex: 1; padding: 20px; }
+                .main-heading { font-size: 28px; padding-bottom: 20px; }
+                .stats-grid { grid-template-columns: 1fr 1fr; }
+                .timeline { padding-left: 30px; }
+                .scope-grid { grid-template-columns: 1fr; }
+                .insight-grid { grid-template-columns: 1fr; }
+                .qa-summary { gap: 30px; }
+                .before-after { grid-template-columns: 1fr; }
+                .before-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+                .my-role-card { padding: 28px 24px; }
+                .key-outcome { padding: 30px 24px; }
+                .key-outcome-text { font-size: 18px; }
+            }
+            @media (max-width: 480px) {
+                .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+                .section { margin: 30px 0; }
+                .key-outcome-text { font-size: 16px; }
+                .key-outcome-text::before { display: none; }
+            }
+        </style>
+    </head>
+    <body class="blog">
+        <div id="container" class="container">
+            <aside class="menu" id="menu">
+                <div class="logo">
+                    <img src="../images/logo.png" width="140" height="140" alt=""/>
+                    <span>Zlatomir Vangelov</span>
+                </div>
+                <a href="#menu1" class="menu-link"></a>
+                <nav id="menu1" role="navigation">
+                    <a href="../index.html?page=introduction"><span id="link_introduction">Home</span></a>
+                    <a href="../index.html?page=about"><span id="link_about">About</span></a>
+                    <a href="../index.html?page=skills"><span id="link_skills">Skills</span></a>
+                    <a href="../index.html?page=experience"><span id="link_experience">Experience</span></a>
+                    <a href="../index.html?page=education"><span id="link_education">Education</span></a>
+                    <a href="../index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a>
+                    <a href="../index.html?page=contact"><span id="link_contact">Contact</span></a>
+                    <a href="../all-projects.html"><span id="link_blog" class="active">All projects</span></a>
+                </nav>
+                <div class="social">
+                    <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                </div>
+                <div class="copyright">&copy; Zlatomir Vangelov.<br>All Rights Reserved.</div>
+            </aside>
+
+            <div class="blog-main">
+                <div style="width: 100%;" class="blog-left">
+                    <div class="blog-top">
+                        <div class="blog-title blog-details-title">
+                            <h2>Escrow Service Platform</h2>
+                            <div class="breadcrumbs"><a href="../index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="../all-projects.html">All Projects</a>&nbsp;&nbsp;/&nbsp;&nbsp;Escrow Service Platform</div>
+                        </div>
+                    </div>
+
+                    <div class="blog-details">
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Platform Engineering</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Escrow Service Platform</div>
+                            <div class="hero-subtitle">Designing and delivering a <strong>full escrow holding service</strong> from the ground up &mdash; spanning visa status management, fund holding logic, split-line processing, and multi-system integration across the internal operations and client-facing platforms.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">International education payments required a holding mechanism where funds could be retained until specific conditions were met &mdash; particularly around visa application outcomes. The platform needed to support multiple visa statuses (Pending, Issued, Refused, Residence Permit, No Visa Required), each triggering different fund release or refund workflows. This multi-quarter initiative spanned process mapping, use case documentation, operations system development, and client-facing portal integration, with phased releases across two major platform components.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: NDA NOTICE ===== -->
+                        <div class="nda-notice reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> This case study intentionally excludes internal system names, settlement account structures, client institution identifiers, and fund flow values protected by non-disclosure obligations. It focuses on delivery scope, process, personal contributions, and outcomes.</p>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="8" data-suffix="-Quarter">8-Quarter</span>
+                                <span class="stat-label">Multi-Phase Programme</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128736;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Platforms">2 Platforms</span>
+                                <span class="stat-label">Operations + Client Portal</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Statuses">5 Statuses</span>
+                                <span class="stat-label">Visa Workflow States</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number">Split Lines</span>
+                                <span class="stat-label">Multi-Beneficiary Funds</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Led the complete process mapping initiative &mdash; documenting every escrow workflow from fund receipt through holding, condition evaluation, and release/refund across all visa status scenarios</li>
+                                    <li>Authored all use case documentation defining the business rules for each visa status transition and its impact on fund holding, partial release, and refund eligibility</li>
+                                    <li>Designed the escrow holding account structure and split-line logic enabling funds to be distributed across multiple beneficiaries while maintaining individual hold/release tracking</li>
+                                    <li>Coordinated the multi-phase delivery across operations and client-facing teams &mdash; sequencing the internal system build before the portal integration to establish the operational foundation first</li>
+                                    <li>Facilitated multiple stakeholder recording sessions to capture existing manual processes, then translated these into systematic workflows with clear trigger conditions and exception paths</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from entirely manual fund holding to systematic, status-driven escrow management across both internal operations and client self-service.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No systematic escrow holding capability on the platform</li>
+                                        <li>Manual tracking of visa application outcomes per payment</li>
+                                        <li>No structured refund workflow for refused visa cases</li>
+                                        <li>Operations teams using spreadsheets to track held funds</li>
+                                        <li>Clients unable to see escrow status or manage visa updates</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Full escrow holding engine with visa-status-driven workflows</li>
+                                        <li>Automated fund release and refund triggers based on status changes</li>
+                                        <li>Split-line support for multi-beneficiary fund distribution</li>
+                                        <li>Operations dashboard with real-time escrow visibility</li>
+                                        <li>Client portal integration for self-service visa status updates</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Built an entirely new escrow holding capability from scratch &mdash; replacing manual spreadsheet tracking with a systematic, visa-status-driven platform serving both operations teams and client institutions</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">6</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>This programme delivered the platform's first escrow holding service &mdash; a multi-quarter initiative spanning process mapping, system design, operations platform development, and client portal integration. The core business need: hold international education payment funds until visa application outcomes are known, then release to the institution or refund to the payer based on the outcome.</p>
+                                <p>The solution supports five visa statuses (Pending, Issued, Refused, Residence Permit, No Visa Required), each with distinct fund handling rules. Split-line processing enables individual tracking when a single payment covers multiple beneficiaries. The operations system was delivered first to establish the workflow foundation, followed by the client-facing portal integration enabling institutional self-service.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">The escrow service transformed a previously unscalable manual process into a systematic platform capability &mdash; supporting the company's expansion into markets where visa-contingent education payments are the norm.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-quarter programme from initial process mapping through full platform integration across operations and client-facing systems.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 1</div>
+                                    <div class="timeline-title">Process Mapping &amp; Stakeholder Discovery</div>
+                                    <div class="timeline-desc">Conducted multiple recording sessions with operations stakeholders to capture existing manual escrow workflows. Documented the complete fund lifecycle from receipt through holding, condition evaluation, and release or refund. Identified five distinct visa status scenarios requiring different handling logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 2</div>
+                                    <div class="timeline-title">Use Case Documentation &amp; Business Rules</div>
+                                    <div class="timeline-desc">Authored comprehensive use case documentation defining business rules for each visa status transition. Mapped trigger conditions, exception paths, and fund handling rules for Pending, Issued, Refused, Residence Permit, and No Visa Required scenarios. Defined the split-line logic for multi-beneficiary payments.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 3</div>
+                                    <div class="timeline-title">Escrow Account Architecture Design</div>
+                                    <div class="timeline-desc">Designed the escrow holding account structure, split-line data model, and the relationship between payment records and visa status tracking. Defined how partial releases work when a payment covers multiple students with different visa outcomes.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2023 - Months 4-5</div>
+                                    <div class="timeline-title">Operations Platform Development (Phase 1)</div>
+                                    <div class="timeline-desc">Development team built the operations-side escrow management interface. Internal users gained the ability to assign visa statuses, trigger fund holds, process releases, and initiate refunds. Dashboard views created for real-time escrow portfolio visibility.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2023 - Month 6</div>
+                                    <div class="timeline-title">Operations System Deployment</div>
+                                    <div class="timeline-desc">First production release of the escrow service. Operations teams transitioned from spreadsheet tracking to the systematic platform. Initial deployment focused on the primary domestic market requiring visa-contingent fund holding.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q1 2024</div>
+                                    <div class="timeline-title">Operational Stabilization &amp; Refinement</div>
+                                    <div class="timeline-desc">Post-deployment refinement based on operations team feedback. Workflow adjustments for edge cases discovered during live usage. Reporting enhancements added for finance team visibility into held fund volumes and aging.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q2 2024</div>
+                                    <div class="timeline-title">Client Portal Integration Design</div>
+                                    <div class="timeline-desc">Requirements gathering for the client-facing portal integration. Designed the self-service interface enabling institutions to view escrow status, update visa outcomes, and trigger condition-based releases without operations team involvement.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2024</div>
+                                    <div class="timeline-title">Portal Development &amp; Integration</div>
+                                    <div class="timeline-desc">Client portal escrow views built and connected to the operations backend. Institutions gained self-service capability for visa status updates with real-time fund status visibility. Validation rules enforced to prevent invalid status transitions.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2024</div>
+                                    <div class="timeline-title">Full Platform Release &amp; Market Expansion</div>
+                                    <div class="timeline-desc">Complete escrow service available across both platforms. Client institutions onboarded to self-service escrow management. Service expanded beyond the initial market to additional regions requiring visa-contingent payment holding.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q1 2025</div>
+                                    <div class="timeline-title">API Extension &amp; Advanced Features</div>
+                                    <div class="timeline-desc">Escrow capability extended to the API layer for programmatic access. Advanced features including conditional mandatory fields and country-level configuration added. Platform now supports portal, operations, and API channels for escrow management.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Complete escrow holding engine with visa-status workflows</li>
+                                        <li>Five visa status types with distinct fund handling rules</li>
+                                        <li>Split-line processing for multi-beneficiary payments</li>
+                                        <li>Operations platform escrow management interface</li>
+                                        <li>Client portal self-service escrow views</li>
+                                        <li>Fund release and refund automation triggers</li>
+                                        <li>Finance reporting for held fund visibility</li>
+                                        <li>Process mapping and use case documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Automated visa verification (external immigration APIs)</li>
+                                        <li>Multi-currency escrow accounts (single currency per hold)</li>
+                                        <li>Interest accrual on held funds</li>
+                                        <li>Regulatory reporting automation</li>
+                                        <li>Third-party escrow agent integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Dual-platform escrow service spanning operations backend and client-facing portal with shared fund holding engine.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">CLIENT CHANNELS</text>
+
+                                    <rect x="260" y="20" width="200" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="360" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">ESCROW ENGINE</text>
+
+                                    <rect x="500" y="20" width="180" height="340" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="590" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">FUND MANAGEMENT</text>
+
+                                    <rect x="720" y="20" width="160" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="800" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">OPERATIONS</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client Portal</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Self-service visa updates</text>
+
+                                    <rect x="40" y="150" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">API Layer</text>
+                                    <text x="120" y="188" text-anchor="middle" font-size="9" fill="#999">Programmatic access</text>
+
+                                    <rect x="40" y="230" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payer Interface</text>
+                                    <text x="120" y="268" text-anchor="middle" font-size="9" fill="#999">Document upload</text>
+
+                                    <rect x="280" y="80" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="100" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Visa Status Engine</text>
+                                    <text x="360" y="116" text-anchor="middle" font-size="9" fill="#999">5 status workflows</text>
+
+                                    <rect x="280" y="140" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="160" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Hold/Release Logic</text>
+                                    <text x="360" y="176" text-anchor="middle" font-size="9" fill="#999">Condition evaluation</text>
+
+                                    <rect x="280" y="200" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="220" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Split-Line Processor</text>
+                                    <text x="360" y="236" text-anchor="middle" font-size="9" fill="#999">Multi-beneficiary</text>
+
+                                    <rect x="280" y="260" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="280" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Refund Engine</text>
+                                    <text x="360" y="296" text-anchor="middle" font-size="9" fill="#999">Visa refused workflow</text>
+
+                                    <rect x="520" y="80" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Holding Account</text>
+                                    <text x="590" y="118" text-anchor="middle" font-size="9" fill="#999">Escrow fund pool</text>
+
+                                    <rect x="520" y="150" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Release Processor</text>
+                                    <text x="590" y="188" text-anchor="middle" font-size="9" fill="#999">To beneficiary</text>
+
+                                    <rect x="520" y="230" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Refund Processor</text>
+                                    <text x="590" y="268" text-anchor="middle" font-size="9" fill="#999">To payer</text>
+
+                                    <rect x="740" y="80" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Escrow Dashboard</text>
+                                    <text x="800" y="118" text-anchor="middle" font-size="9" fill="#999">Portfolio view</text>
+
+                                    <rect x="740" y="150" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Manager</text>
+                                    <text x="800" y="188" text-anchor="middle" font-size="9" fill="#999">Manual overrides</text>
+
+                                    <rect x="740" y="230" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Finance Reports</text>
+                                    <text x="800" y="268" text-anchor="middle" font-size="9" fill="#999">Aging + volumes</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrO" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(243,156,18,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="276" y2="102" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="175" x2="276" y2="162" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="440" y1="102" x2="516" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="440" y1="162" x2="516" y2="175" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="440" y1="222" x2="516" y2="255" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="660" y1="105" x2="736" y2="105" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                    <line x1="660" y1="175" x2="736" y2="175" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                    <line x1="660" y1="255" x2="736" y2="255" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Operations-first delivery sequence.</strong> Build the internal operations platform before the client portal. Establishes the workflow foundation and allows operations teams to validate business rules before exposing to external users.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Five discrete visa statuses over binary hold/release.</strong> Granular status model (Pending, Issued, Refused, Res. Permit, No Visa Required) enables distinct fund handling rules per scenario rather than a simple hold-or-release binary.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Split-line architecture for multi-beneficiary payments.</strong> Individual fund tracking per student within a single payment enables partial releases when some visa applications succeed while others remain pending.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q4 2023</td>
+                                        <td><strong>Manual fund release over full automation.</strong> Compliance and risk considerations required human verification before fund release. Automated triggers notify operations teams but do not execute releases without manual confirmation.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q1 2024</td>
+                                        <td><strong>Stabilization quarter before portal integration.</strong> Deliberately paused new feature development to refine the operations system based on live usage patterns. Ensured the foundation was solid before building the client-facing layer on top.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q2 2024</td>
+                                        <td><strong>Client self-service visa updates over operations-mediated.</strong> Allowing institutions to directly update visa statuses reduced operations team workload and improved data freshness. Validation rules prevent invalid transitions.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-phase quality approach with operational validation preceding each external-facing release.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Operations Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Live usage confirmed workflow rules</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Portal Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Client self-service verified</p>
+                                </div>
+                                <div class="col3">
+                                    <b>API Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Zero defects across 43 tests</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Operations validated</strong> workflows through live production usage before portal launch</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All 5 visa statuses</strong> verified with correct fund handling for each transition</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Split-line scenarios</strong> tested for partial release and mixed-status payments</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Stabilization quarter</strong> dedicated to refinement before client-facing exposure</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Operations-First Sequencing</h4>
+                                    <p>Building the internal operations system first created a validated foundation before exposing functionality to external clients. Operations teams discovered edge cases in live usage that were resolved before the client portal was built &mdash; preventing costly rework and poor client experiences.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Stakeholder Recording Sessions</h4>
+                                    <p>Recording multiple sessions with operations stakeholders captured nuances that would have been lost in written requirements alone. The recordings became reference material throughout development, reducing ambiguity and preventing the "that's not what we meant" cycle.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Multi-Quarter Scope Management</h4>
+                                    <p>An 8-quarter programme spanning multiple teams required constant scope discipline. Stakeholder expectations evolved over the programme duration, and each phase's delivery created appetite for additional features. Maintaining focus on the core escrow capability required active boundary management.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Stabilization Quarters Pay Dividends</h4>
+                                    <p>The deliberate decision to pause new features after the operations release and dedicate a full quarter to stabilization prevented technical debt accumulation. By the time the portal was built, the foundation was solid and the portal development moved significantly faster as a result.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Manual Release Dependency</h4>
+                                    <p>Retaining manual fund release as a compliance requirement created an operational bottleneck as volumes grew. While appropriate for initial launch, the scaling limitation was visible early. Automated release with audit trail should be considered as transaction volumes increase.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have invested in a comprehensive status transition diagram and state machine specification upfront rather than documenting individual use cases separately. As the visa statuses and their fund handling rules became more complex, a single authoritative state machine would have prevented several interpretation differences between development and operations teams.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Escrow Service Platform</div>
+                            <div class="footer-sub">Generated from retrospective knowledge base &bull; All sensitive information redacted per NDA requirements</div>
+                            <div class="footer-status">Programme Duration: 8-Quarter Lifecycle &bull; Multi-Platform Delivery</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="../js/head.min.js"></script>
+        <script type="text/javascript" src="../js/carousel.js"></script>
+        <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="../js/settings-blog.js"></script>
+        <script>
+            (function(){
+                var els = document.querySelectorAll('.reveal');
+                if (!els.length) return;
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function(el){ io.observe(el); });
+
+                function animateCounter(el) {
+                    var target = parseInt(el.getAttribute('data-count'));
+                    var suffix = el.getAttribute('data-suffix') || '';
+                    if (isNaN(target)) return;
+                    var duration = 1500;
+                    var startTime = null;
+                    var startVal = 0;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var current = Math.round(startVal + (target - startVal) * eased);
+                        el.textContent = current + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            el.textContent = target + suffix;
+                            el.classList.add('animated');
+                        }
+                    }
+                    requestAnimationFrame(step);
+                }
+
+                var counterEls = document.querySelectorAll('.stat-number[data-count]');
+                if (counterEls.length) {
+                    var counterObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                animateCounter(e.target);
+                                counterObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    counterEls.forEach(function(el) {
+                        el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+                        counterObserver.observe(el);
+                    });
+                }
+
+                var ringEl = document.querySelector('.progress-ring-circle');
+                if (ringEl) {
+                    var ringObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                e.target.style.transition = 'stroke-dasharray 2s cubic-bezier(.22,1,.36,1)';
+                                e.target.style.strokeDasharray = '439.8 0';
+                                e.target.classList.add('animated');
+                                ringObserver.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    ringObserver.observe(ringEl);
+                }
+            })();
+        </script>
+    </body>
+</html>
