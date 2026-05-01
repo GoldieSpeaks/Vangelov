@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>API Payment Batching — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: API Payment Batching. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; API Payment Batching</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="8" width="120" height="85" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="16" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="27" cy="16" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="34" cy="16" r="2" fill="#3498db" opacity="0.2"/>
+                                <text x="16" y="30" font-family="monospace" font-size="5.5" fill="#3498db" opacity="0.7">POST /api/v2/data</text>
+                                <text x="16" y="40" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">{</text>
+                                <text x="22" y="48" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"payload": {...},</text>
+                                <text x="22" y="56" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"format": "json",</text>
+                                <text x="22" y="64" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"version": "2.0"</text>
+                                <text x="16" y="72" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">}</text>
+                                <rect x="145" y="15" width="100" height="55" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.2)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="monospace" font-size="5" fill="#3498db" opacity="0.5">200 OK</text>
+                                <rect x="152" y="32" width="60" height="3" rx="1" fill="#3498db" opacity="0.12"/>
+                                <rect x="152" y="38" width="45" height="3" rx="1" fill="#3498db" opacity="0.09"/>
+                                <rect x="152" y="44" width="70" height="3" rx="1" fill="#3498db" opacity="0.07"/>
+                                <rect x="152" y="50" width="35" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <line x1="133" y1="45" x2="142" y2="40" stroke="#3498db" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="140,38 145,40 140,42" fill="#3498db" opacity="0.3"/>
+                                <rect x="155" y="85" width="8" height="25" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="167" y="78" width="8" height="32" rx="1" fill="#3498db" opacity="0.2"/>
+                                <rect x="179" y="82" width="8" height="28" rx="1" fill="#3498db" opacity="0.17"/>
+                                <rect x="191" y="75" width="8" height="35" rx="1" fill="#3498db" opacity="0.12"/>
+                                <circle cx="240" cy="20" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="250" cy="35" r="1" fill="#3498db" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">API Development</span>
+                                    <span class="banner-tag">6Weeks</span>
+                                    <span class="banner-tag">3 Criteria</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Development</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">API Payment Batching</div>
+                            <div class="hero-subtitle">I designed and delivered a <strong>bulk payment batching engine</strong> within the back-office system &mdash; enabling efficient processing of high-volume API transactions through intelligent multi-criteria grouping and status-gated transfers to downstream platforms.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I introduced a new batching capability for managing bulk API payment processing. I defined the grouping logic (beneficiary identity, account attributes, and currency), unique batch identifiers, and validation rules enforced before payments can be transferred downstream. I managed the full lifecycle from specification to production deployment spanning 6 weeks, and drove a Phase 2 enhancement based on real-world usage patterns.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY CONTRIBUTION ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Managed the parent epic hierarchy and project structure &mdash; re-assigned the batching feature to the correct parent initiative for accurate tracking and roadmap visibility</li>
+                                    <li>Coordinated follow-up calls with the development team and operations lead to resolve edge cases around split payment lines and batch ID carry-over from previous processing days</li>
+                                    <li>Scheduled and led the follow-up discussion addressing the secondary lines inclusion logic (which transfer case types should qualify for automatic batching)</li>
+                                    <li>Defined the requirements for the Phase 2 enhancement: secondary lines with standard transfer cases must be included, and transaction ID fields must support paste functionality for operations efficiency</li>
+                                    <li>Authored the release description communicating the feature to stakeholders: defining the new batching window, batch management capabilities, and transaction editing workflows</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="6" data-suffix=" Weeks">6 Weeks</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128202;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Criteria">3 Criteria</span>
+                                <span class="stat-label">Batch Grouping Logic</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Platforms">2 Platforms</span>
+                                <span class="stat-label">Sync Integration</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128260;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Phases">2 Phases</span>
+                                <span class="stat-label">Delivered to Production</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from manual payment-by-payment processing to intelligent bulk batch operations.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Individual payment processing without grouping capability</li>
+                                        <li>No batch-level visibility across high-volume API transactions</li>
+                                        <li>Manual tracking of payment groups and their completion status</li>
+                                        <li>No validation gate before transferring to downstream platforms</li>
+                                        <li>Status updates not synchronised across internal systems</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Automatic grouping by beneficiary, account, and currency</li>
+                                        <li>Dedicated batch management interface with filtering and editing</li>
+                                        <li>Unique batch IDs for full traceability and audit trail</li>
+                                        <li>Status-gated transfer &mdash; only confirmed batches proceed</li>
+                                        <li>Real-time synchronisation between back-office and web platforms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Operations teams can now manage high-volume API payments through intelligent batch grouping, reducing manual effort and ensuring payment integrity through validated transfers</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I introduced a new batching functionality within the back-office system to manage bulk API payment processing. I defined the grouping logic: transactions automatically grouped into batches based on three matching criteria (beneficiary identity, account number, and currency), assigned unique batch identifiers, with validation rules enforced before payments can be transferred to downstream platforms.</p>
+                                <p>I coordinated the development effort (estimated 15-25 days). I delivered the system within 6 weeks end-to-end, passing internal QA with zero issues. When a production defect was discovered during live testing (column reference error when restricting test data on the production database), I managed its resolution in a subsequent fix.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I later drove a Phase 2 enhancement that expanded batching to include secondary payment lines with standard transfer cases and improved the transaction ID input for paste operations &mdash; based on follow-up calls where I identified real-world usage patterns that the initial specification did not cover.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From specification through development, QA, production release, defect resolution, and Phase 2 enhancement.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">April 1, 2025</div>
+                                    <div class="timeline-title">Requirements &amp; Immediate Assignment</div>
+                                    <div class="timeline-desc">I created the feature request with full specification: batch grouping rules, unique ID assignment, validation logic, and exclusion criteria. I immediately assigned it to a developer and business analyst, placing it in the Q2 planning cycle.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">April 8, 2025</div>
+                                    <div class="timeline-title">Development Kickoff</div>
+                                    <div class="timeline-desc">I kicked off development with the developer estimating 15-25 days of effort. Core batching engine, multi-criteria grouping logic, and the new admin interface window entered active development.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">April 29, 2025</div>
+                                    <div class="timeline-title">Specification Refinement &amp; QA Assignment</div>
+                                    <div class="timeline-desc">I updated the description with clarified requirements and assigned a QA engineer for testing. I finalised batch management workflows, filtering capabilities, and transfer validation rules.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 7, 2025</div>
+                                    <div class="timeline-title">Development Complete</div>
+                                    <div class="timeline-desc">All development completed. I confirmed the new batching window displays bulk payment batches, supports transaction editing, enforces validation rules, and synchronises status across platforms. I moved it to QA testing.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 8-12, 2025</div>
+                                    <div class="timeline-title">Internal QA Testing</div>
+                                    <div class="timeline-desc">I oversaw comprehensive testing on the internal test environment. Test cases documented covering batch creation, grouping logic, filtering, status changes, and transfer validation. Zero issues found &mdash; all scenarios passed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 14-15, 2025</div>
+                                    <div class="timeline-title">QA Sign-Off &amp; Production Release</div>
+                                    <div class="timeline-desc">Testing confirmed complete with no issues. I marked the feature ready for release and deployed to production. I authored the release description: new batching window under agent reports tab with batch display, transaction editing, and management capabilities.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">July 10, 2025</div>
+                                    <div class="timeline-title">Production Defect Discovery</div>
+                                    <div class="timeline-desc">I discovered a batch creation error during live testing: "column t.is_test" not found. I identified the root cause &mdash; logic to restrict test data from production batches referenced a column not available on the live database. I raised the bug and assigned it for immediate fix.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">July 11 &mdash; October 2025</div>
+                                    <div class="timeline-title">Defect Resolution &amp; Validation</div>
+                                    <div class="timeline-desc">I coordinated the fix for the test data restriction logic for production environments. I validated the fix on the external testing environment. All batch creation scenarios confirmed working correctly post-fix.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">January 2026</div>
+                                    <div class="timeline-title">Phase 2: Secondary Lines Enhancement</div>
+                                    <div class="timeline-desc">I identified through follow-up calls that secondary payment lines with standard transfer cases needed inclusion in batches. I also determined that the transaction ID field required paste functionality. I created and assigned the new sub-task.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">February 2026</div>
+                                    <div class="timeline-title">Phase 2 Complete &amp; Validated</div>
+                                    <div class="timeline-desc">I delivered the enhancement restricting auto-batching to standard transfer case lines only (admin fee lines excluded). I facilitated direct communication between the developer and operations lead to resolve an edge case. I validated on both internal and external environments.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>New batching section in the admin interface (agent reports tab)</li>
+                                        <li>Automatic batch creation by beneficiary, account number, and currency</li>
+                                        <li>Unique batch ID assignment for traceability</li>
+                                        <li>Transaction editing within batches (add/remove payments)</li>
+                                        <li>Batch filtering and management interface</li>
+                                        <li>Status-gated transfer to downstream platform (paid status only)</li>
+                                        <li>Real-time status synchronisation across platforms</li>
+                                        <li>Phase 2: Secondary lines inclusion for standard transfer cases</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Dynamic beneficiary types (excluded from auto-batching)</li>
+                                        <li>Global account beneficiaries (excluded from auto-batching)</li>
+                                        <li>Client-facing batching UI</li>
+                                        <li>Automated batch scheduling (manual trigger only)</li>
+                                        <li>Admin fee lines (excluded from automatic batch inclusion)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Batch creation and validation flow within the payment processing pipeline.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Input -->
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API TRANSACTIONS</text>
+
+                                    <!-- Center zone: Batching Engine -->
+                                    <rect x="260" y="20" width="320" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="420" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">BATCHING ENGINE</text>
+
+                                    <!-- Right zone: Output -->
+                                    <rect x="620" y="20" width="240" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="740" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM OUTPUT</text>
+
+                                    <!-- Input boxes -->
+                                    <rect x="40" y="80" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Lines</text>
+                                    <text x="120" y="120" text-anchor="middle" font-size="9" fill="#999">Paid Status Required</text>
+
+                                    <rect x="40" y="160" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Beneficiary Data</text>
+                                    <text x="120" y="200" text-anchor="middle" font-size="9" fill="#999">Static Types Only</text>
+
+                                    <rect x="40" y="240" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="262" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Account + Currency</text>
+                                    <text x="120" y="280" text-anchor="middle" font-size="9" fill="#999">Grouping Criteria</text>
+
+                                    <!-- Batching Engine boxes -->
+                                    <rect x="285" y="80" width="270" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Multi-Criteria Grouping</text>
+                                    <text x="420" y="120" text-anchor="middle" font-size="9" fill="#999">Beneficiary + Account + Currency</text>
+
+                                    <rect x="285" y="160" width="270" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Batch Management</text>
+                                    <text x="420" y="200" text-anchor="middle" font-size="9" fill="#999">Create, Edit, Filter, Track</text>
+
+                                    <rect x="285" y="240" width="270" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="262" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Validation Gate</text>
+                                    <text x="420" y="280" text-anchor="middle" font-size="9" fill="#999">Status Confirmed Before Transfer</text>
+
+                                    <!-- Output boxes -->
+                                    <rect x="640" y="80" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="740" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Batch Interface</text>
+                                    <text x="740" y="120" text-anchor="middle" font-size="9" fill="#999">Admin Reports Tab</text>
+
+                                    <rect x="640" y="160" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="740" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Downstream Transfer</text>
+                                    <text x="740" y="200" text-anchor="middle" font-size="9" fill="#999">Web Platform Sync</text>
+
+                                    <rect x="640" y="240" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="740" y="262" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Sync</text>
+                                    <text x="740" y="280" text-anchor="middle" font-size="9" fill="#999">Real-Time Updates</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="107" x2="281" y2="107" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="187" x2="281" y2="187" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="267" x2="281" y2="267" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="555" y1="107" x2="636" y2="107" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="555" y1="187" x2="636" y2="187" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="555" y1="267" x2="636" y2="267" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Internal connections -->
+                                    <line x1="420" y1="135" x2="420" y2="160" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="420" y1="215" x2="420" y2="240" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Three-criteria batch grouping.</strong> Transactions grouped by beneficiary identity, account number, and currency for optimal batch coherence. Unique batch IDs assigned for full audit traceability.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Exclude dynamic and global beneficiary types.</strong> These beneficiary types follow different processing requirements and were excluded from automatic batching to prevent incorrect groupings.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Status-gated transfer validation.</strong> Only batches with a confirmed "Paid" status can proceed to the downstream platform, ensuring payment integrity and preventing premature transfers.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Real-time cross-platform synchronisation.</strong> Status changes reflected immediately between back-office and web platforms to prevent conflicts and maintain coherent state for operations teams.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Post-Release</td>
+                                        <td><strong>Test data restriction on production.</strong> Logic added to exclude test data from batch creation when running on the production database. Column reference error on live revealed the need for environment-aware queries.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Standard transfer case filter for secondary lines.</strong> Only secondary lines with transfer case "Regular" qualify for automatic batching. Admin fee lines explicitly excluded to prevent incorrect grouping.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Internal QA passed clean; production defect discovered and resolved through systematic debugging.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Test Environment</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Zero issues found. All batch creation, grouping, and transfer scenarios validated.</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Production Testing</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #f39c12; margin-bottom: 4px;">1 Defect</p>
+                                    <p>Column reference error on live database. Resolved in subsequent fix release.</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Phase 2 QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Internal + external environment validated. Edge case with admin fee lines resolved.</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Test environment:</strong> Zero issues found across all scenarios</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Production:</strong> 1 environment-specific defect (column reference) &mdash; resolved</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Phase 2:</strong> Admin fee line edge case caught and resolved through team collaboration</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">External validation</strong> confirmed on both Phase 1 and Phase 2 releases</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Clean Internal QA Results</h4>
+                                    <p>Internal testing on the test environment passed with zero issues across all batch creation, grouping, filtering, and transfer scenarios. This demonstrated thorough development adherence to specifications and gave confidence for production deployment.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Rapid Delivery Cadence</h4>
+                                    <p>From specification to production in 6 weeks (with 15-25 days of active development). The project moved through requirements, development, QA, and release without blockers or scope disputes &mdash; enabled by clear specification from day one and immediate developer assignment.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Environment-Specific Code Paths Need Testing</h4>
+                                    <p>The production defect (column "t.is_test" not found) occurred because the test data restriction logic was only relevant on the production database. Code that behaves differently across environments must be tested in all target environments, not just the development one.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Exclusion Rules Need Clear Documentation</h4>
+                                    <p>The Phase 2 edge case (admin fee lines being incorrectly included in batches) showed that exclusion criteria must be explicitly documented and tested. The initial "transfer case Regular" requirement was clear, but its implications for split lines were not obvious until real usage surfaced the gap.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Cross-Platform Status Dependency</h4>
+                                    <p>Real-time synchronisation between back-office and web platforms introduces a system dependency. If either platform experiences downtime, status mismatches could cause processing delays or conflicting batch states that require manual reconciliation.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have included production-specific test scenarios in the QA plan from the start, particularly for code paths that reference environment-specific columns or configurations. A simple "run on production-like data" step would have caught the is_test column issue before go-live rather than two months later.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: API Payment Batching</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 6 Weeks (Phase 1) + Phase 2 Enhancement</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-api-invoice-payments.html"><i class="fa-solid fa-arrow-left"></i> API Invoice Payments</a>
+        <a href="case-study-domestic-cc-fee-config.html">Domestic Card Fee Configuration <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

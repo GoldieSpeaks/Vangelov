@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Recurring Card Payments — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Recurring Card Payments. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Recurring Card Payments</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">Card Tokenisation</span>
+                                </div>
+                                <a href="https://www.transfermate.com/post/making-student-housing-payments-easier-with-recurring-credit-card-payments" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> Recurring CC for Student Housing <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Recurring Card Payments</div>
+                            <div class="hero-subtitle">I delivered automated recurring accommodation payments through <strong>secure card tokenization</strong> on a cross-border education payments platform &mdash; driving regulatory compliance while creating a self-service payment system for institutional clients.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I led the end-to-end delivery of this feature after new regulatory requirements mandated automatic monthly or quarterly payments for housing fees. I coordinated the integration with an external payment provider's tokenization service to securely store and reuse card details without retaining sensitive data locally. I managed extensive scoping across legal, payments, and customer service teams, followed by phased development across the web platform, payer dashboard, operations integration, email automation, and failsafe mechanisms.</p>
+                        </div>
+
+
+                        <!-- ===== SECTION 2: MY CONTRIBUTION ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Initiated and led all cross-functional scoping calls &mdash; legal, payments, treasury, customer service, and development &mdash; surfacing constraints before development began</li>
+                                    <li>Co-ordinated regulatory alignment with legal counsel, ensuring terms and conditions were revised to cover recurring payment obligations and liability boundaries</li>
+                                    <li>Drove the provider integration decision &mdash; held tokenization review calls, validated the technical approach, and resolved outdated documentation issues directly with the provider</li>
+                                    <li>Authored the reworked requirements document after post-analysis additions (configurable duration per institution, quarterly frequency, initial payment plan logic)</li>
+                                    <li>Managed the complete project lifecycle as reporter, coordinator, and release manager &mdash; from demand request through BRD sign-off to production deployment</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9989;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Frequencies">2 Frequencies</span>
+                                <span class="stat-label">Monthly + Quarterly Plans</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128279;</span>
+                                <span class="stat-number">Compliant</span>
+                                <span class="stat-label">Regulatory Outcome</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128260;</span>
+                                <span class="stat-number" data-count="9" data-suffix="/9 Passed">9/9 Passed</span>
+                                <span class="stat-label">Deliverables Tested</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128274;</span>
+                                <span class="stat-number">Self-Service</span>
+                                <span class="stat-label">Payer Plan Management</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from no automatic payment capability to a fully regulated recurring payment system.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No automatic payment functionality existed on the platform</li>
+                                        <li>Non-compliant with accommodation payment regulations</li>
+                                        <li>Payers required to manually log in and pay every month</li>
+                                        <li>No self-service plan management for end users</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Automated monthly and quarterly recurring payments via card tokenization</li>
+                                        <li>Fully compliant with regulatory requirements for housing payments</li>
+                                        <li>Self-service dashboard with plan management and cancellation</li>
+                                        <li>Configurable duration and frequency per institution</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Regulatory compliance achieved while creating a self-service recurring payment system covering the full payer lifecycle</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I delivered a recurring card payments feature for accommodation-specific payment links on a cross-border education payments platform. New regulatory requirements mandated that payers be able to set up automatic monthly or quarterly payments for housing fees, and I owned the solution end-to-end.</p>
+                                <p>I coordinated the integration with an external payment provider's tokenization service to securely store and reuse card details without retaining sensitive data locally. I authored the reworked requirements document addressing post-analysis additions including configurable plan durations per institution and quarterly payment frequency.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">All nine deliverables passed both internal and external testing. I released the feature to production with zero defects, supporting both monthly and quarterly payment frequencies with per-institution configuration.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery from regulatory demand through phased development to live release.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Demand Request &amp; Provider Review</div>
+                                    <div class="timeline-desc">Business leadership raised the requirement for recurring accommodation payments. I held the initial scoping call with the payment provider to review tokenization capabilities, flow design, and integration approach.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 2&ndash;3</div>
+                                    <div class="timeline-title">Cross-Functional Analysis</div>
+                                    <div class="timeline-desc">I led alignment calls with legal, payments team, customer service, and treasury. I drove key decisions: fixed monthly amounts, 12-month maximum, accommodation links only, card management approach for expired cards.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4</div>
+                                    <div class="timeline-title">Concept Approval &amp; BRD Creation</div>
+                                    <div class="timeline-desc">I secured concept approval from business stakeholders. I created the BRD covering use cases for setup, automatic payment, cancellation, and failure scenarios. I coordinated legal terms and conditions drafting.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 5&ndash;7</div>
+                                    <div class="timeline-title">Core Development Phase 1</div>
+                                    <div class="timeline-desc">I oversaw development of recurrence logic and payment selector for the Payment Form. Payer dashboard module built with plan management, status display, and cancellation controls. Terms and conditions integration completed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 7&ndash;8</div>
+                                    <div class="timeline-title">Email Automation &amp; Operations Integration</div>
+                                    <div class="timeline-desc">I specified seven email templates covering payment reminders, success confirmations, failure notifications, plan expiry alerts, and quarterly-specific messaging. I coordinated operations data transfer implementation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 8</div>
+                                    <div class="timeline-title">Shared Form Exclusion Logic</div>
+                                    <div class="timeline-desc">I defined conditional rendering requirements to isolate recurring features on shared payment forms. Links without the feature enabled remain unaffected. I confirmed feature isolation through parallel testing.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 9&ndash;10</div>
+                                    <div class="timeline-title">Reworked BRD &amp; Post-Analysis Additions</div>
+                                    <div class="timeline-desc">Business requested configurable plan durations per institution, quarterly payment frequency option, and initial payment inclusion in plan count. I authored the reworked requirements document and secured sign-off.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 10</div>
+                                    <div class="timeline-title">Failsafe System Development</div>
+                                    <div class="timeline-desc">I specified tokenization failure monitoring requirements. I defined automatic email alerts to internal teams for unresolved failures after 3 days, and retry logic for unsuccessful payments with 2 additional attempts.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 11&ndash;12</div>
+                                    <div class="timeline-title">Internal &amp; External Testing</div>
+                                    <div class="timeline-desc">I coordinated testing of all nine deliverables on both internal and external environments. I validated feature isolation through parallel testing on shared form environments. Provider penny testing confirmed end-to-end flow.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 12</div>
+                                    <div class="timeline-title">Production Release</div>
+                                    <div class="timeline-desc">I released the feature to production on accommodation-specific links. All tests passed with zero defects. I briefed the operations team on recurring payment processing workflows.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Recurring payment logic and selector on Payment Forms</li>
+                                        <li>Payer dashboard with plan management and cancellation</li>
+                                        <li>Payment provider tokenization integration</li>
+                                        <li>Back office data transfer and display of recurring fields</li>
+                                        <li>Email automation (7 template types)</li>
+                                        <li>Failsafe monitoring for tokenization failures</li>
+                                        <li>Terms and conditions update with legal review</li>
+                                        <li>Shared form exclusion logic</li>
+                                        <li>Configurable plan duration and quarterly frequency</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>External API and partner integrations</li>
+                                        <li>Non-accommodation payment links</li>
+                                        <li>Invoice and payer API systems</li>
+                                        <li>Admin-side recurring plan management (deferred)</li>
+                                        <li>Recurring data in payer reports (post-release)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Data flow between platform components and external tokenization service.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="300" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYER INTERFACE</text>
+                                    <rect x="260" y="20" width="280" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM CORE</text>
+                                    <rect x="580" y="20" width="240" height="300" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">EXTERNAL PROVIDER</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Form</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Recurrence selector</text>
+
+                                    <rect x="40" y="150" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payer Dashboard</text>
+                                    <text x="120" y="188" text-anchor="middle" font-size="9" fill="#999">Plan management</text>
+
+                                    <rect x="40" y="220" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Email Notifications</text>
+                                    <text x="120" y="258" text-anchor="middle" font-size="9" fill="#999">7 lifecycle templates</text>
+
+                                    <rect x="285" y="80" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Recurrence Engine</text>
+                                    <text x="400" y="118" text-anchor="middle" font-size="9" fill="#999">Schedule, charge, retry logic</text>
+
+                                    <rect x="285" y="150" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Failsafe Monitor</text>
+                                    <text x="400" y="188" text-anchor="middle" font-size="9" fill="#999">Tokenization error detection</text>
+
+                                    <rect x="285" y="220" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Operations Layer</text>
+                                    <text x="400" y="258" text-anchor="middle" font-size="9" fill="#999">Data transfer to back office</text>
+
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Token Storage</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">Secure card vault</text>
+
+                                    <rect x="600" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Charge Execution</text>
+                                    <text x="700" y="188" text-anchor="middle" font-size="9" fill="#999">Token-based payments</text>
+
+                                    <rect x="600" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Token Deactivation</text>
+                                    <text x="700" y="258" text-anchor="middle" font-size="9" fill="#999">Cancellation handling</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="281" y2="105" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="175" x2="281" y2="175" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="105" x2="596" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="175" x2="596" y2="175" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="245" x2="596" y2="245" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="400" y1="130" x2="400" y2="150" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="200" x2="400" y2="220" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Restrict feature to accommodation-specific links only.</strong> Regulatory requirement applied specifically to housing payments; limiting scope reduced risk and complexity across the platform.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Use external provider tokenization rather than local card storage.</strong> Sensitive card data stored entirely on provider side, eliminating local PCI compliance burden and reducing security risk.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Fixed monthly amount with 12-month maximum.</strong> After alignment with business leadership, confirmed that payers enter a fixed amount charged automatically each period for up to 12 months.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Create separate form handling for shared link scenarios.</strong> Shared forms could leak recurring features to non-eligible links; conditional rendering isolated the feature without affecting other forms.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>Include initial payment in recurring plan count.</strong> Post-analysis feedback showed original logic created an extra payment; reworked to match payer expectations and institution billing cycles.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>Make plan duration and frequency configurable per institution.</strong> Different institutions had different accommodation periods; per-link configuration avoided one-size-fits-all constraints.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">All deliverables tested on both internal and external environments with zero defects.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Recurrence &amp; Selector</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Logic + form rendering verified on internal and external environments</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Dashboard Controls</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Plan management and cancellation validated end-to-end</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Email Automation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>All 7 templates verified across monthly and quarterly frequencies</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">9</strong> deliverables tested internally</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">9</strong> deliverables tested externally</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Shared form</strong> isolation confirmed via parallel testing</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #95a5a6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Provider</strong> penny testing validated end-to-end tokenization</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Early Cross-Functional Alignment</h4>
+                                    <p>Involving legal, payments, customer service, and treasury teams during the scoping phase surfaced constraints before development began. Key decisions on card management, liability, and payment frequencies were locked in before a single line of code was written.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Comprehensive Dual-Environment Testing</h4>
+                                    <p>Running both internal and external test cycles for every deliverable, including parallel testing on shared-form environments, ensured zero issues at release and validated feature isolation across linked payment forms.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>BRD Rework Highlighted Scoping Gaps</h4>
+                                    <p>The need for a fully reworked requirements document after initial analysis indicated that some business requirements (configurable duration, quarterly frequency) should have been captured earlier. More structured workshops during initial scoping would have prevented the rework cycle.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Provider Documentation Must Be Validated Early</h4>
+                                    <p>Outdated technical documentation from the payment provider caused delays during integration planning. Direct validation calls with providers should be standard practice during initial scoping, not discovered mid-development.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Admin Visibility Gap Emerged Post-Release</h4>
+                                    <p>Post-release QA identified that institution administrators had no visibility into recurring payment data within their reporting tools. This gap was not part of the original requirements and was flagged for a future phase, highlighting the need to include admin user stories in initial scoping.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have run a structured requirements workshop with all five cross-functional teams simultaneously rather than sequential calls. The serial alignment process took weeks and still produced gaps that required a BRD rework. A single intensive session would have been faster and more complete.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Recurring Card Payments</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: ~12 Weeks &bull; 9 Deliverables &bull; Cross-System Integration</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-api-dashboard-disbursements.html"><i class="fa-solid fa-arrow-left"></i> API Dashboard Disbursements</a>
+        <a href="case-study-escrow-api-clients.html">Escrow for API Clients <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

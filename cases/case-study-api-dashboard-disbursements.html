@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>API Dashboard Disbursements — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: API Dashboard Disbursements. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; API Dashboard Disbursements</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="8" width="120" height="85" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="16" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="27" cy="16" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="34" cy="16" r="2" fill="#3498db" opacity="0.2"/>
+                                <text x="16" y="30" font-family="monospace" font-size="5.5" fill="#3498db" opacity="0.7">POST /api/v2/data</text>
+                                <text x="16" y="40" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">{</text>
+                                <text x="22" y="48" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"payload": {...},</text>
+                                <text x="22" y="56" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"format": "json",</text>
+                                <text x="22" y="64" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"version": "2.0"</text>
+                                <text x="16" y="72" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">}</text>
+                                <rect x="145" y="15" width="100" height="55" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.2)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="monospace" font-size="5" fill="#3498db" opacity="0.5">200 OK</text>
+                                <rect x="152" y="32" width="60" height="3" rx="1" fill="#3498db" opacity="0.12"/>
+                                <rect x="152" y="38" width="45" height="3" rx="1" fill="#3498db" opacity="0.09"/>
+                                <rect x="152" y="44" width="70" height="3" rx="1" fill="#3498db" opacity="0.07"/>
+                                <rect x="152" y="50" width="35" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <line x1="133" y1="45" x2="142" y2="40" stroke="#3498db" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="140,38 145,40 140,42" fill="#3498db" opacity="0.3"/>
+                                <rect x="155" y="85" width="8" height="25" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="167" y="78" width="8" height="32" rx="1" fill="#3498db" opacity="0.2"/>
+                                <rect x="179" y="82" width="8" height="28" rx="1" fill="#3498db" opacity="0.17"/>
+                                <rect x="191" y="75" width="8" height="35" rx="1" fill="#3498db" opacity="0.12"/>
+                                <circle cx="240" cy="20" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="250" cy="35" r="1" fill="#3498db" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">API Development</span>
+                                    <span class="banner-tag">4Sub Tasks</span>
+                                    <span class="banner-tag">Cross-System</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Development</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">API Dashboard &mdash; Disbursements Module</div>
+                            <div class="hero-subtitle">I designed and delivered a <strong>self-service disbursements module</strong> for the client analytics dashboard &mdash; enabling API clients to track all payouts, reconcile batch and single settlements, and eliminate manual report generation.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I led Phase 2 of the API Dashboard initiative. Clients previously had no visibility into payout data &mdash; reconciliation relied on manually generated daily reports exported from the back-office system. I defined the automated batching logic, cross-system data transfer architecture, and a front-end disbursements page with filtering, drill-down popups, and CSV export capabilities.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Co-authored and iteratively reviewed the BRD (v1.3) through multiple revision cycles with the business analyst, defining batching logic, database schemas, CRM interface, and dashboard display requirements</li>
+                                    <li>Organised and led the BRD sign-off meeting with the International Commercial Director and team leads, securing formal approval for development to proceed</li>
+                                    <li>Created all four detailed sub-task specifications (database tables, data transfer handler, disbursements page, transactions popup) with full acceptance criteria</li>
+                                    <li>Defined the batching criteria rules: beneficiary ID grouping, dynamic beneficiary exclusion, global account exclusion, allocated beneficiary handling, and web login type filtering</li>
+                                    <li>Coordinated cross-team alignment calls between CRM development, treasury, and web platform teams to resolve data transfer architecture decisions</li>
+                                    <li>Led accommodation provider filter discussions &mdash; identifying the need for location-based filtering and organising dedicated design meetings</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128202;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Sub-Tasks">4 Sub-Tasks</span>
+                                <span class="stat-label">Specifications Written</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128260;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Versions">3 Versions</span>
+                                <span class="stat-label">BRD Iterations Driven</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Systems">2 Systems</span>
+                                <span class="stat-label">Cross-Platform Integration</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127942;</span>
+                                <span class="stat-number">Self-Service</span>
+                                <span class="stat-label">Client Payout Visibility</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From manual daily report generation to automated self-service payout visibility.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Daily reports manually exported from back-office system</li>
+                                        <li>Payments grouped manually by beneficiary and currency</li>
+                                        <li>Error-prone manual summation and data entry into bank systems</li>
+                                        <li>No client visibility into payout status or history</li>
+                                        <li>Reconciliation required dedicated staff at peak volume</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Automated batching groups payments by beneficiary, account, and currency</li>
+                                        <li>Self-service dashboard with real-time payout data</li>
+                                        <li>Filterable disbursements table with drill-down to individual transactions</li>
+                                        <li>CSV export for client-side reconciliation</li>
+                                        <li>Cross-system data transfer with status tracking (no data loss)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Projected to eliminate a manual reconciliation process requiring dedicated staff at peak season</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I delivered Phase 2 of the API Dashboard &mdash; a Disbursements module that gives clients full visibility into all payouts made to their accounts. Prior to this initiative, payout information was only available through manually generated daily reports, requiring dedicated staff to prepare, summarise, and distribute reconciliation data.</p>
+                                <p>I designed the solution: automated batching logic on the back-office side (grouping payments by beneficiary, account number, and currency), cross-system data transfer with status tracking, and a front-end disbursements page on the client dashboard. Clients can filter by date, beneficiary, payment channel, and reference &mdash; then drill down into individual transactions within each disbursement.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I drove the BRD through three major versions with significant schema and logic changes. I coordinated development across two databases (back-office and web), a data transfer pipeline, and front-end dashboard implementation.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From demand request through BRD iterations, sign-off, and active development.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Initial Period</div>
+                                    <div class="timeline-title">Demand Request &amp; Scoping</div>
+                                    <div class="timeline-desc">Commercial leadership submitted demand request for disbursement visibility. I created the project, assigned the business analyst and developer, and linked it to the parent API Dashboard epic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">BRD V1</div>
+                                    <div class="timeline-title">Initial BRD &amp; CRM Design</div>
+                                    <div class="timeline-desc">Business analyst created BRD v1 covering the CRM batch functionality, database changes, and initial dashboard wireframes. I provided inline comments and revision feedback via Confluence.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">BRD V2</div>
+                                    <div class="timeline-title">Interface Refinement</div>
+                                    <div class="timeline-desc">I added structure for beneficiaries changing preferences (bulk to single, single to bulk). I iterated the CRM interface design based on treasury team feedback.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">BRD V1.3</div>
+                                    <div class="timeline-title">Major Revision &amp; Schema Overhaul</div>
+                                    <div class="timeline-desc">Significant changes to CRM logic, WEB database design, and front-end presentation. I drove multiple clarification meetings and Confluence inline comment rounds before finalisation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Sign-Off</div>
+                                    <div class="timeline-title">BRD Approval &amp; Development Assignment</div>
+                                    <div class="timeline-desc">I organised the sign-off meeting with commercial stakeholders. Formal approval received. I assigned development to the lead developer and created sub-tasks for work breakdown.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Sub-Task Definition</div>
+                                    <div class="timeline-title">Detailed Implementation Specs</div>
+                                    <div class="timeline-desc">I created four sub-tasks with full specifications: database table creation, data transfer handler, disbursements page (main table and filters), and transaction drill-down popup.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Cross-Team Alignment</div>
+                                    <div class="timeline-title">CRM &amp; Accommodation Discussions</div>
+                                    <div class="timeline-desc">I led alignment calls for CRM-side batching logic and accommodation provider filtering. I identified the location-based filter requirement and scheduled design meetings.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Development Start</div>
+                                    <div class="timeline-title">Database Tables In Progress</div>
+                                    <div class="timeline-desc">Developer began implementing the disbursements and disbursement_txns tables in the web database. Schema follows BRD Section 10 specifications with foreign key relationships.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Next Steps</div>
+                                    <div class="timeline-title">Data Transfer &amp; Dashboard UI</div>
+                                    <div class="timeline-desc">Remaining work: data transfer handler implementation, main disbursements page with filters, and transaction popup with CSV export. Target delivery planned for upcoming quarter.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Disbursements page on API Dashboard (batch + single)</li>
+                                        <li>CRM batching logic (group by beneficiary, account, currency)</li>
+                                        <li>Two new database tables in web and back-office systems</li>
+                                        <li>Cross-system data transfer with status tracking</li>
+                                        <li>Transaction drill-down popup with CSV export</li>
+                                        <li>Searchable filters (date, beneficiary, channel, reference)</li>
+                                        <li>Dynamic beneficiary exclusion from batching</li>
+                                        <li>Masked IBAN display (last 4 digits only)</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>College links disbursements (separate initiative)</li>
+                                        <li>Educational agent payments and partner systems</li>
+                                        <li>Real-time push notifications for new disbursements</li>
+                                        <li>Historical data backfill (only new disbursements from go-live)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Cross-system data flow from payment processing through to client dashboard display.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="220" height="340" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="130" y="48" text-anchor="middle" font-size="11" fill="#f39c12" font-weight="700" letter-spacing="1">BACK-OFFICE (CRM)</text>
+
+                                    <rect x="280" y="20" width="240" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">DATA TRANSFER LAYER</text>
+
+                                    <rect x="560" y="20" width="260" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="690" y="48" text-anchor="middle" font-size="11" fill="#3498db" font-weight="700" letter-spacing="1">CLIENT DASHBOARD (WEB)</text>
+
+                                    <rect x="40" y="80" width="180" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="130" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Batching Engine</text>
+                                    <text x="130" y="118" text-anchor="middle" font-size="9" fill="#999">Group by bene + account + ccy</text>
+
+                                    <rect x="40" y="150" width="180" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="130" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">disbursements table</text>
+                                    <text x="130" y="188" text-anchor="middle" font-size="9" fill="#999">Batch + single records</text>
+
+                                    <rect x="40" y="220" width="180" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="130" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">disbursement_txns</text>
+                                    <text x="130" y="258" text-anchor="middle" font-size="9" fill="#999">Individual transactions</text>
+
+                                    <rect x="40" y="290" width="180" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="130" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Corp Trigger: Paid</text>
+                                    <text x="130" y="328" text-anchor="middle" font-size="9" fill="#999">Sets transfer_status = 0</text>
+
+                                    <rect x="300" y="120" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="143" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Transfer Handler</text>
+                                    <text x="400" y="160" text-anchor="middle" font-size="9" fill="#999">Incremental, no duplicates</text>
+
+                                    <rect x="300" y="200" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="223" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Tracking</text>
+                                    <text x="400" y="240" text-anchor="middle" font-size="9" fill="#999">0 = pending, 10 = in progress, 1 = done</text>
+
+                                    <rect x="300" y="280" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="303" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client Scoping</text>
+                                    <text x="400" y="320" text-anchor="middle" font-size="9" fill="#999">Via crm_file_id + web_login</text>
+
+                                    <rect x="580" y="80" width="220" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="690" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Disbursements Table</text>
+                                    <text x="690" y="118" text-anchor="middle" font-size="9" fill="#999">Filterable, sortable, masked IBAN</text>
+
+                                    <rect x="580" y="150" width="220" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="690" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Transaction Popup</text>
+                                    <text x="690" y="188" text-anchor="middle" font-size="9" fill="#999">Drill-down per disbursement</text>
+
+                                    <rect x="580" y="220" width="220" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="690" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">CSV Export</text>
+                                    <text x="690" y="258" text-anchor="middle" font-size="9" fill="#999">Client reconciliation reports</text>
+
+                                    <rect x="580" y="290" width="220" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="690" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Type-Ahead Filters</text>
+                                    <text x="690" y="328" text-anchor="middle" font-size="9" fill="#999">Date, bene, channel, ref</text>
+
+                                    <defs>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(52,152,219,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="224" y1="175" x2="296" y2="147" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="504" y1="147" x2="576" y2="130" stroke="rgba(52,152,219,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead><tr><th style="width:100px">When</th><th>Decision</th><th style="width:100px">Type</th></tr></thead>
+                                <tbody>
+                                    <tr><td>BRD v1</td><td><strong>Group batches by beneficiary ID, account number, and currency.</strong> Ensures accurate consolidation while preventing cross-client mixing. Dynamic beneficiaries excluded from batching entirely.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>BRD v1.3</td><td><strong>Incremental data transfer only.</strong> Transfer handler processes new/changed records only &mdash; never re-transfers full dataset. Status tracking (0/10/1) prevents data loss or duplication.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>BRD v1.3</td><td><strong>Mask IBAN to last 4 digits on dashboard.</strong> Security measure to prevent full account number exposure while still enabling reconciliation identification.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Sign-Off</td><td><strong>Corp-side trigger initiates transfer.</strong> When a payment line status changes to Paid, data flows to the disbursements table. Web system is the receiver, not the initiator.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                    <tr><td>Design</td><td><strong>Type-ahead searchable dropdowns for filters.</strong> Compact layout with autocomplete prevents excessive space usage while supporting beneficiaries with long name lists.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>Iteration</td><td><strong>Location-based filter for accommodation providers.</strong> Identified during client feedback that disbursements need filtering by physical location, not just beneficiary name.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Data integrity measures and security controls built into the architecture.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1"><b>Data Integrity</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Designed</p><p>Transfer status tracking prevents data loss and duplication. FK relationships enforce referential integrity.</p></div>
+                                <div class="col2"><b>Security</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; IBAN Masking</p><p>Account numbers masked to last 4 digits. Data scoped per client via authenticated login.</p></div>
+                                <div class="col3"><b>BRD Iterations</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">3 Versions</p><p>Major schema and logic revisions through collaborative review cycles.</p></div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#f39c12" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="35" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #f39c12;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Dev Progress</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">BRD v1.3</strong> signed off and approved by stakeholders</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Database tables</strong> currently being created (in development)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Data transfer handler</strong> and dashboard UI pending</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">QA testing</strong> not yet started</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Iterative BRD Process</h4>
+                                    <p>Three major BRD versions with inline Confluence comments and dedicated review meetings ensured the final specification accurately reflected business needs. Early iterations caught schema issues that would have been expensive to fix post-development.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Detailed Sub-Task Breakdown</h4>
+                                    <p>Creating four separate sub-tasks with full acceptance criteria and BRD section references gave developers clear, independent work units. Each can be developed, tested, and deployed incrementally without blocking others.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Cross-System Coordination Complexity</h4>
+                                    <p>The project spans two databases, two development teams (CRM and web), and a corporate treasury trigger. Coordinating the data transfer handshake required multiple alignment sessions and clear ownership boundaries.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Batching Rules Need Edge Case Documentation</h4>
+                                    <p>Dynamic beneficiaries, global accounts, and allocated beneficiaries all required explicit exclusion rules. These edge cases were not obvious in initial requirements and only surfaced through treasury team collaboration.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Transfer Pipeline Single Point of Failure</h4>
+                                    <p>If the data transfer process fails, clients see stale data without awareness. The status tracking mechanism (0/10/1) mitigates data loss but does not alert clients to delays. Monitoring and alerting may need to be added post-MVP.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I Would Do Differently</h4>
+                                    <p>Would have involved the treasury team earlier in BRD v1 to avoid the major schema overhaul in v1.3. The batching logic fundamentally changed after treasury provided operational context that was not captured in the initial demand request.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: API Dashboard &mdash; Disbursements Module</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Phase 2 of API Dashboard &bull; Cross-System Integration</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-direct-debit-automation.html"><i class="fa-solid fa-arrow-left"></i> Direct Debit Automation</a>
+        <a href="case-study-recurring-cc-payments.html">Recurring Card Payments <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

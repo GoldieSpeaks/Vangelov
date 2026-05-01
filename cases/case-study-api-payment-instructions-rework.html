@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>API Payment Instructions Rework — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: API Payment Instructions Rework. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; API Payment Instructions Rework</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="8" width="120" height="85" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="16" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="27" cy="16" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="34" cy="16" r="2" fill="#3498db" opacity="0.2"/>
+                                <text x="16" y="30" font-family="monospace" font-size="5.5" fill="#3498db" opacity="0.7">POST /api/v2/data</text>
+                                <text x="16" y="40" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">{</text>
+                                <text x="22" y="48" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"payload": {...},</text>
+                                <text x="22" y="56" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"format": "json",</text>
+                                <text x="22" y="64" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"version": "2.0"</text>
+                                <text x="16" y="72" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">}</text>
+                                <rect x="145" y="15" width="100" height="55" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.2)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="monospace" font-size="5" fill="#3498db" opacity="0.5">200 OK</text>
+                                <rect x="152" y="32" width="60" height="3" rx="1" fill="#3498db" opacity="0.12"/>
+                                <rect x="152" y="38" width="45" height="3" rx="1" fill="#3498db" opacity="0.09"/>
+                                <rect x="152" y="44" width="70" height="3" rx="1" fill="#3498db" opacity="0.07"/>
+                                <rect x="152" y="50" width="35" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <line x1="133" y1="45" x2="142" y2="40" stroke="#3498db" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="140,38 145,40 140,42" fill="#3498db" opacity="0.3"/>
+                                <rect x="155" y="85" width="8" height="25" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="167" y="78" width="8" height="32" rx="1" fill="#3498db" opacity="0.2"/>
+                                <rect x="179" y="82" width="8" height="28" rx="1" fill="#3498db" opacity="0.17"/>
+                                <rect x="191" y="75" width="8" height="35" rx="1" fill="#3498db" opacity="0.12"/>
+                                <circle cx="240" cy="20" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="250" cy="35" r="1" fill="#3498db" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">API Development</span>
+                                    <span class="banner-tag">5Regions</span>
+                                    <span class="banner-tag">14 Languages</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Development</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">API Payment Instructions Rework</div>
+                            <div class="hero-subtitle">I designed and documented the replacement of legacy HTML payment instructions with a <strong>structured XML data model and TM-hosted payment page</strong> &mdash; eliminating broken rendering across all API partner surfaces and giving clients parseable, secure payment guidance across 5 regions and 14 languages.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">The Student Payments API returned bank transfer instructions as pre-rendered HTML blobs with CSS class references to an unavailable internal stylesheet. Students saw broken formatting at the most critical payment moment. I proposed and fully documented a layered solution: structured XML for full client control, plus a branded hosted page for zero-effort integration &mdash; covering all regional variants with zero breaking changes.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Authored the full Business Requirements Document (BRD) defining the layered solution architecture &mdash; structured XML response format and TM-hosted payment page</li>
+                                    <li>Designed the XSD schema and produced 15 sample XML payloads covering all 5 regions and 10 instruction variants</li>
+                                    <li>Created technical specifications for the hosted page including JWT token authentication, rate limiting, and security measures (no bank details in URLs or JavaScript)</li>
+                                    <li>Produced wireframes for all 5 regional page layouts, error states, and mobile viewports &mdash; plus two static HTML/CSS prototype mockups for stakeholder validation</li>
+                                    <li>Drove cross-functional alignment meetings with commercial, treasury, and development teams to gain sign-off on the instruction standardization approach</li>
+                                    <li>Coordinated with the external payment partner on regional instruction amendments, managing the provider-specific payment instructions update end-to-end</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127758;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Regions">5 Regions</span>
+                                <span class="stat-label">Full Coverage</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128483;</span>
+                                <span class="stat-number" data-count="14" data-suffix=" Languages">14 Languages</span>
+                                <span class="stat-label">Bilingual Support</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128274;</span>
+                                <span class="stat-number">Zero Breaking</span>
+                                <span class="stat-label">Backward Compatible</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="15" data-suffix=" Artifacts">15 Artifacts</span>
+                                <span class="stat-label">BRD·XSD·Payloads·Mockups</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From broken, unstyled HTML blobs to structured, secure, and professionally rendered payment instructions.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>HTML with CSS class references to unavailable stylesheets</li>
+                                        <li>Students saw unstyled walls of text for high-value payments</li>
+                                        <li>Critical warnings lost all visual weight</li>
+                                        <li>Clients built fragile HTML parsers to extract bank details</li>
+                                        <li>Support volume elevated due to legitimacy concerns</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Structured XML with typed, parseable fields for full client control</li>
+                                        <li>Branded hosted page with copy-to-clipboard and severity-coloured warnings</li>
+                                        <li>Each data point (IBAN, BIC, reference, deadline) is a discrete element</li>
+                                        <li>JWT-secured, stateless page with 48-hour token expiry</li>
+                                        <li>Zero breaking changes &mdash; existing API response unchanged</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated the stylesheet dependency that caused broken payment instructions across all API partner surfaces</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I identified that the education payments API was returning bank transfer instructions as pre-rendered HTML with CSS class references to an internal stylesheet clients never had access to. Students saw broken formatting at the most critical moment &mdash; handling high-value international tuition transfers.</p>
+                                <p>I proposed and fully documented a layered solution: (1) a new structured XML element providing typed, parseable data that clients can render with their own design system, and (2) a TM-hosted payment instructions page for zero-effort integration. The solution covers 5 regions, 14 languages, and preserves full backward compatibility with zero breaking changes.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I produced the BRD, XSD schema, 15 sample payloads, hosted page architecture, wireframes for all regions, interaction specifications, and two HTML prototype mockups. The initial alignment phase went live in a prior release; the structured data rework is in active development.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-phase delivery spanning initial alignment, infrastructure pause, and structured data rework.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Early Period</div>
+                                    <div class="timeline-title">Project Created &amp; Instruction Audit</div>
+                                    <div class="timeline-desc">I identified discrepancies between web platform and API payment instructions. Assigned a developer to export and analyse all instruction data from production. Complete inventory documented across all regional variants.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Alignment</div>
+                                    <div class="timeline-title">Stakeholder Sign-Off &amp; Mirroring Decision</div>
+                                    <div class="timeline-desc">I drove group consensus that API instructions should mirror the web platform content exactly. Obtained sign-off via formal email chain with all stakeholders confirming the approach.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Pause Period</div>
+                                    <div class="timeline-title">Infrastructure Migration Priority</div>
+                                    <div class="timeline-desc">Platform-wide AWS and PHP migration took priority. Project paused for several months while the team was reallocated to critical infrastructure work.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Resumed</div>
+                                    <div class="timeline-title">Deep Comparison &amp; Implementation</div>
+                                    <div class="timeline-desc">I performed a full difference audit between college links and API instructions, producing a discrepancy document with changes marked. Development completed and tested on internal environment.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 1 &mdash; Release</div>
+                                    <div class="timeline-title">Alignment Go-Live</div>
+                                    <div class="timeline-desc">Instruction alignment released to production. QA confirmed parity across all regions. Minor version discrepancy in one region identified and documented for follow-up.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Analysis</div>
+                                    <div class="timeline-title">Root Cause Analysis &amp; Solution Design</div>
+                                    <div class="timeline-desc">I identified that the HTML approach conflates data with presentation. Designed the layered solution: structured XML for client-side rendering plus hosted page for zero-effort integration.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; BRD</div>
+                                    <div class="timeline-title">BRD &amp; Technical Artifacts</div>
+                                    <div class="timeline-desc">I authored the full BRD covering structured XML specification, XSD schema, 15 sample payloads, hosted page architecture with JWT security, wireframes for all 5 regions, and interaction specifications.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Prototyping</div>
+                                    <div class="timeline-title">HTML Mockups &amp; Validation</div>
+                                    <div class="timeline-desc">I produced two static HTML/CSS mockups &mdash; one for the redirect flow (regional provider data) and one for the API flow (default region). Used for stakeholder validation of the visual approach.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Phase 2 &mdash; Partner</div>
+                                    <div class="timeline-title">Regional Provider Instruction Amendments</div>
+                                    <div class="timeline-desc">I coordinated amendments to the Chinese payment instructions with the external payment partner. Organised alignment meetings and managed the validation process end-to-end.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Ongoing</div>
+                                    <div class="timeline-title">Development &amp; Deprecation Planning</div>
+                                    <div class="timeline-desc">Structured XML implementation in active development. 12-month dual-format deprecation period planned. Migration guides being prepared for all API clients.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Structured XML payment_instructions element (namespace-versioned)</li>
+                                        <li>TM-hosted payment instructions page with JWT authentication</li>
+                                        <li>5 regional variants: Default, India, China, Brazil, South Africa</li>
+                                        <li>14 language support with bilingual content handling</li>
+                                        <li>XSD schema and API specification documentation</li>
+                                        <li>Copy-to-clipboard for IBAN, BIC, reference, and amount fields</li>
+                                        <li>Severity-typed warnings (critical, warning, info)</li>
+                                        <li>12-month deprecation timeline for legacy HTML blob</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Third-party partner-managed instruction content</li>
+                                        <li>Changes to bank account details or routing</li>
+                                        <li>CRM system modifications</li>
+                                        <li>Rewriting general instruction text (structure changes only)</li>
+                                        <li>Partner portal rendering changes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Layered solution providing two integration paths for API clients.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Current State -->
+                                    <rect x="20" y="20" width="240" height="380" rx="16" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="140" y="48" text-anchor="middle" font-size="11" fill="#e94560" font-weight="700" letter-spacing="1">LEGACY (HTML BLOB)</text>
+
+                                    <!-- Center zone: New Structured Layer -->
+                                    <rect x="300" y="20" width="240" height="380" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="420" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">LAYER 1: STRUCTURED XML</text>
+
+                                    <!-- Right zone: Hosted Page -->
+                                    <rect x="580" y="20" width="240" height="380" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#3498db" font-weight="700" letter-spacing="1">LAYER 2: HOSTED PAGE</text>
+
+                                    <!-- Legacy boxes -->
+                                    <rect x="40" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">HTML with CSS Classes</text>
+                                    <text x="140" y="118" text-anchor="middle" font-size="9" fill="#999">Depends on unavailable stylesheet</text>
+
+                                    <rect x="40" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Data Mixed with Presentation</text>
+                                    <text x="140" y="188" text-anchor="middle" font-size="9" fill="#999">Bank details inside HTML blob</text>
+
+                                    <rect x="40" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">No Structured Fields</text>
+                                    <text x="140" y="258" text-anchor="middle" font-size="9" fill="#999">Clients must parse HTML</text>
+
+                                    <rect x="40" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="140" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Broken Rendering</text>
+                                    <text x="140" y="328" text-anchor="middle" font-size="9" fill="#999">On all partner surfaces</text>
+
+                                    <!-- Structured XML boxes -->
+                                    <rect x="320" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">bank_account Element</text>
+                                    <text x="420" y="118" text-anchor="middle" font-size="9" fill="#999">IBAN, BIC, beneficiary</text>
+
+                                    <rect x="320" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">payment_reference</text>
+                                    <text x="420" y="188" text-anchor="middle" font-size="9" fill="#999">Reference + amount + currency</text>
+
+                                    <rect x="320" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">warnings + deadline</text>
+                                    <text x="420" y="258" text-anchor="middle" font-size="9" fill="#999">Severity-typed, ISO 8601</text>
+
+                                    <rect x="320" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="420" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">partner + documents</text>
+                                    <text x="420" y="328" text-anchor="middle" font-size="9" fill="#999">Regional PSP + required docs</text>
+
+                                    <!-- Hosted page boxes -->
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">JWT Token Auth</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">HMAC-SHA256, 48h expiry</text>
+
+                                    <rect x="600" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="172" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Server-Side Rendering</text>
+                                    <text x="700" y="188" text-anchor="middle" font-size="9" fill="#999">No bank details in JS</text>
+
+                                    <rect x="600" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="242" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Copy-to-Clipboard</text>
+                                    <text x="700" y="258" text-anchor="middle" font-size="9" fill="#999">IBAN, BIC, ref, amount</text>
+
+                                    <rect x="600" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="312" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Branded Experience</text>
+                                    <text x="700" y="328" text-anchor="middle" font-size="9" fill="#999">Responsive, all regions</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(52,152,219,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="244" y1="200" x2="316" y2="200" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="524" y1="200" x2="596" y2="200" stroke="rgba(52,152,219,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+
+                                    <!-- Bottom label -->
+                                    <text x="420" y="400" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Both layers coexist during 12-month deprecation period</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Phase 1</td>
+                                        <td><strong>Mirror web platform instructions on API.</strong> Stakeholder consensus that API should use identical instruction text to the web platform as an immediate alignment step.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Additive structured XML element &mdash; no new API version.</strong> New element appears as a sibling; clients detect via presence. Existing parsers see no change whatsoever.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Namespace-versioned schema (v1).</strong> Enables future breaking changes without affecting existing parsers. Follows XML best practice for extensibility.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>JWT token contains NO bank details.</strong> Only transaction ID reference stored in token; financial data fetched server-side. Eliminates data exposure risk.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>12-month minimum deprecation period.</strong> Both HTML blob and structured XML present simultaneously during transition. Gives clients adequate migration runway.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phase 2</td>
+                                        <td><strong>Two migration paths offered.</strong> Clients choose: parse structured XML (medium effort, full control) or redirect to hosted page (low effort, no control). Accommodates different client capabilities.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Security-first architecture with comprehensive artifact validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Phase 1 QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Tested on internal and production environments. All regional variants verified.</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Security Measures</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Designed</p>
+                                    <p>HTTPS/HSTS, rate limiting (60/min per-IP), CSP frame-ancestors none, no-referrer policy</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Artifact Coverage</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Complete</p>
+                                    <p>XSD, data model, API spec, 15 payloads, wireframes, interactions, 2 mockups</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Artifact Complete</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Phase 1</strong> alignment released and production-tested</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">XSD schema</strong> and 15 sample payloads validated</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Security spec:</strong> JWT, rate limiting, HSTS, CSP, no bank details in URLs</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Wireframes</strong> for all 5 regions, error states, and mobile viewports</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Layered Solution Architecture</h4>
+                                    <p>Offering two integration paths (structured XML for full control vs. hosted page for zero effort) accommodates the full spectrum of client technical capability &mdash; from sophisticated platforms with custom renderers to small colleges that just need a redirect URL.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Backward Compatibility Preserved</h4>
+                                    <p>By making the structured XML purely additive and running both formats in parallel for 12 months, the project eliminates integration risk for existing clients while enabling a clear migration path forward.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Infrastructure Pause Caused Re-Analysis</h4>
+                                    <p>A platform-wide infrastructure migration paused Phase 1 for several months. When work resumed, a full re-analysis was required because initial context had been lost. Documentation became critical for continuity.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Regional Complexity Is a Product in Itself</h4>
+                                    <p>India requires 6-step processes, 11 documents, TCS tax, and relative eligibility rules. China needs dual bank accounts and full bilingual content. Each regional variant is essentially a separate product requiring dedicated analysis.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Data-Presentation Coupling in Legacy APIs</h4>
+                                    <p>The original API was designed when all instructions rendered inside the internal web application. When extended to serve external clients, the HTML was reused without removing the stylesheet dependency &mdash; a pattern that created years of poor client experience.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I Would Do Differently</h4>
+                                    <p>Would have pushed for the structured data approach from the start rather than the intermediate alignment step. While the phased approach was politically necessary for stakeholder buy-in, the technical debt of maintaining the HTML blob format adds ongoing complexity that could have been avoided with a more ambitious initial proposal.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: API Payment Instructions Rework</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: Multi-Phase Lifecycle &bull; 5 Regions &bull; 14 Languages</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-escrow-api-clients.html"><i class="fa-solid fa-arrow-left"></i> Escrow for API Clients</a>
+        <a href="case-study-email-notification-templates-rework.html">Email Notification Templates Rework <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

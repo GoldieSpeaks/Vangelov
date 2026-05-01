@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Invoice Payments Agent Flow — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Invoice Payments Agent Flow. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Invoice Payments Agent Flow</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">10Month</span>
+                                    <span class="banner-tag">7 Versions</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Invoice Payments Agent Flow</div>
+                            <div class="hero-subtitle">I designed and delivered a B2B invoice payment channel for partner agencies via API &mdash; <strong>enabling agents to submit bank-transfer payments against invoices with custom margin configurations</strong>.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I led a complex product initiative spanning nearly a year, authoring seven iterations of business requirements documentation, managing dual-team sign-off from both the web platform and CRM engineering teams, resolving legacy field-length constraints, and coordinating across four release cycles before reaching production.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created the epic and authored the user story with full acceptance criteria defining the agent invoice payment flow end-to-end</li>
+                                    <li>Wrote and iterated the Business Requirements Document through seven versions, incorporating feedback from both engineering teams and product stakeholders</li>
+                                    <li>Produced the process flow diagram mapping the complete payment lifecycle from invoice creation through settlement</li>
+                                    <li>Managed dual-team sign-off &mdash; coordinated BRD approval between the web platform team and CRM engineering team simultaneously</li>
+                                    <li>Navigated legacy system constraints: identified and resolved field-length inconsistencies between the API layer and downstream processing systems</li>
+                                    <li>Managed release version assignments across four release cycles as the project moved through development, testing, and staged rollout</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="10" data-suffix="-Month">10-Month</span>
+                                <span class="stat-label">End-to-End Lifecycle</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="7" data-suffix=" Versions">7 Versions</span>
+                                <span class="stat-label">BRD Iterations</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128101;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Teams">2 Teams</span>
+                                <span class="stat-label">Dual Sign-Off Required</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number">Bank Transfer</span>
+                                <span class="stat-label">Payment Method</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from manual invoice processing to a self-service API-driven payment channel for partner agencies.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Agencies had no self-service invoice payment capability</li>
+                                        <li>Invoice payments required manual internal processing</li>
+                                        <li>No configurable margin structure per agency</li>
+                                        <li>Field-length mismatches caused validation failures across systems</li>
+                                        <li>No standardized process flow documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Agents submit invoice payments directly via API</li>
+                                        <li>Bank transfer payments processed automatically</li>
+                                        <li>Custom margin configuration per agency partnership</li>
+                                        <li>Unified validation layer across all systems</li>
+                                        <li>Complete process flow from invoice to settlement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Opened an entirely new B2B payment channel, enabling partner agencies to self-serve invoice payments through the API for the first time</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I introduced a complete invoice payment flow for partner agencies, enabling them to submit bank-transfer payments against invoices via the API. I coordinated delivery across the web platform (API endpoints, validation, payment processing) and the CRM system (agency configuration, margin setup, settlement tracking).</p>
+                                <p>I drove exceptional requirements discipline: I iterated through seven BRD versions to resolve ambiguities, align both engineering teams, and navigate legacy system constraints &mdash; particularly around field-length inconsistencies between the API input layer and downstream processing systems that had accumulated over years of independent evolution.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">After nearly a year of careful specification, dual-team development, and staged rollout that I managed end-to-end, the feature went live &mdash; delivering a self-service payment channel that eliminated manual invoice processing for the agent network.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">A deliberate, methodical delivery across nearly a year &mdash; reflecting the complexity of multi-team alignment and legacy system integration.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Jun 2023</div>
+                                    <div class="timeline-title">Epic Creation &amp; Initial Specification</div>
+                                    <div class="timeline-desc">I created the epic with user story and acceptance criteria. I drafted the initial BRD covering the agent invoice payment flow, payment method (bank transfer only), and margin configuration requirements.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Jul 2023</div>
+                                    <div class="timeline-title">BRD Iterations &amp; Stakeholder Alignment</div>
+                                    <div class="timeline-desc">I produced multiple BRD revisions addressing feedback from both engineering teams. I refined field-level specifications and produced the process flow diagram mapping the complete payment lifecycle.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Aug 2023</div>
+                                    <div class="timeline-title">Legacy Constraint Discovery</div>
+                                    <div class="timeline-desc">I identified field-length inconsistencies between the API validation layer and downstream processing systems. I conducted extensive analysis to determine which system's constraints should take precedence.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Sep 2023</div>
+                                    <div class="timeline-title">Final BRD Sign-Off</div>
+                                    <div class="timeline-desc">I secured approval for Version 7 of the BRD. I achieved dual-team sign-off from both the web platform team and CRM engineering team. I drove agreement on the validation layer approach: new API validation would enforce the stricter of both systems' constraints.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Oct 2023</div>
+                                    <div class="timeline-title">Development Commenced</div>
+                                    <div class="timeline-desc">I kicked off parallel development streams: API endpoints and validation logic on the web platform side; agency configuration and margin management on the CRM side. I assigned the first release version.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Dec 2023</div>
+                                    <div class="timeline-title">API Layer Complete</div>
+                                    <div class="timeline-desc">I oversaw core API endpoints being developed: invoice submission, payment status, validation responses. The new validation layer enforcing unified field constraints went live across both systems. I reassigned the release version to accommodate the timeline.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Feb 2024</div>
+                                    <div class="timeline-title">CRM Integration Complete</div>
+                                    <div class="timeline-desc">I confirmed agency margin configuration, settlement tracking, and payment reconciliation modules completed on the CRM side. The end-to-end flow was now connected between both platforms. I made the third release version assignment.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Mar 2024</div>
+                                    <div class="timeline-title">Integration Testing</div>
+                                    <div class="timeline-desc">I coordinated full end-to-end testing across both systems. I verified validation edge cases and tested the payment flow from invoice creation through bank transfer submission to settlement confirmation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Apr 2024</div>
+                                    <div class="timeline-title">User Acceptance &amp; Staging</div>
+                                    <div class="timeline-desc">I completed UAT with representative agency scenarios. I assigned the final release version and agreed the staged deployment plan between both teams to minimize production risk.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 2024</div>
+                                    <div class="timeline-title">Production Release</div>
+                                    <div class="timeline-desc">I released the feature to production. Partner agencies were enabled to submit invoice payments via API. I activated custom margin configurations per agency. Settlement flow became operational end-to-end.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>API endpoints for invoice payment submission</li>
+                                        <li>Bank transfer payment method support</li>
+                                        <li>Custom margin configuration per agency</li>
+                                        <li>Unified field validation across API and downstream systems</li>
+                                        <li>Agency configuration in CRM</li>
+                                        <li>Settlement tracking and reconciliation</li>
+                                        <li>Process flow documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Card payment methods (future phase)</li>
+                                        <li>Refund processing (deferred to separate initiative)</li>
+                                        <li>Agent-facing UI portal</li>
+                                        <li>Multi-currency settlement in single transaction</li>
+                                        <li>Automated invoice generation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-system payment flow: from agent API submission through validation, processing, and settlement.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Agent Layer -->
+                                    <rect x="20" y="20" width="180" height="380" rx="16" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.2)" stroke-width="1.5"/>
+                                    <text x="110" y="50" text-anchor="middle" font-size="11" fill="#9b59b6" font-weight="700" letter-spacing="1">AGENT LAYER</text>
+
+                                    <!-- API Platform -->
+                                    <rect x="230" y="20" width="260" height="380" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="360" y="50" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API PLATFORM</text>
+
+                                    <!-- CRM System -->
+                                    <rect x="520" y="20" width="200" height="380" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="620" y="50" text-anchor="middle" font-size="11" fill="#3498db" font-weight="700" letter-spacing="1">CRM SYSTEM</text>
+
+                                    <!-- Settlement -->
+                                    <rect x="750" y="20" width="150" height="380" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="825" y="50" text-anchor="middle" font-size="11" fill="#f39c12" font-weight="700" letter-spacing="1">SETTLEMENT</text>
+
+                                    <!-- Agent boxes -->
+                                    <rect x="40" y="80" width="140" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(155,89,182,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Partner Agency</text>
+                                    <text x="110" y="118" text-anchor="middle" font-size="9" fill="#999">API Consumer</text>
+
+                                    <rect x="40" y="160" width="140" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(155,89,182,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Invoice Reference</text>
+                                    <text x="110" y="198" text-anchor="middle" font-size="9" fill="#999">Payment Amount</text>
+
+                                    <rect x="40" y="250" width="140" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(155,89,182,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="272" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Bank Transfer</text>
+                                    <text x="110" y="288" text-anchor="middle" font-size="9" fill="#999">Payment Method</text>
+
+                                    <!-- API boxes -->
+                                    <rect x="250" y="80" width="130" height="48" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="315" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Submission</text>
+                                    <text x="315" y="114" text-anchor="middle" font-size="9" fill="#999">Endpoint</text>
+
+                                    <rect x="250" y="150" width="130" height="48" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="315" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Validation Layer</text>
+                                    <text x="315" y="184" text-anchor="middle" font-size="9" fill="#999">Unified Constraints</text>
+
+                                    <rect x="250" y="225" width="130" height="48" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="315" y="245" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment</text>
+                                    <text x="315" y="259" text-anchor="middle" font-size="9" fill="#999">Processing</text>
+
+                                    <rect x="395" y="150" width="80" height="48" rx="10" fill="rgba(233,69,96,0.08)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="435" y="170" text-anchor="middle" font-size="10" fill="#e94560" font-weight="600">Reject</text>
+                                    <text x="435" y="184" text-anchor="middle" font-size="9" fill="#e94560">Invalid</text>
+
+                                    <rect x="250" y="300" width="130" height="48" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="315" y="320" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status API</text>
+                                    <text x="315" y="334" text-anchor="middle" font-size="9" fill="#999">Payment Tracking</text>
+
+                                    <!-- CRM boxes -->
+                                    <rect x="540" y="80" width="160" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="620" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Agency Config</text>
+                                    <text x="620" y="118" text-anchor="middle" font-size="9" fill="#999">Margin Setup</text>
+
+                                    <rect x="540" y="160" width="160" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="620" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Records</text>
+                                    <text x="620" y="198" text-anchor="middle" font-size="9" fill="#999">Transaction Matching</text>
+
+                                    <rect x="540" y="250" width="160" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="620" y="272" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Reconciliation</text>
+                                    <text x="620" y="288" text-anchor="middle" font-size="9" fill="#999">Invoice Matching</text>
+
+                                    <!-- Settlement boxes -->
+                                    <rect x="765" y="100" width="120" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="2"/>
+                                    <text x="825" y="122" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Bank Processing</text>
+                                    <text x="825" y="138" text-anchor="middle" font-size="9" fill="#999">Transfer Execution</text>
+
+                                    <rect x="765" y="200" width="120" height="52" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="2"/>
+                                    <text x="825" y="222" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Confirmation</text>
+                                    <text x="825" y="238" text-anchor="middle" font-size="9" fill="#999">Settlement Status</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrP" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(155,89,182,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(52,152,219,0.7)"/></marker>
+                                        <marker id="arrO" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(243,156,18,0.7)"/></marker>
+                                    </defs>
+                                    <!-- Agent to API -->
+                                    <line x1="180" y1="106" x2="246" y2="100" stroke="rgba(155,89,182,0.5)" stroke-width="2" marker-end="url(#arrP)"/>
+                                    <line x1="180" y1="186" x2="246" y2="170" stroke="rgba(155,89,182,0.4)" stroke-width="1.5" marker-end="url(#arrP)"/>
+                                    <!-- API internal flow -->
+                                    <line x1="315" y1="128" x2="315" y2="146" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="315" y1="198" x2="315" y2="221" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <!-- API to CRM -->
+                                    <line x1="380" y1="245" x2="536" y2="180" stroke="rgba(52,152,219,0.4)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                    <line x1="380" y1="255" x2="536" y2="270" stroke="rgba(52,152,219,0.4)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrB)"/>
+                                    <!-- CRM to Settlement -->
+                                    <line x1="700" y1="270" x2="761" y2="220" stroke="rgba(243,156,18,0.4)" stroke-width="1.5" marker-end="url(#arrO)"/>
+                                    <line x1="700" y1="106" x2="761" y2="120" stroke="rgba(243,156,18,0.4)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrO)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead><tr><th style="width:100px">When</th><th>Decision</th><th style="width:100px">Type</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Month 1</td><td><strong>Bank transfer only at launch.</strong> Scoped initial release to bank transfers only, deferring card payments to a future phase. Reduced integration complexity and allowed faster time-to-market for the core use case.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Month 2</td><td><strong>Dual-team BRD sign-off required.</strong> Both the web platform and CRM engineering teams must approve the final BRD before development begins. Ensured alignment and prevented mid-development specification disputes.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                    <tr><td>Month 3</td><td><strong>New validation layer enforcing strictest constraints.</strong> Rather than relaxing legacy limits or forcing API limits downstream, built a new validation layer that enforces the stricter of both systems' field-length rules.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>Month 4</td><td><strong>Custom margin configuration per agency.</strong> Each partner agency gets individually configured margin rates rather than a flat global rate. Enables differentiated pricing strategies per partnership tier.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Month 8</td><td><strong>Refund processing deferred to separate initiative.</strong> Consciously excluded refund flows from this release to maintain scope discipline. Documented as a follow-on initiative with its own BRD cycle.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-stage testing across integration, UAT, and production environments with dual-team validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1"><b>API Validation</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Field constraints verified across both systems</p></div>
+                                <div class="col2"><b>End-to-End Flow</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Invoice to settlement verified</p></div>
+                                <div class="col3"><b>UAT Sign-Off</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Representative agency scenarios</p></div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Seven</strong> BRD iterations ensured specification completeness before development</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Dual-team</strong> validation at every stage from BRD through production release</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Field-length</strong> validation unified across API and legacy downstream systems</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Staged rollout</strong> minimized production risk across agency activations</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Exhaustive BRD Process Prevented Development Rework</h4>
+                                    <p>Seven iterations sounds excessive, but each round caught ambiguities that would have caused costly mid-development changes. By the time coding started, both teams had zero specification questions &mdash; development proceeded smoothly without requirement disputes.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Scope Discipline on Refund Deferral</h4>
+                                    <p>The temptation to include refund processing was strong, but deferring it kept the release timeline achievable. A 10-month project would have become 14+ months with refunds included, and the core payment flow provided immediate value without it.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Legacy Field-Length Inconsistencies</h4>
+                                    <p>Years of independent system evolution left field constraints misaligned between the API layer and downstream processing. Discovery came late (month 3) and required diplomatic negotiation between teams who each believed their system's limits were correct.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Dual-Team Sign-Off Adds Time but Saves Rework</h4>
+                                    <p>Requiring both teams to approve the BRD added weeks to the specification phase. However, it completely eliminated the "we weren't consulted" objections that typically derail multi-team projects during integration testing.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Four Release Cycle Reassignments</h4>
+                                    <p>The project was reassigned across four different release versions as timelines shifted. Each reassignment created administrative overhead and stakeholder expectation management. A longer initial timeline estimate would have avoided the perception of repeated delays.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have conducted a field-constraint audit across all integrated systems at the very start of the BRD process, before writing any functional requirements. Discovering the inconsistencies in month 3 forced a significant BRD rework that could have been absorbed into the initial drafts if known upfront.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Invoice Payments Agent Flow</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 10-Month Lifecycle &bull; Multi-Team Delivery</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-publisher-payment-portal.html"><i class="fa-solid fa-arrow-left"></i> Publisher Payment Portal</a>
+        <a href="case-study-multiple-currency-bank-transfer.html">Multiple Currency Bank Transfers <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

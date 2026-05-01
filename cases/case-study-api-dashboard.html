@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Client Analytics Dashboard — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Client Analytics Dashboard. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Client Analytics Dashboard</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Terminal window -->
+                                <rect x="10" y="8" width="120" height="85" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="16" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="27" cy="16" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="34" cy="16" r="2" fill="#3498db" opacity="0.2"/>
+                                <!-- POST request line -->
+                                <text x="16" y="30" font-family="monospace" font-size="5.5" fill="#3498db" opacity="0.7">POST /api/v2/analytics</text>
+                                <!-- JSON body -->
+                                <text x="16" y="40" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">{</text>
+                                <text x="22" y="48" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"client_id": "***",</text>
+                                <text x="22" y="56" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"metrics": ["volume",</text>
+                                <text x="22" y="64" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">  "success_rate"],</text>
+                                <text x="22" y="72" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"period": "30d"</text>
+                                <text x="16" y="80" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">}</text>
+                                <!-- Response block -->
+                                <rect x="145" y="15" width="100" height="55" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.2)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="monospace" font-size="5" fill="#3498db" opacity="0.5">200 OK</text>
+                                <rect x="152" y="32" width="60" height="3" rx="1" fill="#3498db" opacity="0.12"/>
+                                <rect x="152" y="38" width="45" height="3" rx="1" fill="#3498db" opacity="0.09"/>
+                                <rect x="152" y="44" width="70" height="3" rx="1" fill="#3498db" opacity="0.07"/>
+                                <rect x="152" y="50" width="35" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <rect x="152" y="56" width="55" height="3" rx="1" fill="#3498db" opacity="0.05"/>
+                                <!-- Arrow connecting request to response -->
+                                <line x1="133" y1="45" x2="142" y2="40" stroke="#3498db" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="140,38 145,40 140,42" fill="#3498db" opacity="0.3"/>
+                                <!-- Chart bars at bottom right -->
+                                <rect x="155" y="95" width="8" height="18" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="167" y="88" width="8" height="25" rx="1" fill="#3498db" opacity="0.2"/>
+                                <rect x="179" y="82" width="8" height="31" rx="1" fill="#3498db" opacity="0.25"/>
+                                <rect x="191" y="78" width="8" height="35" rx="1" fill="#3498db" opacity="0.18"/>
+                                <rect x="203" y="85" width="8" height="28" rx="1" fill="#3498db" opacity="0.12"/>
+                                <!-- Floating dots -->
+                                <circle cx="240" cy="20" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="250" cy="35" r="1" fill="#3498db" opacity="0.1"/>
+                                <circle cx="20" cy="105" r="1.5" fill="#3498db" opacity="0.12"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Product Strategy</span>
+                                    <span class="banner-tag">Analytics Platform</span>
+                                </div>
+                                <a href="https://www.transfermate.com/post/transfermate-launches-api-dashboard-for-education-partners" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> API Dashboard Launch <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://www.transfermate.com/post/education-api-updates-user-management-and-mobile-responsiveness" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> API Updates: User Management <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Product Strategy &amp; Design</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Client Analytics Dashboard</div>
+                            <div class="hero-subtitle">I designed and delivered a self-service <strong>Payment Analytics Dashboard</strong> for thousands of API-integrated clients &mdash; closing a critical competitive gap that was directly causing client churn, securing C-level approval from three executives, and eliminating a manual process that required 3 FTEs at peak volume.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">API clients had no visual analytics, reporting tools, or self-service dashboard &mdash; only raw API endpoints. Competitors already offered this capability. I took this from demand request through wireframing, BRD, front-end prototyping, penetration testing, MVP release, client feedback, and a full design overhaul &mdash; delivering the MVP within 14 months and driving adoption that led to Phase 2 expansion.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created all wireframes and established the initial design direction for the entire dashboard</li>
+                                    <li>Created all low-fidelity wireframes and UX designs for login, account creation, and dashboard pages</li>
+                                    <li>Co-authored the functional specification (BRD) with the business analyst, defining payment display logic, analytics requirements, and integration architecture</li>
+                                    <li>Drove the ISO 27001 penetration testing process end-to-end &mdash; identified the compliance requirement, sourced vendors, managed SOW approval, and coordinated the security assessment</li>
+                                    <li>Led the design overhaul initiative &mdash; gathered client feedback, proposed visual improvements, and secured multi-stakeholder approval from COO, International Commercial Director, and CPO</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="14" data-suffix="-Month">14-Month</span>
+                                <span class="stat-label">Demand to Live</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128100;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" FTEs">3 FTEs</span>
+                                <span class="stat-label">Manual Process Eliminated</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128274;</span>
+                                <span class="stat-number">Pen-Tested</span>
+                                <span class="stat-label">ISO 27001 Validated</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127942;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Execs">3 Execs</span>
+                                <span class="stat-label">C-Level Approved</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from zero self-service capability to a comprehensive analytics platform.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No self-service analytics for API-integrated clients</li>
+                                        <li>Manual data requests required for any reporting</li>
+                                        <li>Competitive disadvantage causing client churn</li>
+                                        <li>Manual reconciliation processes requiring dedicated staff</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Self-service dashboard available to all API clients</li>
+                                        <li>Real-time payment analytics and multi-currency views</li>
+                                        <li>Competitive parity achieved &mdash; client churn risk mitigated</li>
+                                        <li>Automated reporting with CSV and PDF exports</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated a manual process requiring 3 full-time staff at peak volume</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I delivered a self-service Payment Analytics Dashboard for thousands of API-integrated clients across the education payments ecosystem. These clients previously had no visual analytics, no reporting tools, and no self-service dashboard &mdash; only raw API endpoints. This competitive gap was directly causing client churn.</p>
+                                <p>I drove the project through demand capture, wireframing, BRD co-authoring, front-end prototyping, back-end integration oversight, penetration testing coordination, MVP release, client feedback synthesis, and a design overhaul. The MVP went live within 14 months. Penetration testing returned only 1 informational finding (ISO 27001 compliant).</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I gathered client feedback that drove a design overhaul senior stakeholders described as &ldquo;so much cleaner.&rdquo; Phase 2 includes a disbursements feature projected to eliminate a process requiring 3 full-time staff at peak season. I secured C-level approval from the COO, International Commercial Director, and CPO.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery from demand request through MVP release, client feedback, and design overhaul.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 1-2</div>
+                                    <div class="timeline-title">Demand Request &amp; Wireframing</div>
+                                    <div class="timeline-desc">Business leadership submitted demand request. I conducted scoping calls and created all initial wireframes, establishing the visual direction and layout structure for the entire dashboard.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 3-4</div>
+                                    <div class="timeline-title">Analysis &amp; Specification</div>
+                                    <div class="timeline-desc">I co-authored the functional specification (BRD) with the Business Analyst, covering account management, payment display logic, multi-currency analytics, and integration requirements.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 5</div>
+                                    <div class="timeline-title">Sign-Off &amp; Assignment</div>
+                                    <div class="timeline-desc">BRD signed off by business stakeholders. Development assigned to lead developer. QA engineer assigned for testing. Privacy impact assessment initiated.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 5-8</div>
+                                    <div class="timeline-title">UX Design &amp; Wireframing</div>
+                                    <div class="timeline-desc">I created low-fidelity wireframes and UX designs for login, account creation, and main dashboard pages. Iterative stakeholder feedback refined the designs. I prepared the pilot client list for data validation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 8-10</div>
+                                    <div class="timeline-title">Back-End Integration</div>
+                                    <div class="timeline-desc">Database integration connecting platform core and back-office data. Account creation logic, payment data display, multi-currency analytics, and reporting modules developed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 10</div>
+                                    <div class="timeline-title">Pen Testing Vendor Engagement</div>
+                                    <div class="timeline-desc">I identified the ISO 27001 compliance requirement, sourced security vendors, and managed the Statement of Work approval process. Separate test environment configured.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 11-14</div>
+                                    <div class="timeline-title">Security Assessment</div>
+                                    <div class="timeline-desc">External vendor conducted comprehensive web application penetration testing. Only 1 informational finding reported &mdash; no critical, high, or medium vulnerabilities. ISO 27001 compliance validated.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 14</div>
+                                    <div class="timeline-title">MVP Release</div>
+                                    <div class="timeline-desc">Dashboard released to initial client base. Master accounts created and distributed. Client feedback collection began immediately post-launch.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 15-20</div>
+                                    <div class="timeline-title">Client Feedback &amp; Iteration</div>
+                                    <div class="timeline-desc">Pilot clients provided structured feedback on usability, visual design, and feature gaps. I synthesised findings and proposed an improvement roadmap to stakeholders.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 20+</div>
+                                    <div class="timeline-title">Design Overhaul &amp; Phase 2</div>
+                                    <div class="timeline-desc">Major design overhaul approved by COO, International Commercial Director, and CPO. Phase 2 scope includes disbursements, white-label co-branding, year-over-year statistics, and accommodation provider integration.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Payment Analytics Dashboard for API-integrated clients</li>
+                                        <li>Multi-currency payment data display and analytics</li>
+                                        <li>Account management (master and sub-accounts)</li>
+                                        <li>Role-based access control and permissions</li>
+                                        <li>Report exports (CSV, PDF)</li>
+                                        <li>Penetration testing and ISO 27001 security assessment</li>
+                                        <li>RAID log and privacy impact assessment</li>
+                                        <li>Client pilot and feedback collection</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope (Phase 1)</h4>
+                                    <ul>
+                                        <li>Disbursement tracking (deferred to Phase 2)</li>
+                                        <li>White-label co-branding (deferred to Phase 2)</li>
+                                        <li>Year-over-year statistics (deferred to Phase 2)</li>
+                                        <li>Accommodation provider integration (deferred to Phase 2)</li>
+                                        <li>Partner-facing portals</li>
+                                        <li>Existing web payment platform client dashboards</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Data flow between platform components serving the client analytics dashboard.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: API Clients -->
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API CLIENTS</text>
+
+                                    <!-- Center zone: Platform Core -->
+                                    <rect x="260" y="20" width="280" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM CORE</text>
+
+                                    <!-- Right zone: Dashboard Output -->
+                                    <rect x="580" y="20" width="240" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">DASHBOARD OUTPUT</text>
+
+                                    <!-- API Clients boxes -->
+                                    <rect x="40" y="80" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Traffic</text>
+                                    <text x="120" y="120" text-anchor="middle" font-size="9" fill="#999">API Transactions</text>
+
+                                    <rect x="40" y="155" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client Accounts</text>
+                                    <text x="120" y="195" text-anchor="middle" font-size="9" fill="#999">Master + Sub</text>
+
+                                    <rect x="40" y="230" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Data Requests</text>
+                                    <text x="120" y="270" text-anchor="middle" font-size="9" fill="#999">Reports &amp; Exports</text>
+
+                                    <!-- Platform Core boxes -->
+                                    <rect x="285" y="80" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Transaction Database</text>
+                                    <text x="400" y="120" text-anchor="middle" font-size="9" fill="#999">Payment data source of truth</text>
+
+                                    <rect x="285" y="155" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Analytics Engine</text>
+                                    <text x="400" y="195" text-anchor="middle" font-size="9" fill="#999">Multi-currency aggregation</text>
+
+                                    <rect x="285" y="230" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Account Management</text>
+                                    <text x="400" y="270" text-anchor="middle" font-size="9" fill="#999">Roles, permissions, hierarchy</text>
+
+                                    <!-- Dashboard Output boxes -->
+                                    <rect x="600" y="80" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Analytics UI</text>
+                                    <text x="700" y="120" text-anchor="middle" font-size="9" fill="#999">Charts, filters, views</text>
+
+                                    <rect x="600" y="155" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Reports</text>
+                                    <text x="700" y="195" text-anchor="middle" font-size="9" fill="#999">CSV / PDF Exports</text>
+
+                                    <rect x="600" y="230" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">User Management</text>
+                                    <text x="700" y="270" text-anchor="middle" font-size="9" fill="#999">Master + Sub Accounts</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="107" x2="281" y2="107" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="182" x2="281" y2="182" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="257" x2="281" y2="257" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="107" x2="596" y2="107" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="182" x2="596" y2="182" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="257" x2="596" y2="257" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Interconnecting lines within Platform Core -->
+                                    <line x1="400" y1="135" x2="400" y2="155" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="210" x2="400" y2="230" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Single domain for all dashboard users.</strong> Simplified infrastructure; one entry point for all API client types rather than per-client instances.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Master/sub-account hierarchy based on client file IDs.</strong> Aligned with existing back-office data model; enabled multi-beneficiary views without schema changes.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Exclude bank account data from dashboard.</strong> Not relevant for client reporting needs; reduced compliance exposure significantly.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>I owned UX design and wireframing directly.</strong> Accelerated delivery by removing handoff delays; enabled rapid iteration on UI feedback.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>External penetration testing before MVP release.</strong> ISO 27001 compliance required for applications hosting sensitive payment data. I sourced the vendor and managed the SOW.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 15+</td>
+                                        <td><strong>Design overhaul post-MVP based on client feedback.</strong> Initial design identified as functional but lacking polish; C-level stakeholders approved cleaner layout direction.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Security-first testing approach with external penetration testing before release.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Internal QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>All functional tests verified across payment flows, account management, and reporting modules</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Penetration Testing</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Only 1 informational finding &mdash; no critical, high, or medium vulnerabilities. ISO 27001 compliant.</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Client Pilot</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Positive</p>
+                                    <p>Pilot clients adopted dashboard; feedback drove design overhaul that stakeholders called "so much cleaner"</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All</strong> internal QA tests passed</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Pen test:</strong> 1 informational finding only (ISO 27001 compliant)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Client pilot:</strong> Positive adoption and structured feedback received</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Design overhaul</strong> approved by 3 C-level stakeholders</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Phased MVP Strategy</h4>
+                                    <p>Releasing an MVP early allowed the team to collect real client feedback before investing heavily in design polish. This ultimately led to a more informed design overhaul that received enthusiastic stakeholder approval rather than guessing at improvements in isolation.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Security-First Approach</h4>
+                                    <p>Engaging a penetration testing vendor before the first release ensured ISO 27001 compliance and surfaced only one informational finding. This validated the development approach and gave stakeholders confidence in the platform's security posture from day one.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Scope Expansion Required Active Management</h4>
+                                    <p>Post-MVP, the project scope expanded significantly with white-labelling, disbursements, accommodation providers, and year-over-year analytics. Each required separate BRD iterations. Active scope management prevented uncontrolled creep while still responding to genuine business needs.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Data Model Alignment Needed Earlier</h4>
+                                    <p>The mismatch between back-office client file IDs and API client structures created integration complexity. Earlier alignment workshops between the back-office and platform teams would have reduced friction and accelerated the integration phase.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Design Debt from MVP Speed</h4>
+                                    <p>Prioritising functional delivery over visual polish in the MVP created design debt that required a full overhaul. While the phased approach was correct, the gap between "functional" and "production-quality" design was larger than anticipated and required dedicated effort to close.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have engaged a dedicated UX designer from the start to elevate wireframes into high-fidelity designs. The design overhaul validated that early investment in visual polish accelerates adoption. The cost of redesigning post-launch exceeded what upfront design investment would have required.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Client Analytics Dashboard</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 14-Month Lifecycle &bull; Multi-Phase Delivery</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-iodm-multi-file-dashboard.html"><i class="fa-solid fa-arrow-left"></i> IODM Multi-File ID Dashboard</a>
+        <a href="case-study-php-upgrade-aws-migration.html">PHP 8 Upgrade & AWS Migration <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Bulk Escrow Payments — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Bulk Escrow Payments. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Bulk Escrow Payments</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">Batch Processing</span>
+                                </div>
+                                <a href="https://www.transfermate.com/post/product-update-api-powered-credit-card-bulk-payments-for-educational-agents" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> API Bulk Payments for Agents <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Bulk Escrow Payments</div>
+                            <div class="hero-subtitle">I led the design and delivery of a <strong>multi-beneficiary escrow transaction</strong> capability with per-individual compliance screening and document-based fund release &mdash; enabling institutions to process large group payments through a single submission.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that the existing API supported only single escrow payments, requiring institutions with large cohorts to submit each beneficiary individually. I drove the project that extended the platform to accept bulk submissions with per-individual line items, integrated multi-hop compliance screening, and implemented document-based fund release with automated refund handling for rejected beneficiaries.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY CONTRIBUTION ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Initiated and led all discovery calls with compliance, payments, treasury, and development teams &mdash; surfacing the multi-hop screening requirement before design began</li>
+                                    <li>Drove ideation workshops to evaluate build approaches: new endpoint vs. API extension &mdash; ultimately selecting the extension pattern to preserve backward compatibility</li>
+                                    <li>Led compliance deep-dives that uncovered escalating screening requirements (multi-hop checks for intermediate and final beneficiaries) and coordinated alignment across legal and compliance stakeholders</li>
+                                    <li>Coordinated five cross-functional teams through concurrent workstreams: API development, compliance integration, operations tooling, testing infrastructure, and client onboarding</li>
+                                    <li>Drove the production deployment strategy decision &mdash; deploying to live environment with configuration gating after demonstrating that test data could not be transferred to internal verification databases</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="16" data-suffix=" Weeks">0 Weeks</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128101;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Teams">0 Teams</span>
+                                <span class="stat-label">Cross-Functional Coordination</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128737;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Workflows">3 Workflows</span>
+                                <span class="stat-label">Compliance + Release + Refund</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number">Production</span>
+                                <span class="stat-label">Config-Gated Deployment</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from single-transaction escrow to scalable bulk processing with per-individual compliance.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Only single escrow payments supported via API</li>
+                                        <li>Large group payments required individual submissions per beneficiary</li>
+                                        <li>No per-individual compliance screening at scale</li>
+                                        <li>Manual fund release process with no document-based triggers</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Bulk escrow payments via single API submission with per-individual line items</li>
+                                        <li>Multi-hop compliance screening for intermediate and final beneficiaries</li>
+                                        <li>Document-based fund release with automated status tracking</li>
+                                        <li>Automated refund handling for rejected or failed beneficiaries</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Institutions can now process entire cohort payments in a single submission with full compliance coverage per individual</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I extended an existing cross-border payments API to support bulk escrow transactions. The platform previously handled only single escrow payments, requiring institutional clients to submit each beneficiary individually &mdash; a process that became unmanageable for large cohort sizes.</p>
+                                <p>I designed the solution to extend the existing API with new query parameters and per-individual line item handling, preserving full backward compatibility while enabling multi-beneficiary submissions. I led the compliance integration which required multi-hop screening (both intermediate and final beneficiary checks), and drove fund release implementation through a document-based trigger mechanism.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I deployed the feature to production with configuration gating, enabling controlled rollout per client. Compliance screening, fund release, and automated refund processing all validated successfully in the live environment.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery from discovery through compliance alignment, development, and controlled production deployment.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 1&ndash;2</div>
+                                    <div class="timeline-title">Discovery &amp; Stakeholder Alignment</div>
+                                    <div class="timeline-desc">I initiated discovery calls with compliance, payments, treasury, and development teams. I identified the core requirement: extend existing API rather than build separate endpoint. I documented current single-payment limitations and institutional pain points.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 3&ndash;4</div>
+                                    <div class="timeline-title">Ideation Workshops &amp; Approach Decision</div>
+                                    <div class="timeline-desc">I led structured workshops evaluating new endpoint vs. API extension approaches. I selected the extension pattern for backward compatibility and defined per-individual line item structure and new query parameters.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 4&ndash;5</div>
+                                    <div class="timeline-title">Compliance Deep-Dive</div>
+                                    <div class="timeline-desc">I discovered the multi-hop screening requirement &mdash; both intermediate and final beneficiaries required individual compliance checks. I led alignment calls with legal and compliance to define screening triggers and rejection handling.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 5&ndash;7</div>
+                                    <div class="timeline-title">BRD &amp; Technical Specification</div>
+                                    <div class="timeline-desc">I authored the requirements document covering bulk submission structure, escrow check logic, compliance integration points, document-based release triggers, and automated refund flows. I coordinated review and sign-off by all five teams.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 7&ndash;10</div>
+                                    <div class="timeline-title">Core API Development</div>
+                                    <div class="timeline-desc">Bulk submission endpoint extended with per-individual line items. Escrow check logic implemented to validate each beneficiary independently. New query parameters added for status filtering and batch retrieval.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 10&ndash;12</div>
+                                    <div class="timeline-title">Compliance Integration &amp; Fund Release</div>
+                                    <div class="timeline-desc">Multi-hop screening integrated into the submission flow. Document-based fund release mechanism built with automated status transitions. Refund logic implemented for rejected beneficiaries.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 12&ndash;13</div>
+                                    <div class="timeline-title">Operations Tooling</div>
+                                    <div class="timeline-desc">Back office tooling extended to display bulk payment status, individual beneficiary screening results, and fund release document tracking. Operational procedures documented for the support team.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 13&ndash;14</div>
+                                    <div class="timeline-title">Testing Infrastructure &amp; Deployment Strategy</div>
+                                    <div class="timeline-desc">I demonstrated that test data could not be transferred to internal verification databases. I made the decision to deploy to production with configuration gating for controlled testing and staged client rollout.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 14&ndash;15</div>
+                                    <div class="timeline-title">Production Validation</div>
+                                    <div class="timeline-desc">End-to-end validation in production environment with configuration gating active. Compliance screening, fund release triggers, and refund automation tested with real infrastructure but controlled access.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 16</div>
+                                    <div class="timeline-title">Release &amp; Client Onboarding</div>
+                                    <div class="timeline-desc">I opened configuration gating for the initial client. I published documentation for API consumers and briefed the operations team on new bulk payment workflows and escalation procedures.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Bulk escrow payment submission via API extension</li>
+                                        <li>Per-individual line item handling and status tracking</li>
+                                        <li>Multi-hop compliance screening (intermediate + final beneficiary)</li>
+                                        <li>Document-based fund release mechanism</li>
+                                        <li>Automated refund processing for rejected beneficiaries</li>
+                                        <li>New query parameters for batch status filtering</li>
+                                        <li>Operations tooling for bulk payment visibility</li>
+                                        <li>Configuration gating for controlled rollout</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Web platform UI for bulk submissions (API-only)</li>
+                                        <li>Non-escrow bulk payment types</li>
+                                        <li>Automated compliance rule engine updates</li>
+                                        <li>Client-facing reporting dashboard</li>
+                                        <li>Batch scheduling and queuing (immediate processing only)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Data flow from bulk submission through compliance screening to fund release and refund handling.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API CONSUMER</text>
+                                    <rect x="260" y="20" width="280" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM CORE</text>
+                                    <rect x="580" y="20" width="240" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">COMPLIANCE &amp; OPERATIONS</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Bulk Submission</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Multi-beneficiary payload</text>
+
+                                    <rect x="40" y="160" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Queries</text>
+                                    <text x="120" y="198" text-anchor="middle" font-size="9" fill="#999">Batch &amp; individual filters</text>
+
+                                    <rect x="40" y="240" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Document Upload</text>
+                                    <text x="120" y="278" text-anchor="middle" font-size="9" fill="#999">Fund release triggers</text>
+
+                                    <rect x="285" y="80" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Escrow Engine</text>
+                                    <text x="400" y="118" text-anchor="middle" font-size="9" fill="#999">Per-individual line processing</text>
+
+                                    <rect x="285" y="160" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Fund Release Logic</text>
+                                    <text x="400" y="198" text-anchor="middle" font-size="9" fill="#999">Document verification &amp; status</text>
+
+                                    <rect x="285" y="240" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Refund Processor</text>
+                                    <text x="400" y="278" text-anchor="middle" font-size="9" fill="#999">Automated rejection handling</text>
+
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Multi-Hop Screening</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">Intermediate + final checks</text>
+
+                                    <rect x="600" y="160" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Config Gating</text>
+                                    <text x="700" y="198" text-anchor="middle" font-size="9" fill="#999">Per-client feature control</text>
+
+                                    <rect x="600" y="240" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Operations Console</text>
+                                    <text x="700" y="278" text-anchor="middle" font-size="9" fill="#999">Bulk status &amp; screening view</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="281" y2="105" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="185" x2="281" y2="185" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="265" x2="281" y2="185" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="105" x2="596" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="185" x2="596" y2="185" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="265" x2="596" y2="265" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="400" y1="130" x2="400" y2="160" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="210" x2="400" y2="240" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Extend existing API rather than build new endpoint.</strong> Preserving backward compatibility eliminated migration risk for existing single-payment clients while enabling the new bulk functionality through additional parameters.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 4</td>
+                                        <td><strong>Per-individual line items with independent status tracking.</strong> Each beneficiary in a bulk submission gets its own compliance check and status, allowing partial completions rather than all-or-nothing batch processing.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Multi-hop compliance screening for all beneficiaries.</strong> Both intermediate and final beneficiaries require independent screening. Discovered during deep-dive that single-layer checks were insufficient for the regulatory framework.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 7</td>
+                                        <td><strong>Document-based fund release rather than time-based.</strong> Funds held in escrow are released only upon receipt and verification of specific documents, providing an auditable compliance trail and preventing premature disbursement.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 12</td>
+                                        <td><strong>Automated refund for rejected beneficiaries.</strong> Rather than holding funds indefinitely for failed screening, automated refund processing returns funds to the payer, reducing manual operations overhead and improving client experience.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 13</td>
+                                        <td><strong>Deploy to production with configuration gating.</strong> Test data could not be transferred to internal verification databases, making staging-only testing insufficient. Production deployment with per-client feature toggles enabled realistic validation.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">All components validated in production environment with configuration gating controlling access.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>API Extension</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Backward compatibility confirmed &mdash; existing single payments unaffected</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Compliance Screening</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Multi-hop checks validated for both intermediate and final beneficiaries</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Fund Release &amp; Refunds</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Document-based triggers and automated refunds confirmed end-to-end</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Bulk submission</strong> endpoint tested with multi-beneficiary payloads</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Compliance screening</strong> validated across multiple regulatory scenarios</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Configuration gating</strong> confirmed per-client isolation in production</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #95a5a6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Backward compatibility</strong> verified &mdash; no regressions for existing clients</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>API Extension Over New Endpoint</h4>
+                                    <p>Choosing to extend the existing API rather than build a separate endpoint eliminated migration risk for existing clients. The backward-compatible approach meant zero disruption to current integrations while unlocking new bulk capabilities for those who needed them.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Ideation Workshops Drove Alignment</h4>
+                                    <p>Structured ideation workshops with all five teams generated the API extension decision collaboratively. Having development, compliance, and operations teams evaluate options together produced buy-in that sustained through the entire delivery without scope disputes.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Compliance Scope Escalated Mid-Project</h4>
+                                    <p>Multi-hop screening requirements emerged during deep-dive sessions, not during initial discovery. The regulatory framework required checks on both intermediate and final beneficiaries, nearly doubling the compliance integration scope from initial estimates.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Production Testing Was Non-Negotiable</h4>
+                                    <p>The inability to transfer test data to internal verification databases made staging-only testing insufficient. Early identification of this constraint and the configuration gating strategy prevented a blocking discovery during final testing phases.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Five-Team Coordination Risk</h4>
+                                    <p>With five concurrent workstreams (API, compliance, operations, testing, onboarding), any team's delay cascaded. The project narrowly avoided timeline extension when compliance integration took longer than estimated due to multi-hop requirements.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would budget explicitly for compliance scope growth from the start. The multi-hop screening requirement escalated naturally from the regulatory framework but was not anticipated in initial estimates. Building in a compliance uncertainty buffer would have reduced pressure during the mid-project scope expansion.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Bulk Escrow Payments</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: ~16 Weeks &bull; 5 Teams &bull; API Extension Pattern</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-email-notification-templates-rework.html"><i class="fa-solid fa-arrow-left"></i> Email Notification Templates Rework</a>
+        <a href="case-study-webhook-config-management.html">Webhook Configuration Management <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

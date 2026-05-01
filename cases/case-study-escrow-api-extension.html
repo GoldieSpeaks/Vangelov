@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Escrow Service Platform — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Escrow Service Platform. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Escrow Service Platform</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="10" width="100" height="70" rx="4" fill="rgba(0,163,224,0.06)" stroke="rgba(0,163,224,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="18" r="2" fill="#00a3e0" opacity="0.4"/>
+                                <circle cx="27" cy="18" r="2" fill="#00a3e0" opacity="0.3"/>
+                                <circle cx="34" cy="18" r="2" fill="#00a3e0" opacity="0.2"/>
+                                <rect x="16" y="26" width="50" height="4" rx="1" fill="#00a3e0" opacity="0.15"/>
+                                <rect x="16" y="34" width="70" height="3" rx="1" fill="#00a3e0" opacity="0.1"/>
+                                <rect x="16" y="42" width="40" height="12" rx="3" fill="rgba(0,163,224,0.12)" stroke="rgba(0,163,224,0.3)" stroke-width="0.5"/>
+                                <rect x="16" y="60" width="55" height="3" rx="1" fill="#00a3e0" opacity="0.08"/>
+                                <rect x="16" y="66" width="35" height="3" rx="1" fill="#00a3e0" opacity="0.06"/>
+                                <line x1="115" y1="35" x2="140" y2="25" stroke="#00a3e0" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="115" y1="45" x2="140" y2="50" stroke="#00a3e0" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="115" y1="55" x2="140" y2="75" stroke="#00a3e0" stroke-width="0.6" opacity="0.3"/>
+                                <circle cx="115" cy="35" r="2" fill="#00a3e0" opacity="0.4"/>
+                                <circle cx="115" cy="45" r="2" fill="#00a3e0" opacity="0.4"/>
+                                <circle cx="115" cy="55" r="2" fill="#00a3e0" opacity="0.4"/>
+                                <rect x="140" y="15" width="55" height="18" rx="3" fill="rgba(0,163,224,0.08)" stroke="rgba(0,163,224,0.25)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="Inter,sans-serif" font-size="7" fill="#00a3e0" opacity="0.7">WEB</text>
+                                <rect x="140" y="40" width="55" height="18" rx="3" fill="rgba(0,163,224,0.08)" stroke="rgba(0,163,224,0.25)" stroke-width="0.6"/>
+                                <text x="152" y="52" font-family="Inter,sans-serif" font-size="7" fill="#00a3e0" opacity="0.7">API</text>
+                                <rect x="140" y="65" width="55" height="18" rx="3" fill="rgba(0,163,224,0.08)" stroke="rgba(0,163,224,0.25)" stroke-width="0.6"/>
+                                <text x="152" y="77" font-family="Inter,sans-serif" font-size="7" fill="#00a3e0" opacity="0.7">CRM</text>
+                                <ellipse cx="225" cy="45" rx="14" ry="5" fill="none" stroke="#00a3e0" stroke-width="0.6" opacity="0.25"/>
+                                <path d="M 211 45 L 211 58 C 211 62, 225 65, 239 58 L 239 45" fill="none" stroke="#00a3e0" stroke-width="0.6" opacity="0.25"/>
+                                <circle cx="230" cy="20" r="1.5" fill="#00a3e0" opacity="0.2"/>
+                                <circle cx="245" cy="30" r="1" fill="#00a3e0" opacity="0.15"/>
+                                <circle cx="220" cy="85" r="1.5" fill="#00a3e0" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Platform Engineering</span>
+                                    <span class="banner-tag">8Quarter</span>
+                                    <span class="banner-tag">2 Platforms</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Platform Engineering</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Escrow Service Platform</div>
+                            <div class="hero-subtitle">I designed and delivered a <strong>full escrow holding service</strong> from the ground up &mdash; spanning visa status management, fund holding logic, split-line processing, and multi-system integration across internal operations and client-facing platforms.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I led a multi-quarter initiative to build a holding mechanism for international education payments where funds could be retained until specific conditions were met &mdash; particularly around visa application outcomes. I mapped and delivered support for multiple visa statuses (Pending, Issued, Refused, Residence Permit, No Visa Required), each triggering different fund release or refund workflows. My work spanned process mapping, use case documentation, operations system development, and client-facing portal integration, with phased releases across two major platform components.</p>
+                        </div>
+
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Led the complete process mapping initiative &mdash; documenting every escrow workflow from fund receipt through holding, condition evaluation, and release/refund across all visa status scenarios</li>
+                                    <li>Authored all use case documentation defining the business rules for each visa status transition and its impact on fund holding, partial release, and refund eligibility</li>
+                                    <li>Designed the escrow holding account structure and split-line logic enabling funds to be distributed across multiple beneficiaries while maintaining individual hold/release tracking</li>
+                                    <li>Coordinated the multi-phase delivery across operations and client-facing teams &mdash; sequencing the internal system build before the portal integration to establish the operational foundation first</li>
+                                    <li>Facilitated multiple stakeholder recording sessions to capture existing manual processes, then translated these into systematic workflows with clear trigger conditions and exception paths</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128736;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Platforms">2 Platforms</span>
+                                <span class="stat-label">Delivered End-to-End</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128200;</span>
+                                <span class="stat-number" data-count="8" data-suffix=" Quarters">8 Quarters</span>
+                                <span class="stat-label">Programme Duration</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Workflows">5 Workflows</span>
+                                <span class="stat-label">Visa-Status Automations Live</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127757;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Channels">3 Channels</span>
+                                <span class="stat-label">Ops + Portal + API</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from entirely manual fund holding to systematic, status-driven escrow management across both internal operations and client self-service.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No systematic escrow holding capability on the platform</li>
+                                        <li>Manual tracking of visa application outcomes per payment</li>
+                                        <li>No structured refund workflow for refused visa cases</li>
+                                        <li>Operations teams using spreadsheets to track held funds</li>
+                                        <li>Clients unable to see escrow status or manage visa updates</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Full escrow holding engine with visa-status-driven workflows</li>
+                                        <li>Automated fund release and refund triggers based on status changes</li>
+                                        <li>Split-line support for multi-beneficiary fund distribution</li>
+                                        <li>Operations dashboard with real-time escrow visibility</li>
+                                        <li>Client portal integration for self-service visa status updates</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Built an entirely new escrow holding capability from scratch &mdash; replacing manual spreadsheet tracking with a systematic, visa-status-driven platform serving both operations teams and client institutions</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I delivered the platform's first escrow holding service &mdash; a multi-quarter initiative where I led process mapping, system design, operations platform development, and client portal integration. The core business need: hold international education payment funds until visa application outcomes are known, then release to the institution or refund to the payer based on the outcome.</p>
+                                <p>I designed a solution supporting five visa statuses (Pending, Issued, Refused, Residence Permit, No Visa Required), each with distinct fund handling rules. I architected split-line processing to enable individual tracking when a single payment covers multiple beneficiaries. I sequenced delivery so the operations system was built first to establish the workflow foundation, followed by the client-facing portal integration enabling institutional self-service.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">The escrow service I delivered transformed a previously unscalable manual process into a systematic platform capability &mdash; supporting the company's expansion into markets where visa-contingent education payments are the norm.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-quarter programme from initial process mapping through full platform integration across operations and client-facing systems.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 1</div>
+                                    <div class="timeline-title">Process Mapping &amp; Stakeholder Discovery</div>
+                                    <div class="timeline-desc">I conducted multiple recording sessions with operations stakeholders to capture existing manual escrow workflows. I documented the complete fund lifecycle from receipt through holding, condition evaluation, and release or refund. I identified five distinct visa status scenarios requiring different handling logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 2</div>
+                                    <div class="timeline-title">Use Case Documentation &amp; Business Rules</div>
+                                    <div class="timeline-desc">I authored comprehensive use case documentation defining business rules for each visa status transition. I mapped trigger conditions, exception paths, and fund handling rules for Pending, Issued, Refused, Residence Permit, and No Visa Required scenarios. I defined the split-line logic for multi-beneficiary payments.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2023 - Month 3</div>
+                                    <div class="timeline-title">Escrow Account Architecture Design</div>
+                                    <div class="timeline-desc">I designed the escrow holding account structure, split-line data model, and the relationship between payment records and visa status tracking. I defined how partial releases work when a payment covers multiple students with different visa outcomes.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2023 - Months 4-5</div>
+                                    <div class="timeline-title">Operations Platform Development (Phase 1)</div>
+                                    <div class="timeline-desc">I oversaw the development team building the operations-side escrow management interface. Internal users gained the ability to assign visa statuses, trigger fund holds, process releases, and initiate refunds. I specified the dashboard views for real-time escrow portfolio visibility.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2023 - Month 6</div>
+                                    <div class="timeline-title">Operations System Deployment</div>
+                                    <div class="timeline-desc">I coordinated the first production release of the escrow service. Operations teams transitioned from spreadsheet tracking to the systematic platform. I focused initial deployment on the primary domestic market requiring visa-contingent fund holding.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q1 2024</div>
+                                    <div class="timeline-title">Operational Stabilization &amp; Refinement</div>
+                                    <div class="timeline-desc">I managed post-deployment refinement based on operations team feedback. I drove workflow adjustments for edge cases discovered during live usage and added reporting enhancements for finance team visibility into held fund volumes and aging.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q2 2024</div>
+                                    <div class="timeline-title">Client Portal Integration Design</div>
+                                    <div class="timeline-desc">I gathered requirements for the client-facing portal integration. I designed the self-service interface enabling institutions to view escrow status, update visa outcomes, and trigger condition-based releases without operations team involvement.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q3 2024</div>
+                                    <div class="timeline-title">Portal Development &amp; Integration</div>
+                                    <div class="timeline-desc">I oversaw the client portal escrow views being built and connected to the operations backend. Institutions gained self-service capability for visa status updates with real-time fund status visibility. I specified validation rules to prevent invalid status transitions.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q4 2024</div>
+                                    <div class="timeline-title">Full Platform Release &amp; Market Expansion</div>
+                                    <div class="timeline-desc">I delivered the complete escrow service across both platforms. I onboarded client institutions to self-service escrow management and expanded the service beyond the initial market to additional regions requiring visa-contingent payment holding.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Q1 2025</div>
+                                    <div class="timeline-title">API Extension &amp; Advanced Features</div>
+                                    <div class="timeline-desc">I extended escrow capability to the API layer for programmatic access. I added advanced features including conditional mandatory fields and country-level configuration. The platform now supports portal, operations, and API channels for escrow management.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Complete escrow holding engine with visa-status workflows</li>
+                                        <li>Five visa status types with distinct fund handling rules</li>
+                                        <li>Split-line processing for multi-beneficiary payments</li>
+                                        <li>Operations platform escrow management interface</li>
+                                        <li>Client portal self-service escrow views</li>
+                                        <li>Fund release and refund automation triggers</li>
+                                        <li>Finance reporting for held fund visibility</li>
+                                        <li>Process mapping and use case documentation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Automated visa verification (external immigration APIs)</li>
+                                        <li>Multi-currency escrow accounts (single currency per hold)</li>
+                                        <li>Interest accrual on held funds</li>
+                                        <li>Regulatory reporting automation</li>
+                                        <li>Third-party escrow agent integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Dual-platform escrow service spanning operations backend and client-facing portal with shared fund holding engine.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">CLIENT CHANNELS</text>
+
+                                    <rect x="260" y="20" width="200" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="360" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">ESCROW ENGINE</text>
+
+                                    <rect x="500" y="20" width="180" height="340" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="590" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">FUND MANAGEMENT</text>
+
+                                    <rect x="720" y="20" width="160" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="800" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">OPERATIONS</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client Portal</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Self-service visa updates</text>
+
+                                    <rect x="40" y="150" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">API Layer</text>
+                                    <text x="120" y="188" text-anchor="middle" font-size="9" fill="#999">Programmatic access</text>
+
+                                    <rect x="40" y="230" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payer Interface</text>
+                                    <text x="120" y="268" text-anchor="middle" font-size="9" fill="#999">Document upload</text>
+
+                                    <rect x="280" y="80" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="100" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Visa Status Engine</text>
+                                    <text x="360" y="116" text-anchor="middle" font-size="9" fill="#999">5 status workflows</text>
+
+                                    <rect x="280" y="140" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="160" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Hold/Release Logic</text>
+                                    <text x="360" y="176" text-anchor="middle" font-size="9" fill="#999">Condition evaluation</text>
+
+                                    <rect x="280" y="200" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="220" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Split-Line Processor</text>
+                                    <text x="360" y="236" text-anchor="middle" font-size="9" fill="#999">Multi-beneficiary</text>
+
+                                    <rect x="280" y="260" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="360" y="280" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Refund Engine</text>
+                                    <text x="360" y="296" text-anchor="middle" font-size="9" fill="#999">Visa refused workflow</text>
+
+                                    <rect x="520" y="80" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Holding Account</text>
+                                    <text x="590" y="118" text-anchor="middle" font-size="9" fill="#999">Escrow fund pool</text>
+
+                                    <rect x="520" y="150" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Release Processor</text>
+                                    <text x="590" y="188" text-anchor="middle" font-size="9" fill="#999">To beneficiary</text>
+
+                                    <rect x="520" y="230" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="590" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Refund Processor</text>
+                                    <text x="590" y="268" text-anchor="middle" font-size="9" fill="#999">To payer</text>
+
+                                    <rect x="740" y="80" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Escrow Dashboard</text>
+                                    <text x="800" y="118" text-anchor="middle" font-size="9" fill="#999">Portfolio view</text>
+
+                                    <rect x="740" y="150" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Manager</text>
+                                    <text x="800" y="188" text-anchor="middle" font-size="9" fill="#999">Manual overrides</text>
+
+                                    <rect x="740" y="230" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Finance Reports</text>
+                                    <text x="800" y="268" text-anchor="middle" font-size="9" fill="#999">Aging + volumes</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrO" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(243,156,18,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="276" y2="102" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="175" x2="276" y2="162" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="440" y1="102" x2="516" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="440" y1="162" x2="516" y2="175" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="440" y1="222" x2="516" y2="255" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="660" y1="105" x2="736" y2="105" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                    <line x1="660" y1="175" x2="736" y2="175" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                    <line x1="660" y1="255" x2="736" y2="255" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Operations-first delivery sequence.</strong> Build the internal operations platform before the client portal. Establishes the workflow foundation and allows operations teams to validate business rules before exposing to external users.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Five discrete visa statuses over binary hold/release.</strong> Granular status model (Pending, Issued, Refused, Res. Permit, No Visa Required) enables distinct fund handling rules per scenario rather than a simple hold-or-release binary.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3 2023</td>
+                                        <td><strong>Split-line architecture for multi-beneficiary payments.</strong> Individual fund tracking per student within a single payment enables partial releases when some visa applications succeed while others remain pending.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q4 2023</td>
+                                        <td><strong>Manual fund release over full automation.</strong> Compliance and risk considerations required human verification before fund release. Automated triggers notify operations teams but do not execute releases without manual confirmation.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q1 2024</td>
+                                        <td><strong>Stabilization quarter before portal integration.</strong> Deliberately paused new feature development to refine the operations system based on live usage patterns. Ensured the foundation was solid before building the client-facing layer on top.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q2 2024</td>
+                                        <td><strong>Client self-service visa updates over operations-mediated.</strong> Allowing institutions to directly update visa statuses reduced operations team workload and improved data freshness. Validation rules prevent invalid transitions.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-phase quality approach with operational validation preceding each external-facing release.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Operations Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Live usage confirmed workflow rules</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Portal Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Client self-service verified</p>
+                                </div>
+                                <div class="col3">
+                                    <b>API Phase</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Validated</p>
+                                    <p>Zero defects across 43 tests</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Operations validated</strong> workflows through live production usage before portal launch</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All 5 visa statuses</strong> verified with correct fund handling for each transition</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Split-line scenarios</strong> tested for partial release and mixed-status payments</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Stabilization quarter</strong> dedicated to refinement before client-facing exposure</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Operations-First Sequencing</h4>
+                                    <p>Building the internal operations system first created a validated foundation before exposing functionality to external clients. Operations teams discovered edge cases in live usage that were resolved before the client portal was built &mdash; preventing costly rework and poor client experiences.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Stakeholder Recording Sessions</h4>
+                                    <p>Recording multiple sessions with operations stakeholders captured nuances that would have been lost in written requirements alone. The recordings became reference material throughout development, reducing ambiguity and preventing the "that's not what we meant" cycle.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Multi-Quarter Scope Management</h4>
+                                    <p>An 8-quarter programme spanning multiple teams required constant scope discipline. Stakeholder expectations evolved over the programme duration, and each phase's delivery created appetite for additional features. Maintaining focus on the core escrow capability required active boundary management.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Stabilization Quarters Pay Dividends</h4>
+                                    <p>The deliberate decision to pause new features after the operations release and dedicate a full quarter to stabilization prevented technical debt accumulation. By the time the portal was built, the foundation was solid and the portal development moved significantly faster as a result.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Manual Release Dependency</h4>
+                                    <p>Retaining manual fund release as a compliance requirement created an operational bottleneck as volumes grew. While appropriate for initial launch, the scaling limitation was visible early. Automated release with audit trail should be considered as transaction volumes increase.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have invested in a comprehensive status transition diagram and state machine specification upfront rather than documenting individual use cases separately. As the visa statuses and their fund handling rules became more complex, a single authoritative state machine would have prevented several interpretation differences between development and operations teams.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Escrow Service Platform</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Programme Duration: 8-Quarter Lifecycle &bull; Multi-Platform Delivery</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-multiple-currency-bank-transfer.html"><i class="fa-solid fa-arrow-left"></i> Multiple Currency Bank Transfers</a>
+        <a href="case-study-agent-platform.html">Agent Payment Platform <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

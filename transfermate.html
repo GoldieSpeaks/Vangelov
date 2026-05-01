@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>4 Years of Impact at TransferMate — Zlatomir Vangelov</title>
+<meta name="description" content="Technical Product Manager at TransferMate Education Technology — owning two interconnected payment platforms across 150+ countries and building the systems to manage them.">
+<link rel="icon" href="images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ===== PAGE-SPECIFIC STYLES ===== */
+
+/* Sub-nav (sticky horizontal section nav) */
+.section-nav {
+    position: sticky; top: 0; z-index: 900;
+    background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 60px; overflow-x: auto;
+    display: flex; gap: 4px; align-items: center;
+    scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav a {
+    padding: 14px 16px; font-size: 12px; font-weight: 600;
+    color: var(--text-muted); text-decoration: none; white-space: nowrap;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent; transition: all 0.25s;
+}
+.section-nav a:hover { color: #fff; }
+.section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Tags row */
+.tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.tag {
+    padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    color: var(--text-muted); letter-spacing: 0.3px;
+}
+
+/* Metrics grid */
+.metrics-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px; margin-bottom: 40px;
+}
+.metric-item { text-align: center; padding: 20px; }
+.metric-item .metric-num {
+    font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700;
+    color: var(--accent); line-height: 1;
+}
+.metric-item .metric-label {
+    font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.8px; margin-top: 8px;
+}
+
+/* Cards layout */
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 24px; }
+.cards-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+.card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px; transition: all 0.3s ease;
+}
+.card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.card.full-width { grid-column: 1 / -1; }
+.card h3 { font-size: 16px; color: #fff; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.card ul { list-style: none; padding: 0; }
+.card ul li { font-size: 13px; color: var(--text-muted); padding: 6px 0; padding-left: 16px; position: relative; line-height: 1.6; }
+.card ul li::before { content: ''; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.6; }
+
+/* Badges */
+.badge-web { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: rgba(52,152,219,0.12); color: var(--blue); text-transform: uppercase; letter-spacing: 0.3px; }
+.badge-crm { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: rgba(155,89,182,0.12); color: var(--purple); text-transform: uppercase; letter-spacing: 0.3px; }
+.badge-both { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: linear-gradient(135deg, rgba(52,152,219,0.12), rgba(155,89,182,0.12)); color: #b07bd4; text-transform: uppercase; letter-spacing: 0.3px; }
+.badge-ai { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: var(--accent-dim); color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; }
+.badge-auto { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; background: var(--accent-dim); color: var(--accent); text-transform: uppercase; letter-spacing: 0.3px; }
+
+/* Quote block */
+.quote-block {
+    background: var(--bg-card); border-left: 3px solid var(--accent);
+    border-radius: 0 14px 14px 0; padding: 24px 28px;
+    margin-top: 30px;
+}
+.quote-block p { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.7; margin-bottom: 8px; }
+.quote-block cite { font-size: 11px; color: var(--text-dim); font-style: normal; }
+
+/* Tech stack grid */
+.tech-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px; margin-top: 24px;
+}
+.tech-item {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; text-align: center; font-size: 12px; font-weight: 600;
+    color: var(--text-muted); transition: all 0.25s;
+}
+.tech-item:hover { border-color: rgba(125,186,92,0.3); color: var(--accent); }
+
+/* Page content container */
+.page-content { padding: 60px 60px 100px; }
+
+/* Section within page */
+.tm-section { margin-bottom: 80px; }
+.tm-section h2 {
+    font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700;
+    color: #fff; margin-bottom: 8px;
+}
+.tm-section h2 .accent { color: var(--accent); }
+.tm-section .section-subtitle {
+    font-size: 14px; color: var(--text-muted); line-height: 1.7;
+    margin-bottom: 30px; max-width: 700px;
+}
+.tm-section-divider {
+    height: 1px; border: none; margin: 0 0 80px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* Hero banner area */
+.page-hero {
+    padding: 50px 0 40px; margin-bottom: 10px;
+}
+.page-hero h1 {
+    font-family: 'Oswald', sans-serif; font-size: 44px; font-weight: 700;
+    color: #fff; margin-bottom: 14px; line-height: 1.2;
+}
+.page-hero .hero-subtitle {
+    font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 700px;
+    margin-bottom: 14px;
+}
+.page-hero .date-line {
+    font-size: 12px; color: var(--text-dim); margin-bottom: 4px;
+}
+
+/* Project cards for Section 8 */
+.project-cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+.project-mini-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; transition: all 0.3s ease;
+}
+.project-mini-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.project-mini-card h4 { font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.project-mini-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+/* Competencies list */
+.competencies-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; margin-bottom: 30px; }
+.competencies-list li { font-size: 13px; color: var(--text-muted); padding: 8px 0; padding-left: 18px; position: relative; list-style: none; line-height: 1.5; }
+.competencies-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.7; }
+
+/* Footer */
+.page-footer {
+    text-align: center; padding: 40px 0; margin-top: 40px;
+    border-top: 1px solid var(--border);
+}
+.page-footer p { font-size: 13px; color: var(--text-dim); letter-spacing: 0.3px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .cards-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .section-nav { padding: 0 24px; }
+    .page-content { padding: 40px 40px 80px; }
+}
+@media (max-width: 768px) {
+    .cards-grid, .cards-grid-3, .project-cards-grid { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .competencies-list { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: repeat(3, 1fr); }
+    .page-content { padding: 24px 24px 60px; }
+    .page-hero h1 { font-size: 32px; }
+    .tm-section h2 { font-size: 26px; }
+    .section-nav a { padding: 12px 12px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+    <span class="name">Zlatomir Vangelov</span>
+    <i class="fa-solid fa-bars" style="color: var(--text-muted);"></i>
+</div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="partnerships.html"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+        <a href="certification.html"><i class="fa-solid fa-certificate"></i> Certification</a>
+    </nav>
+    <a href="files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main">
+
+<!-- Breadcrumbs + Hero -->
+<div class="page-content">
+    <div class="breadcrumbs">
+        <a href="index.html">Home</a> &rsaquo; <a href="index.html#experience">Experience</a> &rsaquo; TransferMate
+    </div>
+
+    <div class="page-hero">
+        <h1>4 Years of Impact at TransferMate</h1>
+        <p class="hero-subtitle">Technical Product Manager at TransferMate Education Technology, owning two interconnected payment platforms across 150+ countries &mdash; and building the systems to manage them.</p>
+        <div class="date-line">March 2022 &ndash; Present &middot; TransferMate (Moneycorp Group)</div>
+        <div class="tags-row">
+            <span class="tag">FinTech</span>
+            <span class="tag">EdTech</span>
+            <span class="tag">Cross-Border Payments</span>
+            <span class="tag">API Products</span>
+            <span class="tag">Compliance &amp; AML</span>
+            <span class="tag">Jira Administration</span>
+            <span class="tag">Confluence Architecture</span>
+            <span class="tag">JSM Service Desk</span>
+            <span class="tag">AI-Augmented Workflows</span>
+            <span class="tag">Node.js Tooling</span>
+        </div>
+    </div>
+</div>
+
+<!-- Section Nav (sticky) -->
+<nav class="section-nav">
+    <a href="#overview" class="active">Overview</a>
+    <a href="#jira">Jira</a>
+    <a href="#confluence">Confluence</a>
+    <a href="#jsm">JSM</a>
+    <a href="#framework">Framework</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#knowledge-base">Knowledge Base</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#timeline">Timeline</a>
+</nav>
+
+<div class="page-content">
+
+    <!-- ===== SECTION 1: OVERVIEW ===== -->
+    <section class="tm-section" id="overview">
+        <div class="section-label"><span class="num">01</span> Overview</div>
+        <h2>One person, two platforms, <span class="accent">everything between</span></h2>
+
+        <div class="metrics-grid reveal">
+            <div class="metric-item">
+                <div class="metric-num">2</div>
+                <div class="metric-label">Platforms Owned</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">60+</div>
+                <div class="metric-label">Concurrent Initiatives</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">22</div>
+                <div class="metric-label">Partner Integrations</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">10+</div>
+                <div class="metric-label">Functional Areas Coordinated</div>
+            </div>
+        </div>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-globe" style="color: var(--blue); font-size: 18px;"></i> WEB Platform <span class="badge-web">WEB</span></h3>
+                <p>Student-facing payment portals used by universities, colleges, and agencies globally. Handling currency conversions, card payments, alternative payment methods, API integrations for 22+ institutional partners, MFA, and regulatory document collection across India, China, Brazil, and more.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-server" style="color: var(--purple); font-size: 18px;"></i> CRM Platform <span class="badge-crm">CRM</span></h3>
+                <p>Back-office operations system for transaction processing, compliance screening, escrow and bond management, refunds, disbursements, operational workflow management, and financial reporting.</p>
+            </div>
+            <div class="card full-width">
+                <h3><i class="fa-solid fa-network-wired" style="color: var(--accent); font-size: 18px;"></i> Integration Ecosystem</h3>
+                <p>I manage the product side of 22 external partner integrations &mdash; payment providers (dLocal, GeoSwift, WorldPay, EbixCash, Deutsche Bank), compliance tools, invoicing APIs, corporate data transfers, and institutional platforms (INSEAD, DreamApply, and others).</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 2: JIRA ===== -->
+    <section class="tm-section" id="jira">
+        <div class="section-label"><span class="num">02</span> Jira</div>
+        <h2>I restructured how the Education team <span class="accent">works in Jira</span></h2>
+        <p class="section-subtitle">I transformed the Jira project space from a flat task list into a structured, traceable system with templates, naming conventions, release management, time audit processes, and automated sync &mdash; for a team of 20+ developers and QAs.</p>
+
+        <div class="metrics-grid reveal">
+            <div class="metric-item">
+                <div class="metric-num">1,165</div>
+                <div class="metric-label">Issues Created</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">45</div>
+                <div class="metric-label">Epics Authored</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">258</div>
+                <div class="metric-label">Tasks Created</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">158</div>
+                <div class="metric-label">Improvements</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">442</div>
+                <div class="metric-label">Created Last Year</div>
+            </div>
+        </div>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-file-lines" style="color: var(--accent); font-size: 18px;"></i> Standardised Task Templates</h3>
+                <p>ADF-based templates for every issue type &mdash; Tasks, Improvements, Bugs, and Epics &mdash; ensuring consistent structure, acceptance criteria, test case tables, and supporting documentation across every ticket.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-code-branch" style="color: var(--accent); font-size: 18px;"></i> Release Management</h3>
+                <p>Structured release process with named versions, release notes generation, move-release logic for partial deployments, and dashboard-synced status tracking across both platforms.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-clock" style="color: var(--accent); font-size: 18px;"></i> Time Audit Sequences</h3>
+                <p>Automated time-tracking audit sequences that pull logged hours from Jira, cross-reference against release scope, and generate Excel reports for quarterly reviews.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-shield-halved" style="color: var(--accent); font-size: 18px;"></i> Naming &amp; Governance Rules</h3>
+                <p>Enforced naming conventions ([WEB] / [CRM] prefixes, dash separators), empty-task recycling pools, version naming standards, and field governance across the entire project.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 3: CONFLUENCE ===== -->
+    <section class="tm-section" id="confluence">
+        <div class="section-label"><span class="num">03</span> Confluence</div>
+        <h2>I built the Education Confluence space <span class="accent">from the ground up</span></h2>
+        <p class="section-subtitle">The TM Education Confluence space is the single source of truth for the product team. I designed its structure, created its page hierarchy, and maintain BRDs, project notes, release notes, tracker structures, and partner pages within it.</p>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-sitemap" style="color: var(--accent); font-size: 18px;"></i> Space Architecture</h3>
+                <p>Designed the full page hierarchy &mdash; Business Requirements, Project Notes, Release Tracker, Partner Integration pages, Internal Tools documentation, and team onboarding guides. All interconnected via labels and page-property reports.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-file-contract" style="color: var(--accent); font-size: 18px;"></i> Business Requirements Documents</h3>
+                <p>46 BRDs authored (38 WEB + 8 CRM) covering every major feature, integration, and compliance requirement. Structured with standardised sections, linked Jira epics, and version-tracked changes.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-comments" style="color: var(--accent); font-size: 18px;"></i> Living Project Notes</h3>
+                <p>18 active project note pages with structured discussion tables, expand macros for raw notes and call summaries, attached transcripts, and chronological meeting history.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-rocket" style="color: var(--accent); font-size: 18px;"></i> Release Notes &amp; Trackers</h3>
+                <p>Release notes pages per deployment with linked Jira versions, change logs, deployment checklist tracking, and automated status labels synced from the dashboard.</p>
+            </div>
+            <div class="card full-width">
+                <h3><i class="fa-solid fa-map" style="color: var(--accent); font-size: 18px;"></i> Confluence Page Map &amp; Quick Lookup</h3>
+                <p>A maintained page-ID lookup system with aliases, space keys, and direct-link references for over 50 actively managed pages &mdash; enabling instant navigation and API-based updates from the PO Framework.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 4: JSM ===== -->
+    <section class="tm-section" id="jsm">
+        <div class="section-label"><span class="num">04</span> JSM</div>
+        <h2>I built the Education <span class="accent">JSM ticket system</span></h2>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-ticket" style="color: var(--accent); font-size: 18px;"></i> JSM Setup &amp; Configuration</h3>
+                <p>Designed and configured the Jira Service Management project for the Education team &mdash; request types, workflows, SLA rules, queues, automation rules, and customer-facing portal forms for internal stakeholders to raise requests.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-link" style="color: var(--accent); font-size: 18px;"></i> Release-Linked JSM Tasks</h3>
+                <p>JSM tickets are linked to Jira releases &mdash; enabling traceability from stakeholder request through to deployment. Each release can surface its originating service desk tickets for audit and review.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 5: FRAMEWORK ===== -->
+    <section class="tm-section" id="framework">
+        <div class="section-label"><span class="num">05</span> Framework</div>
+        <h2>I built my own <span class="accent">operating system</span></h2>
+        <p class="section-subtitle">A complete AI-augmented workflow framework that turns rough daily notes into structured Jira tasks, Confluence updates, dashboard entries, and weekly reports.</p>
+
+        <div class="metrics-grid reveal">
+            <div class="metric-item">
+                <div class="metric-num">11</div>
+                <div class="metric-label">Framework Guidelines</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">4</div>
+                <div class="metric-label">Templates</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">3</div>
+                <div class="metric-label">Automated Sequences</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">12+</div>
+                <div class="metric-label">Commands</div>
+            </div>
+        </div>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-rotate" style="color: var(--accent); font-size: 18px;"></i> Daily Cycle <span class="badge-ai">AI-Augmented</span></h3>
+                <p>Each day: rough notes are captured, meetings are transcribed, images are processed via vision, and the framework structures everything into traceable actions, decisions, and updates.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check" style="color: var(--accent); font-size: 18px;"></i> PO End Sequence (11 Steps)</h3>
+                <p>An 11-step end-of-day shutdown sequence that touches every dashboard section, cross-references actions, updates Confluence notes, writes session handoffs, and archives daily files.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-calendar-week" style="color: var(--accent); font-size: 18px;"></i> Weekly Sync System</h3>
+                <p>Automated weekly sync file generation for WEB and CRM development leads &mdash; with suggested topics, roadmap status, and structured discussion tables.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-gears" style="color: var(--accent); font-size: 18px;"></i> Operational Sequences</h3>
+                <p>Risk reviews, release management, time audits, and knowledge base updates &mdash; all structured as repeatable, documented sequences with defined inputs and outputs.</p>
+            </div>
+        </div>
+
+        <div class="quote-block reveal">
+            <p>&ldquo;Write notes rough &mdash; don't worry about formatting. Claude structures them during processing.&rdquo;</p>
+            <cite>&mdash; From the Framework README</cite>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 6: DASHBOARD ===== -->
+    <section class="tm-section" id="dashboard">
+        <div class="section-label"><span class="num">06</span> Dashboard</div>
+        <h2>A custom-built <span class="accent">command centre</span></h2>
+        <p class="section-subtitle">A Node.js web application running on localhost:3000 that serves as the live operational dashboard.</p>
+
+        <div class="metrics-grid reveal">
+            <div class="metric-item">
+                <div class="metric-num">5,000+</div>
+                <div class="metric-label">Lines of Code</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">3</div>
+                <div class="metric-label">Automations</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">15+</div>
+                <div class="metric-label">API Endpoints</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">3</div>
+                <div class="metric-label">Data Files</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-num">3,100+</div>
+                <div class="metric-label">Lines UI</div>
+            </div>
+        </div>
+
+        <div class="cards-grid-3 reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-arrows-rotate" style="color: var(--accent); font-size: 16px;"></i> Jira Sync <span class="badge-auto">Auto</span></h3>
+                <p>Polls Jira for release versions and issue counts, syncing live status into the dashboard every interval.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color: var(--accent); font-size: 16px;"></i> Overdue Check <span class="badge-auto">Auto</span></h3>
+                <p>Scans all tracked deadlines and flags overdue items with visual indicators and priority sorting.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-bell" style="color: var(--accent); font-size: 16px;"></i> Reminder Check <span class="badge-auto">Auto</span></h3>
+                <p>Monitors scheduled reminders and surfaces them when due, integrated with the daily workflow.</p>
+            </div>
+        </div>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-hand-pointer" style="color: var(--accent); font-size: 18px;"></i> Interactive Features</h3>
+                <ul>
+                    <li>Toggle actions (strike-through via API)</li>
+                    <li>Action notes &amp; context</li>
+                    <li>Weekly sync topic suggestions</li>
+                    <li>Roadmap parser &amp; progress tracking</li>
+                    <li>Risk tracker with live status</li>
+                    <li>Risk document scanner (Excel automation)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-table-columns" style="color: var(--accent); font-size: 18px;"></i> Dashboard Tabs</h3>
+                <ul>
+                    <li>Projects (WEB + CRM release tracking)</li>
+                    <li>Action Items (with toggle &amp; notes)</li>
+                    <li>Deadlines (overdue highlighting)</li>
+                    <li>Decisions (with archival rules)</li>
+                    <li>Summaries &amp; Weekly Reports</li>
+                    <li>Syncs (WEB + CRM weekly topics)</li>
+                    <li>Roadmap (parsed progress view)</li>
+                    <li>Risk &amp; Compliance</li>
+                    <li>KB Browser &amp; Sequences</li>
+                    <li>Automations (start/stop controls)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 7: KNOWLEDGE BASE ===== -->
+    <section class="tm-section" id="knowledge-base">
+        <div class="section-label"><span class="num">07</span> Knowledge Base</div>
+        <h2>5,200+ lines of <span class="accent">system documentation</span></h2>
+        <p class="section-subtitle">A comprehensive, interconnected knowledge base documenting every aspect of the WEB and CRM systems. Built by reviewing 58 BRDs.</p>
+
+        <div class="cards-grid-3 reveal">
+            <div class="card">
+                <h3>WEB System</h3>
+                <p>802 lines documenting the student-facing platform &mdash; page flows, feature inventory, integration points, and business logic.</p>
+            </div>
+            <div class="card">
+                <h3>CRM System</h3>
+                <p>790 lines covering the back-office operations platform &mdash; workflows, queue logic, compliance processes, and financial operations.</p>
+            </div>
+            <div class="card">
+                <h3>Database Reference</h3>
+                <p>1,686 lines mapping 317 tables and 4,200+ columns across the production database &mdash; relationships, field types, and domain groupings.</p>
+            </div>
+            <div class="card">
+                <h3>Payment Methods</h3>
+                <p>193 lines documenting 20 active + 4 inactive payment methods with provider mappings, currency support, and configuration details.</p>
+            </div>
+            <div class="card">
+                <h3>Integrations</h3>
+                <p>292 lines covering 22 API partner integrations &mdash; endpoints, authentication patterns, data flows, and operational contacts.</p>
+            </div>
+            <div class="card">
+                <h3>Tax &amp; Compliance</h3>
+                <p>207 lines documenting tax rules, regulatory requirements, AML screening logic, and jurisdiction-specific compliance constraints.</p>
+            </div>
+        </div>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-book" style="color: var(--accent); font-size: 16px;"></i> Also Documented</h3>
+                <ul>
+                    <li>Payment Flows &mdash; 230 lines</li>
+                    <li>Business Rules &mdash; 279 lines</li>
+                    <li>API Reference &mdash; 571 lines</li>
+                    <li>System Architecture &mdash; 95 lines</li>
+                    <li>Standards &amp; Compliance &mdash; 77 lines</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-universal-access" style="color: var(--accent); font-size: 16px;"></i> WCAG Audit</h3>
+                <ul>
+                    <li>12 pages audited</li>
+                    <li>111 pa11y errors identified</li>
+                    <li>16 findings categorised</li>
+                    <li>278-line accessibility report</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 8: PROJECTS ===== -->
+    <section class="tm-section" id="projects">
+        <div class="section-label"><span class="num">08</span> Projects</div>
+        <h2>What I'm <span class="accent">driving right now</span></h2>
+        <p class="section-subtitle">A snapshot of the concurrent project portfolio I manage across both platforms.</p>
+
+        <div class="project-cards-grid reveal">
+            <div class="project-mini-card">
+                <h4>IDP Agent Payment Platform <span class="badge-web">WEB</span></h4>
+                <p>New payment flow for IDP agent-assisted student payments with custom portal branding and split disbursement logic.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>Disbursements Phase 2 <span class="badge-web">WEB</span></h4>
+                <p>Extending the disbursement engine with multi-beneficiary support, scheduled payouts, and enhanced audit trails.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>EDU Bond Automation <span class="badge-crm">CRM</span></h4>
+                <p>Automating bond lifecycle management &mdash; creation, monitoring, maturity alerts, and release workflows.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>API BA Instructions Rework <span class="badge-web">WEB</span></h4>
+                <p>Redesigning the bank account instructions flow for API partners with dynamic field rendering and validation.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>GeoSwift APM Integration <span class="badge-web">WEB</span></h4>
+                <p>Integrating GeoSwift alternative payment methods for Chinese student payments with real-time status tracking.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>Entity &amp; Compliance Fields <span class="badge-crm">CRM</span></h4>
+                <p>Adding entity-level compliance fields to support multi-jurisdiction regulatory requirements and screening rules.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>Comply Advantage Refunds <span class="badge-crm">CRM</span></h4>
+                <p>Implementing compliance screening on refund flows with automated hold/release logic based on screening results.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>USVI 3% Tax Emails <span class="badge-web">WEB</span></h4>
+                <p>Automated tax notification emails for US Virgin Islands transactions with configurable templates and audit logging.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>Dashboard Post-Dev Improvements <span class="badge-web">WEB</span></h4>
+                <p>Iterative UX improvements to the client-facing dashboard based on post-launch feedback and usage analytics.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>Argentina &amp; Peru Taxes <span class="badge-both">WEB+CRM</span></h4>
+                <p>Implementing country-specific tax calculations and display logic for Argentina and Peru across both platforms.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>IODM Multi-File ID <span class="badge-web">WEB</span></h4>
+                <p>Multi-file identity document upload for IODM integration with validation, preview, and compliance attachment.</p>
+            </div>
+            <div class="project-mini-card">
+                <h4>OUP / QMU / EbixCash <span class="badge-web">WEB</span></h4>
+                <p>Partner-specific onboarding and configuration for Oxford University Press, Queen Margaret University, and EbixCash integrations.</p>
+            </div>
+        </div>
+
+        <div class="card full-width reveal">
+            <h3><i class="fa-solid fa-list" style="color: var(--text-dim); font-size: 16px;"></i> Off-Roadmap Initiatives</h3>
+            <ul>
+                <li>Same Currency Refunds</li>
+                <li>dLocal Data Collection</li>
+                <li>API Dashboard Accommodation/Locations</li>
+                <li>Invoice API CC Notifications</li>
+                <li>API Dashboard Refunds DreamApply</li>
+                <li>Deutsche Bank (VN/MY/ID/TH)</li>
+                <li>EDU-CORP Bank Transfer Colombia</li>
+                <li>Auto-collect Beneficiary Details</li>
+                <li>CLP Chile Account Migration</li>
+                <li>ISAMS Client</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 9: SKILLS ===== -->
+    <section class="tm-section" id="skills">
+        <div class="section-label"><span class="num">09</span> Skills</div>
+        <h2>What I bring to <span class="accent">the table</span></h2>
+
+        <h3 style="font-size: 16px; color: #fff; margin-bottom: 20px; font-weight: 600;">Core Competencies</h3>
+        <ul class="competencies-list reveal">
+            <li>Dual-platform ownership (WEB + CRM)</li>
+            <li>Cross-border payment operations</li>
+            <li>BRDs, PRDs, and PCDs authoring</li>
+            <li>API product design &amp; specification</li>
+            <li>Jira Cloud administration &amp; governance</li>
+            <li>Confluence space architecture &amp; maintenance</li>
+            <li>JSM service desk setup &amp; configuration</li>
+            <li>Stakeholder management (20+ developers, QAs, ops)</li>
+            <li>Release management &amp; deployment coordination</li>
+            <li>Regulatory compliance &amp; AML screening</li>
+            <li>Database fluency (317 tables, complex queries)</li>
+            <li>UI/UX prototyping (HTML/CSS mockups)</li>
+            <li>AI workflow design &amp; prompt engineering</li>
+            <li>Knowledge base architecture &amp; maintenance</li>
+            <li>Risk tracking &amp; compliance documentation</li>
+            <li>Multi-partner integration management</li>
+            <li>Accessibility auditing (WCAG/pa11y)</li>
+            <li>Quarterly reporting &amp; time audits</li>
+        </ul>
+
+        <div class="cards-grid reveal">
+            <div class="card">
+                <h3><i class="fa-solid fa-industry" style="color: var(--accent); font-size: 16px;"></i> Domains</h3>
+                <ul>
+                    <li>Cross-border payments &amp; FX</li>
+                    <li>Education technology (EdTech)</li>
+                    <li>Financial compliance &amp; AML</li>
+                    <li>API-first product development</li>
+                    <li>Enterprise SaaS operations</li>
+                    <li>Multi-jurisdiction regulatory</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-wrench" style="color: var(--accent); font-size: 16px;"></i> Technical Range</h3>
+                <ul>
+                    <li>Node.js automation &amp; tooling</li>
+                    <li>REST API design &amp; consumption</li>
+                    <li>PostgreSQL queries &amp; data analysis</li>
+                    <li>HTML/CSS prototyping &amp; mockups</li>
+                    <li>JSON/ADF document structures</li>
+                    <li>Excel generation (exceljs)</li>
+                    <li>Git version control</li>
+                    <li>AI-augmented workflows (Claude)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="font-size: 16px; color: #fff; margin: 30px 0 16px; font-weight: 600;">Tech Stack</h3>
+        <div class="tech-grid reveal">
+            <div class="tech-item">Jira Cloud</div>
+            <div class="tech-item">Confluence</div>
+            <div class="tech-item">JSM</div>
+            <div class="tech-item">Node.js</div>
+            <div class="tech-item">PostgreSQL</div>
+            <div class="tech-item">REST APIs</div>
+            <div class="tech-item">HTML/CSS</div>
+            <div class="tech-item">ADF/JSON</div>
+            <div class="tech-item">Excel (exceljs)</div>
+            <div class="tech-item">Git</div>
+            <div class="tech-item">Claude AI</div>
+            <div class="tech-item">WCAG/pa11y</div>
+        </div>
+    </section>
+
+    <hr class="tm-section-divider">
+
+    <!-- ===== SECTION 10: TIMELINE ===== -->
+    <section class="tm-section" id="timeline">
+        <div class="section-label"><span class="num">10</span> Timeline</div>
+        <h2>Key milestones at <span class="accent">TransferMate</span></h2>
+
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <div class="date">2022</div>
+                <h3>Joined as Technical Product Manager</h3>
+                <p>Took ownership of the WEB platform &mdash; student-facing payment portals serving universities and colleges across 150+ countries.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2022 &ndash; 2023</div>
+                <h3>Built the Confluence Ecosystem</h3>
+                <p>Designed and populated the entire Education Confluence space &mdash; BRDs, project notes, release trackers, partner pages, and team documentation.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2023</div>
+                <h3>Restructured Jira</h3>
+                <p>Transformed the Jira project from flat task lists into a governed system with templates, naming conventions, release management, and traceability.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2023</div>
+                <h3>Took On the CRM Platform</h3>
+                <p>Expanded scope to include the back-office CRM system &mdash; compliance, escrow, bonds, refunds, disbursements, and operational workflows.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2024</div>
+                <h3>Set Up JSM Ticket System</h3>
+                <p>Configured Jira Service Management for the Education team &mdash; request types, workflows, SLAs, and release-linked service desk tasks.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2024 &ndash; 2025</div>
+                <h3>Major Project Delivery</h3>
+                <p>Delivered high-impact projects across both platforms &mdash; new payment integrations, compliance overhauls, disbursement engines, and partner onboardings.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2025</div>
+                <h3>Knowledge Base Consolidation</h3>
+                <p>Compiled 5,200+ lines of system documentation from 58 BRDs &mdash; covering databases, payment flows, integrations, business rules, and architecture.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2026</div>
+                <h3>Built the PO Framework + Dashboard-UI</h3>
+                <p>Created a complete AI-augmented operating system &mdash; 11 guidelines, automated sequences, Node.js dashboard with live Jira sync, and structured daily workflows.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2026 Q1</div>
+                <h3>Current &mdash; 12+ Active Projects</h3>
+                <p>Managing 12+ concurrent roadmap initiatives plus off-roadmap work across WEB, CRM, and partner integrations simultaneously.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <p>Zlatomir Vangelov &middot; Technical Product Manager &mdash; TransferMate Education Technology &middot; 4 Years &middot; 2 Platforms &middot; 1 Person</p>
+    </div>
+
+</div><!-- /.page-content -->
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+    // Section nav active state on scroll
+    var navLinks = document.querySelectorAll('.section-nav a');
+    var sections = [];
+    navLinks.forEach(function(link){
+        var id = link.getAttribute('href');
+        if (id && id.startsWith('#')) {
+            var el = document.getElementById(id.slice(1));
+            if (el) sections.push({ el: el, link: link });
+        }
+    });
+    if (sections.length) {
+        window.addEventListener('scroll', function(){
+            var y = window.scrollY + 120;
+            var active = sections[0];
+            sections.forEach(function(s){
+                if (s.el.offsetTop <= y) active = s;
+            });
+            navLinks.forEach(function(l){ l.classList.remove('active'); });
+            if (active) active.link.classList.add('active');
+        });
+    }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Escrow for API Clients — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Escrow for API Clients. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Escrow for API Clients</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Services</span>
+                                    <span class="banner-tag">3Month</span>
+                                    <span class="banner-tag">43 Tests</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Services</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Escrow for API Clients</div>
+                            <div class="hero-subtitle">I designed and delivered the <strong>escrow holding capability for API-integrated clients</strong>, enabling conditional fund release based on document verification and nationality-driven compliance rules.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that API-integrated institutions needed escrow capability that was only available to manual portal clients. I authored the full BRD, designed conditional mandatory field logic based on payer nationality, specified the database schema changes, and created all 43 test cases. I delivered a zero-defect release extending escrow to the API layer with beneficiary-level configuration and enhanced intermediary reporting.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Authored the full Business Requirements Document defining escrow extension logic, conditional field rules, and beneficiary-level configuration for the API layer</li>
+                                    <li>Designed the conditional mandatory field logic &mdash; determining when the payer's document identification becomes required based on their country of origin vs. the beneficiary's operating country</li>
+                                    <li>Specified the database schema changes including the new beneficiary escrow flag, country-level escrow configuration table, and the relationship between nationality and document requirements</li>
+                                    <li>Created all test scenarios (17 internal + 17 external + 9 documentation) ensuring comprehensive coverage of the conditional logic across multiple nationality/country combinations</li>
+                                    <li>Coordinated the phased delivery approach &mdash; securing stakeholder agreement to deliver API changes first while deferring operational process changes to a subsequent release</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="3" data-suffix="-Month">3-Month</span>
+                                <span class="stat-label">API Phase Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128737;</span>
+                                <span class="stat-number" data-count="43" data-suffix=" Tests">43 Tests</span>
+                                <span class="stat-label">Test Cases Executed</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128196;</span>
+                                <span class="stat-number" data-count="0" data-suffix=" Defects">0 Defects</span>
+                                <span class="stat-label">At Release</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127758;</span>
+                                <span class="stat-number" data-count="100" data-suffix="%">100%</span>
+                                <span class="stat-label">Backward Compatible</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from manual escrow determination to automated, country-driven compliance enforcement at the API layer.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Escrow capability only available to portal-based clients</li>
+                                        <li>No automated compliance checks for international payer documentation</li>
+                                        <li>Manual determination of which payers required document verification</li>
+                                        <li>Intermediary service providers lacked visibility into escrow status</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Escrow holding exposed via API with conditional business rules</li>
+                                        <li>Automated nationality-based document requirement enforcement</li>
+                                        <li>Country-level configuration enabling per-beneficiary escrow settings</li>
+                                        <li>Enhanced intermediary reporting with full escrow status visibility</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Enabled API-integrated institutions to leverage escrow holding with zero-defect release quality &mdash; automatically enforcing document verification requirements based on payer nationality</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I extended the platform's existing escrow holding service to API-integrated clients. A domestic education market needed to hold international payer funds in escrow until specific documentation was verified. I solved the core challenge of implementing conditional business logic: a payer's document identification field becomes mandatory only when their country of origin differs from the beneficiary's operating country.</p>
+                                <p>I introduced a new beneficiary-level escrow flag, a country configuration table defining which nationalities require document verification, and conditional field validation at the API request level. I also enhanced the intermediary service provider reporting to include escrow-specific data columns for agent-level visibility.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I delivered with zero defects across 43 test cases, unlocking escrow capability for the entire API client base while maintaining backward compatibility for existing integrations.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">3-month focused delivery from requirements analysis through production release with phased rollout strategy.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Market Analysis &amp; Feasibility Assessment</div>
+                                    <div class="timeline-desc">I analyzed the domestic education market's escrow requirements, identified the gap between portal-based escrow capabilities and API client needs, and evaluated the existing escrow service architecture for extensibility to the API layer.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 2-3</div>
+                                    <div class="timeline-title">Business Requirements Documentation</div>
+                                    <div class="timeline-desc">I authored the comprehensive BRD defining conditional field logic, beneficiary configuration, country-level rules, and intermediary reporting requirements. I documented all edge cases for payer nationality vs. beneficiary country combinations.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4</div>
+                                    <div class="timeline-title">Schema Design &amp; API Contract</div>
+                                    <div class="timeline-desc">I specified the database schema changes: new beneficiary escrow flag field, country-level escrow configuration table, and the conditional relationship mapping. I defined the API request/response contract including the new conditional mandatory field.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 5-6</div>
+                                    <div class="timeline-title">Phased Delivery Agreement</div>
+                                    <div class="timeline-desc">I secured stakeholder sign-off on delivering API changes first while deferring operational process changes to a subsequent release. This de-risked the delivery by isolating the technical changes from process dependencies.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 7-8</div>
+                                    <div class="timeline-title">Core Development &amp; Conditional Logic</div>
+                                    <div class="timeline-desc">I coordinated the development team to implement conditional field validation, beneficiary-level escrow configuration, and country-based nationality checks. The API request validation layer was extended to enforce document requirements dynamically.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 9</div>
+                                    <div class="timeline-title">Intermediary Reporting Enhancement</div>
+                                    <div class="timeline-desc">I extended the intermediary service provider report to include escrow-specific columns, adding agent-level visibility so service providers can track which payments are held in escrow and their current verification status.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 10-11</div>
+                                    <div class="timeline-title">QA Validation &mdash; 43 Test Cases</div>
+                                    <div class="timeline-desc">I executed 17 internal functional tests, 17 external integration tests, and 9 documentation validation tests covering all nationality/country combinations, edge cases for conditional logic, and backward compatibility scenarios. Zero defects found.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 12</div>
+                                    <div class="timeline-title">Production Release &amp; Monitoring</div>
+                                    <div class="timeline-desc">I released to production with zero-defect confidence and verified existing API integrations maintained full backward compatibility. I populated the country configuration table for the initial target market and confirmed stable operation post-release.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Conditional mandatory field logic (payer document ID based on nationality)</li>
+                                        <li>Beneficiary-level escrow flag configuration</li>
+                                        <li>Country-level escrow configuration table</li>
+                                        <li>API request validation for escrow-enabled beneficiaries</li>
+                                        <li>Intermediary service provider report enhancement</li>
+                                        <li>Backward compatibility for existing API integrations</li>
+                                        <li>Comprehensive test suite (43 cases across 3 categories)</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Operational process changes (deferred to Phase 2)</li>
+                                        <li>Fund release automation (manual release retained)</li>
+                                        <li>Portal UI changes for escrow management</li>
+                                        <li>Multi-currency escrow holding accounts</li>
+                                        <li>Historical transaction migration to escrow model</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Escrow logic extension at the API validation layer with country-driven conditional enforcement.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="180" height="300" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API CLIENT</text>
+
+                                    <rect x="240" y="20" width="200" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="340" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">VALIDATION LAYER</text>
+
+                                    <rect x="480" y="20" width="200" height="300" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="580" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">ESCROW ENGINE</text>
+
+                                    <rect x="720" y="20" width="160" height="300" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="800" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">REPORTING</text>
+
+                                    <rect x="40" y="80" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Request</text>
+                                    <text x="110" y="118" text-anchor="middle" font-size="9" fill="#999">+ payer nationality</text>
+
+                                    <rect x="40" y="150" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Document ID</text>
+                                    <text x="110" y="188" text-anchor="middle" font-size="9" fill="#999">Conditionally required</text>
+
+                                    <rect x="40" y="230" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Beneficiary Config</text>
+                                    <text x="110" y="268" text-anchor="middle" font-size="9" fill="#999">Escrow flag enabled</text>
+
+                                    <rect x="260" y="80" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="340" y="100" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Nationality Check</text>
+                                    <text x="340" y="116" text-anchor="middle" font-size="9" fill="#999">Country vs. Beneficiary</text>
+
+                                    <rect x="260" y="140" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="340" y="160" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Conditional Field Logic</text>
+                                    <text x="340" y="176" text-anchor="middle" font-size="9" fill="#999">Mandatory if foreign</text>
+
+                                    <rect x="260" y="200" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="340" y="220" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Country Config Table</text>
+                                    <text x="340" y="236" text-anchor="middle" font-size="9" fill="#999">Escrow rule lookup</text>
+
+                                    <rect x="260" y="260" width="160" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="340" y="280" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Beneficiary Flag</text>
+                                    <text x="340" y="296" text-anchor="middle" font-size="9" fill="#999">Per-beneficiary toggle</text>
+
+                                    <rect x="500" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="580" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Fund Holding</text>
+                                    <text x="580" y="118" text-anchor="middle" font-size="9" fill="#999">Until doc verified</text>
+
+                                    <rect x="500" y="150" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="580" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Release Trigger</text>
+                                    <text x="580" y="188" text-anchor="middle" font-size="9" fill="#999">Manual verification</text>
+
+                                    <rect x="500" y="230" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="580" y="250" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Tracking</text>
+                                    <text x="580" y="268" text-anchor="middle" font-size="9" fill="#999">Held / Released / Expired</text>
+
+                                    <rect x="740" y="80" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Agent Report</text>
+                                    <text x="800" y="118" text-anchor="middle" font-size="9" fill="#999">Escrow columns</text>
+
+                                    <rect x="740" y="150" width="120" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="800" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Status Visibility</text>
+                                    <text x="800" y="188" text-anchor="middle" font-size="9" fill="#999">Per-transaction</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrO" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(243,156,18,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="180" y1="105" x2="256" y2="102" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="180" y1="175" x2="256" y2="162" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="420" y1="102" x2="496" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="420" y1="162" x2="496" y2="175" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="660" y1="105" x2="736" y2="105" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                    <line x1="660" y1="175" x2="736" y2="175" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Conditional mandatory field over always-required.</strong> Document identification only required when payer nationality differs from beneficiary operating country, avoiding unnecessary friction for domestic payers.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Beneficiary-level escrow flag over global toggle.</strong> Per-beneficiary configuration allows gradual rollout and mixed escrow/non-escrow beneficiaries under the same API client.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 4</td>
+                                        <td><strong>Country configuration table over hardcoded rules.</strong> Decoupled nationality-based rules from code to enable operations teams to add new countries without requiring development releases.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Phased delivery: API first, operations second.</strong> Isolated technical changes from process dependencies. Allowed development team to release API functionality without waiting for operational workflow redesign.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 6</td>
+                                        <td><strong>Manual fund release retained (no automation).</strong> Compliance requirement that human verification must precede fund release. Automated release deferred until regulatory clarity obtained.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 9</td>
+                                        <td><strong>Agent report enhancement bundled with release.</strong> Including intermediary visibility in the same release reduced deployment coordination and gave service providers immediate access to escrow data.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Three-category test approach covering internal logic, external integration, and documentation accuracy.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Internal Tests</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">17 Passed</p>
+                                    <p>Conditional logic &amp; validation rules</p>
+                                </div>
+                                <div class="col2">
+                                    <b>External Tests</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">17 Passed</p>
+                                    <p>Integration &amp; backward compatibility</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Documentation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">9 Passed</p>
+                                    <p>API docs &amp; field descriptions</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Zero defects</strong> at release across all 43 test cases</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Full backward</strong> compatibility verified for existing API integrations</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Nationality combinations</strong> tested across all configured country pairs</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Edge cases</strong> validated including domestic payers, missing fields, and config overrides</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Phased Delivery Strategy</h4>
+                                    <p>Separating API changes from operational process changes eliminated cross-team dependencies during development. The technical release was clean and isolated, while operations teams had additional time to prepare their workflows without blocking the engineering timeline.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Configuration-Driven Design</h4>
+                                    <p>Building the country-level escrow rules as a configuration table rather than hardcoded logic proved immediately valuable. Operations teams could onboard new markets without development involvement, reducing time-to-market for subsequent country rollouts.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Conditional Logic Complexity</h4>
+                                    <p>The nationality-vs-country conditional mandatory field introduced significant test matrix complexity. Every combination of payer nationality, beneficiary country, and escrow flag state needed explicit test coverage. Thorough BRD documentation proved essential for QA planning.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>BRD-Driven Test Design</h4>
+                                    <p>Writing the complete test scenario matrix during the requirements phase (not after development) ensured zero gaps in QA coverage. The 43 test cases mapped directly to BRD acceptance criteria, which is why zero defects were found at release.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Deferred Operations Phase</h4>
+                                    <p>While phasing was the correct delivery strategy, it created a window where the technical capability existed but operational processes hadn't caught up. Clear communication was needed to prevent premature client onboarding before fund release workflows were formalized.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have included a "dry-run" mode in the API from the start &mdash; allowing clients to test conditional field validation without actually creating escrow holds. This would have enabled earlier client integration testing and reduced the feedback loop between API specification and client development.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Escrow for API Clients</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 3-Month Lifecycle &bull; Zero-Defect Release</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-recurring-cc-payments.html"><i class="fa-solid fa-arrow-left"></i> Recurring Card Payments</a>
+        <a href="case-study-api-payment-instructions-rework.html">API Payment Instructions Rework <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

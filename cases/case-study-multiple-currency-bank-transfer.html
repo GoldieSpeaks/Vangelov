@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Multiple Currency Bank Transfers — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Multiple Currency Bank Transfers. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Multiple Currency Bank Transfers</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">35+ Countries</span>
+                                    <span class="banner-tag">9-Month</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Multiple Currency Bank Transfers</div>
+                            <div class="hero-subtitle">I delivered <strong>multi-currency bank transfer payment options</strong> across 35+ countries &mdash; enabling students to choose alternative currency pairs for their payments, closing a competitive gap and unlocking new client acquisition.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that students were limited to a single default currency pair for bank transfer payments while competitors already offered currency choice, creating a barrier to client acquisition. I led this complex, cross-system project spanning 9 months of iterative scoping, multiple BRD revisions, stakeholder re-alignment, and coordinated delivery across WEB, API, and CRM systems &mdash; ultimately covering 35+ countries across Europe and Asia-Pacific.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Initiated the project from competitive analysis &mdash; identified the feature gap, raised the demand request, and secured initial concept approval from senior stakeholders over call</li>
+                                    <li>Managed three BRD revision cycles &mdash; split the specification into WEB/API sections, incorporated payment team feedback, and drove re-sign-off after each iteration</li>
+                                    <li>Defined the payment flow architecture including currency selection logic, redirect models for alternative currencies, and payment group structures</li>
+                                    <li>Created HTML/XML prototypes (example1.xml) demonstrating the proposed payment option visualisation for stakeholder review</li>
+                                    <li>Coordinated cross-team alignment across Payments, Treasury, Customer Support, and CRM teams &mdash; organised multiple scoping calls and documented action points</li>
+                                    <li>Managed the sign-off process via formal email request to senior business stakeholders, collecting and attaching approvals to the project record</li>
+                                    <li>Navigated infrastructure dependencies &mdash; sequenced development to begin after AWS migration and PHP upgrade completion to avoid rework</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card"><span class="stat-icon">&#127758;</span><span class="stat-number" data-count="35" data-suffix="+ Countries">35+ Countries</span><span class="stat-label">Coverage Delivered</span></div>
+                            <div class="stat-card"><span class="stat-icon">&#128200;</span><span class="stat-number">Gap Closed</span><span class="stat-label">Competitive Parity Achieved</span></div>
+                            <div class="stat-card"><span class="stat-icon">&#128260;</span><span class="stat-number" data-count="3" data-suffix=" Systems">3 Systems</span><span class="stat-label">WEB + API + CRM Integrated</span></div>
+                            <div class="stat-card"><span class="stat-icon">&#128176;</span><span class="stat-number">New Clients</span><span class="stat-label">Acquisition Unblocked</span></div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <div class="before-after">
+                                <div class="before-col"><h4>Before</h4><ul>
+                                    <li>Single default currency pair per country for bank transfers</li>
+                                    <li>Students unable to choose preferred payment currency</li>
+                                    <li>Competitive disadvantage vs. providers offering currency choice</li>
+                                    <li>Lost client acquisition due to feature gap</li>
+                                    <li>No CRM visibility into alternative currency selections</li>
+                                </ul></div>
+                                <div class="after-col"><h4>After</h4><ul>
+                                    <li>Multiple currency options available per country (EUR, USD, GBP)</li>
+                                    <li>Students can select preferred currency pair at payment time</li>
+                                    <li>Competitive parity achieved for bank transfer options</li>
+                                    <li>New clients onboarded citing multi-currency as key differentiator</li>
+                                    <li>CRM updated with payment group tracking and reporting</li>
+                                </ul></div>
+                            </div>
+                            <div class="key-outcome reveal"><div class="key-outcome-label">Key Outcome</div><div class="key-outcome-text">Expanded bank transfer currency options across 35+ countries, directly enabling new client acquisition that was previously blocked by the feature gap</div></div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I enabled multiple currency options for bank transfer payments across the education payments platform. Previously, students could only pay via a single default currency pair per country. I identified that competitors already offered this capability, creating a direct barrier to new client acquisition cited by the sales team.</p>
+                                <p>I coordinated extensive cross-team alignment spanning Payments, Treasury, Customer Support, and CRM teams. I drove the BRD through three major revision cycles as the proposed logic evolved from a simple alternative currency flag to a comprehensive payment group architecture supporting redirect models and dynamic validation. I strategically sequenced development after infrastructure upgrades (AWS migration and PHP upgrade) to avoid rework.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I deployed the solution across API clients first, with subsequent expansion to WEB (college links). Coverage spans 35+ countries across Europe, Nordics, and Asia-Pacific including Austria, Germany, France, UK, Switzerland, Hong Kong, and more.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <div class="timeline">
+                                <div class="timeline-item"><div class="timeline-date">October 2023</div><div class="timeline-title">Demand Request &amp; Initial Scoping</div><div class="timeline-desc">I raised the epic from competitive analysis. I completed initial scoping, set target dates, assigned the QA engineer, and targeted the first fix version for November 2023.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">November - December 2023</div><div class="timeline-title">BRD V1 &amp; Concept Approval</div><div class="timeline-desc">I coordinated BRD V1 and V2 with the Business Analyst. I obtained concept approval from senior stakeholders over call. I captured additional CRM requirements raised by the Payments team (alternative currency display on internal systems).</div></div>
+                                <div class="timeline-item"><div class="timeline-date">January 2024</div><div class="timeline-title">Architecture Redesign &amp; BRD V3</div><div class="timeline-desc">I reworked the logic for greater flexibility. I split the BRD into WEB and API sections and incorporated redirect logic from a related project. I decided not to hide API documentation and identified the need for third-party alignment (payment partner).</div></div>
+                                <div class="timeline-item"><div class="timeline-date">March - April 2024</div><div class="timeline-title">Scope Consolidation</div><div class="timeline-desc">I merged the alternative currencies project with the bank transfer separations project due to overlapping logic. I sequenced development for after AWS migration and held multiple stakeholder calls to align on the unified approach.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">May 2024</div><div class="timeline-title">Cross-Team Analysis</div><div class="timeline-desc">I documented corp bank file generation requirements. I scoped CRM changes for new payment type IDs and groups, created the process flow chart for payment routing, and identified payment group filtration and reporting needs.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">June 2024</div><div class="timeline-title">Final Sign-Off &amp; Development Start</div><div class="timeline-desc">I secured formal sign-off of the multicurrency BRD via email from senior stakeholders. I assigned development and commenced API implementation. I coordinated CRM label changes for new payment types.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">July 2024</div><div class="timeline-title">API Development &amp; Margin Configuration</div><div class="timeline-desc">I progressed API implementation and coordinated default margin configuration for additional currencies with the treasury team. I created child tasks for specific system components.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">July 2024</div><div class="timeline-title">Go-Live (API)</div><div class="timeline-desc">I released multi-currency bank transfers for API clients. Payment options became available in alternative currencies. I confirmed CRM reporting and payment group tracking were operational.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">2025</div><div class="timeline-title">WEB Expansion (College Links)</div><div class="timeline-desc">I documented the full country list (35+ countries). I drove WEB expansion bringing multi-currency options to student payment portals directly, applying the same logic to college link payment flows.</div></div>
+                                <div class="timeline-item"><div class="timeline-date">Ongoing</div><div class="timeline-title">Corridor Maintenance &amp; Expansion</div><div class="timeline-desc">I continuously monitor currency pair availability and margin optimisation. I evaluate new countries for addition based on student population demand and treasury capacity.</div></div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope"><h4>In Scope</h4><ul>
+                                    <li>Multiple currency options for bank transfer payments</li>
+                                    <li>API client integration (primary delivery)</li>
+                                    <li>WEB / College Links expansion</li>
+                                    <li>CRM payment type and group updates</li>
+                                    <li>Payment routing and validation logic</li>
+                                    <li>Currency pair configuration per country</li>
+                                    <li>Redirect logic for alternative payment options</li>
+                                    <li>Corp bank file generation updates</li>
+                                </ul></div>
+                                <div class="scope-card out-scope"><h4>Out of Scope</h4><ul>
+                                    <li>Invoice API (deferred)</li>
+                                    <li>Partner/Individual system payments</li>
+                                    <li>Card payment currency options</li>
+                                    <li>Exchange rate display to students</li>
+                                    <li>Real-time FX rate locking</li>
+                                    <li>White-label partner customisation</li>
+                                </ul></div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYMENT INITIATION</text>
+                                    <rect x="260" y="20" width="280" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">CURRENCY ENGINE</text>
+                                    <rect x="580" y="20" width="240" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">DOWNSTREAM SYSTEMS</text>
+                                    <rect x="40" y="80" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Country Selection</text>
+                                    <text x="120" y="120" text-anchor="middle" font-size="9" fill="#999">35+ supported countries</text>
+                                    <rect x="40" y="155" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Currency Choice</text>
+                                    <text x="120" y="195" text-anchor="middle" font-size="9" fill="#999">EUR / USD / GBP options</text>
+                                    <rect x="40" y="230" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Submission</text>
+                                    <text x="120" y="270" text-anchor="middle" font-size="9" fill="#999">Selected pair + details</text>
+                                    <rect x="285" y="80" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Validation Engine</text>
+                                    <text x="400" y="120" text-anchor="middle" font-size="9" fill="#999">Country + currency rules</text>
+                                    <rect x="285" y="155" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Groups</text>
+                                    <text x="400" y="195" text-anchor="middle" font-size="9" fill="#999">Type IDs + routing logic</text>
+                                    <rect x="285" y="230" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Redirect Logic</text>
+                                    <text x="400" y="270" text-anchor="middle" font-size="9" fill="#999">Alternative currency flow</text>
+                                    <rect x="600" y="80" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">CRM / ISPS</text>
+                                    <text x="700" y="120" text-anchor="middle" font-size="9" fill="#999">Payment type tracking</text>
+                                    <rect x="600" y="155" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Treasury</text>
+                                    <text x="700" y="195" text-anchor="middle" font-size="9" fill="#999">Margin + settlement</text>
+                                    <rect x="600" y="230" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Corp Bank Files</text>
+                                    <text x="700" y="270" text-anchor="middle" font-size="9" fill="#999">File generation updates</text>
+                                    <defs><marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker><marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker></defs>
+                                    <line x1="200" y1="107" x2="281" y2="107" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="182" x2="281" y2="182" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="257" x2="281" y2="257" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="107" x2="596" y2="107" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="182" x2="596" y2="182" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="257" x2="596" y2="257" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="400" y1="135" x2="400" y2="155" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="210" x2="400" y2="230" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead><tr><th style="width:100px">When</th><th>Decision</th><th style="width:100px">Type</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Dec 2023</td><td><strong>Split BRD into WEB and API sections.</strong> The complexity of each channel required independent specifications to avoid confusion and enable phased delivery starting with API.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                    <tr><td>Jan 2024</td><td><strong>Incorporate redirect logic from related project.</strong> Rather than building parallel infrastructure, merged the alternative currency flow with the existing payment method redirect architecture for consistency.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>Jan 2024</td><td><strong>Publish API documentation openly.</strong> Initially planned to hide multi-currency docs, but team concluded that restricting documentation was impractical and counter-productive for API client adoption.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Apr 2024</td><td><strong>Sequence after AWS migration and PHP upgrade.</strong> Development deferred to avoid building on soon-to-change infrastructure. This prevented rework at the cost of a 3-month delay, which was accepted by stakeholders.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>Apr 2024</td><td><strong>Merge with bank transfer separations project.</strong> Overlapping logic between multi-currency and bank transfer payment type separation made a unified delivery more efficient than two parallel projects.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Jun 2024</td><td><strong>API-first delivery, WEB second.</strong> Released for API clients first to validate the currency engine logic before expanding to the higher-traffic student portal channel.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1"><b>Payment Validation</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Currency pair selection validated across all 35+ country configurations</p></div>
+                                <div class="col2"><b>CRM Integration</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Payment type IDs and groups correctly propagating to internal reporting systems</p></div>
+                                <div class="col3"><b>Treasury Alignment</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Confirmed</p><p>Default margins configured and verified with treasury team for all alternative currencies</p></div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All</strong> currency pair configurations validated</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">API:</strong> Multi-currency endpoints live and functional</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">CRM:</strong> Payment groups and type IDs reporting correctly</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Treasury:</strong> Margins confirmed for all alternative currencies</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive"><div class="insight-type">&#9679; What Worked Well</div><h4>Infrastructure-Aware Sequencing</h4><p>Deferring development until after AWS migration and PHP upgrade prevented building on unstable foundations. The 3-month delay was far less costly than the rework that would have been required if development started on the old infrastructure.</p></div>
+                                <div class="insight-card positive"><div class="insight-type">&#9679; What Worked Well</div><h4>Cross-Team Scoping Calls</h4><p>Regular alignment calls with Payments, Treasury, and CRM teams surfaced integration requirements early. The CRM payment group needs and treasury margin configurations were identified months before development, avoiding late-stage surprises.</p></div>
+                                <div class="insight-card caution"><div class="insight-type">&#9679; Challenge</div><h4>BRD Instability Across Revisions</h4><p>Three major BRD revisions created stakeholder fatigue and re-sign-off overhead. The scope evolved significantly between V1 and V3 as technical realities surfaced. Earlier technical feasibility analysis would have stabilised the specification sooner.</p></div>
+                                <div class="insight-card learn"><div class="insight-type">&#9679; Key Learning</div><h4>Project Merging Requires Clear Governance</h4><p>Merging the multi-currency project with bank transfer separations made technical sense but complicated tracking and accountability. Establishing clear ownership boundaries and combined milestone definitions at merge time would have improved clarity.</p></div>
+                                <div class="insight-card risk"><div class="insight-type">&#9679; Risk Identified</div><h4>Cross-System Complexity</h4><p>Changes spanning WEB, API, and CRM simultaneously created integration risk. Each system had different release cycles and team ownership. A shared integration test environment and coordinated release window protocol would reduce this risk for future cross-system projects.</p></div>
+                                <div class="insight-card reflect"><div class="insight-type">&#9679; Reflection</div><h4>What I'd Do Differently</h4><p>Would invest in a technical spike before BRD V1 to understand system constraints upfront. The payment group architecture and redirect logic were discovered mid-process, forcing multiple rewrites. A 1-week technical analysis phase would have saved months of iteration.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Multiple Currency Bank Transfers</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 9-Month Lifecycle &bull; 35+ Countries &bull; Cross-Platform Delivery</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-invoice-payments-agent-flow.html"><i class="fa-solid fa-arrow-left"></i> Invoice Payments Agent Flow</a>
+        <a href="case-study-escrow-api-extension.html">Escrow Service Platform <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

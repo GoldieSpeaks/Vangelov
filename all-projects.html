@@ -2,247 +2,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-<title>Portfolio - Responsive Resume / Personal Portfolio Template</title>
-<link rel="shortcut icon" href="favicon.ico">
-
-<!-- Google Font-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,900,900italic,700italic%7COswald:400,300,700' rel='stylesheet' type='text/css'>
-<!-- Design Style -->
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/carousel.css">
-<!-- Icon -->
-<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-<!-- Responsive -->
-<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-<style>
-  .blog-left.blog-listing .row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 2.7%;
-    row-gap: 35px;
-  }
-
-  .blog-left.blog-listing .row::before,
-  .blog-left.blog-listing .row::after {
-    content: none;
-    display: none;
-  }
-
-  .blog-left.blog-listing .blog-list {
-    float: none;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    max-width: none;
-    min-height: 605px;
-    min-width: 0;
-    width: auto;
-  }
-
-  .blog-left.blog-listing .blog-img,
-  .blog-left.blog-listing .blog-img > a,
-  .blog-left.blog-listing .blog-img > div,
-  .blog-left.blog-listing .blog-img img {
-    width: 100%;
-  }
-
-  .blog-left.blog-listing .blog-img img {
-    display: block;
-    width: 100%;
-  }
-
-  .blog-left.blog-listing .blog-list-details {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-
-  .blog-left.blog-listing .blog-list-details .date {
-    min-height: 38px;
-  }
-
-  .blog-left.blog-listing .blog-list-details h3 {
-    min-height: 50px;
-  }
-
-  .blog-left.blog-listing .blog-list-details .post-details {
-    min-height: 38px;
-  }
-
-  .blog-left.blog-listing .blog-list-details p {
-    flex: 1;
-  }
-
-  @media screen and (max-width: 768px) {
-    .blog-left.blog-listing .row {
-      grid-template-columns: 1fr;
-      row-gap: 25px;
-      column-gap: 0;
-    }
-
-    .blog-left.blog-listing .blog-list {
-      max-width: none;
-      width: auto;
-      min-height: 0;
-    }
-
-    .blog-left.blog-listing .blog-list-details .date,
-    .blog-left.blog-listing .blog-list-details h3,
-    .blog-left.blog-listing .blog-list-details .post-details {
-      min-height: 0;
-    }
-  }
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>All Projects — Zlatomir Vangelov</title>
+<meta name="description" content="39 highlighted enterprise product ownership projects across payment platforms, API development, compliance systems, and infrastructure modernization.">
+<meta property="og:title" content="All Projects — Zlatomir Vangelov">
+<meta property="og:description" content="39 highlighted projects demonstrating enterprise product ownership at scale.">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="blog">
-<div id="container" class="container"> 
-  <!-- Left Menu / Logo-->
-  <aside class="menu" id="menu">
-    <div class="logo"> 
-      <!-- Logo image--> 
-      <img src="images/logo.png" width="140" height="140" alt=""/> 
-      <!-- Logo name--> 
-      <span>Portfolio</span></div>
-    <!-- Mobile Navigation--> 
-    <a href="#menu1" class="menu-link"></a> 
-    <!-- Left Navigation-->
-    <nav id="menu1" role="navigation"> <a href="index.html?page=introduction"><span id="link_introduction">Home</span></a> <a href="index.html?page=about"><span id="link_about">About</span></a> <a href="index.html?page=skills"><span id="link_skills">Skills</span></a> <a href="index.html?page=experience"><span id="link_experience">Experience</span></a> <a href="index.html?page=education"><span id="link_education">Education</span></a> <a href="index.html?page=portfolio"><span id="link_portfolio">Portfolio</span></a><a href="index.html?page=contact"><span id="link_contact">Contact</span></a><a href="all-projects.html"><span id="link_blog" class="active">All Projects</span></a></nav>
-    <div class="social"> <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> <a href="https://plus.google.com" target="_blank" class="google-plus"><i class="fa fa-google-plus"></i></a> </div>
-    <div class="copyright"> &copy; Portfolio.<br>
-      All Rights Reserved. </div>
-  </aside>
-  <div class="blog-main">
-    <div style="width: 100%;" class="blog-left blog-listing">
-    <div class="blog-top">
-  <div class="blog-title"><h2>Delivered Projects</h2><div class="breadcrumbs"><a href="index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;All Projects</div></div>
-  <div class="items">
-    <a style="color: #82BC62; padding-right: 0px;" href="#" class="item">PROJECTS </a>
-    <a style="font-size: 25px;" href="">| </a>
-    <a style="padding-left: 0px;" href="partnerships.html" class="item">WORKED WITH  </a>
-    <a style="font-size: 25px;" href="">| </a>
-    <a style="padding-left: 0px;" href="certification.html" class="item">CERTIFICATIONS</a>
-  </div>
-  </div>
-      <div class="row">
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/payments-platform.html"><img src="images/insead-thumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Project started &nbsp;/&nbsp; May 2024</span>
-            <h3><a href="Projects/payments-platform.html">INSEAD - Payment Platform Development</a></h3>
-            <span class="post-details"><a href="#">Payment Platform Development</a></span>
-            <div class="title-divider"></div>
-            <p>Enterprise payment platform delivery for INSEAD, covering secure authentication, sponsor and student payment journeys, installment workflows, and multi-currency integrations with ongoing optimization after launch.</p>
-            <div class="contact-social margin-top30"><a href="https://www.transfermate.com/post/transfermate-launches-integrated-payment-solution-for-insead-degree-programmes" target="_blank"><i class="fa fa-globe"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="/Projects/invoice-payments-api.html"><img src="images/invoice-thumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 13, 2013</span>
-            <h3><a href="Projects/invoice-payments-api.html">TransferMate - Invoice Payments API</a></h3>
-            <span class="post-details"><a href="#">Invoice Payments API</a></span>
-            <div class="title-divider"></div>
-            <p>As part of my internal Lean Six Sigma training, I was tasked with executing a successful Six Sigma project. I decided to create a knowledge base for the educational project, which proved to be a great and successful project. </p>
-            <div class="contact-social margin-top30"><a href="Projects/invoice-payments-api.html" target="_blank"><i class="fa fa-globe"></i></a></div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/fx-gains-limiter.html"><img src="images/fxgains.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/fx-gains-limiter.html">TransferMate - FX Gains Limiter</a></h3>
-            <span class="post-details"><a href="#">FX Logic Development</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="Projects/fx-gains-limiter.html" target="_blank"><i class="fa fa-globe"></i></a></div>
-          </div>
-        </div>
+<body>
 
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/tm-redesign-case-study.html"><img src="images/redesignthumb.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">September 2023 - January 2024</span>
-            <h3><a href="Projects/tm-redesign-case-study.html">Education Payment Platform Re-Design</a></h3>
-            <span class="post-details"><a href="#">Product Ownership</a> &nbsp;/&nbsp; <a href="#">User Experience</a> &nbsp;/&nbsp; <a href="#">Platform Modernization</a></span>
-            <div class="title-divider"></div>
-            <p>Scaling a digital payment platform in a regulated environment while navigating complex technical constraints, thousands of client customizations, and user experience challenges. Led cross-functional teams through discovery, design, and delivery to modernize a legacy system.</p>
-            <div class="contact-social margin-top30"><a href="Projects/tm-redesign-case-study.html" target="_blank"><i class="fa fa-globe"></i></a></div>
-          </div>
-        </div>
-
-        <div class="blog-list">
-          <div class="blog-img">
-            <div id="owl-demo" class="owl-carousel">
-              <div class="item"><img src="images/datadeletionthumb.jpg" alt=""></div> 
-            </div>
-          </div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/data-deletion.html">Annual Data Deletion Exercise</a></h3>
-            <span class="post-details"><a href="#">Analysis & Development</a> &nbsp;/&nbsp; <a href="#">Regulatory Complience</a> &nbsp;&nbsp;</span>
-            <div class="title-divider"></div>
-            <p>GDPR-focused annual data deletion programme covering multiple account types, audit-ready reporting, reusable scripts, and full verification across test and production environments.</p>
-            <div class="contact-social margin-top30"><a href="Projects/data-deletion.html" target="_blank"><i class="fa fa-globe"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/transfermate-payments-dashboard.html"><img src="images/dashboard.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/transfermate-payments-dashboard.html">TransferMate - Payments Dashboard</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="Projects/transfermate-payments-dashboard.html" target="_blank"><i class="fa fa-globe"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/recurring-cc-payments.html"><img src="images/recurring.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/recurring-cc-payments.html">Recurring Payments</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="Projects/recurring-cc-payments.html" target="_blank"><i class="fa fa-globe"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/php-upgrade-aws-migration.html"><img src="images/aws.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/php-upgrade-aws-migration.html">AWS Migration</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="Projects/php-upgrade-aws-migration.html" target="_blank"><i class="fa fa-globe"></i></a> </div>
-          </div>
-        </div>
-        <div class="blog-list">
-          <div class="blog-img"><a href="Projects/document-collection-regional.html"><img src="images/dcoc.jpg" alt=""></a></div>
-          <div class="blog-list-details"> <span class="date">Saturday &nbsp;/&nbsp; June 15, 2013</span>
-            <h3><a href="Projects/document-collection-regional.html">Document Collection</a></h3>
-            <span class="post-details"><a href="#">Admin</a> &nbsp;/&nbsp; <a href="#">Web Design</a> &nbsp;/&nbsp; <a href="#">23 Comments</a></span>
-            <div class="title-divider"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <div class="contact-social margin-top30"><a href="Projects/document-collection-regional.html" target="_blank"><i class="fa fa-globe"></i></a> </div>
-          </div>
-        </div>
-      </div>
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
     </div>
-  </div>
-  <div class="pagination">
-    <ul class="pagerblock">
-      <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
-      <li><a href="javascript:void(0)" class="current">1</a></li>
-      <li><a href="all-projects-2.html">2</a></li>
-      <li><a href="all-projects-3.html">3</a></li>
-      <li><a href="all-projects-4.html">4</a></li>
-      <li><a href="all-projects-5.html">5</a></li>
-      <li><a href="all-projects-6.html">6</a></li>
-      <li><a href="all-projects-2.html"><i class="fa fa-angle-right"></i></a></li>
-    </ul>
-  </div>
-</div>
-<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-<!-- Portfolio Slider--> 
-<script type="text/javascript" src="js/carousel.js"></script> 
-<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="js/settings-blog.js"></script>
+</aside>
+
+<main class="main" style="padding: 60px 60px 80px;">
+
+    <div class="page-header">
+        <div class="breadcrumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; All Projects</div>
+        <div class="tab-nav">
+            <a href="all-projects.html" class="active">Projects</a>
+            <a href="partnerships.html">Integrations</a>
+            <a href="certification.html">Certifications</a>
+        </div>
+        <h1>Delivered Projects</h1>
+        <p class="subtitle">A comprehensive portfolio of enterprise product ownership across payment platforms, API development, compliance systems, and infrastructure modernization.</p>
+        <div class="header-stats">
+            <div class="header-stat"><div class="num">39</div><div class="label">Case Studies</div></div>
+            <div class="header-stat"><div class="num">4+</div><div class="label">Years in FinTech</div></div>
+            <div class="header-stat"><div class="num">22+</div><div class="label">Integrations</div></div>
+            <div class="header-stat"><div class="num">8</div><div class="label">Payment Providers</div></div>
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All (39)</button>
+        <button class="filter-btn" data-filter="platform">Platform</button>
+        <button class="filter-btn" data-filter="api">API</button>
+        <button class="filter-btn" data-filter="payment">Payments</button>
+        <button class="filter-btn" data-filter="compliance">Compliance</button>
+        <button class="filter-btn" data-filter="infra">Infrastructure</button>
+        <button class="filter-btn" data-filter="automation">Automation</button>
+    </div>
+
+    <!-- Tier 1: Flagship -->
+    <div class="tier-section tier-flagship">
+        <div class="tier-header"><h2>Flagship Projects</h2><div class="tier-line"></div><div class="tier-count">5 projects</div></div>
+        <div class="project-grid">
+            <div class="project-card-wrap" data-category="platform"><a href="cases/case-study-payments-platform.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#1</span><span class="category cat-platform">Platform</span></div><h3>INSEAD Degree Payments Platform</h3><p class="desc">Multi-phase platform build from scratch. Web + API + CRM integration. C-level stakeholders. Full payment journeys for sponsors and students.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/insead-launches-new-degree-payment-platform-powered-by-transfermate" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> INSEAD Press Release <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            <div class="project-card-wrap" data-category="api"><a href="cases/case-study-iodm-multi-file-dashboard.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#2</span><span class="category cat-api">Platform Architecture</span></div><h3>IODM Multi-File ID Dashboard</h3><p class="desc">Cross-system data architecture enabling multi-partner dashboard. 3 new normalized tables. 13+ discovery calls. Compliance-approved model unblocking 4 downstream projects.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/iodm-partners-with-transfermate-to-support-usa-universities-in-managing-international-student-fee-payments" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> IODM Partnership Announcement <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            <div class="project-card-wrap" data-category="api"><a href="cases/case-study-api-dashboard.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#3</span><span class="category cat-api">Product Strategy</span></div><h3>Client Analytics Dashboard</h3><p class="desc">End-to-end product ownership from wireframes to pen-test to MVP. C-level design approval. Phase 2 expansion into disbursements.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/transfermate-launches-api-dashboard-for-education-partners" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> API Dashboard Launch <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            <a href="cases/case-study-php-upgrade-aws-migration.html" class="project-card" data-category="infra"><div class="card-thumb"><img src="images/thumb-cat-infra.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#4</span><span class="category cat-infra">Infrastructure</span></div><h3>PHP 8 Upgrade & AWS Cloud Migration</h3><p class="desc">Platform-wide infrastructure modernization. 9 systems migrated. Zero downtime achieved across production environments.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-tm-redesign.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#5</span><span class="category cat-platform">Redesign</span></div><h3>Education Platform Redesign</h3><p class="desc">Full UX/architecture overhaul of live platform. Thousands of client implementations unaffected. Modern responsive design.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+        </div>
+    </div>
+
+    <!-- Tier 2: Strong -->
+    <div class="tier-section">
+        <div class="tier-header"><h2>Strong Deliveries</h2><div class="tier-line"></div><div class="tier-count">9 projects</div></div>
+        <div class="project-grid">
+            <a href="cases/case-study-api-dashboard-mvp.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#6</span><span class="category cat-api">API</span></div><h3>API Dashboard MVP</h3><p class="desc">First self-service analytics for API clients. Pen-tested. Pilot feedback loop.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-publisher-payment-portal.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#7</span><span class="category cat-payment">Payment</span></div><h3>Publisher Payment Portal</h3><p class="desc">Mid-project pivot. 47 BRD revisions. Multi-provider. New payment type.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-invoice-payments-agent-flow.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#8</span><span class="category cat-payment">Payment</span></div><h3>Invoice Payments Agent Flow</h3><p class="desc">7 BRD versions. Dual-team sign-off. Complex multi-actor payment choreography.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-multiple-currency-bank-transfer.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#9</span><span class="category cat-payment">Payment</span></div><h3>Multiple Currency Bank Transfers</h3><p class="desc">35+ countries. 3 BRD revisions. Cross-system coordination.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-escrow-api-extension.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#10</span><span class="category cat-platform">Platform</span></div><h3>Escrow Service Platform</h3><p class="desc">2-phase extension of core escrow. 5 system touchpoints.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-agent-platform.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#11</span><span class="category cat-platform">Platform</span></div><h3>Agent Payment Platform</h3><p class="desc">Multi-provider routing. Platform-level architecture. New client segment.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-direct-debit-automation.html" class="project-card" data-category="automation"><div class="card-thumb"><img src="images/thumb-cat-automation.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#12</span><span class="category cat-automation">Automation</span></div><h3>Direct Debit Automation</h3><p class="desc">Cross-system automation. Eliminates manual ops process entirely.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-api-dashboard-disbursements.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#13</span><span class="category cat-api">API</span></div><h3>API Dashboard Disbursements</h3><p class="desc">Self-service payout reconciliation. Eliminates 3 FTE manual process.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <div class="project-card-wrap" data-category="payment"><a href="cases/case-study-recurring-cc-payments.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#14</span><span class="category cat-payment">Payment</span></div><h3>Recurring Card Payments</h3><p class="desc">9 iterations. Subscription billing. Multi-provider card tokenisation.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/making-student-housing-payments-easier-with-recurring-credit-card-payments" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> Recurring CC for Student Housing <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        </div>
+    </div>
+
+    <!-- Tier 3: Solid -->
+    <div class="tier-section">
+        <div class="tier-header"><h2>Solid Deliveries</h2><div class="tier-line"></div><div class="tier-count">12 projects</div></div>
+        <div class="project-grid">
+            <a href="cases/case-study-escrow-api-clients.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#15</span><span class="category cat-payment">Payment</span></div><h3>Escrow for API Clients</h3><p class="desc">43 tasks. API-first escrow for enterprise clients.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-api-payment-instructions-rework.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#16</span><span class="category cat-api">API</span></div><h3>API Payment Instructions Rework</h3><p class="desc">5 regional variants. 14 mockups. Dynamic instruction rendering.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-email-notification-templates-rework.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#17</span><span class="category cat-platform">Platform</span></div><h3>Email Notification Templates Rework</h3><p class="desc">23 sub-tasks. Platform-wide template overhaul. Multi-brand.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <div class="project-card-wrap" data-category="payment"><a href="cases/case-study-bulk-escrow-payments.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#18</span><span class="category cat-payment">Payment</span></div><h3>Bulk Escrow Payments</h3><p class="desc">5 providers. Batch processing at scale.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/product-update-api-powered-credit-card-bulk-payments-for-educational-agents" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> API Bulk Payments for Agents <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            <a href="cases/case-study-webhook-config-management.html" class="project-card" data-category="platform"><div class="card-thumb"><img src="images/thumb-cat-platform.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#19</span><span class="category cat-platform">Platform</span></div><h3>Webhook Configuration Management</h3><p class="desc">5 systems. Self-service config for API clients.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-document-collection-india-brazil.html" class="project-card" data-category="compliance"><div class="card-thumb"><img src="images/thumb-cat-compliance.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#20</span><span class="category cat-compliance">Compliance</span></div><h3>Cross-Border Document Collection</h3><p class="desc">21 tasks. 24 validation rules. Regulatory-driven.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-digital-wallet-integration.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#21</span><span class="category cat-payment">Payment</span></div><h3>Digital Wallet Integration</h3><p class="desc">6 providers (Apple Pay, Google Pay). Mobile-first.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-refund-functionality.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#22</span><span class="category cat-payment">Payment</span></div><h3>Refund Functionality</h3><p class="desc">12 endpoints. 3-phase delivery. Reversal logic.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-colombian-pse-payments.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#23</span><span class="category cat-payment">Payment</span></div><h3>Colombian PSE Payments</h3><p class="desc">Regional APM. 3 providers. Redirect flow orchestration.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-mxn-payments-local-provider.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#24</span><span class="category cat-payment">Payment</span></div><h3>MXN Payments Local Provider</h3><p class="desc">Mexico corridor. Provider integration. Currency-specific logic.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <div class="project-card-wrap" data-category="compliance"><a href="cases/case-study-tax-collection-integration.html" class="project-card" data-category="compliance"><div class="card-thumb"><img src="images/thumb-cat-compliance.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#25</span><span class="category cat-compliance">Compliance</span></div><h3>Tax Collection Integration</h3><p class="desc">Tax API. 2 providers. Regulatory compliance.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a><a href="https://www.transfermate.com/post/transfermate-adds-tcs-ebixcash-payment-capabilities-for-indian-students-lrs-payment" target="_blank" rel="noopener" class="ref-link"><i class="fa-solid fa-newspaper"></i> EbixCash LRS Payments <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+            <a href="cases/case-study-database-oid-removal.html" class="project-card" data-category="infra"><div class="card-thumb"><img src="images/thumb-cat-infra.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#26</span><span class="category cat-infra">Infrastructure</span></div><h3>Database OID Removal</h3><p class="desc">Core DB modernisation. Risk-heavy. Zero-downtime migration.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+        </div>
+    </div>
+
+    <!-- Tier 4: Targeted -->
+    <div class="tier-section">
+        <div class="tier-header"><h2>Targeted Deliveries</h2><div class="tier-line"></div><div class="tier-count">7 projects</div></div>
+        <div class="project-grid">
+            <a href="cases/case-study-fx-gains-limiter.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#27</span><span class="category cat-payment">Financial Logic</span></div><h3>FX Conversion Gains Limiter</h3><p class="desc">Financial rule engine. Margin protection.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-thunes-integration.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#28</span><span class="category cat-payment">Payment</span></div><h3>Thunes Integration</h3><p class="desc">Cross-border network. New corridor (KRW).</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-egypt-fawry-integration.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#29</span><span class="category cat-payment">Payment</span></div><h3>Egypt Fawry Integration</h3><p class="desc">Regional provider. Sandbox escalation. Penny test.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-apm-migration.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#30</span><span class="category cat-payment">Payment</span></div><h3>APM Provider Migration</h3><p class="desc">Provider swap. Cost optimisation. Exception engine.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-api-invoice-payments.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#31</span><span class="category cat-api">API</span></div><h3>API Invoice Payments</h3><p class="desc">4 endpoints. 8 currencies. Margin architecture.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-api-batching-optimization.html" class="project-card" data-category="api"><div class="card-thumb"><img src="images/thumb-cat-api.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#32</span><span class="category cat-api">API</span></div><h3>API Payment Batching</h3><p class="desc">Throughput optimisation. Batch processing.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-domestic-cc-fee-config.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#33</span><span class="category cat-payment">Payment</span></div><h3>Domestic Card Fee Configuration</h3><p class="desc">Fee logic. Config-driven. Multi-market.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+        </div>
+    </div>
+
+    <!-- Tier 5: Quick Wins -->
+    <div class="tier-section">
+        <div class="tier-header"><h2>Quick Wins</h2><div class="tier-line"></div><div class="tier-count">6 projects</div></div>
+        <div class="project-grid">
+            <a href="cases/case-study-annual-data-deletion.html" class="project-card" data-category="compliance"><div class="card-thumb"><img src="images/thumb-cat-compliance.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#34</span><span class="category cat-compliance">Compliance</span></div><h3>Annual Data Deletion</h3><p class="desc">GDPR compliance. Scheduled purge. Audit-ready reporting.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-auto-cancellation-cron.html" class="project-card" data-category="automation"><div class="card-thumb"><img src="images/thumb-cat-automation.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#35</span><span class="category cat-automation">Automation</span></div><h3>Auto Cancellation CRON</h3><p class="desc">Centralised cron. Replaces multi-instance timers.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-automatic-file-creation-bot.html" class="project-card" data-category="automation"><div class="card-thumb"><img src="images/thumb-cat-automation.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#36</span><span class="category cat-automation">Automation</span></div><h3>Automatic File Creation Bot</h3><p class="desc">VB6 bot replacement. 13 auto-populated fields.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-document-collection-regional.html" class="project-card" data-category="compliance"><div class="card-thumb"><img src="images/thumb-cat-compliance.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#37</span><span class="category cat-compliance">Compliance</span></div><h3>Regional Document Upload Restrictions</h3><p class="desc">CNY-specific upload rules. Focused scope.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-comply-advantage-integration.html" class="project-card" data-category="compliance"><div class="card-thumb"><img src="images/thumb-cat-compliance.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#38</span><span class="category cat-compliance">Compliance</span></div><h3>Comply Advantage Integration</h3><p class="desc">KYC/AML screening. Third-party integration.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+            <a href="cases/case-study-pgintegration.html" class="project-card" data-category="payment"><div class="card-thumb"><img src="images/thumb-cat-payment.svg" alt=""></div><div class="card-body"><div class="card-head"><span class="rank">#39</span><span class="category cat-payment">Payment</span></div><h3>PayGate Integration</h3><p class="desc">Provider replacement. Rapid delivery. Narrow scope.</p><div class="card-foot"><span class="status"><span class="dot"></span> Complete</span></div></div></a>
+        </div>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

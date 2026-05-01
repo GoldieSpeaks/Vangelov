@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Domestic Card Fee Configuration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Domestic Card Fee Configuration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Domestic Card Fee Configuration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">12Weeks</span>
+                                    <span class="banner-tag">Configurable</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Domestic Card Fee Configuration</div>
+                            <div class="hero-subtitle">I designed and delivered the <strong>percentage-based configurable card fee engine</strong> for same-currency payments, unlocking card transactions where previously only bank transfers were viable due to processing cost constraints.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that same-currency domestic payments were limited to bank transfers because fixed processing fees made cards commercially unviable. I led stakeholder discovery, defined the fee model with threshold logic, and coordinated a cross-system release that enabled institutions to offer card payments with dynamically calculated and transparently displayed fees.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY CONTRIBUTION ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Led stakeholder discovery calls with commercial and development teams to define the fee model, uncover threshold requirements, and align on the percentage-based approach over fixed-fee alternatives</li>
+                                    <li>Resolved threshold and exception questions through structured analysis &mdash; determining when percentage fees should cap at a fixed amount and how edge cases (zero-fee institutions, special agreements) should be handled</li>
+                                    <li>Coordinated cross-system release alongside the bulk escrow payment deployment &mdash; managing dependencies between the web platform, back office, and operations teams for a unified go-live</li>
+                                    <li>Decided the cards-only scope boundary &mdash; excluding bank transfer fees from this delivery to limit complexity and deliver faster while the existing API equivalent was already live</li>
+                                    <li>Managed exception mapping across the fee engine &mdash; documenting which client configurations could conflict and how the system should prioritize overlapping rules</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="12" data-suffix=" Weeks">0 Weeks</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Systems">0 Systems</span>
+                                <span class="stat-label">Unified Go-Live</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128260;</span>
+                                <span class="stat-number">Per-Client</span>
+                                <span class="stat-label">Fee Configuration Engine</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128200;</span>
+                                <span class="stat-number">Cards-Only</span>
+                                <span class="stat-label">Scope Decision Drove Speed</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from bank-transfer-only domestic payments to configurable card fee support.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Same-currency payments limited to bank transfers only</li>
+                                        <li>Fixed processing costs made card payments commercially unviable</li>
+                                        <li>No per-client fee configuration capability on the web platform</li>
+                                        <li>Revenue opportunity lost on domestic card transactions</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Percentage-based card fees configurable per institution</li>
+                                        <li>Threshold logic caps fees at a fixed maximum when percentage exceeds viability</li>
+                                        <li>Dynamic fee display shows payers the exact cost before payment</li>
+                                        <li>New revenue stream from domestic card transactions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Card payments became commercially viable for same-currency transactions through configurable percentage-based fees with transparent payer display</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I delivered a configurable percentage-based fee engine for domestic (same-currency) card payments on the web platform. The API equivalent had already been released for partner integrations, and I extended the capability to the institution-facing web interface.</p>
+                                <p>I designed the fee engine to support per-client configuration with threshold logic &mdash; charging a percentage of the transaction value up to a configurable cap, beyond which a fixed fee applies. I ensured dynamic text display on the payment form shows payers the exact fee before they proceed, and integrated back office tooling for operations teams to view and manage fee configurations.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I coordinated the release alongside the bulk escrow payment deployment in a cross-system release, with both web platform and operations tooling going live simultaneously.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Rapid delivery leveraging the existing API implementation as a foundation for web platform extension.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 1&ndash;2</div>
+                                    <div class="timeline-title">Stakeholder Discovery &amp; Fee Model Design</div>
+                                    <div class="timeline-desc">I led discovery calls with the commercial team and development leads. I evaluated percentage vs. fixed fee models, decided on percentage-based with threshold cap, and reviewed the existing API implementation for reuse patterns.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3</div>
+                                    <div class="timeline-title">Threshold &amp; Exception Analysis</div>
+                                    <div class="timeline-desc">I conducted structured analysis of edge cases: when percentage exceeds fixed fee viability, zero-fee institutional agreements, and overlapping configuration rules. I documented the exception hierarchy and priority logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 3&ndash;4</div>
+                                    <div class="timeline-title">Requirements &amp; Scope Definition</div>
+                                    <div class="timeline-desc">I authored the BRD covering fee calculation engine, threshold logic, per-client configuration interface, dynamic display requirements, and back office integration. I confirmed the cards-only scope boundary.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 4&ndash;6</div>
+                                    <div class="timeline-title">Fee Engine Development</div>
+                                    <div class="timeline-desc">I oversaw the build of the percentage-based calculation engine with configurable threshold. Per-client configuration stored and retrieved via existing settings infrastructure, with calculation logic I aligned to the API implementation for consistency.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 6&ndash;8</div>
+                                    <div class="timeline-title">Payment Form Integration</div>
+                                    <div class="timeline-desc">I integrated dynamic fee display into the payment form showing real-time calculation to payers based on transaction amount. I verified text formatting and currency display across supported locales.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 8&ndash;9</div>
+                                    <div class="timeline-title">Back Office Integration</div>
+                                    <div class="timeline-desc">I extended operations tooling to display fee configuration per client, transaction-level fee breakdowns, and override capabilities for exception handling. I prepared training documentation for the support team.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 9&ndash;10</div>
+                                    <div class="timeline-title">Cross-System Testing</div>
+                                    <div class="timeline-desc">I coordinated end-to-end testing across web platform and back office, validating fee calculations against the existing API implementation for consistency and testing threshold logic at boundary values and edge cases.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 10&ndash;11</div>
+                                    <div class="timeline-title">Release Coordination</div>
+                                    <div class="timeline-desc">I coordinated the release alongside the bulk escrow payment deployment, mapped dependencies between web platform changes and operations tooling, and agreed a unified go-live plan with all teams.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 12</div>
+                                    <div class="timeline-title">Production Release &amp; Configuration</div>
+                                    <div class="timeline-desc">I executed the cross-system release and deployed initial client configurations. Fee display confirmed live on payment forms, and I handed off per-client setup to the operations team based on commercial agreements.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Percentage-based fee calculation engine</li>
+                                        <li>Threshold logic (percentage vs. fixed cap)</li>
+                                        <li>Per-client fee configuration</li>
+                                        <li>Dynamic fee display on payment form</li>
+                                        <li>Back office integration for fee visibility</li>
+                                        <li>Exception mapping and priority rules</li>
+                                        <li>Cross-system release coordination</li>
+                                        <li>Card payments only (domestic/same-currency)</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Bank transfer fee configuration</li>
+                                        <li>Cross-currency card fee logic</li>
+                                        <li>Self-service fee configuration for institutions</li>
+                                        <li>Automated fee adjustment rules</li>
+                                        <li>Fee reporting and analytics dashboard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Fee calculation flow from configuration through dynamic display to operations visibility.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="300" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">WEB PLATFORM</text>
+                                    <rect x="260" y="20" width="280" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">FEE ENGINE</text>
+                                    <rect x="580" y="20" width="240" height="300" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">OPERATIONS</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Form</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Dynamic fee display</text>
+
+                                    <rect x="40" y="160" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Amount Entry</text>
+                                    <text x="120" y="198" text-anchor="middle" font-size="9" fill="#999">Real-time calculation</text>
+
+                                    <rect x="40" y="240" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Confirmation View</text>
+                                    <text x="120" y="278" text-anchor="middle" font-size="9" fill="#999">Fee breakdown shown</text>
+
+                                    <rect x="285" y="80" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Percentage Calculator</text>
+                                    <text x="400" y="118" text-anchor="middle" font-size="9" fill="#999">Rate x amount logic</text>
+
+                                    <rect x="285" y="160" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Threshold Evaluator</text>
+                                    <text x="400" y="198" text-anchor="middle" font-size="9" fill="#999">% vs. fixed cap decision</text>
+
+                                    <rect x="285" y="240" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client Configuration</text>
+                                    <text x="400" y="278" text-anchor="middle" font-size="9" fill="#999">Per-institution rules</text>
+
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Fee Management</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">Configuration interface</text>
+
+                                    <rect x="600" y="160" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="180" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Transaction View</text>
+                                    <text x="700" y="198" text-anchor="middle" font-size="9" fill="#999">Fee breakdown per payment</text>
+
+                                    <rect x="600" y="240" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="260" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Override Controls</text>
+                                    <text x="700" y="278" text-anchor="middle" font-size="9" fill="#999">Exception handling</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="281" y2="105" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="185" x2="281" y2="185" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="105" x2="596" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="185" x2="596" y2="185" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="265" x2="596" y2="265" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="400" y1="130" x2="400" y2="160" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="210" x2="400" y2="240" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Percentage-based fees over fixed fees.</strong> Percentage model scales naturally with transaction size, covers processing costs proportionally, and is already proven in the existing API implementation.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Cards only &mdash; exclude bank transfers from scope.</strong> Bank transfer fees have different cost structures and commercial models. Limiting scope to cards enabled faster delivery while the primary revenue opportunity was unlocked.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Threshold cap: switch to fixed fee when percentage exceeds limit.</strong> For very large transactions, the percentage fee could become disproportionate. A configurable cap ensures fair pricing and prevents payer resistance on high-value payments.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 4</td>
+                                        <td><strong>Align calculation logic with existing API implementation.</strong> Consistency between API and web platform prevents discrepancies in fee amounts across channels. Shared logic reduces maintenance burden and testing surface area.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 6</td>
+                                        <td><strong>Real-time dynamic fee display on payment form.</strong> Showing the calculated fee as the payer enters their amount provides transparency, reduces abandonment, and eliminates post-payment queries about unexpected charges.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>Coordinated release with bulk escrow deployment.</strong> Both features required operations tooling changes. A unified release reduced deployment risk, minimized operations disruption, and allowed shared testing windows.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Fee calculations validated across both platforms with consistency checks against existing API implementation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Fee Calculation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Percentage and threshold logic validated at boundary values</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Dynamic Display</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Real-time fee shown correctly across all supported locales</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Cross-Platform Parity</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Web and API fee calculations produce identical results</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Fee engine</strong> validated with boundary-value testing at threshold limits</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">API parity</strong> confirmed &mdash; web and API produce matching calculations</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Exception handling</strong> tested for zero-fee and special agreement scenarios</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #95a5a6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Operations tooling</strong> verified end-to-end with back office team</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Existing API as Blueprint</h4>
+                                    <p>Having the API implementation already live provided a proven calculation model, tested edge cases, and validated business logic. The web platform delivery could focus on presentation and configuration rather than inventing the fee model from scratch.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Coordinated Cross-System Release</h4>
+                                    <p>Aligning this release with the bulk escrow deployment reduced deployment overhead, shared testing resources, and gave operations a single training window. The unified approach minimized disruption compared to two separate release cycles.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Threshold Logic Emerged Late</h4>
+                                    <p>The need for a threshold cap (switching from percentage to fixed when the calculated fee becomes disproportionate) was not initially in the requirements. It surfaced through stakeholder calls when commercial teams raised concerns about high-value transaction scenarios.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Fee Transparency Reduces Support Load</h4>
+                                    <p>The dynamic display approach &mdash; showing the exact fee as the payer enters their amount &mdash; was validated as critical for reducing post-payment queries. Institutions that tested the feature reported significantly fewer fee-related support tickets than expected.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Exception Complexity Could Scale</h4>
+                                    <p>The current exception mapping handles known scenarios (zero-fee agreements, special rates), but as more clients are onboarded with unique commercial terms, the priority logic may need restructuring. A rules engine approach would prevent combinatorial complexity.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would model fee scenarios explicitly during the initial analysis phase rather than discovering threshold logic through stakeholder calls mid-project. Building a fee simulation spreadsheet showing calculations at various transaction sizes would have surfaced the cap requirement in week one rather than week three.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Domestic Card Fee Configuration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: ~12 Weeks &bull; 2 Systems &bull; Revenue Enabler</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-api-batching-optimization.html"><i class="fa-solid fa-arrow-left"></i> API Payment Batching</a>
+        <a href="case-study-annual-data-deletion.html">Annual Data Deletion <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

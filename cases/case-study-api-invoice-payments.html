@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>API Invoice Payments — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: API Invoice Payments. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; API Invoice Payments</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="8" width="120" height="85" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="20" cy="16" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="27" cy="16" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="34" cy="16" r="2" fill="#3498db" opacity="0.2"/>
+                                <text x="16" y="30" font-family="monospace" font-size="5.5" fill="#3498db" opacity="0.7">POST /api/v2/data</text>
+                                <text x="16" y="40" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">{</text>
+                                <text x="22" y="48" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"payload": {...},</text>
+                                <text x="22" y="56" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"format": "json",</text>
+                                <text x="22" y="64" font-family="monospace" font-size="5" fill="#3498db" opacity="0.35">"version": "2.0"</text>
+                                <text x="16" y="72" font-family="monospace" font-size="5" fill="#3498db" opacity="0.4">}</text>
+                                <rect x="145" y="15" width="100" height="55" rx="4" fill="rgba(52,152,219,0.05)" stroke="rgba(52,152,219,0.2)" stroke-width="0.6"/>
+                                <text x="152" y="27" font-family="monospace" font-size="5" fill="#3498db" opacity="0.5">200 OK</text>
+                                <rect x="152" y="32" width="60" height="3" rx="1" fill="#3498db" opacity="0.12"/>
+                                <rect x="152" y="38" width="45" height="3" rx="1" fill="#3498db" opacity="0.09"/>
+                                <rect x="152" y="44" width="70" height="3" rx="1" fill="#3498db" opacity="0.07"/>
+                                <rect x="152" y="50" width="35" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <line x1="133" y1="45" x2="142" y2="40" stroke="#3498db" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="140,38 145,40 140,42" fill="#3498db" opacity="0.3"/>
+                                <rect x="155" y="85" width="8" height="25" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="167" y="78" width="8" height="32" rx="1" fill="#3498db" opacity="0.2"/>
+                                <rect x="179" y="82" width="8" height="28" rx="1" fill="#3498db" opacity="0.17"/>
+                                <rect x="191" y="75" width="8" height="35" rx="1" fill="#3498db" opacity="0.12"/>
+                                <circle cx="240" cy="20" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="250" cy="35" r="1" fill="#3498db" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">API Development</span>
+                                    <span class="banner-tag">4Endpoints</span>
+                                    <span class="banner-tag">8 Currencies</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Development</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">API Invoice Payments</div>
+                            <div class="hero-subtitle">I designed and delivered a complete <strong>B2B Invoice Payment API</strong> &mdash; enabling agencies to pay educational institutions via invoice numbers through dedicated endpoints with <strong>custom margins, company identification, and multi-currency support</strong> across eight settlement currencies.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that the cross-border payments platform's API exclusively handled student tuition payments. A growing segment of B2B clients &mdash; agencies paying institutions on behalf of students &mdash; needed an invoice-based payment flow. I authored the full specification, designed the margin architecture, and delivered four bespoke API endpoints, a new login type for segregation, and a configurable margin system, all within a 7-week development cycle from creation to production.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Authored the feature specification &mdash; defined the full API contract including endpoint names, request/response structures, payment flow logic, and segregation requirements for B2B invoice payments</li>
+                                    <li>Created and decomposed all 10 development sub-tasks with detailed specifications, acceptance criteria, QA-specific testing instructions, and priority assignments</li>
+                                    <li>Designed the custom margin architecture &mdash; specified per-agency margin application using the Company Unique ID parameter, enabling differentiated pricing for each API client</li>
+                                    <li>Specified the payment instructions customization &mdash; defined the requirement for login-type-specific instructions, enabling different payment guidance for invoice vs. student API flows</li>
+                                    <li>Managed the release schedule and version assignment, ensuring all sub-tasks aligned with the planned release window</li>
+                                    <li>Drove the mid-development parameter rename (Payer Unique ID to Company Unique ID) based on business clarity requirements, coordinating database, API, and admin panel changes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128640;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Endpoints">4 Endpoints</span>
+                                <span class="stat-label">API Surface</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number" data-count="8" data-suffix=" Currencies">8 Currencies</span>
+                                <span class="stat-label">Settlement Coverage</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="7" data-suffix=" Weeks">7 Weeks</span>
+                                <span class="stat-label">To Production</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9989;</span>
+                                <span class="stat-number" data-count="10" data-suffix=" Tasks">10 Tasks</span>
+                                <span class="stat-label">All Delivered</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From student-only API to a full B2B invoice payment capability.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>API only supported student tuition payment flows</li>
+                                        <li>No invoice number tracking in the system</li>
+                                        <li>Single margin applied uniformly to all API clients</li>
+                                        <li>No company-level identification for B2B payers</li>
+                                        <li>Payment instructions shared between all API types</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Dedicated B2B invoice payment flow with 4 endpoints</li>
+                                        <li>Invoice number stored, tracked, and returned in responses</li>
+                                        <li>Custom margins configurable per agency via unique ID</li>
+                                        <li>Company identification with dedicated login type segregation</li>
+                                        <li>Separate payment instructions per login type and region</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Enabled a new B2B revenue channel through API-integrated agencies paying institutions via invoice across eight settlement currencies</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I identified that the cross-border payments platform API served only one use case: individual student tuition payments. A growing cohort of B2B clients &mdash; agencies paying educational institutions on behalf of multiple students &mdash; needed an invoice-based payment channel. These agencies operated at scale, required company-level identification, custom pricing per agency, and payment instructions tailored to their operational workflows.</p>
+                                <p>I delivered four new API endpoints (FX conversion, payment submission, payment history, and supported countries) under a dedicated login type that segregates invoice payments from student payments at the system level. I designed a configurable margin system allowing per-agency pricing using a Company Unique ID parameter. I specified custom payment instructions differentiated by login type and region, providing agencies with relevant banking details without student-specific references.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I delivered from initial specification to production within 7 weeks. All 10 development tasks completed, tested, and released. The API went live with support for 8 settlement currencies (EUR, CAD, GBP, AUD, USD, BRL, MXN, CHF) and direct bank transfer flow, establishing the foundation for B2B API payment expansion.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Rapid delivery from specification through testing and production release.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Feature Specification &amp; Task Creation</div>
+                                    <div class="timeline-desc">I authored the feature specification with full API contract definition. I created five initial sub-tasks covering endpoint development, login type segregation, payment method restriction, reference number logic, and payment history. Development immediately commenced.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Margin &amp; Database Tasks</div>
+                                    <div class="timeline-desc">I raised additional sub-tasks for margin functionality (per-agency pricing via Payer Unique ID parameter), default margin configuration, and new database column for invoice number storage. I completed the full decomposition of the feature into testable units.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2</div>
+                                    <div class="timeline-title">Core Endpoint Development</div>
+                                    <div class="timeline-desc">Margin criteria functionality implemented and tested. I verified custom margin application via unique ID across FX conversion and payment submission flows. New login type (type 20) created and validated &mdash; invoice payments now segregated from student payments at the system level.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2</div>
+                                    <div class="timeline-title">API Endpoints Live on Test</div>
+                                    <div class="timeline-desc">All four endpoints deployed to the test environment: InvoiceFX (rate quotes), InvoicePayment (payment submission), InvoiceHistory (transaction lookup), InvoiceCountries (supported destinations). I initiated QA testing immediately with XML response validation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3</div>
+                                    <div class="timeline-title">Parameter Refinement</div>
+                                    <div class="timeline-desc">I drove a parameter rename from "Payer Unique ID" to "Company Unique ID" based on business clarity requirements. I propagated the change across API parameters, admin panel, database columns (WEB + back-office), and cross-system data transfer logic. Tested and confirmed within 24 hours.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 4-5</div>
+                                    <div class="timeline-title">Integration Testing &amp; Refinement</div>
+                                    <div class="timeline-desc">I refined payment history response fields (payable_amount to invoice_amount, payer_name to company_name, edu_institution_name to beneficiary_name). I validated direct flow as the sole payment method and confirmed the invoice number column in the transaction database.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 6</div>
+                                    <div class="timeline-title">Default Margins &amp; Payment Instructions</div>
+                                    <div class="timeline-desc">I deployed the default margin configuration. I modified the payment instructions functionality to support custom instructions per login type &mdash; invoice API now returns different banking details than student API. I validated Brazil-specific instructions separately.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 7</div>
+                                    <div class="timeline-title">Production Release &amp; Validation</div>
+                                    <div class="timeline-desc">I deployed the Invoice API to production with 8 settlement currency accounts configured. QA completed final production verification. All test cases passed. I moved the status to Live and updated API documentation with new endpoints and parameters.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>4 new API endpoints (FX, Payment, History, Countries)</li>
+                                        <li>Dedicated login type for B2B invoice segregation</li>
+                                        <li>Custom margin system with per-agency configuration</li>
+                                        <li>Company Unique ID parameter for agency identification</li>
+                                        <li>Invoice number column in transaction database</li>
+                                        <li>Reference number generation (domain + invoice number)</li>
+                                        <li>Login-type-specific payment instructions</li>
+                                        <li>Direct bank transfer flow only</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Card payment methods (redirect flow)</li>
+                                        <li>Third-party payment provider integrations</li>
+                                        <li>Back-office application modifications</li>
+                                        <li>Client-facing dashboard for invoice tracking</li>
+                                        <li>Automated reconciliation between API and back-office</li>
+                                        <li>Bulk payment / batch processing via API</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">API endpoint architecture with margin engine, login segregation, and multi-currency settlement.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: API Clients -->
+                                    <rect x="20" y="20" width="180" height="360" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API CLIENTS</text>
+
+                                    <!-- Center zone: Invoice API -->
+                                    <rect x="230" y="20" width="320" height="360" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="390" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">INVOICE API ENGINE</text>
+
+                                    <!-- Right zone: Settlement -->
+                                    <rect x="580" y="20" width="240" height="360" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">SETTLEMENT LAYER</text>
+
+                                    <!-- API Client boxes -->
+                                    <rect x="35" y="75" width="150" height="45" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="95" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Agency A</text>
+                                    <text x="110" y="110" text-anchor="middle" font-size="8" fill="#999">Company Unique ID</text>
+
+                                    <rect x="35" y="140" width="150" height="45" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="160" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Agency B</text>
+                                    <text x="110" y="175" text-anchor="middle" font-size="8" fill="#999">Company Unique ID</text>
+
+                                    <rect x="35" y="205" width="150" height="45" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="225" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Agency N</text>
+                                    <text x="110" y="240" text-anchor="middle" font-size="8" fill="#999">Company Unique ID</text>
+
+                                    <!-- API Engine components -->
+                                    <rect x="250" y="70" width="140" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="320" y="94" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">InvoiceFX</text>
+
+                                    <rect x="410" y="70" width="120" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="470" y="94" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">InvoicePayment</text>
+
+                                    <rect x="250" y="130" width="140" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="320" y="154" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">InvoiceHistory</text>
+
+                                    <rect x="410" y="130" width="120" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="470" y="154" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">InvoiceCountries</text>
+
+                                    <!-- Margin engine -->
+                                    <rect x="260" y="200" width="270" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="395" y="222" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Margin Engine</text>
+                                    <text x="395" y="238" text-anchor="middle" font-size="8" fill="#999">Per-agency custom margins via Company Unique ID</text>
+
+                                    <!-- Login segregation -->
+                                    <rect x="260" y="270" width="270" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="395" y="292" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Login Type Segregation</text>
+                                    <text x="395" y="308" text-anchor="middle" font-size="8" fill="#999">Type 20: Invoice API (isolated from Student API)</text>
+
+                                    <!-- Payment instructions -->
+                                    <rect x="260" y="340" width="270" height="30" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="395" y="360" text-anchor="middle" font-size="9" fill="#e0e0e0" font-weight="600">Custom Payment Instructions per Login Type</text>
+
+                                    <!-- Settlement boxes -->
+                                    <rect x="600" y="70" width="200" height="35" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="700" y="92" text-anchor="middle" font-size="9" fill="#e0e0e0" font-weight="600">EUR / GBP / USD / CAD</text>
+
+                                    <rect x="600" y="120" width="200" height="35" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="700" y="142" text-anchor="middle" font-size="9" fill="#e0e0e0" font-weight="600">AUD / BRL / MXN / CHF</text>
+
+                                    <rect x="600" y="180" width="200" height="45" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="700" y="200" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Bank Transfer Only</text>
+                                    <text x="700" y="215" text-anchor="middle" font-size="8" fill="#999">Direct flow (no redirect)</text>
+
+                                    <rect x="600" y="250" width="200" height="45" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="700" y="270" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Transaction Database</text>
+                                    <text x="700" y="285" text-anchor="middle" font-size="8" fill="#999">Invoice column + reference</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <!-- Clients to API -->
+                                    <line x1="185" y1="97" x2="246" y2="90" stroke="rgba(100,150,255,0.4)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                    <line x1="185" y1="162" x2="246" y2="150" stroke="rgba(100,150,255,0.4)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                    <line x1="185" y1="227" x2="246" y2="225" stroke="rgba(100,150,255,0.4)" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+                                    <!-- API to Settlement -->
+                                    <line x1="530" y1="90" x2="596" y2="87" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="530" y1="150" x2="596" y2="137" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="530" y1="225" x2="596" y2="200" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="530" y1="295" x2="596" y2="272" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Dedicated login type (type 20) for invoice API.</strong> Complete segregation from student API at the authentication level. Enables independent margin configuration, payment instruction customization, and transaction reporting without affecting existing student flows.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Bank transfer only for initial release.</strong> Direct flow exclusively &mdash; no third-party redirect providers. Reduces integration complexity and aligns with B2B payment patterns where agencies prefer bank transfers for large invoice amounts.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Per-agency margin via Company Unique ID parameter.</strong> Enables differentiated pricing for each API client without requiring separate login credentials. Margin applied at FX conversion and payment submission based on the identifying parameter.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Rename Payer Unique ID to Company Unique ID.</strong> Business stakeholders flagged that "Payer" was ambiguous in B2B context. Full rename across API parameters, database columns, admin panel, and cross-system data transfer &mdash; completed within 24 hours to avoid downstream confusion.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Response field naming aligned to B2B context.</strong> Renamed API response fields from student-oriented terminology (payable_amount, payer_name, edu_institution_name) to invoice-oriented terminology (invoice_amount, company_name, beneficiary_name). Clear semantic distinction for API consumers.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 6</td>
+                                        <td><strong>Login-type-specific payment instructions.</strong> Rather than sharing a single instruction set across all API types, instructions now configurable per login type and per region. Enables invoice API to provide agency-relevant banking details without student-specific content.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Testing</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Continuous integration testing with QA validation at each sub-task level.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Endpoint Testing</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; All Passed</p>
+                                    <p>All 4 endpoints validated with XML request/response verification on test environment</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Margin Validation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Verified</p>
+                                    <p>Custom margin application tested across multiple criteria: payment method, country, Company Unique ID</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Production Release</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Live</p>
+                                    <p>Full production testing completed. 8 settlement currencies configured and operational.</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">10/10</strong> sub-tasks delivered and verified by QA</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">XML validation:</strong> Request/response structure confirmed across all endpoints</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Multi-criteria margin:</strong> Payment method, country, and agency ID combinations tested</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Production:</strong> Full test suite executed post-deployment with live configuration</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Granular Task Decomposition</h4>
+                                    <p>Breaking the feature into 10 independently testable sub-tasks enabled parallel development and QA cycles. Each task had clear acceptance criteria and could be verified in isolation. This pattern delivered faster end-to-end completion than sequential development would have achieved.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Rapid Parameter Rename</h4>
+                                    <p>The mid-development rename from "Payer Unique ID" to "Company Unique ID" was identified early enough to execute cleanly. Completing the full rename (API, DB, admin panel, cross-system transfer) within 24 hours prevented the ambiguous terminology from reaching any external documentation or client integration.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>QA Database Access Limitation</h4>
+                                    <p>The QA team lacked direct database access, making it impossible to verify certain schema-level changes (new columns, data transfer logic) through normal testing channels. This required involving business analysts for validation of database-only tasks &mdash; a workaround that added process friction.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Semantic API Design Matters for B2B</h4>
+                                    <p>The response field renaming (edu_institution_name to beneficiary_name, payable_amount to invoice_amount) was essential for API consumer clarity. B2B clients expect domain-appropriate terminology. Early investment in semantic field naming reduces integration support burden and prevents misinterpretation of response data.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Back-Office Transfer Dependency</h4>
+                                    <p>At production release, invoice API transactions could not be transferred to the back-office system until the back-office development team provided further instructions. This created a gap between payment submission and operational processing that required manual coordination to bridge.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have engaged the back-office development team earlier in the project lifecycle to ensure the CRM-side data transfer was ready at launch. The "no transfer until further instructions" constraint at go-live created an operational gap that could have been avoided with earlier cross-team coordination on the data handoff specification.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: API Invoice Payments</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 7-Week Delivery &bull; 4 Endpoints &bull; 8 Currencies</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-apm-migration.html"><i class="fa-solid fa-arrow-left"></i> APM Provider Migration</a>
+        <a href="case-study-api-batching-optimization.html">API Payment Batching <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

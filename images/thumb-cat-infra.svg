@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f1a"/>
+      <stop offset="100%" style="stop-color:#25152a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark purple background -->
+  <rect width="320" height="100" fill="url(#bg)"/>
+
+  <!-- Subtle diagonal lines pattern -->
+  <g opacity="0.04" stroke="#9b59b6" stroke-width="0.5">
+    <line x1="0" y1="0" x2="100" y2="100"/>
+    <line x1="40" y1="0" x2="140" y2="100"/>
+    <line x1="80" y1="0" x2="180" y2="100"/>
+    <line x1="120" y1="0" x2="220" y2="100"/>
+    <line x1="160" y1="0" x2="260" y2="100"/>
+    <line x1="200" y1="0" x2="300" y2="100"/>
+    <line x1="240" y1="0" x2="340" y2="100"/>
+  </g>
+
+  <!-- TransferMate text - prominent -->
+  <text x="20" y="38" font-family="Inter, sans-serif" font-size="14" font-weight="800" fill="#9b59b6" letter-spacing="0.5">TransferMate</text>
+
+  <!-- Divider line -->
+  <rect x="20" y="46" width="40" height="2" rx="1" fill="#9b59b6" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="20" y="66" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#ffffff" opacity="0.7" letter-spacing="0.3">INFRASTRUCTURE</text>
+
+  <!-- Subtle description -->
+  <text x="20" y="82" font-family="Inter, sans-serif" font-size="7.5" fill="#ffffff" opacity="0.35">AWS · PHP 8 · Migration · Zero-downtime</text>
+
+  <!-- Right side: abstract server/cloud icon -->
+  <g opacity="0.25">
+    <!-- Server rack -->
+    <rect x="245" y="22" width="45" height="14" rx="3" fill="none" stroke="#9b59b6" stroke-width="0.8"/>
+    <circle cx="253" cy="29" r="2" fill="#9b59b6" opacity="0.6"/>
+    <rect x="260" y="27" width="20" height="3" rx="1" fill="#9b59b6" opacity="0.3"/>
+    <rect x="245" y="40" width="45" height="14" rx="3" fill="none" stroke="#9b59b6" stroke-width="0.8"/>
+    <circle cx="253" cy="47" r="2" fill="#9b59b6" opacity="0.6"/>
+    <rect x="260" y="45" width="20" height="3" rx="1" fill="#9b59b6" opacity="0.3"/>
+    <rect x="245" y="58" width="45" height="14" rx="3" fill="none" stroke="#9b59b6" stroke-width="0.8"/>
+    <circle cx="253" cy="65" r="2" fill="#9b59b6" opacity="0.6"/>
+    <rect x="260" y="63" width="20" height="3" rx="1" fill="#9b59b6" opacity="0.3"/>
+    <!-- Cloud outline -->
+    <path d="M 255 85 C 250 85 248 82 250 79 C 248 76 252 73 256 74 C 258 71 264 71 266 74 C 270 73 274 76 272 79 C 274 82 272 85 268 85 Z" fill="none" stroke="#9b59b6" stroke-width="0.7" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="97" width="320" height="3" fill="#9b59b6" opacity="0.6"/>
+</svg>

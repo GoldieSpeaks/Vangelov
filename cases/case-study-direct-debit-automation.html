@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Direct Debit Automation — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Direct Debit Automation. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Direct Debit Automation</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-automation">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="22" fill="none" stroke="rgba(41,128,185,0.25)" stroke-width="0.8"/>
+                                <circle cx="50" cy="50" r="10" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.6"/>
+                                <line x1="50" y1="26" x2="50" y2="31" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="50" y1="69" x2="50" y2="74" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="28" y1="50" x2="33" y2="50" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="67" y1="50" x2="72" y2="50" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="34" y1="34" x2="38" y2="38" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="62" y1="62" x2="66" y2="66" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="34" y1="66" x2="38" y2="62" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="62" y1="38" x2="66" y2="34" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <g stroke="#2980b9" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 80 40 L 105 40 L 105 30 L 120 30"/>
+                                    <path d="M 80 50 L 105 50 L 105 50 L 120 50"/>
+                                    <path d="M 80 60 L 105 60 L 105 70 L 120 70"/>
+                                </g>
+                                <rect x="120" y="22" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="33" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.5">TRIGGER</text>
+                                <rect x="120" y="42" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="53" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.4">PROCESS</text>
+                                <rect x="120" y="62" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="73" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.35">OUTPUT</text>
+                                <line x1="185" y1="50" x2="205" y2="50" stroke="#2980b9" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="203,47 210,50 203,53" fill="#2980b9" opacity="0.3"/>
+                                <circle cx="230" cy="50" r="18" fill="rgba(41,128,185,0.05)" stroke="rgba(41,128,185,0.2)" stroke-width="0.7"/>
+                                <path d="M 222 50 L 227 55 L 238 44" stroke="#2980b9" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Automation</span>
+                                    <span class="banner-tag">3Months</span>
+                                    <span class="banner-tag">4 Currencies</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Automation</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Direct Debit Automation</div>
+                            <div class="hero-subtitle">I delivered a full automation of the direct debit refund process &mdash; introducing <strong>automated payment method determination</strong>, beneficiary-level storage, and multi-currency consolidated reporting to eliminate error-prone email-based workflows.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I received a priority request from the treasury team who identified that API-channel direct debit refunds were processed entirely through manual email communication. There was no system indicator distinguishing direct debit from bank transfer refunds, no stored DD account details, and no reporting capability. I drove the automation of all three gaps within a single quarter, delivering database-driven logic that triggers on refund creation and routes payments automatically based on beneficiary configuration.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY CONTRIBUTION ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Acted as project reporter and coordinator between the treasury stakeholders and the development team throughout the full lifecycle</li>
+                                    <li>Assigned the business analyst and managed the BRD creation process, clarifying requirements around default refund method behaviour and the trigger logic</li>
+                                    <li>Made the key clarification that the default refund payment method should always be bank transfer when no DD flag is set &mdash; preventing ambiguous null states</li>
+                                    <li>Coordinated the production-first testing strategy decision, recognising that the functionality had no existing data in test environments and needed live validation</li>
+                                    <li>Managed the fix version scheduling across three release cycles as development extended, ensuring the feature shipped in the correct release window</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Months">3 Months</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128178;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Currencies">4 Currencies</span>
+                                <span class="stat-label">EUR, CAD, GBP, USD</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Defects">4 Defects</span>
+                                <span class="stat-label">Found &amp; Resolved</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number">Zero-Touch</span>
+                                <span class="stat-label">Refund Routing</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from manual email-based determination to fully automated refund routing.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Refund method determined via email requests to payments team</li>
+                                        <li>No system indicator for DD vs bank transfer refunds</li>
+                                        <li>No stored direct debit account details anywhere in the system</li>
+                                        <li>No reporting on DD refund volumes or amounts</li>
+                                        <li>High error rate from manual, time-consuming process</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Automatic routing based on beneficiary DD configuration flag</li>
+                                        <li>Clear system indicator on every refund line</li>
+                                        <li>DD account details stored with role-based access controls</li>
+                                        <li>Consolidated multi-currency report (EUR, CAD, GBP, USD)</li>
+                                        <li>Zero manual intervention required for payment method determination</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated manual email-based refund determination entirely, reducing error risk to near-zero for API-channel direct debit processing</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I took ownership of a direct debit refund process that was entirely manual: the payments team relied on email requests to determine whether refunds should be collected via direct debit or bank transfer. There was no system indicator, no stored DD details, and no reporting capability. The treasury team raised this to me as a priority due to error risk and time consumption.</p>
+                                <p>I automated all three gaps. A database trigger now fires on refund line creation, checking the beneficiary's direct debit flag to automatically set the refund payment method. I specified direct debit account details stored at the beneficiary level with role-based access controls restricting edits to authorised personnel. I defined a consolidated CSV report enabling the payments team to export all DD refund lines across four currencies within any date range.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I deployed and validated the project in the live environment since the functionality was entirely new with no existing production data to test against. All QA defects were resolved, permissions validated in production, and the system is now fully operational.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From treasury request through production-first validation across a full quarter.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 2025 &mdash; Week 1</div>
+                                    <div class="timeline-title">Treasury Request &amp; Task Creation</div>
+                                    <div class="timeline-desc">Finance team raised the need to automate DD refund identification for API clients. I created the feature request and immediately assigned it for development of the core refund payment method indicator.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 2025 &mdash; Week 1</div>
+                                    <div class="timeline-title">Technical Clarification</div>
+                                    <div class="timeline-desc">Developer estimated 3-5 days for core logic. I made the key decision: when the beneficiary DD flag is not set, the refund payment method defaults to bank transfer (never null). I confirmed the trigger location on refund line creation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 2025 &mdash; Week 2-3</div>
+                                    <div class="timeline-title">Core Logic Development &amp; Testing</div>
+                                    <div class="timeline-desc">Database trigger implemented: if beneficiary is_directdebit=1, refund defaults to DD; otherwise bank transfer. Tested and validated on internal test environment within two weeks of creation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May &mdash; June 2025</div>
+                                    <div class="timeline-title">Business Analyst &amp; BRD</div>
+                                    <div class="timeline-desc">I assigned the business analyst who authored the BRD covering full scope: indicator logic, DD detail storage requirements, reporting specifications, and role-based access control rules.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">July &mdash; August 2025</div>
+                                    <div class="timeline-title">Full Development Phase</div>
+                                    <div class="timeline-desc">I assigned the developer to full implementation. DD account detail storage on beneficiary records built. Multi-currency consolidated report (EUR, CAD, GBP, USD) developed. Role-based access controls added.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">August 2025 &mdash; Week 1</div>
+                                    <div class="timeline-title">Development Complete</div>
+                                    <div class="timeline-desc">All development completed and moved to QA testing. Five days of active development delivered the full scope including the batch of enhancements beyond the initial trigger logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">August 2025 &mdash; Week 2</div>
+                                    <div class="timeline-title">QA Testing &amp; Defect Discovery</div>
+                                    <div class="timeline-desc">Testing uncovered four defects: GBP report not filtering correctly, all DD accounts showing in report instead of selected one, blank payment method saveable without error, and DD editable by unauthorized users.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">August 14, 2025</div>
+                                    <div class="timeline-title">Production Release</div>
+                                    <div class="timeline-desc">I deployed to production with the decision to conduct full testing in the live environment since DD functionality had no existing usage data. I clarified the GBP report as consolidated (not per-currency).</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">August &mdash; September 2025</div>
+                                    <div class="timeline-title">Live Validation &amp; Defect Resolution</div>
+                                    <div class="timeline-desc">All four defects resolved. Report fixed to show only selected DD account per line. Permission controls enforced and validated in production. Payments team confirmed all functionality working correctly.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">October 2025</div>
+                                    <div class="timeline-title">Final Production Validation</div>
+                                    <div class="timeline-desc">I validated permission controls (DD editable only by super users and payment team members) on the live environment. I fully closed the project &mdash; all sub-tasks resolved and confirmed operational.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Automatic DD/bank transfer refund method indicator via database trigger</li>
+                                        <li>DD account detail storage on agent beneficiary records</li>
+                                        <li>Multi-currency consolidated DD report (EUR, CAD, GBP, USD)</li>
+                                        <li>Role-based access controls (super user / payment team only)</li>
+                                        <li>Validation preventing blank refund payment method</li>
+                                        <li>Back-office system for API client management channel</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Web payment platform changes</li>
+                                        <li>Payer-facing interfaces</li>
+                                        <li>Non-API client DD processes</li>
+                                        <li>Payment gateway integrations</li>
+                                        <li>Per-currency individual reports (consolidated only)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Automated DD indicator flow from API refund request to payment method determination and reporting.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="200" height="300" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">API LAYER</text>
+
+                                    <rect x="260" y="20" width="340" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="430" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">OPERATIONS SYSTEM</text>
+
+                                    <rect x="640" y="20" width="240" height="300" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="760" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">OUTPUTS</text>
+
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">API Refund Request</text>
+                                    <text x="120" y="116" text-anchor="middle" font-size="9" fill="#999">Incoming Transaction</text>
+
+                                    <rect x="40" y="160" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Beneficiary Config</text>
+                                    <text x="120" y="196" text-anchor="middle" font-size="9" fill="#999">is_directdebit Flag</text>
+
+                                    <rect x="40" y="240" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="262" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">DD Account Details</text>
+                                    <text x="120" y="276" text-anchor="middle" font-size="9" fill="#999">Role-Gated Storage</text>
+
+                                    <rect x="280" y="80" width="150" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="355" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Refund Trigger</text>
+                                    <text x="355" y="116" text-anchor="middle" font-size="9" fill="#999">On Line Creation</text>
+
+                                    <rect x="280" y="160" width="150" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="355" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Method Resolver</text>
+                                    <text x="355" y="196" text-anchor="middle" font-size="9" fill="#999">DD vs Bank Transfer</text>
+
+                                    <rect x="450" y="120" width="130" height="50" rx="10" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.3)" stroke-width="2"/>
+                                    <text x="515" y="142" text-anchor="middle" font-size="11" fill="#f39c12" font-weight="600">Validation Layer</text>
+                                    <text x="515" y="156" text-anchor="middle" font-size="9" fill="#999">Blank Check + Perms</text>
+
+                                    <rect x="450" y="240" width="130" height="50" rx="10" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.3)" stroke-width="2"/>
+                                    <text x="515" y="262" text-anchor="middle" font-size="11" fill="#f39c12" font-weight="600">Access Control</text>
+                                    <text x="515" y="276" text-anchor="middle" font-size="9" fill="#999">Super + Payment Only</text>
+
+                                    <rect x="660" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="760" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">DD Indicator</text>
+                                    <text x="760" y="116" text-anchor="middle" font-size="9" fill="#999">Visible on Refund Lines</text>
+
+                                    <rect x="660" y="160" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="760" y="182" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Consolidated Report</text>
+                                    <text x="760" y="196" text-anchor="middle" font-size="9" fill="#999">EUR, CAD, GBP, USD</text>
+
+                                    <rect x="660" y="240" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="760" y="262" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Error Prevention</text>
+                                    <text x="760" y="276" text-anchor="middle" font-size="9" fill="#999">Blank Method Blocked</text>
+
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="276" y2="105" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="185" x2="276" y2="185" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="430" y1="105" x2="446" y2="130" stroke="rgba(125,186,92,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                    <line x1="430" y1="185" x2="446" y2="155" stroke="rgba(125,186,92,0.5)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                    <line x1="580" y1="135" x2="656" y2="105" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="580" y1="145" x2="656" y2="180" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                    <line x1="580" y1="265" x2="656" y2="260" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrG)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Treasury-led priority bypass.</strong> Project initiated directly by the finance/treasury team rather than through standard backlog prioritisation, reflecting the urgency of eliminating manual error in payment operations.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Default to bank transfer when DD flag unset.</strong> Clarified that if neither DD condition is met, the refund payment method defaults to bank transfer (never null/zero), preventing ambiguous states downstream.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Database trigger on refund line creation.</strong> The refund method is determined automatically from beneficiary configuration at the moment of line creation, not via manual UI selection per transaction.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 8</td>
+                                        <td><strong>Role-based access for DD details.</strong> Only super users and payment team members can edit direct debit account information, enforced at the application layer with clear error messaging for unauthorized attempts.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>Single consolidated report (not per-currency).</strong> QA testing identified ambiguity around GBP filtering. Developer clarified the BRD requirement was for a single consolidated report covering all four currencies, not individual per-currency exports.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 11</td>
+                                        <td><strong>Production-first testing strategy.</strong> Since DD refund functionality had no existing data in test environments, the pragmatic decision was made to validate in production with real transaction data.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Hybrid testing strategy: internal QA followed by production-first validation with real data.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Core Logic</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Internal + Live validated. Trigger fires correctly on refund creation.</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Reporting</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>4 defects found and resolved. Consolidated report working across all currencies.</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Permissions</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Live environment validated. Only authorized roles can modify DD details.</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Internal QA:</strong> Core refund trigger logic validated on test environment</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Production:</strong> Full validation with real transaction data</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">4 defects</strong> discovered during QA &mdash; all resolved</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Payments team</strong> confirmed all functionality in live environment</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Pragmatic Production-First Testing</h4>
+                                    <p>The decision to validate in production was not avoidance of process but a pragmatic choice: the DD functionality had no existing data in test environments. Testing with real transaction data ensured meaningful validation rather than synthetic scenarios that would have missed the GBP report issue entirely.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Parallel Development Strategy</h4>
+                                    <p>Starting the core trigger logic immediately (resolved in 3 weeks) while the full BRD was being authored allowed the project to deliver faster. The trigger was production-ready before the reporting and storage features even entered development, de-risking the most critical piece early.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Report Requirements Need Explicit Scope</h4>
+                                    <p>The GBP filtering issue revealed that the BRD specified a "consolidated report" but did not clearly define whether per-currency filtering was expected. QA reasonably assumed individual currency reports were possible. Explicit scope boundaries in reporting specifications prevent this class of defect.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Security Controls Must Be Day-One Features</h4>
+                                    <p>The permission bypass (DD editable by unauthorized users) was caught during QA testing. For financial data like direct debit account details, role-based access controls should be baked into the initial specification and tested from the first build, not discovered as a defect.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Blank State Validation Gaps</h4>
+                                    <p>The ability to save a blank refund payment method was a data integrity risk. While the trigger handles new lines correctly, manual overrides could still introduce null states. This edge case would have been caught earlier with explicit null-state testing in the test plan.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have included explicit permission test scenarios in the BRD from day one, rather than relying on QA to discover the access control gap. For any feature touching financial data, a "permissions matrix" table in the spec would have caught the super-user-only requirement before code was written.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Direct Debit Automation</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 3 Months &bull; Treasury-Initiated Automation</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-agent-platform.html"><i class="fa-solid fa-arrow-left"></i> Agent Payment Platform</a>
+        <a href="case-study-api-dashboard-disbursements.html">API Dashboard Disbursements <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

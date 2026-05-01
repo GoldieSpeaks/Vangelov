@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Digital Wallet Integration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Digital Wallet Integration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Digital Wallet Integration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">12Weeks</span>
+                                    <span class="banner-tag">Minimal Code</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Digital Wallet Payment Integration</div>
+                            <div class="hero-subtitle">I delivered <strong>Google Pay and Apple Pay</strong> checkout on a cross-border payments platform in 12 weeks, leveraging an existing gateway to achieve <strong>zero custom integration code</strong> and zero production defects.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that the platform could offer digital wallet payments without building direct integrations. I chose an indirect approach via the payment gateway's hosted forms &mdash; meaning the wallets appeared automatically once enabled at the provider level. I reduced the project to three focused UI enhancements: country-specific logo display, Apple Pay domain verification, and device-based dynamic switching between wallets. I managed the BRD through 16 revisions before securing executive approval from two senior leaders within 24 hours of each other.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Organised the initial alignment meeting between finance, development, and the payment provider &mdash; setting the integration approach decision in motion</li>
+                                    <li>Created all sub-tasks with detailed acceptance criteria, managed developer assignment, and tracked execution across three parallel workstreams</li>
+                                    <li>Coordinated the country display decision by routing the question to executive stakeholders, securing a response within 6 minutes</li>
+                                    <li>Managed the BRD approval process end-to-end &mdash; from analyst assignment through 16 revisions to dual executive sign-off</li>
+                                    <li>Drove scope discipline by deferring an additional wallet type raised mid-project, keeping the delivery timeline clean</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="12" data-suffix=" Weeks">0 Weeks</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128279;</span>
+                                <span class="stat-number">Minimal Code</span>
+                                <span class="stat-label">Leveraged Existing Gateway</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127758;</span>
+                                <span class="stat-number" data-count="6" data-suffix="+ Regions">0+ Regions</span>
+                                <span class="stat-label">Global Coverage</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number" data-count="0" data-suffix=" Defects">0 Defects</span>
+                                <span class="stat-label">Production Release</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from card-only checkout to multi-wallet digital payment capability.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Card payments only &mdash; no digital wallet options for payers</li>
+                                        <li>No device-aware payment experience across platforms</li>
+                                        <li>Payers accustomed to wallet payments had no familiar option</li>
+                                        <li>Competitive gap against platforms already offering wallets</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Google Pay and Apple Pay available across all payment channels</li>
+                                        <li>Device-based dynamic switching &mdash; correct wallet per device</li>
+                                        <li>Country-specific availability with official support validation</li>
+                                        <li>Zero defects in production &mdash; 100% pass rate internal and external</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Delivered wallet payments across all channels with zero custom integration code &mdash; leveraging existing infrastructure to close a competitive gap in 12 weeks</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I introduced Google Pay and Apple Pay as digital wallet payment options on an international cross-border payments platform. By leveraging out-of-the-box wallet features from an existing payment gateway provider, I delivered the capability with minimal custom code &mdash; focusing development effort on country-specific logo display, Apple Pay domain verification, and device-based dynamic switching between wallets.</p>
+                                <p>I managed the BRD through 16 revisions across multiple contributors before securing executive approval from the COO equivalent and Commercial Director within 24 hours of each other. Development completed in under 4 weeks once started, with all three sub-tasks passing internal and external testing with zero defects.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">Payers across supported countries can now use their preferred digital wallet at checkout, with the correct option surfaced automatically based on device type &mdash; achieving 100% pass rate across all test scenarios.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery across 12 weeks from formal initiation to production release and external sign-off.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Formal Request &amp; Discovery</div>
+                                    <div class="timeline-desc">Finance team initiated formal request with developer documentation links. One wallet identified as straightforward; the other required an additional provider implementation call.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2</div>
+                                    <div class="timeline-title">Analyst Assigned &amp; Provider Call</div>
+                                    <div class="timeline-desc">I assigned a business analyst to own the analysis phase through sign-off. I arranged and completed the implementation call with the payment provider's technical team.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3</div>
+                                    <div class="timeline-title">Integration Approach Alignment</div>
+                                    <div class="timeline-desc">I organised the alignment meeting with finance, development, and commercial stakeholders. We evaluated direct vs. indirect integration &mdash; I recommended the indirect approach via provider's hosted forms for minimal development effort.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 3 &ndash; 7</div>
+                                    <div class="timeline-title">BRD Authored (16 Revisions)</div>
+                                    <div class="timeline-desc">I oversaw creation of a comprehensive business requirements document with use cases, functional and non-functional requirements, country support lists, and device-based logic specifications. I coordinated multiple contributors including analyst, team lead, and QA.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 7</div>
+                                    <div class="timeline-title">Executive BRD Approval</div>
+                                    <div class="timeline-desc">I sent the BRD for dual executive approval. First executive signed off same day; second followed within 24 hours. I requested provider activation immediately after.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 8</div>
+                                    <div class="timeline-title">Country Display Decision &amp; Sub-Task Creation</div>
+                                    <div class="timeline-desc">I routed the country display question to executives, who decided to show wallet logos only in officially supported countries &mdash; response received in under 10 minutes. I created all sub-tasks with detailed acceptance criteria.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 8 &ndash; 9</div>
+                                    <div class="timeline-title">Development: Logo Display &amp; Domain File</div>
+                                    <div class="timeline-desc">First sub-task entered development &mdash; conditional logo display per country with card brand support. Domain verification file deployed to all impacted domains for wallet activation on hosted forms.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 10</div>
+                                    <div class="timeline-title">Development: Dynamic Switching &amp; Internal QA</div>
+                                    <div class="timeline-desc">Device-based dynamic switching implemented &mdash; one wallet visible on its native device only, mutual exclusivity enforced. I verified all three sub-tasks passed internal testing with zero issues.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 11</div>
+                                    <div class="timeline-title">Production Release</div>
+                                    <div class="timeline-desc">I released all sub-tasks to production, created and assigned the fix version. I notified the marketing team for post-release materials preparation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 12</div>
+                                    <div class="timeline-title">External Testing &amp; Project Close</div>
+                                    <div class="timeline-desc">I confirmed external testing completed across all three sub-tasks &mdash; zero issues found. I marked the project as Done and updated final documentation with full execution tracking.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Web payment platforms &mdash; individual payments</li>
+                                        <li>Web payment platforms &mdash; corporate payments</li>
+                                        <li>API systems &mdash; corporate payments</li>
+                                        <li>API systems &mdash; individual payments</li>
+                                        <li>API systems &mdash; invoice payments</li>
+                                        <li>Country-based wallet logo display</li>
+                                        <li>Device-based dynamic wallet switching</li>
+                                        <li>Domain verification file deployment</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Bank transfer payment methods</li>
+                                        <li>Alternative payment methods (APMs)</li>
+                                        <li>Direct API integration (bypassing provider)</li>
+                                        <li>Additional wallet type (deferred to separate initiative)</li>
+                                        <li>Internal CRM systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Indirect integration via existing payment gateway hosted forms &mdash; minimal custom code required.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Payer Device -->
+                                    <rect x="20" y="20" width="240" height="380" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="140" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYER DEVICE</text>
+
+                                    <!-- Center zone: Payments Platform -->
+                                    <rect x="300" y="20" width="280" height="380" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="440" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYMENTS PLATFORM</text>
+
+                                    <!-- Right zone: Payment Gateway -->
+                                    <rect x="620" y="20" width="260" height="380" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="750" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYMENT GATEWAY</text>
+
+                                    <!-- Payer Device boxes -->
+                                    <rect x="50" y="80" width="180" height="56" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="140" y="105" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Apple Device</text>
+                                    <text x="140" y="122" text-anchor="middle" font-size="9" fill="#999">Apple Pay Displayed</text>
+
+                                    <rect x="50" y="160" width="180" height="56" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="140" y="185" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Android Device</text>
+                                    <text x="140" y="202" text-anchor="middle" font-size="9" fill="#999">Google Pay Displayed</text>
+
+                                    <rect x="50" y="240" width="180" height="56" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                                    <text x="140" y="265" text-anchor="middle" font-size="11" fill="#666" font-weight="600">Windows / Other</text>
+                                    <text x="140" y="282" text-anchor="middle" font-size="9" fill="#555">Card Only (No Wallets)</text>
+
+                                    <!-- Platform boxes -->
+                                    <rect x="330" y="80" width="220" height="64" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="440" y="105" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Selector</text>
+                                    <text x="440" y="122" text-anchor="middle" font-size="9" fill="#999">Country logos + Device detection</text>
+
+                                    <rect x="330" y="170" width="220" height="64" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="440" y="195" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Web Payment Platform</text>
+                                    <text x="440" y="212" text-anchor="middle" font-size="9" fill="#999">Individual &amp; Corporate payments</text>
+
+                                    <rect x="330" y="260" width="220" height="64" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="440" y="285" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">API Systems</text>
+                                    <text x="440" y="302" text-anchor="middle" font-size="9" fill="#999">Corporate &amp; Invoice payments</text>
+
+                                    <rect x="360" y="346" width="160" height="40" rx="8" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="440" y="370" text-anchor="middle" font-size="10" fill="#e94560" font-weight="600">Domain Verification File</text>
+
+                                    <!-- Gateway boxes -->
+                                    <rect x="650" y="80" width="200" height="64" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="750" y="105" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Hosted Payment Form</text>
+                                    <text x="750" y="122" text-anchor="middle" font-size="9" fill="#999">Card + Wallet UI (iframe)</text>
+
+                                    <rect x="650" y="170" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="750" y="200" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Merchant Admin Panel</text>
+
+                                    <rect x="650" y="246" width="96" height="44" rx="8" fill="rgba(50,50,50,0.8)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                                    <text x="698" y="272" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Apple Pay</text>
+
+                                    <rect x="754" y="246" width="96" height="44" rx="8" fill="rgba(66,133,244,0.3)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                                    <text x="802" y="272" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Google Pay</text>
+
+                                    <rect x="650" y="316" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="750" y="345" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Card Issuer / Bank</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="230" y1="108" x2="326" y2="108" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="230" y1="188" x2="326" y2="168" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)" stroke-dasharray="6,3"/>
+                                    <line x1="550" y1="108" x2="646" y2="108" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="750" y1="144" x2="750" y2="166" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                    <line x1="750" y1="220" x2="750" y2="242" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                    <line x1="750" y1="290" x2="750" y2="312" stroke="rgba(52,152,219,0.5)" stroke-width="1.5" marker-end="url(#arrB)"/>
+                                </svg>
+                            </div>
+                            <div class="viz-grid">
+                                <div class="viz-card">
+                                    <div class="viz-title">System Components</div>
+                                    <div class="phase-list">
+                                        <div class="phase-item"><strong>Payment Selector</strong><p>Country-based logo display + device detection logic</p></div>
+                                        <div class="phase-item"><strong>Domain Verification</strong><p>Verification file deployed to all impacted domains</p></div>
+                                        <div class="phase-item"><strong>Dynamic Switching</strong><p>Apple Pay on Apple devices, Google Pay on Android only</p></div>
+                                        <div class="phase-item"><strong>Gateway Hosted Forms</strong><p>Wallet UI rendered via iframe from provider</p></div>
+                                    </div>
+                                </div>
+                                <div class="viz-card">
+                                    <div class="viz-title">Coverage by Platform</div>
+                                    <div class="bar-row">
+                                        <div class="bar-head"><span>Web Individual Payments</span><span>100%</span></div>
+                                        <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <div class="bar-head"><span>Web Corporate Payments</span><span>100%</span></div>
+                                        <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <div class="bar-head"><span>API Corporate</span><span>100%</span></div>
+                                        <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <div class="bar-head"><span>API Invoice</span><span>100%</span></div>
+                                        <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <div class="bar-head"><span>Bank Transfers / APMs</span><span style="color:#e94560;">Excluded</span></div>
+                                        <div class="bar-track"><div class="bar-fill" style="width:0%; background: rgba(233,69,96,0.5);"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Integrate via payment gateway (indirect)</strong> rather than building direct wallet API integration. Chose provider's hosted forms for minimal dev effort and maintained PCI compliance.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 7</td>
+                                        <td><strong>BRD approved by dual executive leadership.</strong> First executive signed off same day, second followed within 24 hours. Formal green light to proceed with implementation.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 8</td>
+                                        <td><strong>Show wallet logos only in officially supported countries.</strong> Rejected the alternative of showing logos globally. Decision made in under 10 minutes via email by both executives.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 8</td>
+                                        <td><strong>Scope right-sized as requirements clarified.</strong> Minimal custom development needed &mdash; project converted from Epic to Story to reflect actual complexity.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 9</td>
+                                        <td><strong>Additional wallet type deferred</strong> to a separate initiative. Provider raised the possibility mid-project, but it was too new and required separate business approval.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 10</td>
+                                        <td><strong>Mutual exclusivity enforced for device switching.</strong> Both wallets must never appear simultaneously &mdash; only the device-native wallet displays, with graceful fallback to card-only.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Testing</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Comprehensive test coverage across internal and production environments with zero defects.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Logo Display</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Internal &amp; External verified</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Domain Verification</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>All domains verified</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Dynamic Switching</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Device logic confirmed</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All</strong> internal tests passed across 3 sub-tasks</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All</strong> external (production) tests passed</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">0</strong> defects found in production release</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #95a5a6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Comprehensive</strong> cross-browser and cross-device coverage</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Leveraging Existing Provider Capabilities</h4>
+                                    <p>By choosing indirect integration via the payment gateway's hosted forms, the team avoided significant custom development. The wallets appeared automatically once enabled at the provider level, reducing the project to focused UI enhancements rather than a full integration build.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Fast Executive Decision-Making</h4>
+                                    <p>The country display decision was resolved in under 10 minutes by email. Both executives responded immediately with a clear, aligned answer. This set a benchmark for efficient stakeholder engagement and prevented any schedule delays.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Parallel Workstream Coordination</h4>
+                                    <p>Coordinating provider activation, BRD approvals, and development readiness required tight alignment across finance, product, and engineering. Proactive scheduling and clear ownership ensured no phase waited on another despite multiple teams being involved.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>BRD Thoroughness as Quality Gate</h4>
+                                    <p>The BRD went through 16 revisions across multiple contributors before reaching executive sign-off. While thorough, this process ensured complete clarity on use cases, country lists, device logic, and edge cases before any code was written &mdash; contributing to the zero-defect outcome.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Manual Domain Verification Dependency</h4>
+                                    <p>The domain verification file must be manually deployed to any new domain added to the platform. This creates a risk of Apple Pay silently failing on new domains if the deployment step is missed during onboarding &mdash; no automated alerting exists for this scenario.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have requested provider activation and test environment credentials in week one rather than waiting for BRD sign-off. The activation was a zero-risk action that could have run in parallel with analysis, potentially shaving two weeks off the overall timeline.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Digital Wallet Payment Integration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 12 Weeks &bull; Status: Complete &amp; Live</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-document-collection-india-brazil.html"><i class="fa-solid fa-arrow-left"></i> Cross-Border Document Collection</a>
+        <a href="case-study-refund-functionality.html">Refund Functionality <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

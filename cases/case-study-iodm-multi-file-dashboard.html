@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>IODM Multi-Partner Dashboard — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: IODM Multi-Partner Dashboard Integration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; IODM Multi-Partner Dashboard</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-api">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Dashboard frame -->
+                                <rect x="30" y="15" width="100" height="70" rx="5" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.25)" stroke-width="0.8"/>
+                                <circle cx="40" cy="23" r="2" fill="#3498db" opacity="0.4"/>
+                                <circle cx="47" cy="23" r="2" fill="#3498db" opacity="0.3"/>
+                                <circle cx="54" cy="23" r="2" fill="#3498db" opacity="0.2"/>
+                                <!-- Dashboard content rows -->
+                                <rect x="38" y="32" width="40" height="4" rx="1" fill="#3498db" opacity="0.15"/>
+                                <rect x="38" y="40" width="80" height="3" rx="1" fill="#3498db" opacity="0.1"/>
+                                <rect x="38" y="47" width="80" height="3" rx="1" fill="#3498db" opacity="0.08"/>
+                                <rect x="38" y="54" width="80" height="3" rx="1" fill="#3498db" opacity="0.06"/>
+                                <!-- Filter controls -->
+                                <rect x="38" y="62" width="35" height="10" rx="3" fill="rgba(52,152,219,0.12)" stroke="rgba(52,152,219,0.3)" stroke-width="0.5"/>
+                                <rect x="78" y="62" width="35" height="10" rx="3" fill="rgba(125,186,92,0.12)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <!-- Partner icons -->
+                                <rect x="155" y="20" width="70" height="25" rx="4" fill="rgba(243,156,18,0.08)" stroke="rgba(243,156,18,0.25)" stroke-width="0.6"/>
+                                <text x="190" y="36" font-family="Inter,sans-serif" font-size="7" fill="#f39c12" opacity="0.7" text-anchor="middle">Partner A</text>
+                                <rect x="155" y="52" width="70" height="25" rx="4" fill="rgba(125,186,92,0.08)" stroke="rgba(125,186,92,0.25)" stroke-width="0.6"/>
+                                <text x="190" y="68" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.7" text-anchor="middle">Partner B</text>
+                                <rect x="155" y="84" width="70" height="25" rx="4" fill="rgba(155,89,182,0.08)" stroke="rgba(155,89,182,0.25)" stroke-width="0.6"/>
+                                <text x="190" y="100" font-family="Inter,sans-serif" font-size="7" fill="#9b59b6" opacity="0.7" text-anchor="middle">Partner N...</text>
+                                <!-- Connection lines -->
+                                <line x1="130" y1="40" x2="153" y2="33" stroke="#3498db" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="130" y1="55" x2="153" y2="65" stroke="#3498db" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="130" y1="70" x2="153" y2="97" stroke="#3498db" stroke-width="0.6" opacity="0.3"/>
+                                <!-- Floating dots -->
+                                <circle cx="240" cy="30" r="1.5" fill="#3498db" opacity="0.15"/>
+                                <circle cx="248" cy="80" r="1" fill="#3498db" opacity="0.1"/>
+                                <circle cx="235" cy="110" r="1.5" fill="#3498db" opacity="0.12"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology &middot; Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Platform Architecture</span>
+                                    <span class="banner-tag">Partnership Integration</span>
+                                    <span class="banner-tag">Multi-Stakeholder Delivery</span>
+                                </div>
+                                <a href="https://www.transfermate.com/post/iodm-partners-with-transfermate-to-support-usa-universities-in-managing-international-student-fee-payments" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> IODM Partnership Announcement <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Platform Architecture &amp; Partnership Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">IODM Multi-Partner Dashboard Integration</div>
+                            <div class="hero-subtitle">I designed the <strong>product architecture and compliance framework</strong> that enabled a global payments analytics dashboard to support third-party partnership clients &mdash; unlocking multi-account visibility, partner-branded environments, and a reusable model that unblocked four downstream projects.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">IODM is a third-party debt collection company that recovers outstanding student payments on behalf of US universities. When they partnered with TransferMate Education, their operating model introduced a product challenge: each university needed visibility across multiple accounts within a single dashboard &mdash; a capability the platform had never supported. I defined the product model, resolved cross-functional compliance concerns through 13+ stakeholder calls, designed a scalable partnership framework, and coordinated delivery across multiple teams to enable IODM's successful onboarding and establish the blueprint for all future partnership integrations.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Led 13+ discovery and architecture calls across 8 weeks, facilitating alignment between compliance, finance, operations, two development teams, and business stakeholders</li>
+                                    <li>Defined the product model for multi-account partnership clients &mdash; establishing how partners, their clients, and account relationships would be represented across the platform</li>
+                                    <li>Resolved a weeks-long compliance impasse by proposing a model that satisfied both regulatory requirements and operational needs &mdash; turning a blocker into an approved framework</li>
+                                    <li>Authored the complete BRD with scope definition, product specifications, migration strategy, and sign-off across Product, Development, Compliance, and Business</li>
+                                    <li>Produced entity-relationship diagrams, process flows, and architectural comparison documents used in stakeholder alignment sessions</li>
+                                    <li>Evaluated multiple solution approaches, documenting trade-offs of each and recommending the approach that balanced delivery complexity against future scalability</li>
+                                    <li>Designed the partner-branded environment specification enabling partnership clients to operate under their own white-labelled dashboards</li>
+                                    <li>Mapped all downstream dependencies and confirmed the chosen approach would unblock four dependent projects in the pipeline without requiring rework</li>
+                                    <li>Defined the scope boundaries between initial delivery and future phases, preventing scope creep while ensuring the foundation supports the full roadmap</li>
+                                    <li>Coordinated with two separate development teams, translating business requirements into implementable specifications for each team's domain</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128483;</span>
+                                <span class="stat-number" data-count="13" data-suffix="+ Calls">0+ Calls</span>
+                                <span class="stat-label">Cross-Functional Discovery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128101;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Functions">0 Functions</span>
+                                <span class="stat-label">Stakeholder Alignment</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128279;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Projects">0 Projects</span>
+                                <span class="stat-label">Downstream Unblocked</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127919;</span>
+                                <span class="stat-number">Scalable</span>
+                                <span class="stat-label">Future-Proof Framework</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from a single-partner dashboard model to a multi-partner platform capable of unlimited partnership onboarding.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Dashboard limited to single-account view per client</li>
+                                        <li>No capability for clients needing visibility across multiple accounts</li>
+                                        <li>No distinction between payment types in analytics views</li>
+                                        <li>No partner-level filtering or segregation in reporting</li>
+                                        <li>Partnership clients required workarounds with no unified experience</li>
+                                        <li>No compliance-approved model for partnership integrations</li>
+                                        <li>Four downstream projects blocked by platform limitations</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Dashboard supports multi-account visibility with filtering</li>
+                                        <li>Scalable model accommodates unlimited partnership configurations</li>
+                                        <li>Payment type differentiation available in analytics views</li>
+                                        <li>Partner-level segregation enables per-partner reporting and reconciliation</li>
+                                        <li>Co-branded dashboard environments for partnership clients</li>
+                                        <li>Compliance-approved framework satisfying all regulatory requirements</li>
+                                        <li>Architecture unblocks disbursements, refunds, commission reporting, and downstream integrations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Enabled an entirely new revenue stream by supporting third-party partnership integrations alongside direct client services. IODM migrated from a competitor platform specifically because of this capability. The framework now supports onboarding additional partners without requiring further product changes.</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>IODM is a debt collection company specialising in recovering outstanding student payments on behalf of US universities. When they chose to migrate from their existing payment provider to TransferMate Education, their operating model introduced a fundamental product challenge: the analytics dashboard was designed around a one-account-per-client model, but IODM's universities each needed visibility across multiple accounts within a single view.</p>
+                                <p>This was not a simple UI feature. It required cross-functional product design spanning compliance, finance, operations, and two development teams. The challenge involved resolving regulatory concerns about multi-account representations, designing a partnership model that wouldn't break existing client experiences, accommodating legacy data quality issues, and ensuring the solution would serve as a reusable framework for future partnerships.</p>
+                                <p>The user-facing deliverable was a filter. But the 90% of effort beneath it was the product model, the compliance framework, the stakeholder alignment, and the specification work that made the filter meaningful and trustworthy.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">IODM successfully migrated from their previous provider and began processing payments through the platform. The partnership framework now enables onboarding additional third-party partners without requiring further product redesign &mdash; a reusable model for an entirely new category of client relationship.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 16px; flex-shrink: 0;">&#9888;</span>
+                            <p>This case study references the publicly disclosed IODM partnership. Internal system architecture and implementation specifics are excluded per non-disclosure obligations.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">6</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From initial partnership demand through multi-stakeholder alignment, compliance resolution, and successful go-live.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1&ndash;2</div>
+                                    <div class="timeline-title">Partnership Demand &amp; Initial Discovery</div>
+                                    <div class="timeline-desc">I took ownership when the partnership requirement was raised. Conducted initial scoping and feasibility assessment. Agreed the high-level approach and defined client co-branding and environment structure.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3&ndash;4</div>
+                                    <div class="timeline-title">Constraint Discovery &amp; Approach Evaluation</div>
+                                    <div class="timeline-desc">My deep discovery revealed that existing platform structures could not be extended without impacting current clients. I evaluated multiple solution approaches against scalability, delivery effort, and compatibility constraints.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4&ndash;5</div>
+                                    <div class="timeline-title">Compliance &amp; Finance Alignment</div>
+                                    <div class="timeline-desc">I facilitated sessions where regulatory stakeholders raised concerns about the proposed model. Worked with finance to confirm reporting requirements. Analysed real-world scenarios to validate the product model against compliance obligations.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 5&ndash;6</div>
+                                    <div class="timeline-title">Solution Design &amp; Decision Lock</div>
+                                    <div class="timeline-desc">I selected the recommended approach from evaluated alternatives. Led an extended architecture session confirming the product model. Resolved the compliance impasse with an approved framework. Documented and locked all key decisions with stakeholder agreement.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 6&ndash;7</div>
+                                    <div class="timeline-title">Scope Narrowing &amp; BRD Finalisation</div>
+                                    <div class="timeline-desc">I narrowed scope to API partnership clients for initial delivery. Confirmed credential and access model. Finalised the BRD with full stakeholder sign-off across compliance, finance, operations, and development.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 7&ndash;10</div>
+                                    <div class="timeline-title">Implementation &amp; Go-Live</div>
+                                    <div class="timeline-desc">Development teams executed against my specification. Dashboard enhanced with multi-account filtering and partner-specific views. IODM successfully onboarded and processing payments through the platform.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Multi-account visibility model for partnership clients</li>
+                                        <li>Dashboard filtering by account and payment type</li>
+                                        <li>Partner-level segregation in reporting and reconciliation</li>
+                                        <li>Co-branded dashboard environments (URL conventions, styling)</li>
+                                        <li>Compliance-approved partnership framework</li>
+                                        <li>Payment type differentiation (tuition vs. debt recovery)</li>
+                                        <li>Disbursement view segregation per partner</li>
+                                        <li>Migration of existing partnership client data</li>
+                                        <li>BRD with full product specification and stakeholder sign-off</li>
+                                        <li>Downstream dependency mapping and compatibility validation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope / Deferred</h4>
+                                    <ul>
+                                        <li>Back-office administration interface for partner management</li>
+                                        <li>Individual client styling within partner environments</li>
+                                        <li>Extended partner types beyond API integration clients</li>
+                                        <li>Disbursement reconciliation per partner (dependent on data backfill)</li>
+                                        <li>Commission report recalculation for historical periods</li>
+                                        <li>Automated partner onboarding workflow</li>
+                                        <li>Historical data backfill for pre-existing transactions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: PRODUCT CHALLENGE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Challenge</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">The Product Challenge</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Why a "simple filter" required 13+ cross-functional calls, compliance resolution, and a new product model.</p>
+                            <div class="exec-summary">
+                                <p>On the surface, the requirement was straightforward: let IODM's university clients see both their tuition payments and their debt recovery payments in one dashboard. In practice, this exposed five interconnected challenges:</p>
+                                <p><strong style="color: #e0e0e0;">1. The platform assumed one account = one client.</strong> The entire analytics experience was built around this assumption. Supporting multi-account visibility required rethinking the fundamental relationship model without breaking any existing client's experience.</p>
+                                <p><strong style="color: #e0e0e0;">2. Compliance concerns.</strong> Regulatory stakeholders raised valid concerns about how multi-account clients would be represented for reporting purposes. The proposed model needed to satisfy audit requirements while enabling the operational flexibility the partnership demanded.</p>
+                                <p><strong style="color: #e0e0e0;">3. Legacy constraints.</strong> Existing platform structures had dependencies from other clients that made modification risky. The solution had to work alongside existing structures, not replace them.</p>
+                                <p><strong style="color: #e0e0e0;">4. Data quality.</strong> Historical data had inconsistencies that made automated migration unreliable without manual validation and cleanup.</p>
+                                <p><strong style="color: #e0e0e0;">5. Downstream impact.</strong> Four other projects in the pipeline depended on how this problem was solved. Getting the model wrong would cascade blockers across multiple workstreams.</p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">Phase</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Discovery</td>
+                                        <td><strong>Build alongside existing structures, not on top of them.</strong> Existing platform components had downstream dependencies from other clients. Rather than modifying what existed (and risking breakage), the solution was designed as an additive layer that coexists with the current model.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discovery</td>
+                                        <td><strong>Scalable model over point solution.</strong> The initial temptation was to hard-code a solution for IODM specifically. Instead, designed a reusable partnership framework that accommodates unlimited future partners without further product changes. Higher upfront effort, lower total cost.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compliance</td>
+                                        <td><strong>One-to-one relationship between partners and institutional accounts.</strong> Satisfies regulatory audit requirements (each account maps to one identifiable entity) while enabling the multi-account visibility needed at the dashboard level. Resolved a weeks-long compliance impasse.</td>
+                                        <td><span class="decision-badge badge-process">Compliance</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Scoping</td>
+                                        <td><strong>Phase 1 scoped to API partnership clients only.</strong> Extending the model to all partner types would have introduced significant additional complexity. Narrow scope to prove the model with the initial partners, then expand. De-risks delivery without limiting the framework.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delivery</td>
+                                        <td><strong>Separate credentials per client institution.</strong> Each university gets its own access credentials rather than sharing through a single partner account. Provides proper access control, audit trail, and operational separation per institution.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delivery</td>
+                                        <td><strong>Manual partner setup initially, admin interface deferred.</strong> Building an interface for partner management adds scope without immediate ROI. Manual process sufficient for the first partners. Interface prioritised for a later phase once the model is proven in production.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: COMPLEXITY & CONSTRAINTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Complexity</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Complexity &amp; Constraints</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">The visible deliverable was a dashboard filter. The real complexity was beneath it: the cross-functional alignment, the compliance framework, and the product model that makes the filter trustworthy.</p>
+                            <div class="insight-grid">
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Constraint</div>
+                                    <h4>Cannot Modify Existing Structures</h4>
+                                    <p>Existing platform components had live dependencies from other clients. Any modification risked breaking their established workflows. All partnership capability had to be achieved through additive design, not modification of existing components.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Constraint</div>
+                                    <h4>Regulatory Compliance Requirements</h4>
+                                    <p>The proposed multi-account model raised regulatory reporting concerns. The resolution required designing a model where each account relationship could be audited independently &mdash; satisfying compliance while enabling the operational flexibility the business needed.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk</div>
+                                    <h4>Historical Data Inconsistencies</h4>
+                                    <p>Legacy data had quality issues including duplicates and inconsistencies. Automated migration could not be trusted without validation. Mitigated through phased rollout with manual verification for the initial dataset.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Dependency</div>
+                                    <h4>Four Downstream Projects Blocked</h4>
+                                    <p>Disbursement reconciliation, refund flows, commission reporting, and another integration project all depended on how this problem was solved. Getting the model wrong would cascade blockers across multiple concurrent workstreams.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Constraint</div>
+                                    <h4>Five-Function Stakeholder Alignment</h4>
+                                    <p>Compliance, Finance, Operations, and two separate Development teams all had different concerns and requirements. A model acceptable to all five functions took 13+ calls over 8 weeks to achieve &mdash; but the upfront alignment meant zero rework after specification lock.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Constraint</div>
+                                    <h4>Backward Compatibility</h4>
+                                    <p>Every existing client's dashboard experience had to remain exactly unchanged. The partnership model could not introduce any regression, visual change, or performance impact for the existing client base &mdash; only additive capability for partnership clients.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Exhaustive Discovery Before Specification</h4>
+                                    <p>Running 13+ calls across every affected function before finalising the BRD meant the specification was battle-tested against all stakeholder constraints. Zero rework was needed after sign-off &mdash; every edge case had already been surfaced and resolved.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Visual Artefacts for Non-Technical Alignment</h4>
+                                    <p>Entity-relationship diagrams and process flows enabled non-technical participants (compliance, finance) to understand product implications and provide informed feedback. Cited as enabling faster alignment than text specifications alone.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Decision Documentation With Rationale</h4>
+                                    <p>Every product decision was documented with date, rationale, and alternatives considered. When an alternative was proposed weeks later by a stakeholder who missed the original session, the documented rationale enabled rapid resolution without re-litigation.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Include Compliance From Day One</h4>
+                                    <p>Initial design work proceeded without compliance input, leading to a weeks-long impasse when they raised concerns late. Including regulatory stakeholders from the first ideation session would have surfaced constraints immediately, saving an entire rework cycle.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Validate Data Quality Before Designing Migration</h4>
+                                    <p>The assumption that existing data was clean enough for automated migration proved wrong. Future cross-system projects should include data profiling as a discovery-phase deliverable before finalising the product approach.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>The Invisible 90%</h4>
+                                    <p>The user-visible deliverable was a filter dropdown. But the real value &mdash; the work that consumed 90% of the effort &mdash; was the product model, the compliance framework, and the stakeholder alignment beneath it. This project reinforced that the most impactful product work is often invisible to end users: it's the framework that makes everything built on top trustworthy and scalable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: IODM Multi-Partner Dashboard Integration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Partnership Framework &bull; Multi-Stakeholder Product Delivery</div>
+                            <div class="footer-status-badge">Complete</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-payments-platform.html"><i class="fa-solid fa-arrow-left"></i> INSEAD Degree Payments Platform</a>
+        <a href="case-study-api-dashboard.html">Client Analytics Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

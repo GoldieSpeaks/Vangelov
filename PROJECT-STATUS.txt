@@ -1,0 +1,70 @@
+PORTFOLIO PROJECT STATUS
+========================
+Last updated: 2026-05-01
+
+COMPLETED
+---------
+- index.html — Full landing page (hero, about, skills with knowledge lists + languages, experience, education, featured work, collaborations, closing hero, contact)
+- all-projects.html — 39 projects in 5 tiers with category filters + tab nav (Projects/Partnerships/Certifications)
+- partnerships.html — 7 partners (Thunes, GeoSwift, dLocal, EbixCash, LocalPayments, Deutsche Bank, Worldpay) with click-to-expand modals for first 4
+- certification.html — DataCamp SQL cert (with detail modal) + Lean Six Sigma card
+- transfermate.html — "4 Years of Impact" deep-dive (10 sections: Overview, Jira, Confluence, JSM, Framework, Dashboard, KB, Projects, Skills, Timeline)
+- cases/ — 39 case study pages generated from V2 source files, wrapped in new design shell
+- css/style.css — Shared design system (sidebar, hero, cards, timeline, skills, filters, tabs, responsive)
+- css/case-study.css — Case study component styles extracted from V2 inline styles
+- js/main.js — Reveal animations, nav highlight, skill bars, filters, counters
+- 404.html, robots.txt, sitemap.xml, .nojekyll — SEO and deployment files
+- Image.jpg — User photo for closing hero section
+
+NAVIGATION STRUCTURE
+--------------------
+- Sidebar: Home, About, Skills, Experience, Education, Featured Work, All Projects, Contact
+- Tab nav on all-projects/partnerships/certification: unified pill-button style
+- TransferMate page linked from Experience section ("Read Full Breakdown")
+- Case studies: prev/next navigation between all 39
+
+NDA / CONFIDENTIALITY RULES
+----------------------------
+- Everything in this portfolio MUST be NDA-safe — no proprietary system names, internal tooling names, client names, or confidential business data
+- Use generic/anonymised references where needed (e.g. "a top-tier business school" not the actual institution name)
+- No internal metrics, revenue figures, or commercial terms (margins, fee percentages, contract values)
+- Partner/provider names (Thunes, dLocal, etc.) are OK — they are publicly known integrations
+- No screenshots of internal systems (Jira, CRM, dashboards) — only purpose-built mockups
+- Case study content should describe WHAT was delivered and HOW, not expose proprietary logic or architecture specifics
+- When in doubt, genericise
+
+KEY DECISIONS
+-------------
+- Profile image: served from GitHub Pages URL (https://goldiespeaks.github.io/Vangelov/images/profile.png)
+- Partner thumbnails: same GitHub source
+- Dark theme: #0a0a0a bg, #7dba5c accent, Inter + Oswald fonts
+- Static site only (HTML/CSS/JS) — ready for GitHub Pages
+- Case studies use V2 content as-is (extracted from blog-details div)
+- "39+ Projects Highlighted" (not "Delivered") since user has done more than 39 total
+- Languages: Bulgarian (Native), English (Experienced)
+- Education: VUAR University (VUARR) Plovdiv + PGGHT Asen Zlatarov + Lean Six Sigma
+
+THUMBNAIL & HERO BANNER SYSTEM
+-------------------------------
+- Category thumbnails (images/thumb-cat-*.svg): v2 style — colored background, bold "TransferMate" text, category label, abstract icon, bottom accent line
+- Colors: Platform=#00a3e0, API=#3498db, Payment=#7dba5c, Compliance=#f39c12, Infra=#9b59b6, Automation=#2980b9
+- Hero banners inside case studies (css/case-study.css): CSS classes banner-api, banner-payment, banner-compliance, banner-infra, banner-automation
+- Default banner (no modifier class) = Platform/TM blue (#00a3e0)
+- All 39 case studies have hero banners with correct category class + SVG visual
+
+PENDING / NEXT SESSION
+----------------------
+- Consider tweaking each case study's accent styles (stat cards, dividers, badges) to match category color
+- User review of all new pages (partnerships, certification, transfermate)
+- Visual polish pass based on user feedback
+- Verify all partner modal popups work correctly
+- Check transfermate.html sticky nav + section rendering
+- Consider: download resume PDF button? Contact form via Formspree?
+- Consider: favicon (currently references images/favicon.ico which doesn't exist)
+- Final cleanup before GitHub Pages deployment
+
+SOURCE REFERENCES
+-----------------
+- V2 case studies: Mockups/retrospective/Final Example V2 Optimized/ (main + Additional/)
+- GitHub live site: https://goldiespeaks.github.io/Vangelov/
+- GitHub pages fetched to temp: C:\Users\zvangelov\AppData\Local\Temp\portfolio-index.html, tm-progress.html, git-partnerships.html, git-certification.html, git-all-projects.html

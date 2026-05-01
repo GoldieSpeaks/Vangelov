@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>APM Provider Migration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: APM Provider Migration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; APM Provider Migration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">6Month</span>
+                                    <span class="banner-tag">0 Methods</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Alternative Payment Method Provider Migration</div>
+                            <div class="hero-subtitle">I led the migration of <strong>Chinese alternative payment methods</strong> from a high-cost global processor to a regional payment provider &mdash; expanding from 2 to 5 payment options while reducing transaction fees and enabling regulatory-compliant document collection.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I initiated and drove this project to address escalating processor fees that were eroding profitability on cross-border payments from China. I facilitated 8+ scoping calls over 4 weeks, defined the exception engine governing payment method visibility, coordinated cross-team alignment between product, development, and the external provider, and delivered a comprehensive BRD covering every parameter, fee structure, and exception rule. The project was estimated at 48 developer-days across engineering and QA.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created the Jira story and initiated the project lifecycle &mdash; establishing it as a formal demand from senior leadership</li>
+                                    <li>Scheduled and facilitated 8+ scoping calls over a 4-week period to gather business requirements, clarify fee structures, and define payment method eligibility rules</li>
+                                    <li>Collected and attached provider correspondence with technical questions directly to the project record, ensuring the development team had API specification context</li>
+                                    <li>Assigned the lead developer and business analyst, transitioning the project from demand capture into formal analysis</li>
+                                    <li>Moved the project status through lifecycle stages and linked the BRD Confluence page, creating a single source of truth for all stakeholders</li>
+                                    <li>Scheduled the formal Review and Hand-Off meeting to transition from product definition to engineering execution</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="6" data-suffix="-Month">6-Month</span>
+                                <span class="stat-label">Scoping to Hand-Off</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number" data-count="5" data-suffix=" Methods">5 Methods</span>
+                                <span class="stat-label">Payment Options Enabled</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128270;</span>
+                                <span class="stat-number" data-count="8" data-suffix="+">8+</span>
+                                <span class="stat-label">Scoping Calls Facilitated</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127919;</span>
+                                <span class="stat-number" data-count="48" data-suffix=" Days">48 Days</span>
+                                <span class="stat-label">Dev + QA Estimated</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from expensive single-processor dependency to optimised multi-method regional integration.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>High-cost global processor handling all Chinese APMs</li>
+                                        <li>Only Alipay and UnionPay available; no WeChat Pay option</li>
+                                        <li>Rising fees eroding profitability on every transaction</li>
+                                        <li>No regulatory document collection for APM payments</li>
+                                        <li>Single payment category logic &mdash; no method differentiation</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Regional provider with significantly lower transaction fees</li>
+                                        <li>Five payment methods: Alipay, WeChat Pay, UnionPay Debit, UnionPay Credit, UnionPay Credit/Debit</li>
+                                        <li>Dynamic exception engine governing method visibility by category</li>
+                                        <li>Compliant document collection via provider redirect flow</li>
+                                        <li>Category-based fee transparency for tuition, accommodation, and specialised programmes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Expanding from 2 to 5 Chinese payment methods while reducing per-transaction processing costs</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I led the migration of alternative payment methods for Chinese students from a high-cost global processor to a regional payment provider with native support for Alipay, WeChat Pay, and UnionPay variants. I initiated the project after a Senior Executive raised the demand due to escalating processor fees directly impacting transaction profitability.</p>
+                                <p>I defined a sophisticated exception engine that dynamically determines available payment methods based on payment category (tuition, accommodation, blocked accounts), partner-specific link configurations, and regulatory requirements. Students paying from China will be redirected to the provider's payment gateway and must complete document upload within 24 hours as part of Chinese regulatory compliance.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I drove the scoping phase spanning 6 months from demand capture through formal hand-off, facilitating 8+ scoping calls, coordinating cross-team alignment between product, development, and the external provider, and delivering a comprehensive BRD mapping every parameter, fee structure, and exception rule. Estimated at 24 days each for development and QA.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end lifecycle from executive demand request through scoping, specification, and engineering hand-off.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">October 2025 &mdash; Week 1</div>
+                                    <div class="timeline-title">Demand Request &amp; Project Creation</div>
+                                    <div class="timeline-desc">Senior Executive (International Commercial Director) raised demand to migrate Chinese APMs away from high-cost global processor. I created the formal Jira story and initiated lifecycle tracking.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">October 2025 &mdash; Week 2</div>
+                                    <div class="timeline-title">Scoping Calls Begin</div>
+                                    <div class="timeline-desc">I scheduled and facilitated initial scoping calls with development management. I gathered preliminary fee structures, identified payment method candidates, and defined high-level eligibility rules.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">October 2025 &mdash; Weeks 3-4</div>
+                                    <div class="timeline-title">Intensive Requirements Gathering</div>
+                                    <div class="timeline-desc">I continued scoping sessions covering exception logic, accommodation vs. tuition rules, partner-specific configurations, and FX rate handling. I documented questions and forwarded them to the regional provider for technical clarification.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">November 2025 &mdash; Weeks 5-7</div>
+                                    <div class="timeline-title">Provider Technical Alignment</div>
+                                    <div class="timeline-desc">I conducted ongoing scoping calls to align API parameters, signature generation approach, redirect flow mechanics, and webhook notification structure. I maintained tracking of open items in Jira.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">December 2025 &mdash; Week 8</div>
+                                    <div class="timeline-title">Team Assignment &amp; Status Transition</div>
+                                    <div class="timeline-desc">I assigned the lead developer and business analyst. I moved the project to In Analysis, attached provider correspondence with technical questions, and linked the BRD Confluence page as single source of truth.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">December 2025 &mdash; January 2026</div>
+                                    <div class="timeline-title">BRD Authoring</div>
+                                    <div class="timeline-desc">Business Analyst authored comprehensive specification covering payment method configuration, exception engine rules, API parameter mapping, signature generation, and use cases. I reviewed and iterated on the document.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">January &mdash; February 2026</div>
+                                    <div class="timeline-title">Exception Engine Design</div>
+                                    <div class="timeline-desc">I designed the complex rule matrix: accommodation flags, link ID arrays, exception-to-exception logic, and category-based payment method visibility. I mapped each payment type against all 5 methods with enable/disable rules.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">March 2026 &mdash; Week 1</div>
+                                    <div class="timeline-title">Provider Questions Forwarded</div>
+                                    <div class="timeline-desc">I forwarded outstanding technical questions from the development team to the regional provider for final clarification. I linked and shared the BRD with the engineering team for estimation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">March 2026 &mdash; Week 4</div>
+                                    <div class="timeline-title">Review &amp; Hand-Off Meeting</div>
+                                    <div class="timeline-desc">I scheduled the formal Review and Hand-Off session. I walked the engineering team through the BRD. Development estimation confirmed at 24 days; QA estimation confirmed at 24 days.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">April 2026+</div>
+                                    <div class="timeline-title">Engineering Execution (In Progress)</div>
+                                    <div class="timeline-desc">Development phase underway. Implementation covers payment method creation, exception engine, API integration with redirect flow, signature generation, webhook handling, and regulatory document collection.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Migrate Chinese APMs to regional payment provider</li>
+                                        <li>Add WeChat Pay, UnionPay Debit, UnionPay Credit as new methods</li>
+                                        <li>Dynamic exception engine for method visibility by category</li>
+                                        <li>API redirect payment flow with signature generation</li>
+                                        <li>Regulatory document collection via provider link</li>
+                                        <li>Payment method fee configuration and margin tracking</li>
+                                        <li>College links, API, and partner login type coverage</li>
+                                        <li>Webhook notification processing</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Agent login types (excluded from migration)</li>
+                                        <li>Invoice API login types</li>
+                                        <li>Public-facing marketing website payments</li>
+                                        <li>Other countries using global processor for APMs</li>
+                                        <li>UnionPay for non-China regions (Hong Kong, Japan, Singapore, etc.)</li>
+                                        <li>Company-type accounts (individual only)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Payment flow from student selection through provider redirect and document collection.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Student -->
+                                    <rect x="20" y="20" width="180" height="380" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="110" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">STUDENT</text>
+
+                                    <!-- Center zone: Platform -->
+                                    <rect x="230" y="20" width="280" height="380" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="370" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM CORE</text>
+
+                                    <!-- Right zone: Regional Provider -->
+                                    <rect x="540" y="20" width="280" height="380" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="680" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">REGIONAL PROVIDER</text>
+
+                                    <!-- Student boxes -->
+                                    <rect x="40" y="80" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Country Selection</text>
+                                    <text x="110" y="118" text-anchor="middle" font-size="9" fill="#999">China = trigger</text>
+
+                                    <rect x="40" y="150" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Method Choice</text>
+                                    <text x="110" y="188" text-anchor="middle" font-size="9" fill="#999">Filtered by rules</text>
+
+                                    <rect x="40" y="220" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment</text>
+                                    <text x="110" y="258" text-anchor="middle" font-size="9" fill="#999">Redirect flow</text>
+
+                                    <rect x="40" y="290" width="140" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="110" y="310" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Doc Upload</text>
+                                    <text x="110" y="328" text-anchor="middle" font-size="9" fill="#999">Within 24 hours</text>
+
+                                    <!-- Platform Core boxes -->
+                                    <rect x="255" y="80" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="370" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Exception Engine</text>
+                                    <text x="370" y="118" text-anchor="middle" font-size="9" fill="#999">Category + Link + Accommodation rules</text>
+
+                                    <rect x="255" y="150" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="370" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Methods Config</text>
+                                    <text x="370" y="188" text-anchor="middle" font-size="9" fill="#999">5 methods + fee structures</text>
+
+                                    <rect x="255" y="220" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="370" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Signature Generator</text>
+                                    <text x="370" y="258" text-anchor="middle" font-size="9" fill="#999">Lexicographic sort + concat</text>
+
+                                    <rect x="255" y="290" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="370" y="310" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Webhook Handler</text>
+                                    <text x="370" y="328" text-anchor="middle" font-size="9" fill="#999">Payment status updates</text>
+
+                                    <!-- Regional Provider boxes -->
+                                    <rect x="565" y="80" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="680" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Gateway</text>
+                                    <text x="680" y="118" text-anchor="middle" font-size="9" fill="#999">APM redirect endpoint</text>
+
+                                    <rect x="565" y="150" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="680" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">FX Conversion</text>
+                                    <text x="680" y="188" text-anchor="middle" font-size="9" fill="#999">Platform / Bank of China rates</text>
+
+                                    <rect x="565" y="220" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="680" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Document Collection</text>
+                                    <text x="680" y="258" text-anchor="middle" font-size="9" fill="#999">Regulatory compliance</text>
+
+                                    <rect x="565" y="290" width="230" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="680" y="310" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Webhook Notifications</text>
+                                    <text x="680" y="328" text-anchor="middle" font-size="9" fill="#999">Status callbacks</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                        <marker id="arrO" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(243,156,18,0.7)"/></marker>
+                                    </defs>
+                                    <line x1="180" y1="105" x2="251" y2="105" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="180" y1="175" x2="251" y2="175" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="485" y1="105" x2="561" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="485" y1="245" x2="561" y2="245" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="561" y1="315" x2="485" y2="315" stroke="rgba(243,156,18,0.5)" stroke-width="2" marker-end="url(#arrO)"/>
+
+                                    <!-- Interconnecting lines within Platform Core -->
+                                    <line x1="370" y1="130" x2="370" y2="150" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="370" y1="200" x2="370" y2="220" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="370" y1="270" x2="370" y2="290" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Oct 2025</td>
+                                        <td><strong>Migrate to regional provider rather than renegotiate with incumbent.</strong> Cost differential was structural, not negotiable. Regional provider offered native APM support with lower base fees and expanded method coverage.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oct 2025</td>
+                                        <td><strong>Scope limited to China country-of-payment only.</strong> Other countries using the global processor for UnionPay/Alipay excluded to reduce risk and isolate migration to highest-impact region.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nov 2025</td>
+                                        <td><strong>Exception engine with accommodation flag + link ID arrays.</strong> Payment method visibility governed by multi-criteria rules rather than simple category mapping. Enables partner-specific overrides without code changes.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 2025</td>
+                                        <td><strong>Separate UnionPay into Debit, Credit, and combined Credit/Debit.</strong> Different fee structures and category eligibility require distinct payment method entries rather than a single UnionPay option.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jan 2026</td>
+                                        <td><strong>Redirect flow with 24-hour document upload window.</strong> Chinese regulatory requirements mandate payer documentation. Provider handles collection via redirect link, keeping compliance burden external to the platform.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mar 2026</td>
+                                        <td><strong>Formal hand-off meeting before engineering begins.</strong> Complexity of exception rules and multi-method configuration warranted dedicated walkthrough rather than async BRD handoff.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Comprehensive specification and estimation approach ensuring robust delivery.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>BRD Coverage</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">Comprehensive</p>
+                                    <p>Full API parameter mapping, exception matrix, fee tables, use cases, and signature generation specification</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Regulatory Compliance</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">Built-In</p>
+                                    <p>Chinese document collection requirements handled via provider redirect &mdash; no platform storage of sensitive ID documents</p>
+                                </div>
+                                <div class="col3">
+                                    <b>QA Estimation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">24 Days</p>
+                                    <p>Equal QA-to-dev ratio reflecting complexity of exception rules, multi-method flows, and partner configurations</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#3498db" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="30" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #3498db;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Complete</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Scoping &amp; requirements:</strong> Complete &mdash; 8+ facilitated sessions</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">BRD specification:</strong> Complete &mdash; full parameter mapping and exception rules</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Engineering hand-off:</strong> Complete &mdash; formal review session conducted</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Development:</strong> In progress &mdash; 24-day estimate</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #999; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">QA testing:</strong> Pending &mdash; 24-day estimate</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Extended Scoping Phase</h4>
+                                    <p>Investing 4+ weeks in scoping calls before involving the engineering team ensured requirements were mature and well-understood. The development team received a comprehensive BRD with all edge cases documented rather than discovering them mid-implementation.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Exception Engine Approach</h4>
+                                    <p>Designing a configurable exception engine with accommodation flags, link ID arrays, and exception-to-exception rules creates a maintainable system. Future payment method changes can be made through configuration rather than code modifications.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Multi-Method Complexity</h4>
+                                    <p>Splitting UnionPay into three distinct variants (Debit, Credit, Credit/Debit) with different fee structures and category eligibility created a complex matrix. Every new partner configuration must be evaluated against all 5 methods across all categories.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Regulatory Requirements Shape Architecture</h4>
+                                    <p>Chinese document collection requirements fundamentally influenced the payment flow design. The redirect-based approach keeps compliance burden on the regional provider while the platform focuses on payment orchestration and method selection logic.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Provider Dependency for Document Collection</h4>
+                                    <p>Relying on the regional provider's 24-hour document upload window introduces a dependency outside platform control. If the provider's document portal experiences downtime, payments could be left in limbo without platform-side mitigation options.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have engaged the business analyst earlier in the scoping phase rather than conducting all initial calls through product alone. Having the BA participate from week 2 would have reduced the hand-off gap and accelerated BRD authoring by several weeks, as requirements would have been captured in specification format from the start.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: APM Provider Migration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Scoping Duration: 6-Month Lifecycle &bull; 48-Day Engineering Estimate</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-egypt-fawry-integration.html"><i class="fa-solid fa-arrow-left"></i> Egypt Fawry Integration</a>
+        <a href="case-study-api-invoice-payments.html">API Invoice Payments <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

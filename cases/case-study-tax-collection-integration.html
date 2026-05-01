@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Tax Collection Integration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Tax Collection Integration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Tax Collection Integration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-compliance">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 50 15 L 80 8 L 110 15 L 110 55 C 110 72, 80 85, 80 85 C 80 85, 50 72, 50 55 Z" fill="rgba(243,156,18,0.05)" stroke="rgba(243,156,18,0.25)" stroke-width="0.8"/>
+                                <path d="M 68 45 L 76 53 L 92 37" stroke="#f39c12" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                                <rect x="130" y="15" width="80" height="90" rx="4" fill="rgba(243,156,18,0.04)" stroke="rgba(243,156,18,0.15)" stroke-width="0.6"/>
+                                <rect x="140" y="25" width="50" height="3" rx="1" fill="#f39c12" opacity="0.15"/>
+                                <rect x="140" y="33" width="35" height="3" rx="1" fill="#f39c12" opacity="0.1"/>
+                                <rect x="140" y="41" width="55" height="3" rx="1" fill="#f39c12" opacity="0.08"/>
+                                <rect x="138" y="52" width="10" height="10" rx="1.5" fill="none" stroke="#f39c12" stroke-width="0.6" opacity="0.3"/>
+                                <path d="M 140 57 L 143 60 L 147 55" stroke="#f39c12" stroke-width="0.7" fill="none" opacity="0.4"/>
+                                <rect x="152" y="55" width="40" height="3" rx="1" fill="#f39c12" opacity="0.1"/>
+                                <rect x="138" y="67" width="10" height="10" rx="1.5" fill="none" stroke="#f39c12" stroke-width="0.6" opacity="0.3"/>
+                                <path d="M 140 72 L 143 75 L 147 70" stroke="#f39c12" stroke-width="0.7" fill="none" opacity="0.4"/>
+                                <rect x="152" y="70" width="35" height="3" rx="1" fill="#f39c12" opacity="0.1"/>
+                                <rect x="138" y="82" width="10" height="10" rx="1.5" fill="none" stroke="#f39c12" stroke-width="0.6" opacity="0.25"/>
+                                <rect x="152" y="85" width="45" height="3" rx="1" fill="#f39c12" opacity="0.07"/>
+                                <circle cx="230" cy="30" r="1.5" fill="#f39c12" opacity="0.15"/>
+                                <circle cx="240" cy="50" r="1" fill="#f39c12" opacity="0.1"/>
+                                <circle cx="225" cy="90" r="1.5" fill="#f39c12" opacity="0.12"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">API Integration & Compliance</span>
+                                    <span class="banner-tag">14 Deliverables</span>
+                                    <span class="banner-tag">Dual Channel</span>
+                                </div>
+                                <a href="https://www.transfermate.com/post/transfermate-adds-tcs-ebixcash-payment-capabilities-for-indian-students-lrs-payment" target="_blank" rel="noopener" class="banner-ref"><i class="fa-solid fa-newspaper"></i> EbixCash LRS Payments <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">API Integration &amp; Compliance</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Tax Collection API Integration</div>
+                            <div class="hero-subtitle">I integrated a <strong>mandatory tax calculation API</strong> into the payment flow for a regulated corridor &mdash; eliminating secondary payment requests, reducing partner operational overhead, and ensuring tax compliance is handled seamlessly within a single transaction.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I led the integration of a regional collection partner's tax calculation API after identifying that the existing separate tax collection process created poor user experience, operational burden, and compliance risk. I negotiated the integration approach directly with the partner, coordinated dual-channel development across web and API surfaces, designed the grace period strategy for API clients, and ensured graceful degradation on API failure.</p>
+                        </div>
+
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Negotiated directly with the regional collection partner on the integration approach &mdash; they rejected our proposal to calculate tax internally, requiring full API integration with their system</li>
+                                    <li>Drafted and sent the client communication email template notifying all API users of upcoming mandatory parameter changes and grace period timeline</li>
+                                    <li>Made the decision to introduce new API parameters as non-mandatory initially, providing a grace period for clients to adapt before enforcement</li>
+                                    <li>Conducted the business call on API failure rates and agreed the fallback messaging strategy for both payment instructions and payment selection screens</li>
+                                    <li>Completed the full RAID log and security risk assessment, ensuring compliance sign-off before production release</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number">Eliminated</span>
+                                <span class="stat-label">Secondary Payment</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128260;</span>
+                                <span class="stat-number" data-count="14" data-suffix=" Delivered">14 Delivered</span>
+                                <span class="stat-label">Sub-Tasks Shipped</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9989;</span>
+                                <span class="stat-number" data-count="2" data-suffix=" Channels">2 Channels</span>
+                                <span class="stat-label">WEB + API Integrated</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9889;</span>
+                                <span class="stat-number">Days</span>
+                                <span class="stat-label">Post-Release Fix Time</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from a fragmented dual-payment process to a seamless single-transaction tax-inclusive flow.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Payers required to make a separate payment for tax obligations</li>
+                                        <li>Partner manually collected tax outside the platform</li>
+                                        <li>Poor user experience with confusing dual payment requests</li>
+                                        <li>Compliance risk from inconsistent tax application</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Tax calculated and included automatically within a single payment</li>
+                                        <li>Partner operational overhead eliminated for tax collection</li>
+                                        <li>Clear messaging when API unavailable (graceful degradation)</li>
+                                        <li>Full regulatory compliance with real-time tax calculation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated the secondary payment requirement entirely, consolidating tax and tuition into a single transaction while reducing partner operational costs</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I integrated a regional collection partner's Tax Collected at Source (TCS) API into the payment platform, covering both web payment links and the client-facing API. The integration I delivered enables real-time tax calculation as part of the payment flow, eliminating the need for payers to make secondary payments and removing significant manual processing from the partner's operations.</p>
+                                <p>I negotiated directly with the partner (who rejected my initial internal calculation proposal), coordinated dual-channel development across web and API surfaces, designed a grace period strategy for API clients to adopt new mandatory parameters, and defined graceful degradation messaging for API failure scenarios. I completed the full RAID log and security risk assessment pre-release.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I released the integration to production with 14 sub-task deliverables across both channels. Post-release, I shipped a decimal validation fix and corridor exclusion refinement within days, demonstrating rapid iteration on edge cases identified in production.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery from partner negotiation through dual-channel development, testing, and production release.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Demand Request &amp; Partner Negotiation</div>
+                                    <div class="timeline-desc">Business requested tax integration to eliminate secondary payment flow. I reached out to the regional collection partner proposing internal tax calculation. Partner rejected this approach, requiring full API integration with their system.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 2-3</div>
+                                    <div class="timeline-title">Business Approval &amp; Analysis Assignment</div>
+                                    <div class="timeline-desc">I escalated to business leadership for approval to proceed with the partner's API integration requirement. I assigned the Business Analyst to analyse the partner's API specification document and draft the functional specification.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 4-7</div>
+                                    <div class="timeline-title">BRD &amp; Specification (2 Versions)</div>
+                                    <div class="timeline-desc">I coordinated the BRD covering sequential API call logic (FX Rate, TCS, GST, Order), failure handling, and dual-channel requirements. I drove the update to version 2 incorporating the partner's revised specification document and obtained sign-off.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 8</div>
+                                    <div class="timeline-title">Development Kickoff</div>
+                                    <div class="timeline-desc">I assigned the developer with a target completion date and allocated the QA engineer. Development began on web channel integration first, with new form fields for source of funds, declaration amount, and payer identification.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 9-12</div>
+                                    <div class="timeline-title">WEB &amp; API Integration Development</div>
+                                    <div class="timeline-desc">I oversaw the core TCS calculation integration into both WEB payment forms and API v3/v4 endpoints. The sequential API call chain was implemented: FX Rate query, TCS calculation, GST calculation, Order submission. I specified the database flag for API failure tracking.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 13</div>
+                                    <div class="timeline-title">Failure Handling &amp; Messaging</div>
+                                    <div class="timeline-desc">I conducted the business call to agree on API failure rate handling. I defined the fallback messaging strategy for payment instructions and payment selection screens when the partner's tax API is unavailable.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 14</div>
+                                    <div class="timeline-title">Client Communication &amp; Grace Period</div>
+                                    <div class="timeline-desc">I drafted the communication email to all API clients detailing new mandatory parameters. I defined the grace period: parameters introduced as non-mandatory initially, then enforced after the adaptation window. I updated API documentation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 15</div>
+                                    <div class="timeline-title">Payment Instructions Rework</div>
+                                    <div class="timeline-desc">I comprehensively reworked payment instructions for both channels. I specified tax-inclusive amounts displayed when API succeeds, disclaimer messaging for failure scenarios, and restructured existing instruction steps to incorporate tax information.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 16</div>
+                                    <div class="timeline-title">QA Testing &amp; Production Release</div>
+                                    <div class="timeline-desc">I coordinated QA testing across multiple environments and finalised the RAID log and security risk assessment. I released the feature to production in the April release window. All internal test scenarios passed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Post-Release</div>
+                                    <div class="timeline-title">Edge Case Fixes &amp; Corridor Exclusion</div>
+                                    <div class="timeline-desc">I shipped two post-production refinements: a decimal validation fix for the declaration amount field, and corridor exclusion logic ensuring tax calculations only apply to transactions routed through the specific partner &mdash; not all transactions for that currency.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>TCS tax API integration for web payment links</li>
+                                        <li>TCS tax API integration for client-facing API (v3 + v4)</li>
+                                        <li>Sequential API call chain (FX Rate, TCS, GST, Order)</li>
+                                        <li>Graceful degradation with user-facing failure messaging</li>
+                                        <li>New mandatory parameters (source of funds, declaration amount, PAN)</li>
+                                        <li>Payment instruction rework for tax-inclusive display</li>
+                                        <li>API documentation updates</li>
+                                        <li>RAID log and security risk assessment</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>CRM-side partner processing changes</li>
+                                        <li>Internal tax calculation (rejected by partner)</li>
+                                        <li>Invoice API integration (excluded from TCS scope)</li>
+                                        <li>Non-partner payment links for same currency</li>
+                                        <li>Historical transaction recalculation</li>
+                                        <li>Partner portal changes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Sequential API call chain integrating tax calculation into the payment flow.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Payment Channels -->
+                                    <rect x="20" y="20" width="200" height="360" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYMENT CHANNELS</text>
+
+                                    <!-- Center zone: Platform Logic -->
+                                    <rect x="260" y="20" width="280" height="360" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">TAX CALCULATION CHAIN</text>
+
+                                    <!-- Right zone: Partner API -->
+                                    <rect x="580" y="20" width="240" height="360" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PARTNER TAX API</text>
+
+                                    <!-- Payment Channel boxes -->
+                                    <rect x="40" y="80" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">WEB Payment Links</text>
+                                    <text x="120" y="118" text-anchor="middle" font-size="9" fill="#999">Student Forms</text>
+
+                                    <rect x="40" y="150" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Client API (v3/v4)</text>
+                                    <text x="120" y="188" text-anchor="middle" font-size="9" fill="#999">MakeAPayment / FX</text>
+
+                                    <rect x="40" y="220" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">New Parameters</text>
+                                    <text x="120" y="258" text-anchor="middle" font-size="9" fill="#999">Source / PAN / Amount</text>
+
+                                    <!-- Platform Logic boxes (sequential chain) -->
+                                    <rect x="285" y="75" width="230" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">1. FX Rate Query</text>
+
+                                    <rect x="285" y="135" width="230" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="160" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">2. TCS Calculation</text>
+
+                                    <rect x="285" y="195" width="230" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="220" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">3. GST Calculation</text>
+
+                                    <rect x="285" y="255" width="230" height="42" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="280" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">4. Order Submission</text>
+
+                                    <rect x="285" y="315" width="230" height="42" rx="10" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="400" y="340" text-anchor="middle" font-size="11" fill="#e94560" font-weight="600">Failure: Fallback Messaging</text>
+
+                                    <!-- Partner API boxes -->
+                                    <rect x="600" y="80" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">TCS Rate Endpoint</text>
+                                    <text x="700" y="118" text-anchor="middle" font-size="9" fill="#999">Real-time calculation</text>
+
+                                    <rect x="600" y="150" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="170" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">GST Rate Endpoint</text>
+                                    <text x="700" y="188" text-anchor="middle" font-size="9" fill="#999">Goods &amp; services tax</text>
+
+                                    <rect x="600" y="220" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="240" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Order API</text>
+                                    <text x="700" y="258" text-anchor="middle" font-size="9" fill="#999">Tax-inclusive submission</text>
+
+                                    <rect x="600" y="290" width="200" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="310" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">tcs_api_fail Flag</text>
+                                    <text x="700" y="328" text-anchor="middle" font-size="9" fill="#999">Failure tracking in DB</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="105" x2="281" y2="96" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="175" x2="281" y2="156" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="245" x2="281" y2="276" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="96" x2="596" y2="105" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="156" x2="596" y2="175" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="515" y1="276" x2="596" y2="245" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Sequential arrows between chain steps -->
+                                    <line x1="400" y1="117" x2="400" y2="135" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="177" x2="400" y2="195" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="237" x2="400" y2="255" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="297" x2="400" y2="315" stroke="rgba(233,69,96,0.3)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Full partner API integration (not internal calculation).</strong> Partner rejected our proposal to calculate tax internally. I escalated to business for approval to proceed with the more complex but partner-mandated integration approach.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 14</td>
+                                        <td><strong>Non-mandatory grace period for new API parameters.</strong> New fields introduced as optional initially, giving API clients time to implement changes before enforcement. Reduced risk of breaking existing integrations while maintaining compliance trajectory.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 13</td>
+                                        <td><strong>Fallback messaging on API failure.</strong> When the partner's tax API is unavailable, display clear messaging on both payment instructions and payment method selection rather than blocking the transaction entirely.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 9</td>
+                                        <td><strong>Database flag for API failure tracking.</strong> Added tcs_api_fail flag to enable monitoring of partner API reliability and support future decisions about fallback calculation methods.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 16</td>
+                                        <td><strong>Corridor-specific exclusion logic.</strong> Tax calculation must only apply to transactions routed through the specific partner &mdash; not all transactions for that currency. Prevents incorrect tax application on non-partner payment links.</td>
+                                        <td><span class="decision-badge badge-compliance">Compliance</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pre-Release</td>
+                                        <td><strong>Full RAID log and security assessment.</strong> Completed comprehensive risk assessment and privacy impact analysis before production deployment, ensuring compliance governance is documented for audit purposes.</td>
+                                        <td><span class="decision-badge badge-compliance">Compliance</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & TESTING ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Testing</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Dual-channel testing with security governance and post-release validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>WEB Channel</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>All payment link forms tested with tax calculation, failure scenarios, and instruction display</p>
+                                </div>
+                                <div class="col2">
+                                    <b>API Channel</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>API v3 and v4 endpoints verified with new parameters, FX conversion, and order submission</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Security Review</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Approved</p>
+                                    <p>RAID log and privacy risk assessment completed. No blocking issues identified pre-release.</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">14 sub-tasks</strong> delivered across WEB and API channels</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Dual-channel</strong> coverage: WEB payment links + API v3/v4</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Post-release fixes</strong> shipped within days (decimal validation + exclusion)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">RAID log + security</strong> risk assessment approved pre-production</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Grace Period Strategy</h4>
+                                    <p>Introducing new API parameters as non-mandatory initially gave clients a transition window without breaking existing integrations. This approach enabled compliance enforcement on a timeline rather than creating a hard cutoff that could have disrupted active payment flows for dozens of API clients.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Proactive Client Communication</h4>
+                                    <p>Drafting and sending a structured notification email before the changes went live gave API clients advance notice of the new parameters. This prevented support escalations and demonstrated professional change management to the partner ecosystem.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Partner Rejection Required Pivot</h4>
+                                    <p>The initial proposal to calculate tax internally was rejected by the partner, requiring a complete pivot to their API integration approach. This added complexity (sequential API calls, failure handling, timeout scenarios) that would not have existed with internal calculation. Early alignment on integration approach would have saved analysis time.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Corridor Exclusion Is Critical</h4>
+                                    <p>Post-release discovery that tax was being applied to non-partner payment links for the same currency highlighted the importance of routing-level exclusion logic. The fix was shipped within days, but the edge case should have been identified during specification review rather than in production.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Partner API Reliability Dependency</h4>
+                                    <p>The platform's tax accuracy is now dependent on the partner's API availability. While fallback messaging handles outages gracefully, extended downtime could impact payer experience at scale. The tcs_api_fail database flag enables monitoring, but a long-term internal calculation fallback may be needed.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have pushed harder for a hybrid approach during initial partner negotiation &mdash; using their API as primary but maintaining an internal calculation as fallback. The current architecture has a single point of failure on the partner's API. A cached rate approach with periodic refresh could provide resilience without violating the partner's requirement for API-based integration.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Tax Collection API Integration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: Multi-Quarter Lifecycle &bull; Dual Channel (WEB + API)</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-mxn-payments-local-provider.html"><i class="fa-solid fa-arrow-left"></i> MXN Payments Local Provider</a>
+        <a href="case-study-database-oid-removal.html">Database OID Removal <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Database OID Removal — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Database OID Removal. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Database OID Removal</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-infra">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="15" y="15" width="70" height="80" rx="4" fill="rgba(155,89,182,0.05)" stroke="rgba(155,89,182,0.2)" stroke-width="0.8"/>
+                                <rect x="22" y="22" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="31" r="2.5" fill="#9b59b6" opacity="0.5"/>
+                                <rect x="38" y="29" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.2"/>
+                                <rect x="22" y="44" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="53" r="2.5" fill="#9b59b6" opacity="0.5"/>
+                                <rect x="38" y="51" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.2"/>
+                                <rect x="22" y="66" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="75" r="2.5" fill="#9b59b6" opacity="0.4"/>
+                                <rect x="38" y="73" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.15"/>
+                                <line x1="90" y1="50" x2="115" y2="50" stroke="#9b59b6" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="113,47 118,50 113,53" fill="#9b59b6" opacity="0.3"/>
+                                <path d="M 140 45 C 130 45 127 38 132 33 C 130 25 145 22 150 28 C 155 24 170 26 168 33 C 175 35 175 45 168 47 Z" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.25)" stroke-width="0.7"/>
+                                <text x="143" y="42" font-family="Inter,sans-serif" font-size="6" fill="#9b59b6" opacity="0.5">AWS</text>
+                                <rect x="125" y="60" width="80" height="40" rx="3" fill="rgba(155,89,182,0.04)" stroke="rgba(155,89,182,0.12)" stroke-width="0.5"/>
+                                <polyline points="133,88 143,82 153,85 163,72 173,68 183,65 193,62" fill="none" stroke="#9b59b6" stroke-width="1" opacity="0.3"/>
+                                <text x="133" y="70" font-family="Inter,sans-serif" font-size="5.5" fill="#9b59b6" opacity="0.35">99.9% uptime</text>
+                                <circle cx="230" cy="25" r="1.5" fill="#9b59b6" opacity="0.15"/>
+                                <circle cx="245" cy="40" r="1" fill="#9b59b6" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Infrastructure</span>
+                                    <span class="banner-tag">4Month</span>
+                                    <span class="banner-tag">Full Audit</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Infrastructure</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Database OID Removal &amp; Modernisation</div>
+                            <div class="hero-subtitle">I led the systematic identification, analysis, and replacement of legacy Object Identifiers (OIDs) across the entire database layer &mdash; <strong>unblocking critical PostgreSQL version upgrades</strong> and future-proofing the platform's data architecture.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that the platform's PostgreSQL database contained legacy Object Identifiers (OIDs) &mdash; a deprecated feature that newer PostgreSQL versions no longer support. These OIDs were embedded across database schemas, application queries, models, and API endpoints, creating a direct blocker for database version upgrades. I initiated and drove this project because without removal, the infrastructure team could not modernise the database engine, leaving the platform on an increasingly outdated version with growing security and performance risks.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created and scoped the project as a high-priority infrastructure initiative, classifying it as a prerequisite for all future database upgrades</li>
+                                    <li>Authored the project requirements documentation defining the audit scope, replacement strategy, and acceptance criteria across all affected systems</li>
+                                    <li>Managed release scheduling across multiple version iterations &mdash; coordinating version moves as development timelines evolved</li>
+                                    <li>Coordinated the isolated development environment strategy to prevent interference with concurrent platform projects</li>
+                                    <li>Orchestrated the dedicated release deployment, ensuring the OID removal shipped as a standalone release to isolate risk from other changes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="4" data-suffix="-Month">4-Month</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128269;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Layers">3 Layers</span>
+                                <span class="stat-label">Schema + App + API</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128736;</span>
+                                <span class="stat-number" data-count="3" data-suffix=" Envs">3 Envs</span>
+                                <span class="stat-label">Staged Validation</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number">Zero</span>
+                                <span class="stat-label">Regression Issues</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from blocked infrastructure to upgrade-ready database architecture.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>PostgreSQL upgrades completely blocked by legacy OIDs</li>
+                                        <li>Growing security risk from outdated database version</li>
+                                        <li>Performance limitations with no path to modern features</li>
+                                        <li>Technical debt accumulating silently for years</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Full PostgreSQL upgrade path unblocked</li>
+                                        <li>Modern identifier standards across all systems</li>
+                                        <li>Zero regression confirmed across every application layer</li>
+                                        <li>Infrastructure team enabled to proceed with version upgrades</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Removed a multi-year infrastructure blocker in a single focused initiative with zero production disruption</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I identified that the platform's PostgreSQL database contained legacy Object Identifiers (OIDs) &mdash; a deprecated feature that newer PostgreSQL versions no longer support. These OIDs were embedded across database schemas, application queries, models, and API endpoints, creating a direct blocker for database version upgrades. I initiated this project because without removal, the infrastructure team could not modernise the database engine.</p>
+                                <p>I commissioned a comprehensive technical analysis that mapped every OID usage across the entire system. I coordinated the systematic replacement of all OIDs with standard identifiers (IDs) across the database schema, application logic, and API layer, with development conducted on an isolated environment to prevent interference with parallel projects.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I released the project as a dedicated deployment, confirming zero regression across all affected systems. The database is now fully compatible with modern PostgreSQL versions, unblocking the infrastructure modernisation roadmap.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Four-month delivery from project creation through staged release and production validation.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Project Initiation &amp; Scoping</div>
+                                    <div class="timeline-desc">I created the project as a high-priority infrastructure initiative. I defined the requirements: map all OID usage across the database and application layer, then replace with standard identifiers while maintaining full backward compatibility.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 2-4</div>
+                                    <div class="timeline-title">Requirements &amp; Assignment</div>
+                                    <div class="timeline-desc">I authored detailed acceptance criteria covering schema, queries, models, API endpoints, and front-end components. I assigned the senior developer and established the development estimation at 24 days.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 5-7</div>
+                                    <div class="timeline-title">Technical Analysis &amp; Audit</div>
+                                    <div class="timeline-desc">Comprehensive audit of all OID references across the database schema, application code, queries, models, and API endpoints. Analysis documentation produced with detailed mapping of every OID location and its function.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 7</div>
+                                    <div class="timeline-title">Analysis Document Delivered</div>
+                                    <div class="timeline-desc">I received the completed technical analysis documented in spreadsheet format. I established it as the authoritative reference for all subsequent replacement work, mapping each OID to its function and dependencies.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 8-10</div>
+                                    <div class="timeline-title">Isolated Development Begins</div>
+                                    <div class="timeline-desc">All OID-to-ID replacements developed on a separate environment to avoid interference with concurrent projects. Schema changes, query refactoring, and API endpoint updates performed across every affected system.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 11</div>
+                                    <div class="timeline-title">Changes Transferred to Main Dev</div>
+                                    <div class="timeline-desc">Completed changes transferred from isolated environment to main development environment. Integration testing began against the full platform stack including API endpoints.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 12-13</div>
+                                    <div class="timeline-title">QA Validation &mdash; Internal Environment</div>
+                                    <div class="timeline-desc">QA engineer validated all changes on internal test environment. Confirmed zero performance degradation and no regression in any system functionality. Internal test cases passed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 14-15</div>
+                                    <div class="timeline-title">QA Validation &mdash; External Environment</div>
+                                    <div class="timeline-desc">External test environment validation completed. All system logic confirmed to operate as originally designed with no unintended changes introduced.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 16</div>
+                                    <div class="timeline-title">Release Scheduling &amp; Deployment</div>
+                                    <div class="timeline-desc">I released the project as a dedicated deployment focused exclusively on the OID removal. My standalone release strategy isolated risk from other concurrent changes entering production.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 17</div>
+                                    <div class="timeline-title">Production Validation &amp; Closure</div>
+                                    <div class="timeline-desc">I validated post-deployment production behaviour and confirmed all systems operating correctly. I marked the project as Live. PostgreSQL upgrade path officially unblocked for the infrastructure team.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Comprehensive OID audit across entire platform database</li>
+                                        <li>Database schema rework (OIDs to standard IDs)</li>
+                                        <li>Application query and model refactoring</li>
+                                        <li>API endpoint identifier updates</li>
+                                        <li>Front-end component and validation logic updates</li>
+                                        <li>Migration scripts for backward compatibility</li>
+                                        <li>Isolated development environment setup</li>
+                                        <li>Multi-environment staged testing</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Back-office system (separate database)</li>
+                                        <li>PostgreSQL version upgrade itself (enabled, not executed)</li>
+                                        <li>Performance optimisation beyond OID removal</li>
+                                        <li>New feature development</li>
+                                        <li>Database schema redesign</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from legacy OID-dependent schema to modern standard identifiers across the full stack.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <rect x="20" y="20" width="260" height="260" rx="16" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="150" y="48" text-anchor="middle" font-size="11" fill="#e94560" font-weight="700" letter-spacing="1">LEGACY STATE (OIDs)</text>
+
+                                    <rect x="320" y="20" width="260" height="260" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="450" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">TRANSFORMATION</text>
+
+                                    <rect x="620" y="20" width="260" height="260" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="750" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">MODERN STATE (IDs)</text>
+
+                                    <rect x="40" y="75" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="150" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Database Schema (OIDs)</text>
+
+                                    <rect x="40" y="130" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="150" y="155" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Application Queries</text>
+
+                                    <rect x="40" y="185" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="150" y="210" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">API Endpoints</text>
+
+                                    <rect x="40" y="240" width="220" height="30" rx="8" fill="rgba(233,69,96,0.08)" stroke="none"/>
+                                    <text x="150" y="260" text-anchor="middle" font-size="9" fill="#e94560" font-weight="600">Upgrade Blocked</text>
+
+                                    <rect x="340" y="75" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="450" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Technical Analysis Audit</text>
+
+                                    <rect x="340" y="130" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="450" y="155" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Isolated Dev Environment</text>
+
+                                    <rect x="340" y="185" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="450" y="210" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Staged Migration</text>
+
+                                    <rect x="340" y="240" width="220" height="30" rx="8" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
+                                    <text x="450" y="260" text-anchor="middle" font-size="9" fill="#f39c12" font-weight="600">Zero-Downtime Approach</text>
+
+                                    <rect x="640" y="75" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="750" y="100" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Schema with Standard IDs</text>
+
+                                    <rect x="640" y="130" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="750" y="155" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Refactored App Layer</text>
+
+                                    <rect x="640" y="185" width="220" height="40" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="750" y="210" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Updated API Layer</text>
+
+                                    <rect x="640" y="240" width="220" height="30" rx="8" fill="rgba(125,186,92,0.08)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="750" y="260" text-anchor="middle" font-size="9" fill="#7dba5c" font-weight="600">PostgreSQL Upgrade Ready</text>
+
+                                    <defs><marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker></defs>
+                                    <line x1="260" y1="95" x2="336" y2="95" stroke="rgba(233,69,96,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="260" y1="150" x2="336" y2="150" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrG)"/>
+                                    <line x1="260" y1="205" x2="336" y2="205" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrG)"/>
+                                    <line x1="560" y1="95" x2="636" y2="95" stroke="rgba(125,186,92,0.7)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="560" y1="150" x2="636" y2="150" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrG)"/>
+                                    <line x1="560" y1="205" x2="636" y2="205" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrG)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Prioritised as infrastructure blocker.</strong> OID removal classified as a prerequisite for all future PostgreSQL upgrades, giving it high priority despite no visible user impact.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Analysis-first approach.</strong> No code changes until complete audit documented every OID location, function, and replacement strategy across the full stack.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 8</td>
+                                        <td><strong>Isolated development environment.</strong> Changes developed separately to prevent interference with concurrent projects across the platform.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 11</td>
+                                        <td><strong>Staged transfer to main dev.</strong> Completed work transferred to main environment only after full validation on isolated instance, reducing integration risk.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 16</td>
+                                        <td><strong>Dedicated release deployment.</strong> Released as a standalone deployment focused exclusively on OID removal to isolate risk from other code changes.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 16</td>
+                                        <td><strong>Version scheduling flexibility.</strong> Release target moved across multiple versions as testing progressed, prioritising quality over fixed dates.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Multi-environment staged testing with zero regression confirmed across all systems.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Isolated Dev</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Initial validation on separate environment</p>
+                                </div>
+                                <div class="col2">
+                                    <b>Internal QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Integration testing on main dev verified</p>
+                                </div>
+                                <div class="col3">
+                                    <b>External QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Zero regression confirmed on external</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Zero</strong> regression across all systems</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Zero</strong> performance degradation detected</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Staged</strong> multi-environment validation (3 environments)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Dedicated</strong> standalone release deployment</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Isolated Development Environment</h4>
+                                    <p>Using a separate development environment for the OID rework was critical. The changes touched a large number of interrelated files and systems, and isolating them prevented any disruption to other active projects during the multi-week development period.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Analysis-First Approach</h4>
+                                    <p>Investing in a thorough technical analysis before any code changes reduced rework risk. The comprehensive audit document served as both a development guide and a testing checklist, ensuring no OID references were missed during replacement.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Legacy Debt Accumulation</h4>
+                                    <p>OIDs had been embedded in the system for years without causing visible issues &mdash; until they became an upgrade blocker. This project highlights the value of periodically reviewing technical debt before it becomes a constraint on infrastructure modernisation.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Dedicated Release Isolation</h4>
+                                    <p>Shipping the OID removal as a standalone release made it possible to attribute any post-deployment behaviour directly to the OID changes. This isolation strategy should be the default for infrastructure-level modifications that touch every layer of the stack.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Managed</div>
+                                    <h4>Cross-System Regression Risk</h4>
+                                    <p>Replacing identifiers across every layer of the application stack carried significant regression risk. The staged testing approach &mdash; isolated environment, then main dev, then internal QA, then external QA &mdash; provided multiple safety nets that caught issues before production.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have pushed for an automated regression test suite before starting the rework. While manual QA caught everything, automated tests would have enabled faster iteration cycles and provided ongoing confidence as changes accumulated across the isolated environment.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Database OID Removal &amp; Modernisation</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 4-Month Lifecycle &bull; Dedicated Infrastructure Initiative</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-tax-collection-integration.html"><i class="fa-solid fa-arrow-left"></i> Tax Collection Integration</a>
+        <a href="case-study-fx-gains-limiter.html">FX Conversion Gains Limiter <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

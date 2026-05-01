@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Auto Cancellation CRON — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Auto Cancellation CRON. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Auto Cancellation CRON</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-automation">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="22" fill="none" stroke="rgba(41,128,185,0.25)" stroke-width="0.8"/>
+                                <circle cx="50" cy="50" r="10" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.6"/>
+                                <line x1="50" y1="26" x2="50" y2="31" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="50" y1="69" x2="50" y2="74" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="28" y1="50" x2="33" y2="50" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="67" y1="50" x2="72" y2="50" stroke="#2980b9" stroke-width="1.5" opacity="0.3"/>
+                                <line x1="34" y1="34" x2="38" y2="38" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="62" y1="62" x2="66" y2="66" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="34" y1="66" x2="38" y2="62" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <line x1="62" y1="38" x2="66" y2="34" stroke="#2980b9" stroke-width="1.2" opacity="0.25"/>
+                                <g stroke="#2980b9" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 80 40 L 105 40 L 105 30 L 120 30"/>
+                                    <path d="M 80 50 L 105 50 L 105 50 L 120 50"/>
+                                    <path d="M 80 60 L 105 60 L 105 70 L 120 70"/>
+                                </g>
+                                <rect x="120" y="22" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="33" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.5">TRIGGER</text>
+                                <rect x="120" y="42" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="53" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.4">PROCESS</text>
+                                <rect x="120" y="62" width="60" height="16" rx="3" fill="rgba(41,128,185,0.06)" stroke="rgba(41,128,185,0.2)" stroke-width="0.5"/>
+                                <text x="130" y="73" font-family="Inter,sans-serif" font-size="6" fill="#2980b9" opacity="0.35">OUTPUT</text>
+                                <line x1="185" y1="50" x2="205" y2="50" stroke="#2980b9" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="203,47 210,50 203,53" fill="#2980b9" opacity="0.3"/>
+                                <circle cx="230" cy="50" r="18" fill="rgba(41,128,185,0.05)" stroke="rgba(41,128,185,0.2)" stroke-width="0.7"/>
+                                <path d="M 222 50 L 227 55 L 238 44" stroke="#2980b9" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Automation</span>
+                                    <span class="banner-tag">4x Faster</span>
+                                    <span class="banner-tag">Zero</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Automation</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">14-Day Auto Cancellation CRON</div>
+                            <div class="hero-subtitle">I identified and eliminated a redundant <strong>timer-based cancellation process</strong> by migrating it to a single, efficient <strong>database-level scheduled job</strong> &mdash; removing unnecessary network traffic and increasing execution frequency by 4x.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified that the cross-border payments platform relied on a timer embedded in every running instance of the back-office application to cancel stale payment lines after 14 days. Each instance independently queried the database every 4 hours, generating redundant traffic and creating race conditions. I defined the target architecture and coordinated the migration to a single database CRON job running hourly, delivering a cleaner architecture with faster detection of stale records and zero application-level network overhead.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Identified and escalated the performance problem &mdash; recognized that duplicated timer execution across multiple application instances was generating unnecessary database traffic at scale</li>
+                                    <li>Defined the target architecture &mdash; specified the migration from application-level timers to a single database CRON job, including the frequency increase from 4-hour to 1-hour intervals</li>
+                                    <li>Coordinated the technical approach with the database engineer, aligning on materialized view usage and CRON job structure for optimal performance</li>
+                                    <li>Managed the release schedule &mdash; ensured the improvement was assigned, version-tracked, and delivered within the planned release window</li>
+                                    <li>Oversaw production validation &mdash; coordinated QA verification on live systems across multiple validation cycles to confirm correct cancellation behaviour</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9889;</span>
+                                <span class="stat-number" data-count="4" data-suffix="x Faster">4x Faster</span>
+                                <span class="stat-label">Execution Frequency</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128683;</span>
+                                <span class="stat-number">Zero</span>
+                                <span class="stat-label">App-Level Traffic</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9989;</span>
+                                <span class="stat-number" data-count="47" data-suffix="+ Records">47+ Records</span>
+                                <span class="stat-label">Production Verified</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="4" data-suffix=" Weeks">4 Weeks</span>
+                                <span class="stat-label">Delivery Time</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Migration from distributed application timers to a centralized database-level job.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Every running application instance executed the cancellation timer independently</li>
+                                        <li>Redundant database queries every 4 hours from each instance</li>
+                                        <li>Race conditions between instances processing the same records</li>
+                                        <li>Stale payment lines could persist up to 14 days + 4 hours before detection</li>
+                                        <li>No centralized audit trail of cancellation actions</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Single database CRON job handles all cancellation logic</li>
+                                        <li>Zero application-level network traffic for this process</li>
+                                        <li>No race conditions &mdash; single execution point</li>
+                                        <li>Hourly checks detect stale records within 1 hour of threshold</li>
+                                        <li>Materialized view provides optimized, auditable data source</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Eliminated all redundant application-level database traffic while detecting stale records 4x faster</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I identified that the cross-border payments platform used a timer embedded in its back-office operations application to automatically cancel payment lines that remained in "Setup" status for 14 or more days. This timer fired every 4 hours from every running instance of the application, creating significant redundant database traffic and introducing race conditions where multiple instances would attempt to process the same records simultaneously.</p>
+                                <p>I defined and delivered a migration of the entire cancellation mechanism to a database-level CRON job. I specified the materialized view approach to efficiently identify qualifying records, and a scheduled function that runs hourly to perform the status transitions. The migration eliminated all application-level traffic for this process, resolved the multi-instance race condition, and increased detection frequency from every 4 hours to every hour.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I delivered in approximately 4 weeks from initial request to production validation, with all test cases passing on the first attempt. Production verification confirmed correct behaviour across real transaction data spanning multiple operational regions.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">End-to-end delivery from problem identification through production validation.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Problem Identification &amp; Request</div>
+                                    <div class="timeline-desc">I identified the performance issue &mdash; redundant timer execution across multiple application instances causing unnecessary database traffic. I raised the improvement ticket with target architecture defined: migrate to database-level CRON job.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Technical Scoping &amp; Linkage</div>
+                                    <div class="timeline-desc">I linked the task to prior related work on the cancellation mechanism and established epic association. I assigned the developer and specified the frequency requirement: increase from 4-hour to 1-hour intervals based on CRON job technical capabilities.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2</div>
+                                    <div class="timeline-title">Release Planning</div>
+                                    <div class="timeline-desc">I confirmed version assignment and aligned development with the planned release window. I locked the scope: materialized view creation, CRON job scheduling function, status transition logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Weeks 2-3</div>
+                                    <div class="timeline-title">Database Development</div>
+                                    <div class="timeline-desc">I coordinated the database engineer who implemented the solution in three parts: SQL query for materialized view creation, CRON job scheduling configuration, and the cancellation function executed by the scheduled job.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4</div>
+                                    <div class="timeline-title">Internal Testing</div>
+                                    <div class="timeline-desc">Development complete and I moved it to testing. I reviewed the CRON job details documented with full implementation breakdown. Technical documentation attached covering all three components of the solution.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4</div>
+                                    <div class="timeline-title">Release &amp; Initial Validation</div>
+                                    <div class="timeline-desc">I deployed the solution to production as part of the planned release. I assigned the QA engineer for production verification and test cases were executed against live transaction data.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 5</div>
+                                    <div class="timeline-title">Production Verification</div>
+                                    <div class="timeline-desc">I oversaw two test cases executed on production: TC-01 verified Setup-to-Unsuccessful status transition, TC-02 confirmed corresponding web platform status update to Inactive. Both passed. I moved the status to Live.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 7</div>
+                                    <div class="timeline-title">Extended Production Monitoring</div>
+                                    <div class="timeline-desc">I conducted additional production validation cycles over subsequent weeks to confirm sustained correct behaviour across varying data volumes. Final confirmation of stable operation across all operational regions.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Materialized view for efficient record identification</li>
+                                        <li>Database CRON job with 1-hour execution frequency</li>
+                                        <li>Cancellation function (Setup to Unsuccessful transition)</li>
+                                        <li>Cross-platform status synchronization (back-office to web)</li>
+                                        <li>Removal of application-level timer dependency</li>
+                                        <li>Production validation with live transaction data</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Changes to the 14-day threshold business rule</li>
+                                        <li>Modification of cancellation notification logic</li>
+                                        <li>Other timer-based processes in the application</li>
+                                        <li>Historical data remediation for past race conditions</li>
+                                        <li>UI changes to the back-office application</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Before and after: from distributed application timers to centralized database scheduling.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- BEFORE section -->
+                                    <rect x="20" y="20" width="380" height="180" rx="16" fill="rgba(233,69,96,0.05)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="210" y="48" text-anchor="middle" font-size="11" fill="#e94560" font-weight="700" letter-spacing="1">BEFORE: DISTRIBUTED TIMERS</text>
+
+                                    <!-- App instances (before) -->
+                                    <rect x="40" y="70" width="100" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="90" y="92" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Instance 1</text>
+                                    <text x="90" y="108" text-anchor="middle" font-size="8" fill="#999">Timer: 4hr</text>
+
+                                    <rect x="155" y="70" width="100" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="205" y="92" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Instance 2</text>
+                                    <text x="205" y="108" text-anchor="middle" font-size="8" fill="#999">Timer: 4hr</text>
+
+                                    <rect x="270" y="70" width="100" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.5"/>
+                                    <text x="320" y="92" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Instance N</text>
+                                    <text x="320" y="108" text-anchor="middle" font-size="8" fill="#999">Timer: 4hr</text>
+
+                                    <!-- Database (before) -->
+                                    <rect x="140" y="145" width="140" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.3)" stroke-width="1.5"/>
+                                    <text x="210" y="169" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Database</text>
+
+                                    <!-- Arrows (before) - redundant queries -->
+                                    <defs>
+                                        <marker id="arrR" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="rgba(233,69,96,0.6)"/></marker>
+                                        <marker id="arrG" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="90" y1="120" x2="170" y2="145" stroke="rgba(233,69,96,0.4)" stroke-width="1.5" marker-end="url(#arrR)"/>
+                                    <line x1="205" y1="120" x2="210" y2="145" stroke="rgba(233,69,96,0.4)" stroke-width="1.5" marker-end="url(#arrR)"/>
+                                    <line x1="320" y1="120" x2="250" y2="145" stroke="rgba(233,69,96,0.4)" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+                                    <!-- Race condition label -->
+                                    <text x="370" y="140" font-size="9" fill="#e94560" font-style="italic">Race conditions</text>
+                                    <text x="370" y="155" font-size="9" fill="#e94560" font-style="italic">Redundant queries</text>
+
+                                    <!-- AFTER section -->
+                                    <rect x="440" y="20" width="380" height="180" rx="16" fill="rgba(125,186,92,0.05)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="630" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">AFTER: CENTRALIZED CRON JOB</text>
+
+                                    <!-- CRON Job (after) -->
+                                    <rect x="570" y="70" width="120" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="630" y="92" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">CRON Job</text>
+                                    <text x="630" y="108" text-anchor="middle" font-size="8" fill="#7dba5c">Hourly Schedule</text>
+
+                                    <!-- Materialized View (after) -->
+                                    <rect x="555" y="145" width="150" height="40" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="630" y="163" text-anchor="middle" font-size="9" fill="#e0e0e0" font-weight="600">Materialized View</text>
+                                    <text x="630" y="177" text-anchor="middle" font-size="8" fill="#999">Pre-computed dataset</text>
+
+                                    <!-- Arrow from CRON to view -->
+                                    <line x1="630" y1="120" x2="630" y2="145" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Efficiency label -->
+                                    <text x="770" y="100" font-size="9" fill="#7dba5c" font-style="italic">Single execution</text>
+                                    <text x="770" y="115" font-size="9" fill="#7dba5c" font-style="italic">No race conditions</text>
+                                    <text x="770" y="130" font-size="9" fill="#7dba5c" font-style="italic">Zero app traffic</text>
+
+                                    <!-- DATA FLOW section -->
+                                    <rect x="20" y="230" width="800" height="170" rx="16" fill="rgba(125,186,92,0.03)" stroke="rgba(125,186,92,0.15)" stroke-width="1"/>
+                                    <text x="420" y="258" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">EXECUTION FLOW</text>
+
+                                    <!-- Flow boxes -->
+                                    <rect x="50" y="280" width="150" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="125" y="302" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Scheduler</text>
+                                    <text x="125" y="320" text-anchor="middle" font-size="8" fill="#999">Triggers hourly</text>
+
+                                    <rect x="240" y="280" width="150" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="315" y="302" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Materialized View</text>
+                                    <text x="315" y="320" text-anchor="middle" font-size="8" fill="#999">Identifies records &gt;14d</text>
+
+                                    <rect x="430" y="280" width="150" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="505" y="302" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Cancellation Fn</text>
+                                    <text x="505" y="320" text-anchor="middle" font-size="8" fill="#999">Setup &rarr; Unsuccessful</text>
+
+                                    <rect x="620" y="280" width="170" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="705" y="302" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Cross-Platform Sync</text>
+                                    <text x="705" y="320" text-anchor="middle" font-size="8" fill="#999">Web status &rarr; Inactive</text>
+
+                                    <!-- Flow arrows -->
+                                    <line x1="200" y1="307" x2="236" y2="307" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="390" y1="307" x2="426" y2="307" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="580" y1="307" x2="616" y2="307" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Performance metrics -->
+                                    <text x="125" y="370" text-anchor="middle" font-size="9" fill="#888">Every 1 hour</text>
+                                    <text x="315" y="370" text-anchor="middle" font-size="9" fill="#888">Optimized query</text>
+                                    <text x="505" y="370" text-anchor="middle" font-size="9" fill="#888">Batch update</text>
+                                    <text x="705" y="370" text-anchor="middle" font-size="9" fill="#888">Status propagation</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Migrate to database-level CRON job.</strong> Eliminated the distributed timer approach entirely rather than attempting to synchronize instances or add locking mechanisms. Cleaner architecture with single point of execution.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Increase frequency from 4 hours to 1 hour.</strong> The CRON job's efficiency made higher frequency viable without performance cost. Reduced maximum detection delay from 4 hours to 1 hour.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Use materialized view for record identification.</strong> Pre-computed dataset avoids expensive full-table scans on each execution. Provides consistent, optimized data access pattern for the CRON function.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 4</td>
+                                        <td><strong>Validate on production with live data.</strong> Testing environment insufficient to replicate the scale and diversity of real transaction patterns. Production validation required to confirm correct behaviour across all operational regions.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 5</td>
+                                        <td><strong>Extended monitoring period post-deployment.</strong> Continued validation over multiple weeks to catch edge cases with varying data volumes and confirm sustained correct operation before closing the improvement.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Testing</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Production-validated testing with live transaction data across multiple verification cycles.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>TC-01: Status Transition</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Verified Setup-to-Unsuccessful transition for payment lines exceeding the 14-day threshold</p>
+                                </div>
+                                <div class="col2">
+                                    <b>TC-02: Cross-Platform Sync</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Confirmed web platform status correctly updated to Inactive following back-office cancellation</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Extended Monitoring</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Stable</p>
+                                    <p>Multiple validation cycles over several weeks confirmed sustained correct behaviour at scale</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Both</strong> test cases passed on first execution</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Production validation:</strong> Tested against live transaction data (47+ records verified)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Cross-platform:</strong> Back-office to web status sync confirmed operational</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Extended monitoring:</strong> Multiple cycles over weeks confirmed stability</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Database-Level Architecture</h4>
+                                    <p>Moving the logic to the database layer eliminated an entire class of problems &mdash; race conditions, redundant traffic, and multi-instance synchronization complexity. The simplicity of a single CRON job proved more maintainable and more performant than any application-level locking solution would have been.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Materialized View Approach</h4>
+                                    <p>Using a pre-computed materialized view rather than running expensive queries on each execution provided a clean separation between data identification and action execution. This pattern proved reusable for other scheduled database operations.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Production Validation is Essential</h4>
+                                    <p>The diversity of real transaction data &mdash; varying statuses, timestamps spanning edge cases, and cross-regional patterns &mdash; made production testing the only way to achieve full confidence. Test environments with synthetic data cannot replicate this complexity at scale.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Legacy Timer Patterns at Scale</h4>
+                                    <p>The original timer pattern had been in place long enough that its inefficiency was normalized. The performance impact only became clearly visible when analyzing aggregate database traffic patterns. Proactive monitoring of shared-resource access patterns helps surface similar inefficiencies earlier.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Multi-Instance Processes Need Coordination</h4>
+                                    <p>Any process that runs independently across multiple application instances risks duplication and race conditions unless explicitly coordinated. This pattern likely exists in other parts of the system. The CRON migration proved that centralizing such processes at the database level is the cleanest solution.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have requested a broader audit of all timer-based processes across the application suite alongside this improvement. The same distributed timer pattern likely affects other operations. Addressing them as a batch would have delivered compounding efficiency gains and established a standard pattern for future scheduled tasks.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: 14-Day Auto Cancellation CRON</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 4-Week Delivery &bull; Production Validated</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-annual-data-deletion.html"><i class="fa-solid fa-arrow-left"></i> Annual Data Deletion</a>
+        <a href="case-study-automatic-file-creation-bot.html">Automatic File Creation Bot <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

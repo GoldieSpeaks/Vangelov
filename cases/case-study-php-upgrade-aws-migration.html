@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>PHP 8 Upgrade & AWS Cloud Migration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: PHP 8 Upgrade & AWS Cloud Migration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; PHP 8 Upgrade & AWS Cloud Migration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-infra">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="15" y="15" width="70" height="80" rx="4" fill="rgba(155,89,182,0.05)" stroke="rgba(155,89,182,0.2)" stroke-width="0.8"/>
+                                <rect x="22" y="22" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="31" r="2.5" fill="#9b59b6" opacity="0.5"/>
+                                <rect x="38" y="29" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.2"/>
+                                <rect x="22" y="44" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="53" r="2.5" fill="#9b59b6" opacity="0.5"/>
+                                <rect x="38" y="51" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.2"/>
+                                <rect x="22" y="66" width="56" height="18" rx="2" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.15)" stroke-width="0.5"/>
+                                <circle cx="30" cy="75" r="2.5" fill="#9b59b6" opacity="0.4"/>
+                                <rect x="38" y="73" width="25" height="3" rx="1" fill="#9b59b6" opacity="0.15"/>
+                                <line x1="90" y1="50" x2="115" y2="50" stroke="#9b59b6" stroke-width="0.8" opacity="0.3"/>
+                                <polygon points="113,47 118,50 113,53" fill="#9b59b6" opacity="0.3"/>
+                                <path d="M 140 45 C 130 45 127 38 132 33 C 130 25 145 22 150 28 C 155 24 170 26 168 33 C 175 35 175 45 168 47 Z" fill="rgba(155,89,182,0.06)" stroke="rgba(155,89,182,0.25)" stroke-width="0.7"/>
+                                <text x="143" y="42" font-family="Inter,sans-serif" font-size="6" fill="#9b59b6" opacity="0.5">AWS</text>
+                                <rect x="125" y="60" width="80" height="40" rx="3" fill="rgba(155,89,182,0.04)" stroke="rgba(155,89,182,0.12)" stroke-width="0.5"/>
+                                <polyline points="133,88 143,82 153,85 163,72 173,68 183,65 193,62" fill="none" stroke="#9b59b6" stroke-width="1" opacity="0.3"/>
+                                <text x="133" y="70" font-family="Inter,sans-serif" font-size="5.5" fill="#9b59b6" opacity="0.35">99.9% uptime</text>
+                                <circle cx="230" cy="25" r="1.5" fill="#9b59b6" opacity="0.15"/>
+                                <circle cx="245" cy="40" r="1" fill="#9b59b6" opacity="0.1"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Infrastructure</span>
+                                    <span class="banner-tag">6Month</span>
+                                    <span class="banner-tag">9+</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Infrastructure</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">PHP 8 Upgrade &amp; AWS Cloud Migration</div>
+                            <div class="hero-subtitle">I coordinated a dual-track infrastructure transformation &mdash; <strong>upgrading the platform runtime to PHP 8 while simultaneously migrating hosting to AWS</strong> &mdash; delivering across a 9-person cross-functional team with zero extended downtime.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">The platform ran on end-of-life PHP with no security patches, hosted on traditional infrastructure without cloud scalability. I made the strategic decision to combine both changes into a single initiative to minimise total disruption, then managed delivery across multiple development teams, QA, and DevOps through a six-month timeline with four release adjustments as true complexity was uncovered.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created the epic as a strategic infrastructure initiative, defining the combined scope of PHP 8 upgrade and cloud migration as a unified programme</li>
+                                    <li>Made the priority decision to combine both infrastructure changes into a single initiative rather than sequential projects, reducing total platform disruption</li>
+                                    <li>Managed release scheduling through four target adjustments (March to April to May to June) as true complexity was uncovered during development and testing</li>
+                                    <li>Coordinated QA assignment and test planning across the full platform surface area, ensuring regression coverage matched the scope of underlying infrastructure changes</li>
+                                    <li>Provided ongoing delivery oversight across the cross-functional team, making escalation decisions when blockers emerged and adjusting priorities as dependencies shifted</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9200;</span>
+                                <span class="stat-number" data-count="6" data-suffix="-Month">6-Month</span>
+                                <span class="stat-label">End-to-End Delivery</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128101;</span>
+                                <span class="stat-number" data-count="9" data-suffix=" People">9 People</span>
+                                <span class="stat-label">Cross-Functional Team</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#10003;</span>
+                                <span class="stat-number">Zero</span>
+                                <span class="stat-label">Extended Downtime</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128295;</span>
+                                <span class="stat-number">Dual-Track</span>
+                                <span class="stat-label">PHP 8 + AWS Combined</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Transformation from legacy hosting with outdated runtime to modern cloud infrastructure with current PHP version.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>Outdated PHP version with growing security vulnerabilities</li>
+                                        <li>Traditional hosting with limited scalability options</li>
+                                        <li>Incompatibility with modern PHP libraries and frameworks</li>
+                                        <li>Manual infrastructure management without cloud automation</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>PHP 8 with modern language features and security patches</li>
+                                        <li>AWS cloud hosting with elastic scalability</li>
+                                        <li>Full compatibility with current ecosystem libraries</li>
+                                        <li>Cloud-native infrastructure with automated management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Successfully delivered a dual-track infrastructure transformation across a nine-person team, modernising both runtime and hosting in a single coordinated initiative with zero extended downtime</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I initiated and coordinated a dual-track infrastructure modernisation: upgrading the entire platform to PHP 8 while simultaneously migrating hosting to AWS. The runtime was end-of-life with no security patches, and modern libraries required PHP 8 as a minimum. I made the strategic decision to combine both changes into a single initiative to minimise total disruption.</p>
+                                <p>I assembled and managed a cross-functional team of nine across development, DevOps, QA, and project coordination. The release target was adjusted four times as the true scope of compatibility work emerged &mdash; I made each escalation decision transparently and adjusted priorities as dependencies shifted.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">The platform was successfully migrated to AWS running PHP 8 with zero extended downtime. Full regression validation confirmed zero functional impact. The combined approach saved months of repeated testing that sequential migrations would have required.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Six-month delivery from epic creation through iterative release adjustments to successful production deployment.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 1</div>
+                                    <div class="timeline-title">Epic Creation &amp; Strategic Scoping</div>
+                                    <div class="timeline-desc">I created the epic defining the combined PHP 8 upgrade and AWS migration as a unified infrastructure initiative. Set the initial release target for March and identified the cross-functional team: developers, DevOps, QA, and project coordination resources.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 1-2</div>
+                                    <div class="timeline-title">Team Assembly &amp; Work Breakdown</div>
+                                    <div class="timeline-desc">I assigned nine team members across parallel workstreams. PHP compatibility assessment began on the codebase while DevOps started AWS environment provisioning. I created child tasks for each major component requiring PHP 8 adaptation.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 2</div>
+                                    <div class="timeline-title">First Release Adjustment (March &rarr; April)</div>
+                                    <div class="timeline-desc">PHP compatibility analysis revealed more extensive refactoring than initially estimated. I moved the release target to April to accommodate the full scope of compatibility work after deprecated function usage proved pervasive across the codebase.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 3</div>
+                                    <div class="timeline-title">Core Development &amp; AWS Setup</div>
+                                    <div class="timeline-desc">PHP 8 codebase adaptations progressed across all major modules. AWS infrastructure configured with matching environment specifications. Integration challenges between new PHP version and existing database layer identified and resolved.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 3</div>
+                                    <div class="timeline-title">Second Release Adjustment (April &rarr; May)</div>
+                                    <div class="timeline-desc">AWS migration complexity exceeded estimates. I adjusted the target to May after QA flagged that full regression testing needed more time given the dual-change scope and environment parity work was still ongoing.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 4</div>
+                                    <div class="timeline-title">Integration Testing &amp; Third Adjustment (May &rarr; June)</div>
+                                    <div class="timeline-desc">Combined testing of PHP 8 code on AWS infrastructure began. Edge cases emerged in specific platform modules. I moved the release to June to ensure comprehensive regression coverage.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 5</div>
+                                    <div class="timeline-title">Full Regression &amp; Performance Validation</div>
+                                    <div class="timeline-desc">Complete platform regression testing on AWS with PHP 8. Performance benchmarking confirmed improvements over legacy stack. Load testing validated elastic scaling behaviour under production traffic patterns.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 5-6</div>
+                                    <div class="timeline-title">Pre-Production Hardening</div>
+                                    <div class="timeline-desc">Final hardening phase: security configuration, monitoring setup, rollback procedures documented, and cutover plan established. Team rehearsed migration procedure to minimise production transition window.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 6</div>
+                                    <div class="timeline-title">Production Deployment</div>
+                                    <div class="timeline-desc">Platform migrated to AWS running PHP 8 during planned maintenance window. Cutover completed within scheduled timeframe. Immediate post-deployment monitoring confirmed all systems operational with no functional regression.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Month 6+</div>
+                                    <div class="timeline-title">Post-Deployment Validation &amp; Closure</div>
+                                    <div class="timeline-desc">Extended monitoring period confirmed platform stability on new infrastructure. Performance metrics validated against baseline. Project formally closed and marked as Live. Infrastructure modernisation roadmap unblocked for future enhancements.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>Full codebase upgrade to PHP 8 compatibility</li>
+                                        <li>AWS infrastructure provisioning and configuration</li>
+                                        <li>Database layer compatibility with new PHP version</li>
+                                        <li>Complete platform regression testing on new stack</li>
+                                        <li>Performance benchmarking and load testing</li>
+                                        <li>Production cutover and migration execution</li>
+                                        <li>Rollback procedure documentation and rehearsal</li>
+                                        <li>Post-deployment monitoring and validation</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>New feature development during migration</li>
+                                        <li>Database engine upgrade (separate initiative)</li>
+                                        <li>Application redesign or architecture changes</li>
+                                        <li>Third-party integration renegotiation</li>
+                                        <li>Back-office system migration (separate timeline)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Dual-track transformation: PHP runtime upgrade combined with hosting infrastructure migration to AWS.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Legacy state -->
+                                    <rect x="20" y="20" width="250" height="300" rx="16" fill="rgba(233,69,96,0.06)" stroke="rgba(233,69,96,0.2)" stroke-width="1.5"/>
+                                    <text x="145" y="48" text-anchor="middle" font-size="10" fill="#e94560" font-weight="700" letter-spacing="1">LEGACY INFRASTRUCTURE</text>
+
+                                    <!-- Transformation -->
+                                    <rect x="310" y="20" width="250" height="300" rx="16" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.2)" stroke-width="1.5"/>
+                                    <text x="435" y="48" text-anchor="middle" font-size="10" fill="#f39c12" font-weight="700" letter-spacing="1">DUAL-TRACK MIGRATION</text>
+
+                                    <!-- Modern state -->
+                                    <rect x="600" y="20" width="280" height="300" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="740" y="48" text-anchor="middle" font-size="10" fill="#7dba5c" font-weight="700" letter-spacing="1">MODERN INFRASTRUCTURE</text>
+
+                                    <!-- Legacy boxes -->
+                                    <rect x="35" y="75" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Outdated PHP Runtime</text>
+
+                                    <rect x="35" y="125" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Traditional Hosting</text>
+
+                                    <rect x="35" y="175" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Manual Scaling</text>
+
+                                    <rect x="35" y="225" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(233,69,96,0.4)" stroke-width="1.2"/>
+                                    <text x="145" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Deprecated Libraries</text>
+
+                                    <rect x="35" y="280" width="220" height="28" rx="8" fill="rgba(233,69,96,0.08)" stroke="none"/>
+                                    <text x="145" y="298" text-anchor="middle" font-size="9" fill="#e94560" font-weight="600">Security &amp; Performance Risk</text>
+
+                                    <!-- Transformation boxes -->
+                                    <rect x="325" y="75" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">PHP 8 Codebase Adaptation</text>
+
+                                    <rect x="325" y="125" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">AWS Environment Setup</text>
+
+                                    <rect x="325" y="175" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Integration Testing</text>
+
+                                    <rect x="325" y="225" width="220" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(243,156,18,0.4)" stroke-width="1.2"/>
+                                    <text x="435" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Load &amp; Performance Testing</text>
+
+                                    <rect x="325" y="280" width="220" height="28" rx="8" fill="rgba(243,156,18,0.06)" stroke="rgba(243,156,18,0.3)" stroke-width="1"/>
+                                    <text x="435" y="298" text-anchor="middle" font-size="9" fill="#f39c12" font-weight="600">4 Release Adjustments</text>
+
+                                    <!-- Modern boxes -->
+                                    <rect x="615" y="75" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="97" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">PHP 8 Runtime (Modern)</text>
+
+                                    <rect x="615" y="125" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="147" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">AWS Cloud Hosting</text>
+
+                                    <rect x="615" y="175" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="197" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Elastic Auto-Scaling</text>
+
+                                    <rect x="615" y="225" width="250" height="36" rx="9" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="1.5"/>
+                                    <text x="740" y="247" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Current Library Ecosystem</text>
+
+                                    <rect x="615" y="280" width="250" height="28" rx="8" fill="rgba(125,186,92,0.08)" stroke="rgba(125,186,92,0.3)" stroke-width="1.5"/>
+                                    <text x="740" y="298" text-anchor="middle" font-size="9" fill="#7dba5c" font-weight="600">Secure &amp; Scalable Platform</text>
+
+                                    <!-- Flow arrows -->
+                                    <defs><marker id="arrG2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker></defs>
+                                    <line x1="255" y1="93" x2="322" y2="93" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="143" x2="322" y2="143" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="193" x2="322" y2="193" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="255" y1="243" x2="322" y2="243" stroke="rgba(233,69,96,0.5)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="93" x2="612" y2="93" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="143" x2="612" y2="143" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="193" x2="612" y2="193" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                    <line x1="545" y1="243" x2="612" y2="243" stroke="rgba(125,186,92,0.7)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrG2)"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Month 1</td>
+                                        <td><strong>Combined dual-track approach.</strong> PHP upgrade and AWS migration executed together rather than sequentially, avoiding the cost of full regression testing twice and reducing total platform disruption from two initiatives to one.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 2</td>
+                                        <td><strong>Quality over fixed dates.</strong> First release adjustment made when compatibility analysis revealed scope beyond initial estimates. Prioritised comprehensive testing over hitting an arbitrary deadline.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 3</td>
+                                        <td><strong>Parallel workstreams.</strong> PHP codebase adaptation and AWS environment setup ran simultaneously, with integration testing as the convergence point. Reduced total timeline compared to sequential execution.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 4</td>
+                                        <td><strong>Full regression scope.</strong> Given dual infrastructure changes, regression testing covered the entire platform surface area rather than targeted testing. Zero-risk tolerance for production deployment on fundamentally new stack.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 5</td>
+                                        <td><strong>Rehearsed cutover procedure.</strong> Production migration rehearsed before execution to validate the procedure, identify timing, and confirm rollback capability before committing to the live cutover.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Month 6</td>
+                                        <td><strong>Planned maintenance window.</strong> Production cutover scheduled during a planned maintenance window with full team availability, minimising user impact and ensuring immediate issue response capability.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Full platform regression across new runtime and new infrastructure with performance validation.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>PHP 8 Compat</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Full codebase adapted and validated</p>
+                                </div>
+                                <div class="col2">
+                                    <b>AWS Migration</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Environment parity confirmed</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Load Testing</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Performance improved over legacy</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Zero</strong> functional regression across entire platform</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Improved</strong> performance metrics over legacy infrastructure</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Elastic</strong> scaling validated under production traffic patterns</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Rehearsed</strong> cutover procedure before live execution</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Combined Initiative Approach</h4>
+                                    <p>Running the PHP upgrade and AWS migration as a single programme saved months of duplicated regression testing. The team only needed to validate the full platform once on the combined new stack, rather than twice for each change independently.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Flexible Release Scheduling</h4>
+                                    <p>Adjusting the release target four times showed willingness to prioritise quality over deadlines. Each adjustment was made when real complexity was uncovered, preventing a rushed deployment that could have caused production incidents on critical infrastructure.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Scope Estimation Complexity</h4>
+                                    <p>The initial timeline significantly underestimated the PHP compatibility work required. Deprecated function usage was more pervasive than code analysis suggested. Future infrastructure upgrades should include a dedicated compatibility assessment phase before committing to timelines.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Cutover Rehearsal Value</h4>
+                                    <p>Rehearsing the production migration procedure before the actual cutover identified timing issues and procedural gaps that would have extended the maintenance window. This practice should be mandatory for all infrastructure migrations affecting production traffic.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Managed</div>
+                                    <h4>Dual-Change Production Risk</h4>
+                                    <p>Changing both runtime and hosting simultaneously doubled the potential failure surface. The rehearsed rollback procedure, comprehensive regression coverage, and planned maintenance window with full team availability created the safety net needed for a confident deployment.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have invested in a dedicated compatibility assessment phase upfront before committing to the initial release target. A two-week deep analysis of deprecated PHP function usage across the codebase would have produced a more realistic timeline from the start and avoided the perception of repeated delays.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: PHP 8 Upgrade &amp; AWS Cloud Migration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 6-Month Lifecycle &bull; Strategic Infrastructure Initiative</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-api-dashboard.html"><i class="fa-solid fa-arrow-left"></i> Client Analytics Dashboard</a>
+        <a href="case-study-tm-redesign.html">Education Platform Redesign <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>FX Conversion Gains Limiter — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: FX Conversion Gains Limiter. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; FX Conversion Gains Limiter</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Financial Logic</span>
+                                    <span class="banner-tag">8Links</span>
+                                    <span class="banner-tag">0-Month</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Financial Logic</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">FX Conversion Gains Limiter</div>
+                            <div class="hero-subtitle">I designed and deployed a <strong>financial capping mechanism</strong> to limit FX conversion revenue on payment transactions &mdash; ensuring compliance with a national government tender requirement across 8 institutional payment links.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified a mandatory clause within a national government tender requiring the platform to place a hard cap on foreign exchange conversion gains for specific institutions. I designed, validated, and deployed the capping logic across both API and web payment systems within a compressed timeline to meet tender compliance deadlines, securing written approval from the COO and Commercial Director before release.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Created the initial project scope and raised the epic after identifying the tender requirement through business stakeholder discussions</li>
+                                    <li>Designed and validated the FX capping calculation logic (CAP Calc spreadsheet) that defined how the limit would be applied to transactions</li>
+                                    <li>Coordinated the BRD creation with the business analyst, ensuring the calculation methodology was clearly documented for development</li>
+                                    <li>Managed the multi-stakeholder sign-off process &mdash; secured written approval from the COO and the Commercial Director before release</li>
+                                    <li>Coordinated testing across all 8 institutional payment links, including edge cases for third-party payment providers and same-currency scenarios</li>
+                                    <li>Owned the release process: version management, release description authoring, and deployment scheduling</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127974;</span>
+                                <span class="stat-number" data-count="8" data-suffix=" Links">0 Links</span>
+                                <span class="stat-label">Institutions Affected</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="5" data-suffix="-Month">0-Month</span>
+                                <span class="stat-label">Delivery Lifecycle</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number">Capped</span>
+                                <span class="stat-label">FX Revenue Logic</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128203;</span>
+                                <span class="stat-number">Tender</span>
+                                <span class="stat-label">Compliance Achieved</span>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">From unlimited FX gains to a compliant, capped model enabling tender success.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No limitations on FX conversion gains per transaction</li>
+                                        <li>Non-compliant with government tender requirements</li>
+                                        <li>Risk of losing institutional contracts</li>
+                                        <li>No differentiation between provider types in FX logic</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Hard cap applied on FX gains per transaction for designated institutions</li>
+                                        <li>Full compliance with government tender clause achieved</li>
+                                        <li>Institutional contracts secured through demonstrated compliance</li>
+                                        <li>Logic correctly handles third-party providers and same-currency exemptions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Enabled the platform to win a national government tender by demonstrating FX compliance across all required institutional payment links</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I implemented a financial capping mechanism to limit foreign exchange conversion gains on student payment transactions. I identified the requirement from a government tender clause that mandated maximum FX revenue thresholds for specific institutions participating in the tender framework.</p>
+                                <p>I designed the calculation model, validated it with senior stakeholders (COO and Commercial Director), coordinated implementation across both API and web payment systems, and managed deployment to 8 institutional payment links. I ensured the logic correctly excluded same-currency transactions and handled third-party payment provider scenarios.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I completed the implementation, coordinated testing across all environments (internal and production), and secured final written approval. The tender compliance requirement was met, enabling the platform to retain and secure institutional contracts.</strong></p>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Jan 15, 2024</div>
+                                    <div class="timeline-title">Project Inception</div>
+                                    <div class="timeline-desc">I created the epic and scheduled the initial kick-off call. I identified the tender requirement, assigned the business analyst, and listed the 8 affected national universities.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Feb 2024</div>
+                                    <div class="timeline-title">Institution Mapping &amp; Analysis</div>
+                                    <div class="timeline-desc">I mapped college link IDs for all 8 institutions. I directed the business analyst to compile requirements examples in spreadsheet format and defined the scope across API and WEB systems.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Mar 28, 2024</div>
+                                    <div class="timeline-title">Logic Design &amp; Approval</div>
+                                    <div class="timeline-desc">I designed and documented the FX capping calculation logic (CAP Calc spreadsheet). I secured stakeholder approval for the proposed logic and made the decision to implement after ongoing PHP upgrades completed.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Apr 1, 2024</div>
+                                    <div class="timeline-title">BRD &amp; Initial Development</div>
+                                    <div class="timeline-desc">I attached the Business Requirements Document with formal sign-off email. I coordinated the logic being applied to the internal testing environment. Development work was estimated at 2-3 days per deployment.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Apr 4, 2024</div>
+                                    <div class="timeline-title">Environment Recovery</div>
+                                    <div class="timeline-desc">Changes on the internal testing environment were lost. I made the decision to re-apply after PHP upgrade and migration completion, acknowledging the dependency on infrastructure work.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Apr 23, 2024</div>
+                                    <div class="timeline-title">Stakeholder Alignment</div>
+                                    <div class="timeline-desc">I confirmed development estimates and reached alignment on the hardcoded solution approach. I awaited final written sign-off from senior stakeholders.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 8-17, 2024</div>
+                                    <div class="timeline-title">Implementation &amp; Testing</div>
+                                    <div class="timeline-desc">I deployed logic to the demo link first, then coordinated deployment to all 8 institutional test links. I completed internal testing across all configurations including third-party provider scenarios (dLocal, GeoSwift, EbixCash) and same-currency exemptions.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 27, 2024</div>
+                                    <div class="timeline-title">Final Approval &amp; Release Scheduling</div>
+                                    <div class="timeline-desc">I received written approval from the Commercial Director. I authored the release description and scheduled deployment for May 28, 2024.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 28, 2024</div>
+                                    <div class="timeline-title">Production Deployment</div>
+                                    <div class="timeline-desc">I released the logic to all 8 institutional payment links in production and assigned the release version.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">May 30, 2024</div>
+                                    <div class="timeline-title">Production Validation &amp; Closure</div>
+                                    <div class="timeline-desc">I coordinated external testing on the live environment. All scenarios validated. I moved the status to Live and confirmed tender compliance.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>FX conversion gains cap calculation logic</li>
+                                        <li>Implementation across API payment system</li>
+                                        <li>Implementation across WEB payment links</li>
+                                        <li>Application to 8 designated institutional links</li>
+                                        <li>Handling of third-party payment providers</li>
+                                        <li>Same-currency transaction exemptions</li>
+                                        <li>Internal and external testing</li>
+                                        <li>Senior stakeholder sign-off</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>FX logic changes for non-tender institutions</li>
+                                        <li>Dynamic/configurable cap thresholds (hardcoded approach used)</li>
+                                        <li>CRM payment processing changes</li>
+                                        <li>Retrospective application to historical transactions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">FX Capping Logic Flow</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Decision tree showing how the FX cap is applied during payment processing.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 780 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Start -->
+                                    <rect x="300" y="20" width="180" height="50" rx="25" fill="rgba(125,186,92,0.12)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="390" y="50" text-anchor="middle" font-size="12" fill="#7dba5c" font-weight="700">Payment Initiated</text>
+
+                                    <!-- Decision 1: Is institution in tender list? -->
+                                    <polygon points="390,100 510,155 390,210 270,155" fill="rgba(52,152,219,0.08)" stroke="rgba(52,152,219,0.4)" stroke-width="1.5"/>
+                                    <text x="390" y="150" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Institution in</text>
+                                    <text x="390" y="165" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">tender list?</text>
+
+                                    <!-- No path - process normally -->
+                                    <rect x="560" y="130" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                                    <text x="640" y="152" text-anchor="middle" font-size="11" fill="#999" font-weight="600">Process Normally</text>
+                                    <text x="640" y="168" text-anchor="middle" font-size="9" fill="#666">No cap applied</text>
+
+                                    <!-- Decision 2: Same currency? -->
+                                    <polygon points="390,240 500,285 390,330 280,285" fill="rgba(243,156,18,0.08)" stroke="rgba(243,156,18,0.4)" stroke-width="1.5"/>
+                                    <text x="390" y="280" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">Same currency</text>
+                                    <text x="390" y="295" text-anchor="middle" font-size="10" fill="#e0e0e0" font-weight="600">transaction?</text>
+
+                                    <!-- Yes - no FX -->
+                                    <rect x="560" y="260" width="160" height="50" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                                    <text x="640" y="282" text-anchor="middle" font-size="11" fill="#999" font-weight="600">No FX Applied</text>
+                                    <text x="640" y="298" text-anchor="middle" font-size="9" fill="#666">Cap not relevant</text>
+
+                                    <!-- Apply cap -->
+                                    <rect x="280" y="350" width="220" height="50" rx="12" fill="rgba(125,186,92,0.12)" stroke="rgba(125,186,92,0.5)" stroke-width="2"/>
+                                    <text x="390" y="372" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700">Apply FX Cap</text>
+                                    <text x="390" y="388" text-anchor="middle" font-size="9" fill="#999">Limit gains to threshold</text>
+
+                                    <!-- Third party indicator -->
+                                    <rect x="60" y="260" width="160" height="50" rx="10" fill="rgba(233,69,96,0.08)" stroke="rgba(233,69,96,0.3)" stroke-width="1"/>
+                                    <text x="140" y="282" text-anchor="middle" font-size="10" fill="#e94560" font-weight="600">Third-Party Provider?</text>
+                                    <text x="140" y="298" text-anchor="middle" font-size="9" fill="#999">dLocal / GeoSwift etc.</text>
+
+                                    <!-- Arrows -->
+                                    <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(125,186,92,0.6)"/></marker></defs>
+                                    <line x1="390" y1="70" x2="390" y2="100" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+                                    <!-- No from decision 1 -->
+                                    <line x1="510" y1="155" x2="556" y2="155" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
+                                    <text x="530" y="147" font-size="9" fill="#999">NO</text>
+                                    <!-- Yes from decision 1 -->
+                                    <line x1="390" y1="210" x2="390" y2="240" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+                                    <text x="398" y="228" font-size="9" fill="#7dba5c">YES</text>
+                                    <!-- Yes from decision 2 (same currency) -->
+                                    <line x1="500" y1="285" x2="556" y2="285" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#arr)"/>
+                                    <text x="525" y="277" font-size="9" fill="#999">YES</text>
+                                    <!-- No from decision 2 - apply cap -->
+                                    <line x1="390" y1="330" x2="390" y2="346" stroke="rgba(125,186,92,0.4)" stroke-width="1.5" marker-end="url(#arr)"/>
+                                    <text x="398" y="342" font-size="9" fill="#7dba5c">NO</text>
+                                    <!-- Third party check -->
+                                    <line x1="280" y1="285" x2="224" y2="285" stroke="rgba(233,69,96,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <text x="250" y="277" font-size="9" fill="#999">CHECK</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead><tr><th style="width:100px">When</th><th>Decision</th><th style="width:100px">Type</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Jan 2024</td><td><strong>Scope limited to tender institutions only.</strong> Cap logic applied exclusively to 8 institutions in the government tender, not platform-wide. This minimised risk and development scope.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                    <tr><td>Mar 2024</td><td><strong>Hardcoded cap threshold.</strong> Rather than building a configurable admin interface, the cap value was hardcoded. Faster to implement and sufficient given the fixed tender requirement.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>Mar 2024</td><td><strong>Wait for PHP upgrade completion.</strong> Logic deployment deferred until ongoing PHP upgrades finished across target links, avoiding conflicts and potential environment instability.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                    <tr><td>Apr 2024</td><td><strong>Exempt same-currency transactions.</strong> When payment and receiving currencies match, no FX conversion occurs, so the cap is not applicable. Logic skips these scenarios entirely.</td><td><span class="decision-badge badge-technical">Technical</span></td></tr>
+                                    <tr><td>May 2024</td><td><strong>Deploy to demo link first, then all 8.</strong> Staged rollout starting with demo environment, then extending to all institutional test links, then production. Reduced deployment risk.</td><td><span class="decision-badge badge-process">Process</span></td></tr>
+                                    <tr><td>May 2024</td><td><strong>Require written sign-off before release.</strong> Given the financial and contractual implications, formal written approval required from both the COO and the Commercial Director.</td><td><span class="decision-badge badge-strategic">Strategic</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Comprehensive testing across all institutional links with specific attention to edge cases.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1"><b>Internal Testing</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>All 8 links tested across standard FX, third-party providers, and same-currency scenarios</p></div>
+                                <div class="col2"><b>External Testing</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p><p>Production validation completed on live environment 2 days after deployment</p></div>
+                                <div class="col3"><b>Stakeholder Sign-Off</b><p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Approved</p><p>Written approval from COO and Commercial Director prior to release</p></div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All 8 institutional links</strong> validated in both test and production</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Third-party providers</strong> correctly exempted (dLocal, GeoSwift, EbixCash)</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Same-currency</strong> transactions correctly bypass cap logic</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Tender compliance</strong> confirmed by written stakeholder approval</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Spreadsheet-Based Logic Validation</h4>
+                                    <p>Using a calculation spreadsheet (CAP Calc) to validate the FX capping logic before development allowed stakeholders to verify the formula and edge cases in a format they could understand. This eliminated ambiguity and accelerated the sign-off process.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Staged Deployment Strategy</h4>
+                                    <p>Rolling out to a demo link first, then all test links, then production ensured each stage was validated before escalating. The 2-day gap between production deployment and external testing provided a safe buffer for monitoring.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Infrastructure Dependency</h4>
+                                    <p>The project was blocked by an ongoing PHP upgrade. Initial test environment changes were lost, requiring re-implementation. This added approximately one month to the timeline and highlighted the need to coordinate with infrastructure work.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Financial Logic Requires Formal Trails</h4>
+                                    <p>For any change affecting revenue calculations, formal written sign-off is essential rather than verbal approval. The requirement to wait for a specific stakeholder to return from leave reinforced that financial logic changes need documented approval chains.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Hardcoded Values Limit Flexibility</h4>
+                                    <p>The decision to hardcode the cap threshold was pragmatic for speed but creates maintenance overhead if the tender terms change. A future iteration should consider a configurable threshold that can be adjusted without code deployment.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would have identified the PHP upgrade dependency earlier and aligned the project kickoff with the infrastructure timeline. The lost test environment work was preventable with better cross-team visibility into the upgrade schedule.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: FX Conversion Gains Limiter</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 5-Month Lifecycle &bull; Financial Logic Implementation</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-database-oid-removal.html"><i class="fa-solid fa-arrow-left"></i> Database OID Removal</a>
+        <a href="case-study-thunes-integration.html">Thunes Integration <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

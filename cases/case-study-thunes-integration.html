@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Thunes Integration — Case Study | Zlatomir Vangelov</title>
+<meta name="description" content="Case study: Thunes Integration. Enterprise product ownership by Zlatomir Vangelov.">
+<link rel="icon" href="../images/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <img class="avatar" src="https://goldiespeaks.github.io/Vangelov/images/profile.png" alt="Zlatomir Vangelov">
+    <div class="name">Zlatomir Vangelov</div>
+    <div class="title">Technical Product Manager</div>
+    <nav>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="../index.html#skills"><i class="fa-solid fa-chart-bar"></i> Skills</a>
+        <a href="../index.html#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="../index.html#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="../index.html#work"><i class="fa-solid fa-layer-group"></i> Featured Work</a>
+        <a href="../all-projects.html" class="active"><i class="fa-solid fa-folder-open"></i> All Projects</a>
+        <a href="../index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+    <a href="../files/Zlatomir-Vangelov-CV.pdf" target="_blank" class="cv-download"><i class="fa-solid fa-download"></i> Download CV</a>
+    <div class="social">
+        <a href="https://www.facebook.com/zlatomir.vangelov/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/zlatomir-vangelov-647881224/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:work.vangelov@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</aside>
+
+<main class="main" style="padding:60px 60px 100px;">
+
+    <div class="breadcrumbs"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../all-projects.html">All Projects</a> &nbsp;/&nbsp; Thunes Integration</div>
+
+    <div class="blog-details">
+
+                        <!-- ===== INTERNAL HERO BANNER ===== -->
+                        <div class="case-hero-banner banner-payment">
+                            <svg class="banner-visual" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="90" height="55" rx="6" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.25)" stroke-width="0.8"/>
+                                <rect x="18" y="32" width="40" height="5" rx="1" fill="#7dba5c" opacity="0.3"/>
+                                <rect x="18" y="42" width="25" height="3" rx="1" fill="#7dba5c" opacity="0.15"/>
+                                <rect x="18" y="50" width="55" height="4" rx="1" fill="#7dba5c" opacity="0.1"/>
+                                <rect x="18" y="60" width="20" height="8" rx="3" fill="rgba(125,186,92,0.15)" stroke="rgba(125,186,92,0.3)" stroke-width="0.5"/>
+                                <g stroke="#7dba5c" stroke-width="0.6" opacity="0.3" fill="none">
+                                    <path d="M 105 40 C 120 40, 125 30, 140 30"/>
+                                    <path d="M 105 50 C 120 50, 125 50, 140 50"/>
+                                    <path d="M 105 60 C 120 60, 125 70, 140 70"/>
+                                </g>
+                                <circle cx="140" cy="30" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="135" y="34" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.6">$</text>
+                                <circle cx="140" cy="50" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="134" y="54" font-family="Inter,sans-serif" font-size="7" fill="#7dba5c" opacity="0.5">EUR</text>
+                                <circle cx="140" cy="70" r="12" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="0.6"/>
+                                <text x="136" y="74" font-family="Inter,sans-serif" font-size="8" fill="#7dba5c" opacity="0.4">GBP</text>
+                                <circle cx="200" cy="50" r="25" fill="none" stroke="#7dba5c" stroke-width="0.5" opacity="0.2"/>
+                                <ellipse cx="200" cy="50" rx="12" ry="25" fill="none" stroke="#7dba5c" stroke-width="0.4" opacity="0.15"/>
+                                <line x1="175" y1="50" x2="225" y2="50" stroke="#7dba5c" stroke-width="0.3" opacity="0.15"/>
+                                <circle cx="190" cy="42" r="2" fill="#7dba5c" opacity="0.3"/>
+                                <circle cx="210" cy="55" r="2" fill="#7dba5c" opacity="0.2"/>
+                                <circle cx="195" cy="62" r="1.5" fill="#7dba5c" opacity="0.15"/>
+                            </svg>
+                            <div class="banner-text">
+                                <div class="banner-company">TransferMate</div>
+                                <div class="banner-division">Education Technology · Global Payments</div>
+                                <div class="banner-meta">
+                                    <span class="banner-tag">Payment Integration</span>
+                                    <span class="banner-tag">8Week</span>
+                                    <span class="banner-tag">1 New Corridor</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- ===== SECTION 1: HERO ===== -->
+                        <div class="hero-intro reveal">
+                            <span class="category-badge">Payment Integration</span>
+                            <div style="padding-bottom: 40px;" class="main-heading">Cross-Border Payment Network Integration</div>
+                            <div class="hero-subtitle">I delivered a <strong>cross-border payment network integration</strong> that opened a new South-East Asian corridor &mdash; enabling local-currency bank transfers for students in a previously unreachable market within 8 weeks.</div>
+                            <p style="margin-top: 24px; color: #b0b0b0; line-height: 1.8; font-size: 15px;">I identified a global payment network provider as the optimal routing partner, scoped the integration end-to-end, and coordinated delivery of API-based virtual account infrastructure that enabled real-time KRW payment instructions for South Korean students. I took the project from initial vendor evaluation to live deployment in under 8 weeks, and subsequently managed the provider's controlled offboarding when the corridor was absorbed by an alternative route.</p>
+                        </div>
+
+                        <!-- ===== SECTION 2: MY ROLE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">2</span> Ownership</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">My Contribution</div>
+                            <div class="my-role-card">
+                                <h3>What I Personally Delivered</h3>
+                                <ul>
+                                    <li>Conducted initial scoping and vendor evaluation &mdash; identified the cross-border routing partner as the optimal solution for the South Korean corridor</li>
+                                    <li>Authored the functional specification (BRD) defining payment flow logic, virtual account assignment, webhook handling, and settlement routing</li>
+                                    <li>Uploaded and shared the provider's Postman API collection with the development team, documenting field mappings (external_id, company_name, bank_id)</li>
+                                    <li>Defined static vs. dynamic bank account configuration &mdash; specified which fields remain constant and which are assigned per-transaction by the provider</li>
+                                    <li>Created the end-to-end user flow documentation showing the student payment journey from country selection through to payment instruction display</li>
+                                    <li>Coordinated directly with the provider's technical contact to resolve API errors that blocked initial implementation</li>
+                                    <li>Managed the provider offboarding process end-to-end when the corridor was subsequently migrated to an alternative payment route</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 3: STATS GRID ===== -->
+                        <div class="stats-grid reveal">
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128197;</span>
+                                <span class="stat-number" data-count="8" data-suffix="-Week">8-Week</span>
+                                <span class="stat-label">Delivery Cycle</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#127758;</span>
+                                <span class="stat-number" data-count="1" data-suffix=" New Corridor">1 New Corridor</span>
+                                <span class="stat-label">Market Expansion</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#128176;</span>
+                                <span class="stat-number">KRW</span>
+                                <span class="stat-label">Local Currency</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-icon">&#9889;</span>
+                                <span class="stat-number">API-First</span>
+                                <span class="stat-label">Integration Model</span>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 4: BUSINESS IMPACT ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">4</span> Impact</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Business Impact</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Expansion into a previously inaccessible payment corridor through third-party provider integration.</p>
+                            <div class="before-after">
+                                <div class="before-col">
+                                    <h4>Before</h4>
+                                    <ul>
+                                        <li>No bank transfer option for South Korean students</li>
+                                        <li>Only EUR payments available for the region</li>
+                                        <li>Lost revenue from students unable to pay in local currency</li>
+                                        <li>Competitive disadvantage vs. providers offering KRW payments</li>
+                                    </ul>
+                                </div>
+                                <div class="after-col">
+                                    <h4>After</h4>
+                                    <ul>
+                                        <li>Local KRW bank transfer payments fully operational</li>
+                                        <li>Virtual account numbers assigned dynamically per transaction</li>
+                                        <li>Webhook-driven payment confirmation in real-time</li>
+                                        <li>New corridor opened for both API clients and student portals</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="key-outcome reveal">
+                                <div class="key-outcome-label">Key Outcome</div>
+                                <div class="key-outcome-text">Opened the South Korean payment corridor in under 8 weeks, enabling local-currency bank transfers for an entirely new student population</div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 5: EXECUTIVE SUMMARY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">5</span> Overview</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Executive Summary</div>
+                            <div class="exec-summary">
+                                <p>I integrated a global cross-border payment network provider as a third-party payment facilitator, enabling local-currency (KRW) bank transfer payments for students in South Korea. The platform previously had no mechanism to serve this corridor, creating a gap in market coverage that competitors already addressed.</p>
+                                <p>I designed the integration to leverage the provider's API for creating payment orders, receiving dynamically-assigned virtual account numbers, and processing webhook confirmations upon successful fund receipt. I coordinated the solution's deployment across both API-integrated clients and standalone student payment portals, with funds settled in USD before distribution to educational institutions.</p>
+                                <p><strong style="color: #7dba5c; -webkit-text-fill-color: #7dba5c;">I subsequently managed the corridor's migration to an alternative payment route and formally offboarded the provider. This full lifecycle &mdash; from integration through operational use to controlled decommissioning &mdash; demonstrated my vendor management capabilities and commitment to clean architectural separation.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== SECTION 6: NDA NOTICE ===== -->
+                        <div class="nda-notice nda-compact reveal">
+                            <span style="font-size: 20px; flex-shrink: 0;">&#9888;</span>
+                            <p><strong>Confidentiality Notice:</strong> Details protected by non-disclosure obligations have been redacted. This study focuses on delivery scope, process, and personal contributions.</p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 7: TIMELINE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">7</span> Delivery</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Timeline</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Rapid integration cycle from demand through to live deployment and eventual controlled offboarding.</p>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1</div>
+                                    <div class="timeline-title">Demand Request &amp; Vendor Identification</div>
+                                    <div class="timeline-desc">Business leadership identified the need for South Korean corridor coverage. I evaluated potential providers and selected the cross-border payment network based on their virtual account infrastructure and API capabilities.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 1-2</div>
+                                    <div class="timeline-title">Initial Scoping &amp; BRD Creation</div>
+                                    <div class="timeline-desc">I completed initial scoping and authored the functional specification covering payment flow, API integration points, static/dynamic bank account configuration, and settlement routing logic.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2</div>
+                                    <div class="timeline-title">API Documentation &amp; Field Mapping</div>
+                                    <div class="timeline-desc">I shared the Postman collection with the development team. I documented key field mappings: external_id (platform unique ID), company_name (school ID), bank_id (optional, default SHINHAN BANK 088). I clarified static vs. dynamic account details.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 2-3</div>
+                                    <div class="timeline-title">Development Begins</div>
+                                    <div class="timeline-desc">Lead developer started implementation for API clients and standalone student portals. Integration architecture established with payment order creation, virtual account assignment, and webhook handling.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3</div>
+                                    <div class="timeline-title">Provider API Issue &amp; Resolution</div>
+                                    <div class="timeline-desc">Technical error encountered in the provider's API returning generic error responses. Implementation paused. I escalated directly to the provider's technical contact and resolved the issue within 24 hours.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 3</div>
+                                    <div class="timeline-title">Implementation Complete</div>
+                                    <div class="timeline-desc">Payment process fully implemented for API clients and standalone student portals. I documented limitations: Invoice API, Partner system, and Agent flows excluded due to payment process incompatibility.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 4</div>
+                                    <div class="timeline-title">User Flow Documentation &amp; QA</div>
+                                    <div class="timeline-desc">I created end-to-end user flow diagrams. I assigned the QA engineer for testing and defined test cases covering both internal validation and external production verification.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 5</div>
+                                    <div class="timeline-title">Provider Sandbox &amp; Refunds Setup</div>
+                                    <div class="timeline-desc">Provider delivered sandbox access to their refunds dashboard. I reviewed the Business Hub interface for operational readiness and refund processing capabilities.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Week 6-8</div>
+                                    <div class="timeline-title">Release &amp; Go-Live</div>
+                                    <div class="timeline-desc">Integration released as part of the scheduled web deployment cycle. South Korean corridor live for all eligible payment flows. Payment instructions displaying dynamic virtual account numbers to students.</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Post-Launch</div>
+                                    <div class="timeline-title">Controlled Offboarding</div>
+                                    <div class="timeline-desc">Corridor subsequently migrated to alternative payment route. I managed the full offboarding process: confirmed system removal with the development team, coordinated with treasury and financial services, and ensured clean decommissioning across all platform components.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 8: PROJECT SCOPE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">8</span> Scope</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Project Scope</div>
+                            <div class="scope-grid">
+                                <div class="scope-card in-scope">
+                                    <h4>In Scope</h4>
+                                    <ul>
+                                        <li>API integration with cross-border payment network provider</li>
+                                        <li>Local KRW bank transfer payments for South Korean students</li>
+                                        <li>Dynamic virtual account number assignment per transaction</li>
+                                        <li>Webhook-based payment confirmation processing</li>
+                                        <li>Student portal (college link) payment flow</li>
+                                        <li>API client payment flow</li>
+                                        <li>Refund processing via provider's dashboard</li>
+                                        <li>Provider offboarding and system cleanup</li>
+                                    </ul>
+                                </div>
+                                <div class="scope-card out-scope">
+                                    <h4>Out of Scope</h4>
+                                    <ul>
+                                        <li>Invoice API integration (process incompatibility)</li>
+                                        <li>Partner/Individual system integration</li>
+                                        <li>Educational Agent payment flows on college links</li>
+                                        <li>CRM system changes</li>
+                                        <li>Multi-country expansion beyond South Korea</li>
+                                        <li>Alternative currency pairs (EUR only default)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 9: TECHNICAL ARCHITECTURE ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">9</span> Architecture</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Technical Architecture</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Payment flow from student initiation through provider API to settlement.</p>
+                            <div class="arch-diagram">
+                                <svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif" style="max-width: 100%; height: auto; display: block;">
+                                    <!-- Left zone: Student -->
+                                    <rect x="20" y="20" width="200" height="340" rx="16" fill="rgba(60,100,180,0.08)" stroke="rgba(100,150,255,0.2)" stroke-width="1.5"/>
+                                    <text x="120" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">STUDENT INTERFACE</text>
+
+                                    <!-- Center zone: Platform -->
+                                    <rect x="260" y="20" width="280" height="340" rx="16" fill="rgba(125,186,92,0.06)" stroke="rgba(125,186,92,0.2)" stroke-width="1.5"/>
+                                    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PLATFORM CORE</text>
+
+                                    <!-- Right zone: Provider -->
+                                    <rect x="580" y="20" width="240" height="340" rx="16" fill="rgba(52,152,219,0.06)" stroke="rgba(52,152,219,0.2)" stroke-width="1.5"/>
+                                    <text x="700" y="48" text-anchor="middle" font-size="11" fill="#7dba5c" font-weight="700" letter-spacing="1">PAYMENT PROVIDER</text>
+
+                                    <!-- Student boxes -->
+                                    <rect x="40" y="80" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Country Selection</text>
+                                    <text x="120" y="120" text-anchor="middle" font-size="9" fill="#999">South Korea &rarr; KRW</text>
+
+                                    <rect x="40" y="155" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Form</text>
+                                    <text x="120" y="195" text-anchor="middle" font-size="9" fill="#999">Registration + Details</text>
+
+                                    <rect x="40" y="230" width="160" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+                                    <text x="120" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Instructions</text>
+                                    <text x="120" y="270" text-anchor="middle" font-size="9" fill="#999">Virtual Account Display</text>
+
+                                    <!-- Platform boxes -->
+                                    <rect x="285" y="80" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Order Creation</text>
+                                    <text x="400" y="120" text-anchor="middle" font-size="9" fill="#999">Student data + school ID</text>
+
+                                    <rect x="285" y="155" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Webhook Listener</text>
+                                    <text x="400" y="195" text-anchor="middle" font-size="9" fill="#999">Payment confirmation</text>
+
+                                    <rect x="285" y="230" width="230" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(125,186,92,0.4)" stroke-width="2"/>
+                                    <text x="400" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Settlement Router</text>
+                                    <text x="400" y="270" text-anchor="middle" font-size="9" fill="#999">USD &rarr; School distribution</text>
+
+                                    <!-- Provider boxes -->
+                                    <rect x="600" y="80" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="102" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Virtual Account API</text>
+                                    <text x="700" y="120" text-anchor="middle" font-size="9" fill="#999">Dynamic account numbers</text>
+
+                                    <rect x="600" y="155" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="177" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Payment Processing</text>
+                                    <text x="700" y="195" text-anchor="middle" font-size="9" fill="#999">KRW collection</text>
+
+                                    <rect x="600" y="230" width="200" height="55" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(52,152,219,0.4)" stroke-width="2"/>
+                                    <text x="700" y="252" text-anchor="middle" font-size="11" fill="#e0e0e0" font-weight="600">Webhook Dispatch</text>
+                                    <text x="700" y="270" text-anchor="middle" font-size="9" fill="#999">Confirmation callback</text>
+
+                                    <!-- Arrows -->
+                                    <defs>
+                                        <marker id="arrB" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="rgba(100,150,255,0.7)"/></marker>
+                                        <marker id="arrG" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#7dba5c"/></marker>
+                                    </defs>
+                                    <line x1="200" y1="107" x2="281" y2="107" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="200" y1="182" x2="281" y2="182" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="281" y1="257" x2="200" y2="257" stroke="rgba(100,150,255,0.5)" stroke-width="2" marker-end="url(#arrB)"/>
+                                    <line x1="515" y1="107" x2="596" y2="107" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="596" y1="182" x2="515" y2="182" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+                                    <line x1="596" y1="257" x2="515" y2="257" stroke="rgba(125,186,92,0.5)" stroke-width="2" marker-end="url(#arrG)"/>
+
+                                    <!-- Interconnecting lines -->
+                                    <line x1="400" y1="135" x2="400" y2="155" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                    <line x1="400" y1="210" x2="400" y2="230" stroke="rgba(125,186,92,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 10: KEY DECISIONS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">10</span> Decisions</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Key Decisions</div>
+                            <table class="decision-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:100px">When</th>
+                                        <th>Decision</th>
+                                        <th style="width:100px">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Week 1</td>
+                                        <td><strong>Selected this specific provider over alternatives.</strong> Their virtual account infrastructure and API capabilities best matched the corridor requirements for dynamic, per-transaction account assignment.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>Default bank configuration with optional override.</strong> SHINHAN BANK set as default (bank_id 088) with KOOKMIN BANK available as dynamic alternative, reducing integration complexity while maintaining flexibility.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 2</td>
+                                        <td><strong>No BRD required &mdash; direct scoping approach.</strong> Given the well-defined API contract and narrow scope, a full BRD was unnecessary; I authored a focused specification that was sufficient for sign-off.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Excluded Invoice API, Partners, and Agent flows.</strong> Payment process incompatibility made these channels technically infeasible without disproportionate effort; focused on highest-value channels first.</td>
+                                        <td><span class="decision-badge badge-technical">Technical</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Week 3</td>
+                                        <td><strong>Direct escalation to provider on API errors.</strong> Rather than waiting for standard support channels, I contacted the provider's named technical contact directly, resolving the blocker within 24 hours.</td>
+                                        <td><span class="decision-badge badge-process">Process</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Post-Launch</td>
+                                        <td><strong>Controlled offboarding when corridor migrated.</strong> When an alternative route became available, I managed full provider decommissioning across web, API, and CRM systems rather than leaving dormant integrations.</td>
+                                        <td><span class="decision-badge badge-strategic">Strategic</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 11: QUALITY & SECURITY ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">11</span> Quality</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Quality &amp; Security</div>
+                            <p style="margin-bottom: 30px; color: #b8b8b8;">Rapid delivery with structured QA validation across internal and production environments.</p>
+                            <div class="s1-s2 reveal" style="margin: 0 0 30px;">
+                                <div class="col1">
+                                    <b>Internal QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Test cases validated payment flow, virtual account assignment, and webhook processing</p>
+                                </div>
+                                <div class="col2">
+                                    <b>External QA</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Passed</p>
+                                    <p>Production verification confirmed live corridor functionality for both API and portal flows</p>
+                                </div>
+                                <div class="col3">
+                                    <b>Offboarding Validation</b>
+                                    <p style="font-size: 24px; font-weight: bold; color: #7dba5c; margin-bottom: 4px;">&#10003; Clean</p>
+                                    <p>Full system removal confirmed by development team across all platform components</p>
+                                </div>
+                            </div>
+                            <div class="qa-summary">
+                                <div style="position: relative; flex-shrink: 0;">
+                                    <svg width="180" height="180" viewBox="0 0 180 180">
+                                        <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"/>
+                                        <circle class="progress-ring-circle" cx="90" cy="90" r="70" fill="none" stroke="#7dba5c" stroke-width="20" stroke-dasharray="0 439.8" stroke-linecap="round" transform="rotate(-90 90 90)"/>
+                                    </svg>
+                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center;">
+                                        <div class="stat-number" data-count="100" data-suffix="%" style="font-size: 28px; font-weight: bold; color: #7dba5c;">0%</div>
+                                        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px;">Pass Rate</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #7dba5c; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">All</strong> internal and external QA tests passed</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #3498db; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">API integration:</strong> Virtual accounts assigned correctly per transaction</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #f39c12; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Webhooks:</strong> Payment confirmations received and processed reliably</span></div>
+                                    <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #b8b8b8;"><span style="width: 12px; height: 12px; border-radius: 50%; background: #9b59b6; display: inline-block; flex-shrink: 0;"></span><span><strong style="color: white;">Offboarding:</strong> Clean removal verified across all systems</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <!-- ===== SECTION 12: LESSONS & INSIGHTS ===== -->
+                        <div class="section reveal">
+                            <div class="section-label"><span class="section-num">12</span> Learnings</div>
+                            <div style="padding-bottom: 30px;" class="main-heading">Lessons &amp; Insights</div>
+                            <div class="insight-grid">
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Lean Documentation for Clear-Scope Projects</h4>
+                                    <p>Bypassing a full BRD in favour of a focused specification I authored, with direct API documentation sharing, saved weeks of analysis overhead. When the scope is narrow and the API contract is well-defined, lightweight documentation accelerates delivery without sacrificing clarity.</p>
+                                </div>
+                                <div class="insight-card positive">
+                                    <div class="insight-type">&#9679; What Worked Well</div>
+                                    <h4>Direct Provider Contact for Blockers</h4>
+                                    <p>Escalating the API error directly to the provider's named technical contact rather than going through support channels resolved a potential multi-day blocker within 24 hours. Having a named contact established during onboarding proved invaluable.</p>
+                                </div>
+                                <div class="insight-card caution">
+                                    <div class="insight-type">&#9679; Challenge</div>
+                                    <h4>Provider Dependency Risk</h4>
+                                    <p>The integration created a single-point dependency for the South Korean corridor. When the provider was subsequently offboarded, the corridor needed migration to an alternative route. This highlighted the importance of corridor redundancy planning for critical markets.</p>
+                                </div>
+                                <div class="insight-card learn">
+                                    <div class="insight-type">&#9679; Key Learning</div>
+                                    <h4>Scope Exclusions Require Documentation</h4>
+                                    <p>The incompatibility with Invoice API, Partners, and Agent flows was discovered during development rather than scoping. Earlier technical feasibility checks across all platform channels would have set expectations sooner and avoided mid-sprint scope questions.</p>
+                                </div>
+                                <div class="insight-card risk">
+                                    <div class="insight-type">&#9679; Risk Identified</div>
+                                    <h4>Vendor Lifecycle Management</h4>
+                                    <p>The full lifecycle from onboarding to offboarding reinforced that integration projects need decommissioning plans from day one. Without clean architectural separation, removing a provider from multiple system touchpoints can become a complex operation.</p>
+                                </div>
+                                <div class="insight-card reflect">
+                                    <div class="insight-type">&#9679; Reflection</div>
+                                    <h4>What I'd Do Differently</h4>
+                                    <p>Would establish contractual exit clauses and technical decommissioning procedures during the integration phase rather than defining them reactively at offboarding time. A "vendor exit playbook" created at onboarding would have streamlined the eventual offboarding process.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== FOOTER ===== -->
+                        <div class="case-footer">
+                            <div class="footer-title">Case Study: Cross-Border Payment Network Integration</div>
+                            <div class="footer-sub">Portfolio case study by Zlatomir Vangelov &bull; Sensitive details redacted per NDA</div>
+                            <div class="footer-status">Project Duration: 8-Week Delivery Cycle &bull; Full Vendor Lifecycle</div>
+                            <div class="footer-status-badge">Complete &amp; Live</div>
+                        </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);">
+        <a href="case-study-fx-gains-limiter.html"><i class="fa-solid fa-arrow-left"></i> FX Conversion Gains Limiter</a>
+        <a href="case-study-egypt-fawry-integration.html">Egypt Fawry Integration <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
